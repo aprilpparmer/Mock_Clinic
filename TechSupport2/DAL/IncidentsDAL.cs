@@ -17,11 +17,11 @@ namespace OpenIncidents.DAL
             List<Incidents> incidentList = new List<Incidents>();
 
             string selectStatement =
-                "SELECT ProductCode, DateOpened, c.Name," +
-                "t.name, Title" +
-                "FROM Incidents i join Customers c" +
-                "ON c.CustomerID = i.CustomerID" +
-                "Left Join Technicians t ON" +
+                "SELECT ProductCode, DateOpened, c.Name as custName, " +
+                "t.name as techName, Title " +
+                "FROM Incidents i join Customers c " +
+                "ON c.CustomerID = i.CustomerID " +
+                "Left Join Technicians t ON " +
                 "i.TechID = t.TechID; ";
 
             try
@@ -39,8 +39,8 @@ namespace OpenIncidents.DAL
                                 Incidents incidents = new Incidents();
                                 incidents.productCode = reader["ProductCode"].ToString();
                                 incidents.openDate = (DateTime)reader["DateOpened"];
-                                incidents.customer = reader["c.Name"].ToString();
-                                incidents.technician = reader["t.name"].ToString();
+                                incidents.customer = reader["custName"].ToString();
+                                incidents.technician = reader["techName"].ToString();
                                 incidents.title = reader["Title"].ToString();
                                 incidentList.Add(incidents);
                             }

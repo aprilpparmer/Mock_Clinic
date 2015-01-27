@@ -13,7 +13,7 @@ namespace PayablesData.model
         {
         }
 
-        //the code used auto implemented properties of C#
+ 
 
         public string productCode { get; set; }
 

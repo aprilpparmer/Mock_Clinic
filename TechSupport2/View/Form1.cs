@@ -27,10 +27,25 @@ namespace TechSupport2
         void f2_FormClosed(object sender, FormClosedEventArgs e)
         {
             f2 = null;
-            //throw new NotImplementedException();
+           
         }
 
         private void displayOpenIncidentsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void displayOpenIncidentsToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void displayOpenIncidentsToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             if (f2 == null)
             {
@@ -43,7 +58,7 @@ namespace TechSupport2
                 f2.Activate();
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
         }

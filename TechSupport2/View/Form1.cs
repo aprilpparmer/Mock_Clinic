@@ -23,6 +23,7 @@ namespace TechSupport2
         }
 
         Form2 f2;
+        TechSupport2.View.Form3 f3;
 
         void f2_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -62,6 +63,25 @@ namespace TechSupport2
         {
             Environment.Exit(0);
         }
+
+        private void createIncidentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (f3 == null)
+            {
+                f3 = new TechSupport2.View.Form3();
+                f3.MdiParent = this;
+                f3.Show();
+                f3.FormClosed +=f3_FormClosed;
+            }
+            else
+                f3.Activate();
+        }
+
+void f3_FormClosed(object sender, FormClosedEventArgs e)
+{
+ 	f3 = null;
+}
+        
        
         }
     

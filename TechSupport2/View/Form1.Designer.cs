@@ -30,9 +30,10 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.displayOpenIncidentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.displayOpenIncidentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.displayOpenIncidentsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.createIncidentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,21 +57,22 @@
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
             this.exitToolStripMenuItem.Text = "File";
             // 
+            // exitToolStripMenuItem1
+            // 
+            this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(102, 24);
+            this.exitToolStripMenuItem1.Text = "Exit";
+            this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click);
+            // 
             // displayOpenIncidentsToolStripMenuItem
             // 
             this.displayOpenIncidentsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.displayOpenIncidentsToolStripMenuItem1});
+            this.displayOpenIncidentsToolStripMenuItem1,
+            this.createIncidentToolStripMenuItem});
             this.displayOpenIncidentsToolStripMenuItem.Name = "displayOpenIncidentsToolStripMenuItem";
             this.displayOpenIncidentsToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
             this.displayOpenIncidentsToolStripMenuItem.Text = "Incidents";
             this.displayOpenIncidentsToolStripMenuItem.Click += new System.EventHandler(this.displayOpenIncidentsToolStripMenuItem_Click_1);
-            // 
-            // exitToolStripMenuItem1
-            // 
-            this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
-            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(175, 24);
-            this.exitToolStripMenuItem1.Text = "Exit";
-            this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click);
             // 
             // displayOpenIncidentsToolStripMenuItem1
             // 
@@ -78,6 +80,13 @@
             this.displayOpenIncidentsToolStripMenuItem1.Size = new System.Drawing.Size(230, 24);
             this.displayOpenIncidentsToolStripMenuItem1.Text = "Display Open Incidents";
             this.displayOpenIncidentsToolStripMenuItem1.Click += new System.EventHandler(this.displayOpenIncidentsToolStripMenuItem1_Click);
+            // 
+            // createIncidentToolStripMenuItem
+            // 
+            this.createIncidentToolStripMenuItem.Name = "createIncidentToolStripMenuItem";
+            this.createIncidentToolStripMenuItem.Size = new System.Drawing.Size(230, 24);
+            this.createIncidentToolStripMenuItem.Text = "Create Incident";
+            this.createIncidentToolStripMenuItem.Click += new System.EventHandler(this.createIncidentToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -105,6 +114,7 @@
         private System.Windows.Forms.ToolStripMenuItem displayOpenIncidentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem displayOpenIncidentsToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem createIncidentToolStripMenuItem;
     }
 }
 

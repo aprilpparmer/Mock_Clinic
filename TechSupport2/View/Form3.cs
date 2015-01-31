@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OpenIncidents.Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,9 +18,26 @@ namespace TechSupport2.View
             InitializeComponent();
         }
 
+        private IncidentController inController;
+
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'techSupportDataSet.Products' table. You can move, or remove it, as needed.
+            this.productsTableAdapter.Fill(this.techSupportDataSet.Products);
+            // TODO: This line of code loads data into the 'techSupportDataSet.Customers' table. You can move, or remove it, as needed.
+            this.customersTableAdapter.Fill(this.techSupportDataSet.Customers);
+        
+            
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data.SqlClient;
 using PayablesData.model;
+using System.Collections;
 
 namespace OpenIncidents.DAL
 {
@@ -64,27 +65,19 @@ namespace OpenIncidents.DAL
 
             return incidentList;
         }
-        /// <summary>
-        /// This method uses try/catch/finally and placed closing of the resources (connection, reader) in the 
-        /// finally block.
-        /// 
-        /// </summary>
-        /// <returns>a list of Invoices</returns>
-        public static List<Incidents> GetOpenIncidents2()
-        {
-            List<Incidents> incidentList = new List<Incidents>();
-            SqlConnection connection = TechSupportData.TechniciansDBConnection.GetConnection();
-            string selectStatement =
-                "SELECT ProductCode, DateOpened, c.Name," +
-                "t.name, Title" +
-                "FROM Incidents i join Customers c" +
-                "ON c.CustomerID = i.CustomerID" +
-                "Left Join Technicians t ON" +
-                "i.TechID = t.TechID; ";
-            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
-            SqlDataReader reader = null;
 
-            try
+
+        public static List<Incidents> GetCustomers()
+        {
+            List<Incidents> customerList = new List<Incidents>();
+            SqlConnection connection = TechSupportData.TechniciansDBConnection.GetConnection();
+
+            SqlCommand selectCommand = new SqlCommand();
+            selectCommand.Connection = connection;
+            selectCommand.CommandText = "GetCustomer";
+            selectCommand.CommandType = System.Data.CommandType.StoredProcedure;
+            SqlDataReader reader = null;
+              try
             {
                 connection.Open();
                 reader = selectCommand.ExecuteReader();
@@ -93,12 +86,8 @@ namespace OpenIncidents.DAL
                 {
                     Incidents invoice = new Incidents();
                     Incidents incidents = new Incidents();
-                    incidents.productCode = reader["ProductCode"].ToString();
-                    incidents.openDate = (DateTime)reader["DateOpened"];
-                    incidents.productCode = reader["c.Name"].ToString();
-                    incidents.technician = reader["t.name"].ToString();
-                    incidents.title = reader["ITitle"].ToString();
-                    incidentList.Add(incidents);
+                    incidents.customer = reader["c.Name"].ToString();
+                    customerList.Add(incidents);
                 }
 
             }
@@ -117,8 +106,9 @@ namespace OpenIncidents.DAL
                 if (reader != null)
                     reader.Close();
             }
-            return incidentList;
+            return customerList;
         }
 
+        }
     }
-}
+

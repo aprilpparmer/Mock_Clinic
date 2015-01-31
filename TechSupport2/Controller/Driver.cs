@@ -25,5 +25,10 @@ namespace OpenIncidents.Controller
 
 
 
+
+        public List<Incidents> GetCustomers()
+        {
+            return IncidentsDAL.GetCustomers();
+        }
     }
 }

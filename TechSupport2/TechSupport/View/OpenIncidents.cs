@@ -26,6 +26,11 @@ namespace TechSupport2
            
         }
 
+        /// <summary>
+        /// Displays the open incidents
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Form2_Load(object sender, EventArgs e)
         {
             inController = new IncidentController();

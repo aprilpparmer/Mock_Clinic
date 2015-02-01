@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace TechSupport2.View
 {
-    public partial class NewIncident : Form
+    public partial class OpenIncidents : Form
     {
-        public NewIncident()
+        public OpenIncidents()
         {
             InitializeComponent();
         }
@@ -21,7 +21,7 @@ namespace TechSupport2.View
         private IncidentController inController;
 
         /// <summary>
-        /// Closes the form
+        /// Closes the object
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -37,21 +37,22 @@ namespace TechSupport2.View
         }
 
         /// <summary>
-        /// Loads the customer and product data
+        /// Loads the data to the combo boxes
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Form3_Load(object sender, EventArgs e)
         {
-            
-            this.productsTableAdapter.Fill(this.techSupportDataSet.Products);
            
+            this.productsTableAdapter.Fill(this.techSupportDataSet.Products);
+            
             this.customersTableAdapter.Fill(this.techSupportDataSet.Customers);
         
             
         }
+
         /// <summary>
-        /// Creates a new incident
+        /// Adds a new incident to the database
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

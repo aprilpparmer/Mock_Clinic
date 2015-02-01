@@ -23,8 +23,13 @@ namespace TechSupport2
         }
 
         Form2 f2;
-        TechSupport2.View.NewIncident f3;
+        TechSupport2.View.OpenIncidents f3;
 
+        /// <summary>
+        /// deals with the open incidents form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void f2_FormClosed(object sender, FormClosedEventArgs e)
         {
             f2 = null;
@@ -46,6 +51,11 @@ namespace TechSupport2
 
         }
 
+        /// <summary>
+        /// Opens the open incident form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void displayOpenIncidentsToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             if (f2 == null)
@@ -59,16 +69,26 @@ namespace TechSupport2
                 f2.Activate();
         }
 
+        /// <summary>
+        /// Closes the program
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
         }
 
+        /// <summary>
+        /// Opens the create incident form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void createIncidentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (f3 == null)
             {
-                f3 = new TechSupport2.View.NewIncident();
+                f3 = new TechSupport2.View.OpenIncidents();
                 f3.MdiParent = this;
                 f3.Show();
                 f3.FormClosed +=f3_FormClosed;
@@ -77,6 +97,11 @@ namespace TechSupport2
                 f3.Activate();
         }
 
+/// <summary>
+/// Deals with the new incident form
+/// </summary>
+/// <param name="sender"></param>
+/// <param name="e"></param>
 void f3_FormClosed(object sender, FormClosedEventArgs e)
 {
  	f3 = null;

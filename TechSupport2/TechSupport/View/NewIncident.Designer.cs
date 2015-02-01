@@ -1,6 +1,6 @@
 ﻿namespace TechSupport2.View
 {
-    partial class NewIncident
+    partial class OpenIncidents
     {
         /// <summary>
         /// Required designer variable.

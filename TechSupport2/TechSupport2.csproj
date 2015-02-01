@@ -44,42 +44,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\Driver.cs" />
-    <Compile Include="DAL\TechSupportData.cs" />
-    <Compile Include="DAL\IncidentsDAL.cs" />
-    <Compile Include="Controller\IncidentController.cs" />
-    <Compile Include="Model\Incidents.cs" />
+    <Compile Include="TechSupport\Controller\Driver.cs" />
+    <Compile Include="TechSupport\DAL\TechSupportData.cs" />
+    <Compile Include="TechSupport\DAL\IncidentsDAL.cs" />
+    <Compile Include="TechSupport\Controller\IncidentController.cs" />
+    <Compile Include="TechSupport\Model\Incidents.cs" />
     <Compile Include="TechSupportDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>TechSupportDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="View\TechSupport.cs">
+    <Compile Include="TechSupport\View\TechSupport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\TechSupport.Designer.cs">
+    <Compile Include="TechSupport\View\TechSupport.Designer.cs">
       <DependentUpon>TechSupport.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\OpenIncidents.cs">
+    <Compile Include="TechSupport\View\OpenIncidents.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\OpenIncidents.Designer.cs">
+    <Compile Include="TechSupport\View\OpenIncidents.Designer.cs">
       <DependentUpon>OpenIncidents.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="View\NewIncident.cs">
+    <Compile Include="TechSupport\Program.cs" />
+    <Compile Include="TechSupport\View\NewIncident.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\NewIncident.Designer.cs">
+    <Compile Include="TechSupport\View\NewIncident.Designer.cs">
       <DependentUpon>NewIncident.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\TechSupport.resx">
+    <EmbeddedResource Include="TechSupport\View\TechSupport.resx">
       <DependentUpon>TechSupport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\OpenIncidents.resx">
+    <EmbeddedResource Include="TechSupport\View\OpenIncidents.resx">
       <DependentUpon>OpenIncidents.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\NewIncident.resx">
+    <EmbeddedResource Include="TechSupport\View\NewIncident.resx">
       <DependentUpon>NewIncident.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -104,9 +104,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="TechSupport\App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Files\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

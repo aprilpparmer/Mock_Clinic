@@ -109,6 +109,129 @@ namespace OpenIncidents.DAL
             return customerList;
         }
 
+
+
+        public static string productID(String name) {
+            string productCode = "";
+             string selectStatement =
+               "select ProductCode from Products where Name = '" + name + "'";
+
+            try
+            {
+                using (SqlConnection connection = TechSupportData.TechniciansDBConnection.GetConnection())
+                {
+                    connection.Open();
+
+                    using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                    {
+                        using (SqlDataReader reader = selectCommand.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+
+                               productCode = reader["ProductCode"].ToString();
+                               
+                            }
+                        }
+                    }
+                }
+
+
+            }
+            catch (SqlException ex)
+            {
+                //exceptions are thrown to the controller, then to the view
+                //Please make sure that do not use MessageBox.Show(ex.Message) in the DAL
+                //because it couples the DAL with the view
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return productCode;
+
+        }
+
+         public static int customerID(String name) {
+            int customerID = 0;
+             string selectStatement =
+               "select CustomerID from Customers where Name = '"+ name +"'";
+
+            try
+            {
+                using (SqlConnection connection = TechSupportData.TechniciansDBConnection.GetConnection())
+                {
+                    connection.Open();
+
+                    using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                    {
+                        using (SqlDataReader reader = selectCommand.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                
+                               string customer = reader["CustomerID"].ToString();
+                               customerID = Convert.ToInt32(customer);
+                            }
+                        }
+                    }
+                }
+
+
+            }
+            catch (SqlException ex)
+            {
+                //exceptions are thrown to the controller, then to the view
+                //Please make sure that do not use MessageBox.Show(ex.Message) in the DAL
+                //because it couples the DAL with the view
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return customerID;
+
+        }
+
+
+    public static void AddIncident(String name, String product, String Title, String Description) {
+        SqlConnection connection = TechSupportData.TechniciansDBConnection.GetConnection();
+        int custID = customerID(name);
+        string prodID = productID(product);
+        DateTime date = DateTime.Now;
+        String title = Title;
+        String description = Description;
+
+        String addStatement = "INSERT into Incidents (CustomerID, ProductCode, DateOpened, Title, Description)" +
+                               "Values (@custID, @prodID, @date, @title, @description)";
+       SqlCommand insertCommand = new SqlCommand(addStatement, connection);
+        insertCommand.Parameters.AddWithValue("@custID", custID);
+        insertCommand.Parameters.AddWithValue("@prodID", prodID);
+        insertCommand.Parameters.AddWithValue("@date", date);
+        insertCommand.Parameters.AddWithValue("@title", title);
+        insertCommand.Parameters.AddWithValue("@description", description);
+
+        try
+            {
+                connection.Open();
+                insertCommand.ExecuteNonQuery();
+            }
+        catch (SqlException ex)
+        {
+            throw ex;
+        }
+        finally
+        {
+            connection.Close();
+         
         }
     }
+       
+        
+    }
+}
 

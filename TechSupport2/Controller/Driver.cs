@@ -30,5 +30,10 @@ namespace OpenIncidents.Controller
         {
             return IncidentsDAL.GetCustomers();
         }
+
+        internal void AddIncident(String name, String product, String Title, String Description)
+        {
+            IncidentsDAL.AddIncident(name, product, Title, Description);
+        }
     }
 }

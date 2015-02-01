@@ -27,7 +27,8 @@ namespace TechSupport2.View
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-          
+            
+
         }
 
         private void Form3_Load(object sender, EventArgs e)
@@ -39,5 +40,28 @@ namespace TechSupport2.View
         
             
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            inController = new IncidentController();
+            string name = comboBox1.Text;
+            string product = comboBox2.Text;
+            string title = textBox2.Text;
+            string description = textBox1.Text;
+            try
+            {
+                inController.AddIncident(name, product, title, description);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+                this.Close();
+            }
+            MessageBox.Show("Incident added to the database");
+            this.Close();
+        }
+
+
+
     }
 }

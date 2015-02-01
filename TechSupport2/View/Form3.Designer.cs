@@ -109,6 +109,7 @@
             this.button1.TabIndex = 6;
             this.button1.Text = "Create Incident";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -123,12 +124,13 @@
             // comboBox1
             // 
             this.comboBox1.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.comboBox1.Cursor = System.Windows.Forms.Cursors.No;
+            this.comboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBox1.DataSource = this.customersBindingSource;
             this.comboBox1.DisplayMember = "Name";
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(110, 21);
-            this.comboBox1.MaxDropDownItems = 50;
+            this.comboBox1.MaxDropDownItems = 100;
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(260, 24);
             this.comboBox1.TabIndex = 8;
@@ -137,10 +139,13 @@
             // 
             // comboBox2
             // 
+            this.comboBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBox2.DataSource = this.productsBindingSource;
             this.comboBox2.DisplayMember = "Name";
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(110, 60);
+            this.comboBox2.MaxDropDownItems = 50;
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(260, 24);
             this.comboBox2.TabIndex = 9;
@@ -205,12 +210,12 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
         private TechSupportDataSet techSupportDataSet;
         private System.Windows.Forms.BindingSource customersBindingSource;
         private TechSupportDataSetTableAdapters.CustomersTableAdapter customersTableAdapter;
         private System.Windows.Forms.BindingSource productsBindingSource;
         private TechSupportDataSetTableAdapters.ProductsTableAdapter productsTableAdapter;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

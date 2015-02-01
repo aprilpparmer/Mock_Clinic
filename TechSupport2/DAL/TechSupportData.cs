@@ -8,13 +8,24 @@ namespace TechSupportData
 {
     public static class TechniciansDBConnection
     {
+        /// <summary>
+        /// Opens the connection
+        /// </summary>
+        /// <returns></returns>
         public static SqlConnection GetConnection()
         {
-            string connectionString =
-                "Data Source=localhost;Initial Catalog=TechSupport;" +
-                "Integrated Security=True";
-            SqlConnection connection = new SqlConnection(connectionString);
-            return connection;
+            try
+            {
+                string connectionString =
+                    "Data Source=localhost;Initial Catalog=TechSupport;" +
+                    "Integrated Security=True";
+                SqlConnection connection = new SqlConnection(connectionString);
+                return connection;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

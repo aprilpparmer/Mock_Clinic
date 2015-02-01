@@ -11,15 +11,20 @@ using System.Windows.Forms;
 
 namespace TechSupport2.View
 {
-    public partial class Form3 : Form
+    public partial class NewIncident : Form
     {
-        public Form3()
+        public NewIncident()
         {
             InitializeComponent();
         }
 
         private IncidentController inController;
 
+        /// <summary>
+        /// Closes the form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -31,16 +36,25 @@ namespace TechSupport2.View
 
         }
 
+        /// <summary>
+        /// Loads the customer and product data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Form3_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'techSupportDataSet.Products' table. You can move, or remove it, as needed.
+            
             this.productsTableAdapter.Fill(this.techSupportDataSet.Products);
-            // TODO: This line of code loads data into the 'techSupportDataSet.Customers' table. You can move, or remove it, as needed.
+           
             this.customersTableAdapter.Fill(this.techSupportDataSet.Customers);
         
             
         }
-
+        /// <summary>
+        /// Creates a new incident
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             inController = new IncidentController();

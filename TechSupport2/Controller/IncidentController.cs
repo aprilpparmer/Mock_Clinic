@@ -8,25 +8,23 @@ using OpenIncidents.DAL;
 namespace OpenIncidents.Controller
 {
 
-
+/// <summary>
+/// Incident controller
+/// </summary>
     public class IncidentControllers
     {
 
         public IncidentControllers()
         {
         }
-
+        /// <summary>
+        /// Gets open incidents
+        /// </summary>
+        /// <returns></returns>
         public List<Incidents> GetOpenIncidents()
         {
             return IncidentsDAL.GetOpenIncidents();
         }
-
-        public List<Incidents> GetCustomers()
-        {
-            return IncidentsDAL.GetCustomers();
-        }
-
-
 
 
     }

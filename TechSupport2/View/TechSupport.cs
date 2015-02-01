@@ -23,7 +23,7 @@ namespace TechSupport2
         }
 
         Form2 f2;
-        TechSupport2.View.Form3 f3;
+        TechSupport2.View.NewIncident f3;
 
         void f2_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -68,7 +68,7 @@ namespace TechSupport2
         {
             if (f3 == null)
             {
-                f3 = new TechSupport2.View.Form3();
+                f3 = new TechSupport2.View.NewIncident();
                 f3.MdiParent = this;
                 f3.Show();
                 f3.FormClosed +=f3_FormClosed;

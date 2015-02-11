@@ -54,6 +54,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TechSupportDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="TechSupport\View\UpdateIncident.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TechSupport\View\UpdateIncident.Designer.cs">
+      <DependentUpon>UpdateIncident.cs</DependentUpon>
+    </Compile>
     <Compile Include="TechSupport\View\TechSupport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TechSupport\View\NewIncident.resx">
       <DependentUpon>NewIncident.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TechSupport\View\UpdateIncident.resx">
+      <DependentUpon>UpdateIncident.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

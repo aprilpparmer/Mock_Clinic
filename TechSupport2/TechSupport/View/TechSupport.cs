@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TechSupport2.TechSupport.View;
 
 namespace TechSupport2
 {
@@ -24,6 +25,7 @@ namespace TechSupport2
 
         Form2 f2;
         TechSupport2.View.OpenIncidents f3;
+        UpdateIncident f4;
 
         /// <summary>
         /// deals with the open incidents form
@@ -105,6 +107,24 @@ namespace TechSupport2
 void f3_FormClosed(object sender, FormClosedEventArgs e)
 {
  	f3 = null;
+}
+
+private void updateIncidentToolStripMenuItem_Click(object sender, EventArgs e)
+{
+    if (f4 == null)
+    {
+        f4 = new UpdateIncident();
+        f4.MdiParent = this;
+        f4.Show();
+        f4.FormClosed += f4_FormClosed;
+    }
+    else
+        f4.Activate();
+}
+
+private void f4_FormClosed(object sender, FormClosedEventArgs e)
+{
+    f4 = null;
 }
         
        

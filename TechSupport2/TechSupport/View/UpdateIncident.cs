@@ -21,5 +21,12 @@ namespace TechSupport2.TechSupport.View
         {
 
         }
+
+        private void UpdateIncident_Load(object sender, EventArgs e)
+        {
+            //This line of code loads data into the 'techSupportDataSet.Technicians' table.
+            this.techniciansTableAdapter.Fill(this.techSupportDataSet.Technicians);
+
+        }
     }
 }

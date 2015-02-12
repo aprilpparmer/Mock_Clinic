@@ -35,16 +35,16 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.descriptionText = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.decriptionText = new System.Windows.Forms.TextBox();
+            this.dateOpenedText = new System.Windows.Forms.TextBox();
+            this.titleText = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.productText = new System.Windows.Forms.TextBox();
+            this.customerText = new System.Windows.Forms.TextBox();
+            this.IncidentIDText = new System.Windows.Forms.TextBox();
+            this.technicianBox = new System.Windows.Forms.ComboBox();
             this.techniciansBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.techSupportDataSet = new TechSupport2.TechSupportDataSet();
             this.button1 = new System.Windows.Forms.Button();
@@ -113,14 +113,14 @@
             this.label6.TabIndex = 5;
             this.label6.Text = "Date opened:";
             // 
-            // label7
+            // descriptionText
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 286);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(83, 17);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Description:";
+            this.descriptionText.AutoSize = true;
+            this.descriptionText.Location = new System.Drawing.Point(12, 286);
+            this.descriptionText.Name = "descriptionText";
+            this.descriptionText.Size = new System.Drawing.Size(83, 17);
+            this.descriptionText.TabIndex = 6;
+            this.descriptionText.Text = "Description:";
             // 
             // label8
             // 
@@ -131,30 +131,30 @@
             this.label8.TabIndex = 7;
             this.label8.Text = "Text to add:";
             // 
-            // textBox1
+            // decriptionText
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Menu;
-            this.textBox1.Location = new System.Drawing.Point(113, 269);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(390, 129);
-            this.textBox1.TabIndex = 8;
+            this.decriptionText.BackColor = System.Drawing.SystemColors.Menu;
+            this.decriptionText.Location = new System.Drawing.Point(113, 269);
+            this.decriptionText.Multiline = true;
+            this.decriptionText.Name = "decriptionText";
+            this.decriptionText.Size = new System.Drawing.Size(390, 129);
+            this.decriptionText.TabIndex = 8;
             // 
-            // textBox2
+            // dateOpenedText
             // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.Menu;
-            this.textBox2.Location = new System.Drawing.Point(113, 241);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(200, 22);
-            this.textBox2.TabIndex = 9;
+            this.dateOpenedText.BackColor = System.Drawing.SystemColors.Menu;
+            this.dateOpenedText.Location = new System.Drawing.Point(113, 241);
+            this.dateOpenedText.Name = "dateOpenedText";
+            this.dateOpenedText.Size = new System.Drawing.Size(200, 22);
+            this.dateOpenedText.TabIndex = 9;
             // 
-            // textBox3
+            // titleText
             // 
-            this.textBox3.BackColor = System.Drawing.SystemColors.Menu;
-            this.textBox3.Location = new System.Drawing.Point(113, 191);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(200, 22);
-            this.textBox3.TabIndex = 10;
+            this.titleText.BackColor = System.Drawing.SystemColors.Menu;
+            this.titleText.Location = new System.Drawing.Point(113, 191);
+            this.titleText.Name = "titleText";
+            this.titleText.Size = new System.Drawing.Size(200, 22);
+            this.titleText.TabIndex = 10;
             // 
             // textBox4
             // 
@@ -164,41 +164,41 @@
             this.textBox4.Size = new System.Drawing.Size(390, 157);
             this.textBox4.TabIndex = 11;
             // 
-            // textBox5
+            // productText
             // 
-            this.textBox5.BackColor = System.Drawing.SystemColors.Menu;
-            this.textBox5.Location = new System.Drawing.Point(113, 110);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(200, 22);
-            this.textBox5.TabIndex = 12;
+            this.productText.BackColor = System.Drawing.SystemColors.Menu;
+            this.productText.Location = new System.Drawing.Point(113, 110);
+            this.productText.Name = "productText";
+            this.productText.Size = new System.Drawing.Size(200, 22);
+            this.productText.TabIndex = 12;
             // 
-            // textBox6
+            // customerText
             // 
-            this.textBox6.BackColor = System.Drawing.SystemColors.Menu;
-            this.textBox6.Location = new System.Drawing.Point(113, 70);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(200, 22);
-            this.textBox6.TabIndex = 13;
+            this.customerText.BackColor = System.Drawing.SystemColors.Menu;
+            this.customerText.Location = new System.Drawing.Point(113, 70);
+            this.customerText.Name = "customerText";
+            this.customerText.Size = new System.Drawing.Size(200, 22);
+            this.customerText.TabIndex = 13;
             // 
-            // textBox7
+            // IncidentIDText
             // 
-            this.textBox7.Location = new System.Drawing.Point(113, 29);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 22);
-            this.textBox7.TabIndex = 14;
+            this.IncidentIDText.Location = new System.Drawing.Point(113, 29);
+            this.IncidentIDText.Name = "IncidentIDText";
+            this.IncidentIDText.Size = new System.Drawing.Size(100, 22);
+            this.IncidentIDText.TabIndex = 14;
             // 
-            // comboBox1
+            // technicianBox
             // 
-            this.comboBox1.BackColor = System.Drawing.SystemColors.Menu;
-            this.comboBox1.DataSource = this.techniciansBindingSource;
-            this.comboBox1.DisplayMember = "Name";
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(113, 150);
-            this.comboBox1.MaxDropDownItems = 20;
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(200, 24);
-            this.comboBox1.TabIndex = 15;
-            this.comboBox1.ValueMember = "TechID";
+            this.technicianBox.BackColor = System.Drawing.SystemColors.Menu;
+            this.technicianBox.DataSource = this.techniciansBindingSource;
+            this.technicianBox.DisplayMember = "Name";
+            this.technicianBox.FormattingEnabled = true;
+            this.technicianBox.Location = new System.Drawing.Point(113, 150);
+            this.technicianBox.MaxDropDownItems = 20;
+            this.technicianBox.Name = "technicianBox";
+            this.technicianBox.Size = new System.Drawing.Size(200, 24);
+            this.technicianBox.TabIndex = 15;
+            this.technicianBox.ValueMember = "TechID";
             // 
             // techniciansBindingSource
             // 
@@ -219,6 +219,7 @@
             this.button1.TabIndex = 16;
             this.button1.Text = "Get Incident";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // techSupportDataSetBindingSource
             // 
@@ -268,16 +269,16 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.technicianBox);
+            this.Controls.Add(this.IncidentIDText);
+            this.Controls.Add(this.customerText);
+            this.Controls.Add(this.productText);
             this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.titleText);
+            this.Controls.Add(this.dateOpenedText);
+            this.Controls.Add(this.decriptionText);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.descriptionText);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -303,16 +304,16 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label descriptionText;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox decriptionText;
+        private System.Windows.Forms.TextBox dateOpenedText;
+        private System.Windows.Forms.TextBox titleText;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox productText;
+        private System.Windows.Forms.TextBox customerText;
+        private System.Windows.Forms.TextBox IncidentIDText;
+        private System.Windows.Forms.ComboBox technicianBox;
         private System.Windows.Forms.Button button1;
         private TechSupportDataSet techSupportDataSet;
         private System.Windows.Forms.BindingSource techSupportDataSetBindingSource;

@@ -26,6 +26,11 @@ namespace OpenIncidents.Controller
             return IncidentsDAL.GetOpenIncidents();
         }
 
+        public List<Incidents> GetIncident(int p)
+        {
+            return IncidentsDAL.GetIncident(p);
+        }
+
 
     }
 }

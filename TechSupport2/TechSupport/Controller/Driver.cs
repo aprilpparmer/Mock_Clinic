@@ -38,5 +38,15 @@ namespace OpenIncidents.Controller
         {
             IncidentsDAL.AddIncident(name, product, Title, Description);
         }
+
+        /// <summary>
+        /// Gets an incident from the database
+        /// </summary>
+        /// <param name="p">the incident id</param>
+        /// <returns>the values from the incidents table</returns>
+        internal List<Incidents> GetIncident(int p)
+        {
+           return IncidentsDAL.GetIncident(p);
+        }
     }
 }

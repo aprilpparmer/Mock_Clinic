@@ -202,6 +202,57 @@ namespace OpenIncidents.DAL
          
         }
     }
+
+    public static List<Incidents> GetIncident(int IncidentID)
+    {
+        List<Incidents> incidentList = new List<Incidents>();
+
+        string selectStatement =
+            "SELECT ProductCode, DateOpened, c.Name as custName, " +
+            "Title, DateOpened, Description " +
+            "FROM Incidents i join Customers c " +
+            "ON c.CustomerID = i.CustomerID " +
+            "Left Join Technicians t ON " +
+            "i.TechID = t.TechID WHERE DateClosed is null and IncidentID =" + IncidentID + ";";
+
+        try
+        {
+            using (SqlConnection connection = TechSupportData.TechniciansDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Incidents incidents = new Incidents();
+                            incidents.productCode = reader["ProductCode"].ToString();
+                            incidents.description = reader["Description"].ToString();
+                            incidents.openDate = (DateTime)reader["DateOpened"];
+                            incidents.customer = reader["custName"].ToString();
+                            incidents.technician = reader["techName"].ToString();
+                            incidents.title = reader["Title"].ToString();
+                            incidentList.Add(incidents);
+                        }
+                    }
+                }
+            }
+
+
+        }
+        catch (SqlException ex)
+        {
+            throw ex;
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+
+        return incidentList;
+    }
        
         
     }

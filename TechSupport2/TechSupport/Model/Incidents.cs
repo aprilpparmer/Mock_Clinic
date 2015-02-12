@@ -17,6 +17,8 @@ namespace PayablesData.model
 
         public string productCode { get; set; }
 
+        public string description { get; set; }
+
         public DateTime openDate { get; set; }
 
         public string customer { get; set; }

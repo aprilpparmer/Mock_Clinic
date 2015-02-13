@@ -163,6 +163,55 @@ namespace OpenIncidents.DAL
 
         }
 
+         /// <summary>
+         /// Gets the technicians id number
+         /// </summary>
+         /// <param name="name">the techs name</param>
+         /// <returns>the techs id number</returns>
+         public static int techID(String name)
+         {
+             int techID = 0;
+             string selectStatement =
+               "select TechID from Technicians where Name = '" + name + "'";
+
+             try
+             {
+                 using (SqlConnection connection = TechSupportData.TechniciansDBConnection.GetConnection())
+                 {
+                     connection.Open();
+
+                     using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                     {
+                         using (SqlDataReader reader = selectCommand.ExecuteReader())
+                         {
+                             while (reader.Read())
+                             {
+
+                                 string customer = reader["TechID"].ToString();
+                                 techID = Convert.ToInt32(customer);
+                             }
+                         }
+                     }
+                 }
+
+
+             }
+             catch (SqlException ex)
+             {
+                 //exceptions are thrown to the controller, then to the view
+                 //Please make sure that do not use MessageBox.Show(ex.Message) in the DAL
+                 //because it couples the DAL with the view
+                 throw ex;
+             }
+             catch (Exception ex)
+             {
+                 throw ex;
+             }
+
+             return techID;
+
+         }
+
 /// <summary>
 /// Adds an incident to the database
 /// </summary>
@@ -203,17 +252,22 @@ namespace OpenIncidents.DAL
         }
     }
 
+        /// <summary>
+        /// Gets the given incident
+        /// </summary>
+        /// <param name="IncidentID">the id of the incident you would like to get</param>
+        /// <returns>the incident with the given id</returns>
     public static List<Incidents> GetIncident(int IncidentID)
     {
         List<Incidents> incidentList = new List<Incidents>();
 
         string selectStatement =
-            "SELECT ProductCode, DateOpened, c.Name as custName, " +
+            "SELECT ProductCode, DateOpened, c.Name as custName, t.Name as techName, " +
             "Title, DateOpened, Description " +
             "FROM Incidents i join Customers c " +
             "ON c.CustomerID = i.CustomerID " +
             "Left Join Technicians t ON " +
-            "i.TechID = t.TechID WHERE DateClosed is null and IncidentID =" + IncidentID + ";";
+            "i.TechID = t.TechID WHERE DateClosed is null and IncidentID = " + IncidentID;
 
         try
         {
@@ -253,6 +307,37 @@ namespace OpenIncidents.DAL
 
         return incidentList;
     }
+
+    public static void UpdateIncident(String Description, String techName, int IncidentID)
+    {
+        SqlConnection connection = TechSupportData.TechniciansDBConnection.GetConnection();
+        DateTime date = DateTime.Now;
+        String description = Description;
+        int technicianID = techID(techName);
+
+        String addStatement = "Update Incidents " +
+                               "SET Description = @description, TechID = @technician "+
+                               "WHERE IncidentID = " + IncidentID;
+        SqlCommand insertCommand = new SqlCommand(addStatement, connection);
+        insertCommand.Parameters.AddWithValue("@description", ("\n" + date + " " + Description));
+        insertCommand.Parameters.AddWithValue("@technician", technicianID);
+
+        try
+        {
+            connection.Open();
+            insertCommand.ExecuteNonQuery();
+        }
+        catch (SqlException ex)
+        {
+            throw ex;
+        }
+        finally
+        {
+            connection.Close();
+
+        }
+    }
+
        
         
     }

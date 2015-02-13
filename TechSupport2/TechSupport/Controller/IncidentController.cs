@@ -26,6 +26,11 @@ namespace OpenIncidents.Controller
             return IncidentsDAL.GetOpenIncidents();
         }
 
+        /// <summary>
+        /// Gets an incident
+        /// </summary>
+        /// <param name="p">the incident id</param>
+        /// <returns>a specified incident</returns>
         public List<Incidents> GetIncident(int p)
         {
             return IncidentsDAL.GetIncident(p);

@@ -51,10 +51,53 @@ namespace TechSupport2.TechSupport.View
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
-                this.Close();
+                
             }
-            MessageBox.Show("Incident updated");
+           
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
-    }
+
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+            inController = new OpenIncidents.Controller.IncidentController();
+            string incidentID = IncidentIDText.Text;
+            int inID = Convert.ToInt32(incidentID);
+            String desText;
+            String tech = technicianBox.Text;
+
+            if (textToAddBox.Text.Length <= 0)
+            {
+                desText = "Technician added/updated " + descriptionText.Text;
+            }
+            else
+            {
+                desText = textToAddBox.Text + "   " + descriptionText.Text;
+            }
+
+            try
+            {
+                inController.UpdateIncident(desText, tech, inID);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+
+            }
+            MessageBox.Show("Incident Updated");
+            List<PayablesData.model.Incidents> List = inController.GetIncident(inID);
+            PayablesData.model.Incidents incidents = List[0];
+            customerText.Text = incidents.customer;
+            productText.Text = incidents.productCode;
+            technicianBox.Text = incidents.technician;
+            titleText.Text = incidents.title;
+            dateOpenedText.Text = incidents.openDate.ToString();
+            descriptionText.Text = incidents.description;
+            
+
+        }
+    } 
 }

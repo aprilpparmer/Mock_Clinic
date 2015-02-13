@@ -35,12 +35,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.descriptionText = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.decriptionText = new System.Windows.Forms.TextBox();
+            this.descriptionText = new System.Windows.Forms.TextBox();
             this.dateOpenedText = new System.Windows.Forms.TextBox();
             this.titleText = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textToAddBox = new System.Windows.Forms.TextBox();
             this.productText = new System.Windows.Forms.TextBox();
             this.customerText = new System.Windows.Forms.TextBox();
             this.IncidentIDText = new System.Windows.Forms.TextBox();
@@ -50,8 +50,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.techSupportDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.techniciansTableAdapter = new TechSupport2.TechSupportDataSetTableAdapters.TechniciansTableAdapter();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.updateButton = new System.Windows.Forms.Button();
+            this.closeButton = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.techniciansBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.techSupportDataSet)).BeginInit();
@@ -107,20 +107,20 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 241);
+            this.label6.Location = new System.Drawing.Point(13, 231);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(94, 17);
             this.label6.TabIndex = 5;
             this.label6.Text = "Date opened:";
             // 
-            // descriptionText
+            // label7
             // 
-            this.descriptionText.AutoSize = true;
-            this.descriptionText.Location = new System.Drawing.Point(12, 286);
-            this.descriptionText.Name = "descriptionText";
-            this.descriptionText.Size = new System.Drawing.Size(83, 17);
-            this.descriptionText.TabIndex = 6;
-            this.descriptionText.Text = "Description:";
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(13, 269);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(83, 17);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Description:";
             // 
             // label8
             // 
@@ -131,20 +131,22 @@
             this.label8.TabIndex = 7;
             this.label8.Text = "Text to add:";
             // 
-            // decriptionText
+            // descriptionText
             // 
-            this.decriptionText.BackColor = System.Drawing.SystemColors.Menu;
-            this.decriptionText.Location = new System.Drawing.Point(113, 269);
-            this.decriptionText.Multiline = true;
-            this.decriptionText.Name = "decriptionText";
-            this.decriptionText.Size = new System.Drawing.Size(390, 129);
-            this.decriptionText.TabIndex = 8;
+            this.descriptionText.BackColor = System.Drawing.SystemColors.Menu;
+            this.descriptionText.Location = new System.Drawing.Point(113, 269);
+            this.descriptionText.Multiline = true;
+            this.descriptionText.Name = "descriptionText";
+            this.descriptionText.ReadOnly = true;
+            this.descriptionText.Size = new System.Drawing.Size(390, 129);
+            this.descriptionText.TabIndex = 8;
             // 
             // dateOpenedText
             // 
             this.dateOpenedText.BackColor = System.Drawing.SystemColors.Menu;
-            this.dateOpenedText.Location = new System.Drawing.Point(113, 241);
+            this.dateOpenedText.Location = new System.Drawing.Point(113, 231);
             this.dateOpenedText.Name = "dateOpenedText";
+            this.dateOpenedText.ReadOnly = true;
             this.dateOpenedText.Size = new System.Drawing.Size(200, 22);
             this.dateOpenedText.TabIndex = 9;
             // 
@@ -153,22 +155,24 @@
             this.titleText.BackColor = System.Drawing.SystemColors.Menu;
             this.titleText.Location = new System.Drawing.Point(113, 191);
             this.titleText.Name = "titleText";
+            this.titleText.ReadOnly = true;
             this.titleText.Size = new System.Drawing.Size(200, 22);
             this.titleText.TabIndex = 10;
             // 
-            // textBox4
+            // textToAddBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(113, 423);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(390, 157);
-            this.textBox4.TabIndex = 11;
+            this.textToAddBox.Location = new System.Drawing.Point(113, 423);
+            this.textToAddBox.Multiline = true;
+            this.textToAddBox.Name = "textToAddBox";
+            this.textToAddBox.Size = new System.Drawing.Size(390, 157);
+            this.textToAddBox.TabIndex = 11;
             // 
             // productText
             // 
             this.productText.BackColor = System.Drawing.SystemColors.Menu;
             this.productText.Location = new System.Drawing.Point(113, 110);
             this.productText.Name = "productText";
+            this.productText.ReadOnly = true;
             this.productText.Size = new System.Drawing.Size(200, 22);
             this.productText.TabIndex = 12;
             // 
@@ -177,6 +181,7 @@
             this.customerText.BackColor = System.Drawing.SystemColors.Menu;
             this.customerText.Location = new System.Drawing.Point(113, 70);
             this.customerText.Name = "customerText";
+            this.customerText.ReadOnly = true;
             this.customerText.Size = new System.Drawing.Size(200, 22);
             this.customerText.TabIndex = 13;
             // 
@@ -230,25 +235,26 @@
             // 
             this.techniciansTableAdapter.ClearBeforeFill = true;
             // 
-            // button2
+            // updateButton
             // 
-            this.button2.AutoSize = true;
-            this.button2.Location = new System.Drawing.Point(113, 593);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 27);
-            this.button2.TabIndex = 17;
-            this.button2.Text = "Update";
-            this.button2.UseVisualStyleBackColor = true;
+            this.updateButton.AutoSize = true;
+            this.updateButton.Location = new System.Drawing.Point(113, 593);
+            this.updateButton.Name = "updateButton";
+            this.updateButton.Size = new System.Drawing.Size(75, 27);
+            this.updateButton.TabIndex = 17;
+            this.updateButton.Text = "Update";
+            this.updateButton.UseVisualStyleBackColor = true;
+            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
             // 
-            // button3
+            // closeButton
             // 
-            this.button3.AutoSize = true;
-            this.button3.Location = new System.Drawing.Point(261, 593);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(106, 27);
-            this.button3.TabIndex = 18;
-            this.button3.Text = "Close Incident";
-            this.button3.UseVisualStyleBackColor = true;
+            this.closeButton.AutoSize = true;
+            this.closeButton.Location = new System.Drawing.Point(261, 593);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(106, 27);
+            this.closeButton.TabIndex = 18;
+            this.closeButton.Text = "Close Incident";
+            this.closeButton.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
@@ -259,6 +265,7 @@
             this.button4.TabIndex = 19;
             this.button4.Text = "Cancel";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // UpdateIncident
             // 
@@ -266,19 +273,19 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(570, 632);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.closeButton);
+            this.Controls.Add(this.updateButton);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.technicianBox);
             this.Controls.Add(this.IncidentIDText);
             this.Controls.Add(this.customerText);
             this.Controls.Add(this.productText);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.textToAddBox);
             this.Controls.Add(this.titleText);
             this.Controls.Add(this.dateOpenedText);
-            this.Controls.Add(this.decriptionText);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.descriptionText);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -304,12 +311,12 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label descriptionText;
+        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox decriptionText;
+        private System.Windows.Forms.TextBox descriptionText;
         private System.Windows.Forms.TextBox dateOpenedText;
         private System.Windows.Forms.TextBox titleText;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textToAddBox;
         private System.Windows.Forms.TextBox productText;
         private System.Windows.Forms.TextBox customerText;
         private System.Windows.Forms.TextBox IncidentIDText;
@@ -319,8 +326,8 @@
         private System.Windows.Forms.BindingSource techSupportDataSetBindingSource;
         private System.Windows.Forms.BindingSource techniciansBindingSource;
         private TechSupportDataSetTableAdapters.TechniciansTableAdapter techniciansTableAdapter;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button updateButton;
+        private System.Windows.Forms.Button closeButton;
         private System.Windows.Forms.Button button4;
     }
 }

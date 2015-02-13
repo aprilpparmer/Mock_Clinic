@@ -48,5 +48,10 @@ namespace OpenIncidents.Controller
         {
            return IncidentsDAL.GetIncident(p);
         }
+
+        internal void UpdateIncident(String Description, String techName, int IncidentID)
+        {
+            IncidentsDAL.UpdateIncident(Description, techName, IncidentID);
+        }
     }
 }

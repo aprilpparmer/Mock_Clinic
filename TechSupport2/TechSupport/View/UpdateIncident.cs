@@ -28,6 +28,7 @@ namespace TechSupport2.TechSupport.View
         {
             //This line of code loads data into the 'techSupportDataSet.Technicians' table.
             this.techniciansTableAdapter.Fill(this.techSupportDataSet.Technicians);
+           
 
         }
 
@@ -35,8 +36,18 @@ namespace TechSupport2.TechSupport.View
         {
             inController = new OpenIncidents.Controller.IncidentController();
             string incidentID = IncidentIDText.Text;
-            int inID = Convert.ToInt32(incidentID);
-           
+            int inID = 0;
+            try
+            {
+                inID = Convert.ToInt32(incidentID);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Incident ID should be an whole number");
+                return;
+            }
+            
+
             try
             {
                List<PayablesData.model.Incidents> List = inController.GetIncident(inID);
@@ -47,13 +58,22 @@ namespace TechSupport2.TechSupport.View
                titleText.Text = incidents.title;
                dateOpenedText.Text = incidents.openDate.ToString();
                descriptionText.Text = incidents.description;
+
             }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("That incident does not exist or is already closed");
+                return;
+            }
+
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
                 
             }
-           
+            updateButton.Enabled = true;
+            closeButton.Enabled = true;
+            textToAddBox.Enabled = true;
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -66,26 +86,32 @@ namespace TechSupport2.TechSupport.View
             inController = new OpenIncidents.Controller.IncidentController();
             string incidentID = IncidentIDText.Text;
             int inID = Convert.ToInt32(incidentID);
-            String desText;
+            String desText = descriptionText.Text;
             String tech = technicianBox.Text;
+            String date = DateTime.Now.ToString();
+            String text = textToAddBox.Text;
 
-            if (textToAddBox.Text.Length <= 0)
+            desText = date + " " + text + Environment.NewLine + descriptionText.Text;
+  
+            if (text.Length == 0)
             {
-                desText = "Technician added/updated " + descriptionText.Text;
+                desText = date + " Technician added/updated " + Environment.NewLine + descriptionText.Text;
             }
-            else
+            while ((desText.Length + text.Length) > 200)
             {
-                desText = textToAddBox.Text + "   " + descriptionText.Text;
+                textToAddBox.Text = (desText + " " + textToAddBox.Text);
+                MessageBox.Show("Description length exceedes 200 characters, description will be truncated");
+                desText = textToAddBox.Text.Substring(0,200);
             }
-
+           
             try
             {
+                
                 inController.UpdateIncident(desText, tech, inID);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
-
             }
             MessageBox.Show("Incident Updated");
             List<PayablesData.model.Incidents> List = inController.GetIncident(inID);
@@ -96,7 +122,7 @@ namespace TechSupport2.TechSupport.View
             titleText.Text = incidents.title;
             dateOpenedText.Text = incidents.openDate.ToString();
             descriptionText.Text = incidents.description;
-            
+            textToAddBox.Text = "";
 
         }
     } 

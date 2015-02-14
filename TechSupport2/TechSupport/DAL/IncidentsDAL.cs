@@ -311,7 +311,6 @@ namespace OpenIncidents.DAL
     public static void UpdateIncident(String Description, String techName, int IncidentID)
     {
         SqlConnection connection = TechSupportData.TechniciansDBConnection.GetConnection();
-        DateTime date = DateTime.Now;
         String description = Description;
         int technicianID = techID(techName);
 
@@ -319,7 +318,7 @@ namespace OpenIncidents.DAL
                                "SET Description = @description, TechID = @technician "+
                                "WHERE IncidentID = " + IncidentID;
         SqlCommand insertCommand = new SqlCommand(addStatement, connection);
-        insertCommand.Parameters.AddWithValue("@description", ("\n" + date + " " + Description));
+        insertCommand.Parameters.AddWithValue("@description", Description);
         insertCommand.Parameters.AddWithValue("@technician", technicianID);
 
         try
@@ -327,6 +326,7 @@ namespace OpenIncidents.DAL
             connection.Open();
             insertCommand.ExecuteNonQuery();
         }
+
         catch (SqlException ex)
         {
             throw ex;

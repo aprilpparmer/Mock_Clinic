@@ -161,6 +161,7 @@
             // 
             // textToAddBox
             // 
+            this.textToAddBox.Enabled = false;
             this.textToAddBox.Location = new System.Drawing.Point(113, 423);
             this.textToAddBox.Multiline = true;
             this.textToAddBox.Name = "textToAddBox";
@@ -238,6 +239,7 @@
             // updateButton
             // 
             this.updateButton.AutoSize = true;
+            this.updateButton.Enabled = false;
             this.updateButton.Location = new System.Drawing.Point(113, 593);
             this.updateButton.Name = "updateButton";
             this.updateButton.Size = new System.Drawing.Size(75, 27);
@@ -249,6 +251,7 @@
             // closeButton
             // 
             this.closeButton.AutoSize = true;
+            this.closeButton.Enabled = false;
             this.closeButton.Location = new System.Drawing.Point(261, 593);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(106, 27);

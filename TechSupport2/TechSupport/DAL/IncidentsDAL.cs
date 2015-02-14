@@ -339,6 +339,34 @@ namespace OpenIncidents.DAL
         }
     }
 
+    public static void closeIncident(int IncidentID)
+    {
+        SqlConnection connection = TechSupportData.TechniciansDBConnection.GetConnection();
+        DateTime closeDate = DateTime.Now;
+
+
+        String addStatement = "UPDATE Incidents SET DateClosed =  @closeDate " +
+             "WHERE DateClosed is Null AND TechID is NOT NULL AND IncidentID = " + IncidentID;
+                               
+        SqlCommand insertCommand = new SqlCommand(addStatement, connection);
+        insertCommand.Parameters.AddWithValue("@closeDate", closeDate);  
+
+        try
+        {
+            connection.Open();
+            insertCommand.ExecuteNonQuery();
+        }
+        catch (SqlException ex)
+        {
+            throw ex;
+        }
+        finally
+        {
+            connection.Close();
+
+        }
+    }
+
        
         
     }

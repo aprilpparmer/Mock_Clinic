@@ -258,6 +258,7 @@
             this.closeButton.TabIndex = 18;
             this.closeButton.Text = "Close Incident";
             this.closeButton.UseVisualStyleBackColor = true;
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
             // button4
             // 

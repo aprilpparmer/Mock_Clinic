@@ -53,5 +53,10 @@ namespace OpenIncidents.Controller
         {
             IncidentsDAL.UpdateIncident(Description, techName, IncidentID);
         }
+
+        internal void closeIncident(int IncidentID)
+        {
+            IncidentsDAL.closeIncident(IncidentID);
+        }
     }
 }

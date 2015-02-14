@@ -18,6 +18,7 @@ namespace TechSupport2.TechSupport.View
         }
 
         private OpenIncidents.Controller.IncidentController inController;
+        int inID = 0;
 
         private void label4_Click(object sender, EventArgs e)
         {
@@ -28,7 +29,7 @@ namespace TechSupport2.TechSupport.View
         {
             //This line of code loads data into the 'techSupportDataSet.Technicians' table.
             this.techniciansTableAdapter.Fill(this.techSupportDataSet.Technicians);
-           
+
 
         }
 
@@ -36,7 +37,7 @@ namespace TechSupport2.TechSupport.View
         {
             inController = new OpenIncidents.Controller.IncidentController();
             string incidentID = IncidentIDText.Text;
-            int inID = 0;
+            inID = 0;
             try
             {
                 inID = Convert.ToInt32(incidentID);
@@ -49,14 +50,14 @@ namespace TechSupport2.TechSupport.View
 
             try
             {
-               List<PayablesData.model.Incidents> List = inController.GetIncident(inID);
-               PayablesData.model.Incidents incidents = List[0];
-               customerText.Text = incidents.customer;
-               productText.Text = incidents.productCode;
-               technicianBox.Text = incidents.technician;
-               titleText.Text = incidents.title;
-               dateOpenedText.Text = incidents.openDate.ToString();
-               descriptionText.Text = incidents.description;
+                List<PayablesData.model.Incidents> List = inController.GetIncident(inID);
+                PayablesData.model.Incidents incidents = List[0];
+                customerText.Text = incidents.customer;
+                productText.Text = incidents.productCode;
+                technicianBox.Text = incidents.technician;
+                titleText.Text = incidents.title;
+                dateOpenedText.Text = incidents.openDate.ToString();
+                descriptionText.Text = incidents.description;
 
             }
             catch (ArgumentOutOfRangeException)
@@ -68,7 +69,7 @@ namespace TechSupport2.TechSupport.View
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
-                
+
             }
             updateButton.Enabled = true;
             closeButton.Enabled = true;
@@ -83,15 +84,13 @@ namespace TechSupport2.TechSupport.View
         private void updateButton_Click(object sender, EventArgs e)
         {
             inController = new OpenIncidents.Controller.IncidentController();
-            string incidentID = IncidentIDText.Text;
-            int inID = Convert.ToInt32(incidentID);
             String desText = descriptionText.Text;
             String tech = technicianBox.Text;
             String date = DateTime.Now.ToString();
             String text = textToAddBox.Text;
 
-           desText = date + " " + text + Environment.NewLine;
-  
+            desText = date + " " + text + Environment.NewLine;
+
             if (text.Length == 0)
             {
                 desText = date + " Technician added/updated " + Environment.NewLine + descriptionText.Text;
@@ -104,27 +103,24 @@ namespace TechSupport2.TechSupport.View
                 {
                     return;
                 }
-                       
-                desText = textToAddBox.Text.Substring(0,200);
-                
-            } 
-            
-            
 
-           List<PayablesData.model.Incidents> aList = inController.GetIncident(inID);
-           PayablesData.model.Incidents incident = aList[0];
-           String desc = incident.description;
-           if (desc != descriptionText.Text )
-           {
-                MessageBox.Show("Incident has been updated while you worked, please retrieve the new data and try again");
-               return;
+                desText = textToAddBox.Text.Substring(0, 200);
+
             }
 
-           
-           
+
+            List<PayablesData.model.Incidents> aList = inController.GetIncident(inID);
+            PayablesData.model.Incidents incident = aList[0];
+            String desc = incident.description;
+            if (desc != descriptionText.Text)
+            {
+                MessageBox.Show("Incident has been updated while you worked, please retrieve the new data and try again");
+                return;
+            }
+
             try
             {
-                
+
                 inController.UpdateIncident(desText, tech, inID);
             }
             catch (Exception ex)
@@ -143,5 +139,21 @@ namespace TechSupport2.TechSupport.View
             textToAddBox.Text = "";
 
         }
-    } 
+
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            inController = new OpenIncidents.Controller.IncidentController();
+            string incidentID = IncidentIDText.Text;         
+            try
+            {
+                inController.closeIncident(inID);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+            MessageBox.Show("Incident Closed");
+            this.Close();
+        }
+    }
 }

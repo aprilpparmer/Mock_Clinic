@@ -46,7 +46,6 @@ namespace TechSupport2.TechSupport.View
                 MessageBox.Show("Incident ID should be an whole number");
                 return;
             }
-            
 
             try
             {
@@ -91,18 +90,37 @@ namespace TechSupport2.TechSupport.View
             String date = DateTime.Now.ToString();
             String text = textToAddBox.Text;
 
-            desText = date + " " + text + Environment.NewLine + descriptionText.Text;
+           desText = date + " " + text + Environment.NewLine;
   
             if (text.Length == 0)
             {
                 desText = date + " Technician added/updated " + Environment.NewLine + descriptionText.Text;
             }
-            while ((desText.Length + text.Length) > 200)
+
+            while (desText.Length + text.Length > 200)
             {
-                textToAddBox.Text = (desText + " " + textToAddBox.Text);
-                MessageBox.Show("Description length exceedes 200 characters, description will be truncated");
+                textToAddBox.Text = (desText);
+                if ((MessageBox.Show("Description length exceedes 200 characters, description will be truncated", "Incident", MessageBoxButtons.OKCancel) == DialogResult.Cancel))
+                {
+                    return;
+                }
+                       
                 desText = textToAddBox.Text.Substring(0,200);
+                
+            } 
+            
+            
+
+           List<PayablesData.model.Incidents> aList = inController.GetIncident(inID);
+           PayablesData.model.Incidents incident = aList[0];
+           String desc = incident.description;
+           if (desc != descriptionText.Text )
+           {
+                MessageBox.Show("Incident has been updated while you worked, please retrieve the new data and try again");
+               return;
             }
+
+           
            
             try
             {

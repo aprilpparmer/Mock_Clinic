@@ -316,10 +316,11 @@ namespace OpenIncidents.DAL
 
         String addStatement = "Update Incidents " +
                                "SET Description = @description, TechID = @technician "+
-                               "WHERE IncidentID = " + IncidentID;
+                               "WHERE DateClosed is Null AND IncidentID = " + IncidentID;
         SqlCommand insertCommand = new SqlCommand(addStatement, connection);
         insertCommand.Parameters.AddWithValue("@description", Description);
         insertCommand.Parameters.AddWithValue("@technician", technicianID);
+
 
         try
         {

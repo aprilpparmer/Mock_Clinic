@@ -21,6 +21,8 @@ namespace PayablesData.model
 
         public DateTime openDate { get; set; }
 
+        public DateTime closeDate { get; set; }
+
         public string customer { get; set; }
 
         public string technician { get; set; }

@@ -125,7 +125,8 @@ namespace TechSupport2.TechSupport.View
             List<PayablesData.model.Incidents> aList = inController.GetIncident(inID);
             PayablesData.model.Incidents incident = aList[0];
             String desc = incident.description;
-            if (desc != descriptionText.Text)
+            Boolean closed = inController.GetCloseDate(inID);
+            if (desc != descriptionText.Text || closed != false )
             {
                 MessageBox.Show("Incident has been updated while you worked, please retrieve the new data and try again");
                 return;

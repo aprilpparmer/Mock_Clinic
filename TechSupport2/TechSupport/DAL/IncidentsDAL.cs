@@ -512,6 +512,56 @@ namespace OpenIncidents.DAL
         return incidentList;
     }
 
+
+    public static Boolean GetCloseDate(int IncidentID)
+    {
+        String date= "";
+        Boolean closed = false;
+
+        string selectStatement =
+            "SELECT DateClosed from Incidents";
+
+        try
+        {
+            using (SqlConnection connection = TechSupportData.TechniciansDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            
+                            date = reader["DateClosed"].ToString();
+
+                        }
+
+                        reader.Dispose();
+                    }
+                } connection.Close();
+            }
+
+
+        }
+        catch (SqlException ex)
+        {
+            throw ex;
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+
+        if (date.Length <=0)
+        {
+            closed = true;
+        }
+
+        return closed;
+    }
+
        
         
     }

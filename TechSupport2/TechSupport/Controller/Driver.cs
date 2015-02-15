@@ -94,5 +94,15 @@ namespace OpenIncidents.Controller
         {
             return IncidentsDAL.GetTechnicians();
         }
+
+        /// <summary>
+        /// Checks if the incident is closed
+        /// </summary>
+        /// <param name="IncidentID"> the id to be checked</param>
+        /// <returns>false if it isn't closed, true if it is</returns>
+        internal Boolean GetCloseDate(int IncidentID)
+        {
+            return IncidentsDAL.GetCloseDate(IncidentID);
+        }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace TechSupport2
 {
-    partial class Form2
+    partial class OpenIncidents
     {
         /// <summary>
         /// Required designer variable.
@@ -77,7 +77,7 @@
             this.columnHeader5.Text = "Title";
             this.columnHeader5.Width = 400;
             // 
-            // Form2
+            // OpenIncidents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -85,8 +85,9 @@
             this.ClientSize = new System.Drawing.Size(982, 455);
             this.Controls.Add(this.lvIncidents);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "Form2";
-            this.Text = "Form2";
+            this.Name = "OpenIncidents";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.Text = "Open Incidents";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
 

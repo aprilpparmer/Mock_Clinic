@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace TechSupport2
 {
-    public partial class Form2 : Form
+    public partial class OpenIncidents : Form
     {
-        public Form2()
+        public OpenIncidents()
         {
             InitializeComponent();
         }

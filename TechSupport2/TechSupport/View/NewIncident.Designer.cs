@@ -33,19 +33,19 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.techSupportDataSet = new TechSupport2.TechSupportDataSet();
+            this.descriptionText = new System.Windows.Forms.TextBox();
+            this.titleText = new System.Windows.Forms.TextBox();
+            this.createButton = new System.Windows.Forms.Button();
+            this.cancelButton = new System.Windows.Forms.Button();
+            this.customerBox = new System.Windows.Forms.ComboBox();
             this.customersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.customersTableAdapter = new TechSupport2.TechSupportDataSetTableAdapters.CustomersTableAdapter();
+            this.techSupportDataSet = new TechSupport2.TechSupportDataSet();
+            this.productBox = new System.Windows.Forms.ComboBox();
             this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.customersTableAdapter = new TechSupport2.TechSupportDataSetTableAdapters.CustomersTableAdapter();
             this.productsTableAdapter = new TechSupport2.TechSupportDataSetTableAdapters.ProductsTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.techSupportDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.techSupportDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,115 +85,118 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "Description:";
             // 
-            // textBox1
+            // descriptionText
             // 
-            this.textBox1.Location = new System.Drawing.Point(110, 143);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(260, 167);
-            this.textBox1.TabIndex = 4;
+            this.descriptionText.Location = new System.Drawing.Point(110, 143);
+            this.descriptionText.Multiline = true;
+            this.descriptionText.Name = "descriptionText";
+            this.descriptionText.Size = new System.Drawing.Size(260, 167);
+            this.descriptionText.TabIndex = 4;
+            this.descriptionText.Tag = "Description";
             // 
-            // textBox2
+            // titleText
             // 
-            this.textBox2.Location = new System.Drawing.Point(110, 97);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(260, 22);
-            this.textBox2.TabIndex = 5;
+            this.titleText.Location = new System.Drawing.Point(110, 97);
+            this.titleText.Name = "titleText";
+            this.titleText.Size = new System.Drawing.Size(260, 22);
+            this.titleText.TabIndex = 5;
+            this.titleText.Tag = "Title";
             // 
-            // button1
+            // createButton
             // 
-            this.button1.AutoSize = true;
-            this.button1.Location = new System.Drawing.Point(110, 316);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(113, 27);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Create Incident";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.createButton.AutoSize = true;
+            this.createButton.Location = new System.Drawing.Point(110, 316);
+            this.createButton.Name = "createButton";
+            this.createButton.Size = new System.Drawing.Size(113, 27);
+            this.createButton.TabIndex = 6;
+            this.createButton.Text = "Create Incident";
+            this.createButton.UseVisualStyleBackColor = true;
+            this.createButton.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // cancelButton
             // 
-            this.button2.Location = new System.Drawing.Point(295, 316);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Cancel";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.cancelButton.Location = new System.Drawing.Point(295, 316);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(75, 23);
+            this.cancelButton.TabIndex = 7;
+            this.cancelButton.Text = "Cancel";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.button2_Click);
             // 
-            // comboBox1
+            // customerBox
             // 
-            this.comboBox1.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.comboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBox1.DataSource = this.customersBindingSource;
-            this.comboBox1.DisplayMember = "Name";
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(110, 21);
-            this.comboBox1.MaxDropDownItems = 100;
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(260, 24);
-            this.comboBox1.TabIndex = 8;
-            this.comboBox1.ValueMember = "Name";
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBox2.DataSource = this.productsBindingSource;
-            this.comboBox2.DisplayMember = "Name";
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(110, 60);
-            this.comboBox2.MaxDropDownItems = 50;
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(260, 24);
-            this.comboBox2.TabIndex = 9;
-            this.comboBox2.ValueMember = "Name";
-            // 
-            // techSupportDataSet
-            // 
-            this.techSupportDataSet.DataSetName = "TechSupportDataSet";
-            this.techSupportDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.customerBox.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.customerBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.customerBox.DataSource = this.customersBindingSource;
+            this.customerBox.DisplayMember = "Name";
+            this.customerBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.customerBox.FormattingEnabled = true;
+            this.customerBox.Location = new System.Drawing.Point(110, 21);
+            this.customerBox.MaxDropDownItems = 100;
+            this.customerBox.Name = "customerBox";
+            this.customerBox.Size = new System.Drawing.Size(260, 24);
+            this.customerBox.TabIndex = 8;
+            this.customerBox.ValueMember = "Name";
+            this.customerBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // customersBindingSource
             // 
             this.customersBindingSource.DataMember = "Customers";
             this.customersBindingSource.DataSource = this.techSupportDataSet;
             // 
-            // customersTableAdapter
+            // techSupportDataSet
             // 
-            this.customersTableAdapter.ClearBeforeFill = true;
+            this.techSupportDataSet.DataSetName = "TechSupportDataSet";
+            this.techSupportDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // productBox
+            // 
+            this.productBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.productBox.DataSource = this.productsBindingSource;
+            this.productBox.DisplayMember = "Name";
+            this.productBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.productBox.FormattingEnabled = true;
+            this.productBox.Location = new System.Drawing.Point(110, 60);
+            this.productBox.MaxDropDownItems = 50;
+            this.productBox.Name = "productBox";
+            this.productBox.Size = new System.Drawing.Size(260, 24);
+            this.productBox.TabIndex = 9;
+            this.productBox.ValueMember = "Name";
             // 
             // productsBindingSource
             // 
             this.productsBindingSource.DataMember = "Products";
             this.productsBindingSource.DataSource = this.techSupportDataSet;
             // 
+            // customersTableAdapter
+            // 
+            this.customersTableAdapter.ClearBeforeFill = true;
+            // 
             // productsTableAdapter
             // 
             this.productsTableAdapter.ClearBeforeFill = true;
             // 
-            // Form3
+            // OpenIncidents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(449, 370);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.productBox);
+            this.Controls.Add(this.customerBox);
+            this.Controls.Add(this.cancelButton);
+            this.Controls.Add(this.createButton);
+            this.Controls.Add(this.titleText);
+            this.Controls.Add(this.descriptionText);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "Form3";
+            this.Name = "OpenIncidents";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Create Incident";
             this.Load += new System.EventHandler(this.Form3_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.techSupportDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.techSupportDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -206,16 +209,16 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.TextBox descriptionText;
+        private System.Windows.Forms.TextBox titleText;
+        private System.Windows.Forms.Button createButton;
+        private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.ComboBox productBox;
         private TechSupportDataSet techSupportDataSet;
         private System.Windows.Forms.BindingSource customersBindingSource;
         private TechSupportDataSetTableAdapters.CustomersTableAdapter customersTableAdapter;
         private System.Windows.Forms.BindingSource productsBindingSource;
         private TechSupportDataSetTableAdapters.ProductsTableAdapter productsTableAdapter;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox customerBox;
     }
 }

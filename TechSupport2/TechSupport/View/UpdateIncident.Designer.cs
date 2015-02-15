@@ -52,7 +52,7 @@
             this.techniciansTableAdapter = new TechSupport2.TechSupportDataSetTableAdapters.TechniciansTableAdapter();
             this.updateButton = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.cancelButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.techniciansBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.techSupportDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.techSupportDataSetBindingSource)).BeginInit();
@@ -260,23 +260,23 @@
             this.closeButton.UseVisualStyleBackColor = true;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
-            // button4
+            // cancelButton
             // 
-            this.button4.AutoSize = true;
-            this.button4.Location = new System.Drawing.Point(428, 593);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 27);
-            this.button4.TabIndex = 19;
-            this.button4.Text = "Cancel";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.cancelButton.AutoSize = true;
+            this.cancelButton.Location = new System.Drawing.Point(428, 593);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(75, 27);
+            this.cancelButton.TabIndex = 19;
+            this.cancelButton.Text = "Cancel";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.button4_Click);
             // 
             // UpdateIncident
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(570, 632);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.closeButton);
             this.Controls.Add(this.updateButton);
             this.Controls.Add(this.button1);
@@ -297,6 +297,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "UpdateIncident";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Update Incident";
             this.Load += new System.EventHandler(this.UpdateIncident_Load);
             ((System.ComponentModel.ISupportInitialize)(this.techniciansBindingSource)).EndInit();
@@ -332,6 +333,6 @@
         private TechSupportDataSetTableAdapters.TechniciansTableAdapter techniciansTableAdapter;
         private System.Windows.Forms.Button updateButton;
         private System.Windows.Forms.Button closeButton;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button cancelButton;
     }
 }

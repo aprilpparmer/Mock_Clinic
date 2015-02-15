@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TechSupport\Validator.cs" />
     <Compile Include="TechSupport\Controller\Driver.cs" />
     <Compile Include="TechSupport\DAL\TechSupportData.cs" />
     <Compile Include="TechSupport\DAL\IncidentsDAL.cs" />

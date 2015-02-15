@@ -49,14 +49,50 @@ namespace OpenIncidents.Controller
            return IncidentsDAL.GetIncident(p);
         }
 
+        /// <summary>
+        /// Updates an incident
+        /// </summary>
+        /// <param name="Description"></param>
+        /// <param name="techName"></param>
+        /// <param name="IncidentID"></param>
         internal void UpdateIncident(String Description, String techName, int IncidentID)
         {
             IncidentsDAL.UpdateIncident(Description, techName, IncidentID);
         }
 
+        /// <summary>
+        /// Closes an incident
+        /// </summary>
+        /// <param name="IncidentID">the incident's id</param>
         internal void closeIncident(int IncidentID)
         {
             IncidentsDAL.closeIncident(IncidentID);
+        }
+
+        /// <summary>
+        /// Gets a list of the customers
+        /// </summary>
+        /// <returns>the list of customers</returns>
+        internal List<Incidents> GetCustomers()
+        {
+            return IncidentsDAL.GetCustomers();
+        }
+
+        /// <summary>
+        /// Gets a list of products
+        /// </summary>
+        /// <returns>the products</returns>
+        internal List<Incidents> GetProducts()
+        {
+            return IncidentsDAL.GetProducts();
+        }
+        /// <summary>
+        /// Gets a list of technicians
+        /// </summary>
+        /// <returns>technicians</returns>
+        internal List<Incidents> GetTechnicians()
+        {
+            return IncidentsDAL.GetTechnicians();
         }
     }
 }

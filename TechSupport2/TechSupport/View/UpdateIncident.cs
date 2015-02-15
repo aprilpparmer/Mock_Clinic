@@ -1,4 +1,6 @@
-﻿using System;
+﻿using OpenIncidents.Controller;
+using PayablesData.model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,7 +19,7 @@ namespace TechSupport2.TechSupport.View
             InitializeComponent();
         }
 
-        private OpenIncidents.Controller.IncidentController inController;
+        private IncidentController inController;
         int inID = 0;
 
         private void label4_Click(object sender, EventArgs e)
@@ -27,15 +29,26 @@ namespace TechSupport2.TechSupport.View
 
         private void UpdateIncident_Load(object sender, EventArgs e)
         {
-            //This line of code loads data into the 'techSupportDataSet.Technicians' table.
-            this.techniciansTableAdapter.Fill(this.techSupportDataSet.Technicians);
+            
+            try
+            {
+                inController = new IncidentController();
+                List<Incidents> technicians = inController.GetTechnicians();
+                technicianBox.DataSource = technicians;
+                technicianBox.DisplayMember = "technician";
+                technicianBox.ValueMember = "technician";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
 
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            inController = new OpenIncidents.Controller.IncidentController();
+            inController = new IncidentController();
             string incidentID = IncidentIDText.Text;
             inID = 0;
             try
@@ -83,7 +96,7 @@ namespace TechSupport2.TechSupport.View
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-            inController = new OpenIncidents.Controller.IncidentController();
+            inController = new IncidentController();
             String desText = descriptionText.Text;
             String tech = technicianBox.Text;
             String date = DateTime.Now.ToString();
@@ -142,7 +155,7 @@ namespace TechSupport2.TechSupport.View
 
         private void closeButton_Click(object sender, EventArgs e)
         {
-            inController = new OpenIncidents.Controller.IncidentController();
+            inController = new IncidentController();
             string incidentID = IncidentIDText.Text;         
             try
             {

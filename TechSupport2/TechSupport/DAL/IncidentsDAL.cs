@@ -48,8 +48,10 @@ namespace OpenIncidents.DAL
                                 incidents.title = reader["Title"].ToString();
                                 incidentList.Add(incidents);
                             }
+                            
+                            reader.Dispose();
                         }
-                    }
+                    }  connection.Close();
                 }
 
 
@@ -62,7 +64,7 @@ namespace OpenIncidents.DAL
             {
                 throw ex;
             }
-
+           
             return incidentList;
         }
 
@@ -89,11 +91,12 @@ namespace OpenIncidents.DAL
                         {
                             while (reader.Read())
                             {
-
                                productCode = reader["ProductCode"].ToString();
                                
                             }
-                        }
+                            reader.Dispose();
+                        } 
+                        connection.Close();
                     }
                 }
 
@@ -141,7 +144,9 @@ namespace OpenIncidents.DAL
                                string customer = reader["CustomerID"].ToString();
                                customerID = Convert.ToInt32(customer);
                             }
+                            reader.Dispose();
                         }
+                        connection.Close();
                     }
                 }
 
@@ -190,7 +195,9 @@ namespace OpenIncidents.DAL
                                  string customer = reader["TechID"].ToString();
                                  techID = Convert.ToInt32(customer);
                              }
+                             reader.Dispose();
                          }
+                         connection.Close();
                      }
                  }
 
@@ -290,7 +297,9 @@ namespace OpenIncidents.DAL
                             incidents.title = reader["Title"].ToString();
                             incidentList.Add(incidents);
                         }
+                        reader.Dispose();
                     }
+                    connection.Close();
                 }
             }
 
@@ -304,6 +313,7 @@ namespace OpenIncidents.DAL
         {
             throw ex;
         }
+
 
         return incidentList;
     }
@@ -365,6 +375,141 @@ namespace OpenIncidents.DAL
             connection.Close();
 
         }
+    }
+
+    public static List<Incidents> GetCustomers()
+    {
+        List<Incidents> incidentList = new List<Incidents>();
+
+        string selectStatement =
+            "SELECT Name from Customers";
+
+        try
+        {
+            using (SqlConnection connection = TechSupportData.TechniciansDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Incidents incidents = new Incidents();
+                            incidents.customer = reader["Name"].ToString();                           
+                            incidentList.Add(incidents);
+                           
+                        }
+
+                        reader.Dispose();
+                    }
+                } connection.Close();
+            }
+
+
+        }
+        catch (SqlException ex)
+        {
+            throw ex;
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+
+
+        return incidentList;
+    }
+
+    public static List<Incidents> GetProducts()
+    {
+        List<Incidents> incidentList = new List<Incidents>();
+
+        string selectStatement =
+            "SELECT Name from Products";
+
+        try
+        {
+            using (SqlConnection connection = TechSupportData.TechniciansDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Incidents incidents = new Incidents();
+                            incidents.productCode = reader["Name"].ToString();
+                            incidentList.Add(incidents);
+
+                        }
+
+                        reader.Dispose();
+                    }
+                } connection.Close();
+            }
+
+
+        }
+        catch (SqlException ex)
+        {
+            throw ex;
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+
+
+        return incidentList;
+    }
+
+    public static List<Incidents> GetTechnicians()
+    {
+        List<Incidents> incidentList = new List<Incidents>();
+
+        string selectStatement =
+            "SELECT Name from Technicians";
+
+        try
+        {
+            using (SqlConnection connection = TechSupportData.TechniciansDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Incidents incidents = new Incidents();
+                            incidents.technician = reader["Name"].ToString();
+                            incidentList.Add(incidents);
+
+                        }
+
+                        reader.Dispose();
+                    }
+                } connection.Close();
+            }
+
+
+        }
+        catch (SqlException ex)
+        {
+            throw ex;
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+
+
+        return incidentList;
     }
 
        

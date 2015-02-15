@@ -14,18 +14,20 @@ namespace TechSupportData
         /// <returns></returns>
         public static SqlConnection GetConnection()
         {
+            SqlConnection connection;
             try
             {
                 string connectionString =
                     "Data Source=localhost;Initial Catalog=TechSupport;" +
                     "Integrated Security=True";
-                SqlConnection connection = new SqlConnection(connectionString);
-                return connection;
+                    connection = new SqlConnection(connectionString);
+                
             }
             catch (Exception ex)
             {
                 throw ex;
             }
+            return connection;
         }
     }
 }

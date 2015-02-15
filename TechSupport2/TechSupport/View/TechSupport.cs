@@ -23,7 +23,7 @@ namespace TechSupport2
 
         }
 
-        Form2 f2;
+        OpenIncidents f2;
         TechSupport2.View.OpenIncidents f3;
         UpdateIncident f4;
 
@@ -62,7 +62,7 @@ namespace TechSupport2
         {
             if (f2 == null)
             {
-                f2 = new Form2();
+                f2 = new OpenIncidents();
                 f2.MdiParent = this;
                 f2.Show();
                 f2.FormClosed += f2_FormClosed;

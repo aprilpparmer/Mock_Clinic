@@ -1,4 +1,5 @@
 ﻿using OpenIncidents.Controller;
+using PayablesData.model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TechMaintinance;
+
 
 namespace TechSupport2.View
 {
@@ -43,10 +46,27 @@ namespace TechSupport2.View
         /// <param name="e"></param>
         private void Form3_Load(object sender, EventArgs e)
         {
+            try
+            {
+                inController = new IncidentController();
+                List<Incidents> customers = inController.GetCustomers();             
+                customerBox.DataSource = customers;
+                customerBox.DisplayMember = "customer";
+                customerBox.ValueMember = "customer";
+
+                List<Incidents> products = inController.GetProducts();
+                productBox.DataSource = products;
+                productBox.DisplayMember = "productCode";
+                productBox.ValueMember = "productCode";
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
            
-            this.productsTableAdapter.Fill(this.techSupportDataSet.Products);
+            //this.productsTableAdapter.Fill(this.techSupportDataSet.Products);
             
-            this.customersTableAdapter.Fill(this.techSupportDataSet.Customers);
+           // this.customersTableAdapter.Fill(this.techSupportDataSet.Customers);
         
             
         }
@@ -58,11 +78,19 @@ namespace TechSupport2.View
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
+            
             inController = new IncidentController();
-            string name = comboBox1.Text;
-            string product = comboBox2.Text;
-            string title = textBox2.Text;
-            string description = textBox1.Text;
+            string name = customerBox.Text;
+            string product = productBox.Text;
+            string title = titleText.Text;
+            string description = descriptionText.Text;
+            if (Validator.IsPresent(titleText) == false) {              
+                return;
+            }
+            if (Validator.IsPresent(descriptionText) == false)
+            {
+                return;
+            }
             try
             {
                 inController.AddIncident(name, product, title, description);

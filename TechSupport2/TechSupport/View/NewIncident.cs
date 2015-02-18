@@ -101,7 +101,10 @@ namespace TechSupport2.View
                 this.Close();
             }
             MessageBox.Show("Incident added to the database");
-            this.Close();
+            if (this != null)
+            {
+                this.Close();
+            }
         }
 
 

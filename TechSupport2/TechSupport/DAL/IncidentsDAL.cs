@@ -402,9 +402,9 @@ namespace OpenIncidents.DAL
                            
                         }
 
-                        reader.Dispose();
+                        
                     }
-                } connection.Close();
+                } 
             }
 
 
@@ -447,9 +447,9 @@ namespace OpenIncidents.DAL
 
                         }
 
-                        reader.Dispose();
+                        
                     }
-                } connection.Close();
+                } 
             }
 
 
@@ -492,9 +492,9 @@ namespace OpenIncidents.DAL
 
                         }
 
-                        reader.Dispose();
+                        
                     }
-                } connection.Close();
+                } 
             }
 
 
@@ -538,9 +538,9 @@ namespace OpenIncidents.DAL
 
                         }
 
-                        reader.Dispose();
+                        
                     }
-                } connection.Close();
+                } 
             }
 
 

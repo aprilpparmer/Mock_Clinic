@@ -97,6 +97,7 @@ namespace TechSupport2.TechSupport.View
         private void updateButton_Click(object sender, EventArgs e)
         {
             inController = new IncidentController();
+            String oldText = descriptionText.Text;
             String desText = descriptionText.Text;
             String tech = technicianBox.Text;
             String date = DateTime.Now.ToString();
@@ -121,12 +122,17 @@ namespace TechSupport2.TechSupport.View
 
             }
 
+            if (technicianBox.Text.Length <= 0)
+            {
+                MessageBox.Show("A technician must be assigned to the incident.");
+                return;
+            }
 
             List<PayablesData.model.Incidents> aList = inController.GetIncident(inID);
             PayablesData.model.Incidents incident = aList[0];
             String desc = incident.description;
             Boolean closed = inController.GetCloseDate(inID);
-            if (desc != descriptionText.Text || closed != false )
+            if (desc != oldText || closed != true )
             {
                 MessageBox.Show("Incident has been updated while you worked, please retrieve the new data and try again");
                 return;
@@ -167,7 +173,11 @@ namespace TechSupport2.TechSupport.View
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
             MessageBox.Show("Incident Closed");
-            this.Close();
+            if (this != null)
+            {
+                this.Close();
+            }
+            
         }
     }
 }

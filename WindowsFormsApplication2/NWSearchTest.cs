@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication2
 {
-    public partial class NorthwindAdmin : Form
+    public partial class NWSearchTest : Form
     {
-        public NorthwindAdmin()
+        public NWSearchTest()
         {
             InitializeComponent();
-        }
-
-        private void Northwind_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

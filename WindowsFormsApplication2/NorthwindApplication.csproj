@@ -44,6 +44,72 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NWGenerateReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NWGenerateReport.Designer.cs">
+      <DependentUpon>NWGenerateReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NWSearchTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NWSearchTest.Designer.cs">
+      <DependentUpon>NWSearchTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NWNurseSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NWNurseSearch.Designer.cs">
+      <DependentUpon>NWNurseSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NWDocSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NWDocSearch.Designer.cs">
+      <DependentUpon>NWDocSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NWUpdateTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NWUpdateTest.Designer.cs">
+      <DependentUpon>NWUpdateTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NWUpdateDoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NWUpdateDoc.Designer.cs">
+      <DependentUpon>NWUpdateDoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NWSearchDoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NWSearchDoc.Designer.cs">
+      <DependentUpon>NWSearchDoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NWRegisterTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NWRegisterTest.Designer.cs">
+      <DependentUpon>NWRegisterTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NWRegisterNurses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NWRegisterNurses.Designer.cs">
+      <DependentUpon>NWRegisterNurses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NWRegisterDoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NWRegisterDoc.Designer.cs">
+      <DependentUpon>NWRegisterDoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NorthwindAdminHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NorthwindAdminHome.Designer.cs">
+      <DependentUpon>NorthwindAdminHome.cs</DependentUpon>
+    </Compile>
     <Compile Include="NWOrderTest.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +148,24 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="NWGenerateReport.resx">
+      <DependentUpon>NWGenerateReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NWNurseSearch.resx">
+      <DependentUpon>NWNurseSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NWDocSearch.resx">
+      <DependentUpon>NWDocSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NWRegisterTest.resx">
+      <DependentUpon>NWRegisterTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NWRegisterNurses.resx">
+      <DependentUpon>NWRegisterNurses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NorthwindAdminHome.resx">
+      <DependentUpon>NorthwindAdminHome.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NWOrderTest.resx">
       <DependentUpon>NWOrderTest.cs</DependentUpon>
     </EmbeddedResource>
@@ -99,6 +183,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NWNewPatient.resx">
       <DependentUpon>NWNewPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NWRegisterDoc.resx">
+      <DependentUpon>NWRegisterDoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NWSearchDoc.resx">
+      <DependentUpon>NWSearchDoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NWSearchTest.resx">
+      <DependentUpon>NWSearchTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NWUpdateDoc.resx">
+      <DependentUpon>NWUpdateDoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NWUpdateTest.resx">
+      <DependentUpon>NWUpdateTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

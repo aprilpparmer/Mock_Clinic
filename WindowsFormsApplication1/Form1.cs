@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApplication2
+namespace WindowsFormsApplication1
 {
-    public partial class NorthwindAdmin : Form
+    public partial class Form1 : Form
     {
-        public NorthwindAdmin()
+        public Form1()
         {
             InitializeComponent();
-        }
-
-        private void Northwind_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

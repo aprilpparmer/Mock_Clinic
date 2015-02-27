@@ -3,15 +3,15 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema CS6232-g7
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `CS6232-g7` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+USE `CS6232-g7` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`allergies`
+-- Table `CS6232-g7`.`allergies`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`allergies` (
+CREATE TABLE IF NOT EXISTS `CS6232-g7`.`allergies` (
   `allergyID` INT(11) NOT NULL AUTO_INCREMENT,
   `allergy_name` VARCHAR(200) NOT NULL,
   PRIMARY KEY (`allergyID`))
@@ -21,9 +21,9 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`diagnoses`
+-- Table `CS6232-g7`.`diagnoses`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`diagnoses` (
+CREATE TABLE IF NOT EXISTS `CS6232-g7`.`diagnoses` (
   `diagnosesID` INT(11) NOT NULL AUTO_INCREMENT,
   `diagnoses_name` VARCHAR(200) NOT NULL,
   `diagnoses_description` TEXT NOT NULL,
@@ -35,9 +35,9 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`positions`
+-- Table `CS6232-g7`.`positions`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`positions` (
+CREATE TABLE IF NOT EXISTS `CS6232-g7`.`positions` (
   `postionID` INT(11) NOT NULL AUTO_INCREMENT,
   `position_name` VARCHAR(25) NOT NULL,
   UNIQUE INDEX `postionID` (`postionID` ASC),
@@ -48,9 +48,9 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`employees`
+-- Table `CS6232-g7`.`employees`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`employees` (
+CREATE TABLE IF NOT EXISTS `CS6232-g7`.`employees` (
   `employeeID` INT(11) NOT NULL AUTO_INCREMENT,
   `ssn` INT(9) NOT NULL,
   `last_name` VARCHAR(50) NOT NULL,
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`employees` (
   INDEX `fk_employees_positions1_idx` (`postionID` ASC),
   CONSTRAINT `fk_employees_positions1`
     FOREIGN KEY (`postionID`)
-    REFERENCES `mydb`.`positions` (`postionID`)
+    REFERENCES `CS6232-g7`.`positions` (`postionID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -81,9 +81,9 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`patients`
+-- Table `CS6232-g7`.`patients`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`patients` (
+CREATE TABLE IF NOT EXISTS `CS6232-g7`.`patients` (
   `patientID` INT(11) NOT NULL DEFAULT '0',
   `ssn` INT(9) NOT NULL,
   `last_name` VARCHAR(50) NOT NULL,
@@ -105,12 +105,12 @@ CREATE TABLE IF NOT EXISTS `mydb`.`patients` (
   INDEX `fk_patients_patients2_idx` (`fatherID` ASC),
   CONSTRAINT `fk_patients_patients1`
     FOREIGN KEY (`motherID`)
-    REFERENCES `mydb`.`patients` (`patientID`)
+    REFERENCES `CS6232-g7`.`patients` (`patientID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_patients_patients2`
     FOREIGN KEY (`fatherID`)
-    REFERENCES `mydb`.`patients` (`patientID`)
+    REFERENCES `CS6232-g7`.`patients` (`patientID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -118,9 +118,9 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`patient_allergies`
+-- Table `CS6232-g7`.`patient_allergies`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`patient_allergies` (
+CREATE TABLE IF NOT EXISTS `CS6232-g7`.`patient_allergies` (
   `patientallergyID` INT(11) NOT NULL AUTO_INCREMENT,
   `allergy_name` VARCHAR(200) NULL DEFAULT NULL,
   `patientID` INT(11) NOT NULL,
@@ -130,12 +130,12 @@ CREATE TABLE IF NOT EXISTS `mydb`.`patient_allergies` (
   INDEX `fk_patient_allergies_allergies1_idx` (`allergyID` ASC),
   CONSTRAINT `fk_patient_allergies_patients`
     FOREIGN KEY (`patientID`)
-    REFERENCES `mydb`.`patients` (`patientID`)
+    REFERENCES `CS6232-g7`.`patients` (`patientID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_patient_allergies_allergies1`
     FOREIGN KEY (`allergyID`)
-    REFERENCES `mydb`.`allergies` (`allergyID`)
+    REFERENCES `CS6232-g7`.`allergies` (`allergyID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -144,9 +144,9 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`patient_visit`
+-- Table `CS6232-g7`.`patient_visit`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`patient_visit` (
+CREATE TABLE IF NOT EXISTS `CS6232-g7`.`patient_visit` (
   `visitID` INT(11) NOT NULL AUTO_INCREMENT,
   `patientID` INT(11) NOT NULL,
   `visit_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -159,17 +159,17 @@ CREATE TABLE IF NOT EXISTS `mydb`.`patient_visit` (
   INDEX `fk_patient_visit_employees2_idx` (`nurseID` ASC),
   CONSTRAINT `fk_patient_visit_patients1`
     FOREIGN KEY (`patientID`)
-    REFERENCES `mydb`.`patients` (`patientID`)
+    REFERENCES `CS6232-g7`.`patients` (`patientID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_patient_visit_employees1`
     FOREIGN KEY (`doctorID`)
-    REFERENCES `mydb`.`employees` (`employeeID`)
+    REFERENCES `CS6232-g7`.`employees` (`employeeID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_patient_visit_employees2`
     FOREIGN KEY (`nurseID`)
-    REFERENCES `mydb`.`employees` (`employeeID`)
+    REFERENCES `CS6232-g7`.`employees` (`employeeID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -178,9 +178,9 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`tests`
+-- Table `CS6232-g7`.`tests`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`tests` (
+CREATE TABLE IF NOT EXISTS `CS6232-g7`.`tests` (
   `testID` INT(11) NOT NULL AUTO_INCREMENT,
   `test_name` VARCHAR(200) NOT NULL,
   PRIMARY KEY (`testID`))
@@ -190,9 +190,9 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`patient_tests`
+-- Table `CS6232-g7`.`patient_tests`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`patient_tests` (
+CREATE TABLE IF NOT EXISTS `CS6232-g7`.`patient_tests` (
   `patient_testID` INT(11) NOT NULL AUTO_INCREMENT,
   `visitID` INT(11) NOT NULL,
   `testID` INT(11) NOT NULL,
@@ -205,12 +205,12 @@ CREATE TABLE IF NOT EXISTS `mydb`.`patient_tests` (
   INDEX `fk_patient_tests_tests1_idx` (`testID` ASC),
   CONSTRAINT `fk_patient_tests_patient_visit1`
     FOREIGN KEY (`visitID`)
-    REFERENCES `mydb`.`patient_visit` (`visitID`)
+    REFERENCES `CS6232-g7`.`patient_visit` (`visitID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_patient_tests_tests1`
     FOREIGN KEY (`testID`)
-    REFERENCES `mydb`.`tests` (`testID`)
+    REFERENCES `CS6232-g7`.`tests` (`testID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -219,9 +219,9 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`patient_visit_vitals`
+-- Table `CS6232-g7`.`patient_visit_vitals`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`patient_visit_vitals` (
+CREATE TABLE IF NOT EXISTS `CS6232-g7`.`patient_visit_vitals` (
   `vitalsID` INT(11) NOT NULL AUTO_INCREMENT,
   `visitID` INT(11) NOT NULL,
   `blood_pressure` VARCHAR(20) NOT NULL,
@@ -233,7 +233,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`patient_visit_vitals` (
   INDEX `fk_patient_visit_vitals_patient_visit1_idx` (`visitID` ASC),
   CONSTRAINT `fk_patient_visit_vitals_patient_visit1`
     FOREIGN KEY (`visitID`)
-    REFERENCES `mydb`.`patient_visit` (`visitID`)
+    REFERENCES `CS6232-g7`.`patient_visit` (`visitID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -242,9 +242,9 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`patient_vist_notes`
+-- Table `CS6232-g7`.`patient_vist_notes`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`patient_vist_notes` (
+CREATE TABLE IF NOT EXISTS `CS6232-g7`.`patient_vist_notes` (
   `notesID` INT(11) NOT NULL AUTO_INCREMENT,
   `employeeID` INT(11) NOT NULL,
   `visitID` INT(11) NOT NULL,
@@ -254,7 +254,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`patient_vist_notes` (
   INDEX `fk_patient_vist_notes_patient_visit1_idx` (`visitID` ASC),
   CONSTRAINT `fk_patient_vist_notes_patient_visit1`
     FOREIGN KEY (`visitID`)
-    REFERENCES `mydb`.`patient_visit` (`visitID`)
+    REFERENCES `CS6232-g7`.`patient_visit` (`visitID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -263,9 +263,9 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`patient_vist_symptoms`
+-- Table `CS6232-g7`.`patient_vist_symptoms`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`patient_vist_symptoms` (
+CREATE TABLE IF NOT EXISTS `CS6232-g7`.`patient_vist_symptoms` (
   `symptomID` INT(11) NOT NULL AUTO_INCREMENT,
   `visitID` INT(11) NOT NULL,
   `symptom_name` VARCHAR(300) NOT NULL,
@@ -275,12 +275,12 @@ CREATE TABLE IF NOT EXISTS `mydb`.`patient_vist_symptoms` (
   INDEX `fk_patient_vist_symptoms_patient_visit1_idx` (`visitID` ASC),
   CONSTRAINT `fk_patient_vist_symptoms_diagnoses1`
     FOREIGN KEY (`diagnoses_diagnosesID`)
-    REFERENCES `mydb`.`diagnoses` (`diagnosesID`)
+    REFERENCES `CS6232-g7`.`diagnoses` (`diagnosesID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_patient_vist_symptoms_patient_visit1`
     FOREIGN KEY (`visitID`)
-    REFERENCES `mydb`.`patient_visit` (`visitID`)
+    REFERENCES `CS6232-g7`.`patient_visit` (`visitID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB

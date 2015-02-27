@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApplication2
 {
-    partial class Northwind
+    partial class NorthwindAdmin
     {
         /// <summary>
         /// Required designer variable.

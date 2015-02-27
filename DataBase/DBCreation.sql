@@ -95,7 +95,8 @@ CREATE TABLE IF NOT EXISTS `mydb`.`patients` (
   `city` VARCHAR(50) NOT NULL,
   `state` VARCHAR(50) NOT NULL,
   `zip` INT(5) NOT NULL,
-  `phone` INT(10) NOT NULL,
+  `home_phone` INT(10) NOT NULL,
+  `work_phone` INT(10) NULL,
   `child` VARCHAR(15) NULL DEFAULT NULL COMMENT 'son / daughter',
   `motherID` INT(11) NULL,
   `fatherID` INT(11) NULL,
@@ -199,7 +200,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`patient_tests` (
   `test_taken` TIMESTAMP NULL DEFAULT '0000-00-00 00:00:00',
   `test_completed` TIMESTAMP NULL DEFAULT NULL,
   `results` INT(1) NULL DEFAULT NULL,
-  PRIMARY KEY (`patient_testID`, `testID`),
+  PRIMARY KEY (`patient_testID`),
   INDEX `fk_patient_tests_patient_visit1_idx` (`visitID` ASC),
   INDEX `fk_patient_tests_tests1_idx` (`testID` ASC),
   CONSTRAINT `fk_patient_tests_patient_visit1`

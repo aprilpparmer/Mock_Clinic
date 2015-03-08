@@ -43,8 +43,7 @@ namespace TechSupport2.TechSupport.View
         private void GetTechIncidents()
         {
             int techID = (int)nameComboBox.SelectedValue;            
-            inController = new IncidentController();
-           
+            inController = new IncidentController();                     
             try
             {
                 incidentList = inController.GetTechIncident(techID);
@@ -54,6 +53,12 @@ namespace TechSupport2.TechSupport.View
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
 
+            incidentsDataGrid.DataSource = incidentList;
+        }
+
+        private void nameComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GetTechIncidents();
         }
 
 

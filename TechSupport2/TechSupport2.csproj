@@ -44,6 +44,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComboIncidentData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ComboIncidentData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="IncidentsData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IncidentsData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TechnicanData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TechnicanData.xsd</DependentUpon>
+    </Compile>
     <Compile Include="TechSupport\Validator.cs" />
     <Compile Include="TechSupport\Controller\Driver.cs" />
     <Compile Include="TechSupport\DAL\TechSupportData.cs" />
@@ -54,6 +69,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>TechSupportDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TechSupport\View\ViewIncidentsByTech.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TechSupport\View\ViewIncidentsByTech.Designer.cs">
+      <DependentUpon>ViewIncidentsByTech.cs</DependentUpon>
     </Compile>
     <Compile Include="TechSupport\View\UpdateIncident.cs">
       <SubType>Form</SubType>
@@ -92,6 +113,31 @@
     <EmbeddedResource Include="TechSupport\View\UpdateIncident.resx">
       <DependentUpon>UpdateIncident.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TechSupport\View\ViewIncidentsByTech.resx">
+      <DependentUpon>ViewIncidentsByTech.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="ComboIncidentData.xsc">
+      <DependentUpon>ComboIncidentData.xsd</DependentUpon>
+    </None>
+    <None Include="ComboIncidentData.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ComboIncidentData.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ComboIncidentData.xss">
+      <DependentUpon>ComboIncidentData.xsd</DependentUpon>
+    </None>
+    <None Include="IncidentsData.xsc">
+      <DependentUpon>IncidentsData.xsd</DependentUpon>
+    </None>
+    <None Include="IncidentsData.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>IncidentsData.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="IncidentsData.xss">
+      <DependentUpon>IncidentsData.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -101,6 +147,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="TechnicanData.xsc">
+      <DependentUpon>TechnicanData.xsd</DependentUpon>
+    </None>
+    <None Include="TechnicanData.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TechnicanData.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TechnicanData.xss">
+      <DependentUpon>TechnicanData.xsd</DependentUpon>
+    </None>
     <None Include="TechSupportDataSet.xsc">
       <DependentUpon>TechSupportDataSet.xsd</DependentUpon>
     </None>

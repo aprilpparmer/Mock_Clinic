@@ -35,6 +35,7 @@
             this.displayOpenIncidentsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.createIncidentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateIncidentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.getInicdentsByTechnicanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,7 +71,8 @@
             this.displayOpenIncidentsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.displayOpenIncidentsToolStripMenuItem1,
             this.createIncidentToolStripMenuItem,
-            this.updateIncidentToolStripMenuItem});
+            this.updateIncidentToolStripMenuItem,
+            this.getInicdentsByTechnicanToolStripMenuItem});
             this.displayOpenIncidentsToolStripMenuItem.Name = "displayOpenIncidentsToolStripMenuItem";
             this.displayOpenIncidentsToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
             this.displayOpenIncidentsToolStripMenuItem.Text = "Incidents";
@@ -79,23 +81,30 @@
             // displayOpenIncidentsToolStripMenuItem1
             // 
             this.displayOpenIncidentsToolStripMenuItem1.Name = "displayOpenIncidentsToolStripMenuItem1";
-            this.displayOpenIncidentsToolStripMenuItem1.Size = new System.Drawing.Size(230, 24);
+            this.displayOpenIncidentsToolStripMenuItem1.Size = new System.Drawing.Size(254, 24);
             this.displayOpenIncidentsToolStripMenuItem1.Text = "Display Open Incidents";
             this.displayOpenIncidentsToolStripMenuItem1.Click += new System.EventHandler(this.displayOpenIncidentsToolStripMenuItem1_Click);
             // 
             // createIncidentToolStripMenuItem
             // 
             this.createIncidentToolStripMenuItem.Name = "createIncidentToolStripMenuItem";
-            this.createIncidentToolStripMenuItem.Size = new System.Drawing.Size(230, 24);
+            this.createIncidentToolStripMenuItem.Size = new System.Drawing.Size(254, 24);
             this.createIncidentToolStripMenuItem.Text = "Create Incident";
             this.createIncidentToolStripMenuItem.Click += new System.EventHandler(this.createIncidentToolStripMenuItem_Click);
             // 
             // updateIncidentToolStripMenuItem
             // 
             this.updateIncidentToolStripMenuItem.Name = "updateIncidentToolStripMenuItem";
-            this.updateIncidentToolStripMenuItem.Size = new System.Drawing.Size(230, 24);
+            this.updateIncidentToolStripMenuItem.Size = new System.Drawing.Size(254, 24);
             this.updateIncidentToolStripMenuItem.Text = "Update Incident";
             this.updateIncidentToolStripMenuItem.Click += new System.EventHandler(this.updateIncidentToolStripMenuItem_Click);
+            // 
+            // getInicdentsByTechnicanToolStripMenuItem
+            // 
+            this.getInicdentsByTechnicanToolStripMenuItem.Name = "getInicdentsByTechnicanToolStripMenuItem";
+            this.getInicdentsByTechnicanToolStripMenuItem.Size = new System.Drawing.Size(254, 24);
+            this.getInicdentsByTechnicanToolStripMenuItem.Text = "Get Inicdents by Technican";
+            this.getInicdentsByTechnicanToolStripMenuItem.Click += new System.EventHandler(this.getInicdentsByTechnicanToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -125,6 +134,7 @@
         private System.Windows.Forms.ToolStripMenuItem displayOpenIncidentsToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem createIncidentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem updateIncidentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem getInicdentsByTechnicanToolStripMenuItem;
     }
 }
 

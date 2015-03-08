@@ -571,12 +571,11 @@ namespace OpenIncidents.DAL
         List<Incidents> incidentList = new List<Incidents>();
 
         string selectStatement =
-            "SELECT SELECT c.Name as Customer, p.Name as Product, DateOpened, Title " +
-            "FROM Incidents i join Customers c " +
-            "ON c.CustomerID = i.CustomerID " +
-            "JOIN Products p ON p.ProductCode = i.ProductCode" +
-            "Join Technicians t ON " +
-            "i.TechID = "+TechID +" WHERE IncidentID = IncidentID";
+            "SELECT c.Name as Customer, p.Name as Product, DateOpened, Title " +
+            "FROM Incidents i JOIN Customers c " +
+            "ON c.CustomerID = i.CustomerID  " +
+            "JOIN Products p ON p.ProductCode = i.ProductCode " + 
+            "WHERE i.TechID = "+ TechID;
 
         try
         {

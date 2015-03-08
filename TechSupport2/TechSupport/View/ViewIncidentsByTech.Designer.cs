@@ -39,11 +39,17 @@
             this.nameComboBox = new System.Windows.Forms.ComboBox();
             this.emailTextBox = new System.Windows.Forms.TextBox();
             this.phoneTextBox = new System.Windows.Forms.TextBox();
+            this.techSupportDataSet = new TechSupport2.TechSupportDataSet();
+            this.incidentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.incidentsTableAdapter = new TechSupport2.TechSupportDataSetTableAdapters.IncidentsTableAdapter();
+            this.tableAdapterManager1 = new TechSupport2.TechSupportDataSetTableAdapters.TableAdapterManager();
             nameLabel = new System.Windows.Forms.Label();
             emailLabel = new System.Windows.Forms.Label();
             phoneLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.technician)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.techniciansBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.techSupportDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.incidentsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // technician
@@ -121,6 +127,31 @@
             this.phoneTextBox.Size = new System.Drawing.Size(195, 22);
             this.phoneTextBox.TabIndex = 5;
             // 
+            // techSupportDataSet
+            // 
+            this.techSupportDataSet.DataSetName = "TechSupportDataSet";
+            this.techSupportDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // incidentsBindingSource
+            // 
+            this.incidentsBindingSource.DataMember = "Incidents";
+            this.incidentsBindingSource.DataSource = this.techSupportDataSet;
+            // 
+            // incidentsTableAdapter
+            // 
+            this.incidentsTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager1
+            // 
+            this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager1.CustomersTableAdapter = null;
+            this.tableAdapterManager1.IncidentsTableAdapter = this.incidentsTableAdapter;
+            this.tableAdapterManager1.ProductsTableAdapter = null;
+            this.tableAdapterManager1.RegistrationsTableAdapter = null;
+            this.tableAdapterManager1.StatesTableAdapter = null;
+            this.tableAdapterManager1.TechniciansTableAdapter = null;
+            this.tableAdapterManager1.UpdateOrder = TechSupport2.TechSupportDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
             // ViewIncidentsByTech
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -137,6 +168,8 @@
             this.Load += new System.EventHandler(this.ViewIncidentsByTech_Load);
             ((System.ComponentModel.ISupportInitialize)(this.technician)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.techniciansBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.techSupportDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.incidentsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,5 +184,9 @@
         private System.Windows.Forms.ComboBox nameComboBox;
         private System.Windows.Forms.TextBox emailTextBox;
         private System.Windows.Forms.TextBox phoneTextBox;
+        private TechSupportDataSet techSupportDataSet;
+        private System.Windows.Forms.BindingSource incidentsBindingSource;
+        private TechSupportDataSetTableAdapters.IncidentsTableAdapter incidentsTableAdapter;
+        private TechSupportDataSetTableAdapters.TableAdapterManager tableAdapterManager1;
     }
 }

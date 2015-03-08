@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TechSupport2.TechSupport.Model;
 
+
+
 namespace TechSupport2.TechSupport.View
 {
     public partial class UpdateIncident : Form
@@ -34,7 +36,7 @@ namespace TechSupport2.TechSupport.View
             try
             {
                 inController = new IncidentController();
-                List<Technician> technicians = inController.GetTechnicians();
+                List<TechSupport2.TechSupport.Model.Technician> technicians = inController.GetTechnicians();
                 technicianBox.DataSource = technicians;
                 technicianBox.DisplayMember = "name";
                 technicianBox.ValueMember = "name";

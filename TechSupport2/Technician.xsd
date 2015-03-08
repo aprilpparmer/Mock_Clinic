@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="TechnicanData" targetNamespace="http://tempuri.org/TechnicanData.xsd" xmlns:mstns="http://tempuri.org/TechnicanData.xsd" xmlns="http://tempuri.org/TechnicanData.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+<xs:schema id="Technician" targetNamespace="http://tempuri.org/Technician.xsd" xmlns:mstns="http://tempuri.org/Technician.xsd" xmlns="http://tempuri.org/Technician.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
@@ -62,39 +62,14 @@ SELECT TechID, Name, Email, Phone FROM Technicians WHERE (TechID = @TechID)</Com
               <Mapping SourceColumn="Email" DataSetColumn="Email" />
               <Mapping SourceColumn="Phone" DataSetColumn="Phone" />
             </Mappings>
-            <Sources>
-              <DbSource ConnectionRef="TechSupportConnectionString (Settings)" DbObjectName="TechSupport.dbo.Technicians" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT t.TechID, Name, Email, Phone FROM dbo.Technicians t join Incidents i ON t.TechID = i.TechID</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-              <DbSource ConnectionRef="TechSupportConnectionString (Settings)" DbObjectName="TechSupport.dbo.Technicians" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy1" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy1" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillBy1">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT t.TechID, Name, Email, Phone FROM dbo.Technicians t JOIN Incidents i ON t.TechID = i.TechID</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-              <DbSource ConnectionRef="TechSupportConnectionString (Settings)" DbObjectName="TechSupport.dbo.Technicians" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy2" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy2" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="FillBy2">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT Distinct t.TechID, Name, Email, Phone FROM dbo.Technicians t join Incidents i ON t.TechID = i.TechID</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-            </Sources>
+            <Sources />
           </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="TechnicanData" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="TechnicanData" msprop:Generator_UserDSName="TechnicanData">
+  <xs:element name="Technician" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="Technician" msprop:Generator_UserDSName="Technician">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element name="Technicians" msprop:Generator_TableClassName="TechniciansDataTable" msprop:Generator_TableVarName="tableTechnicians" msprop:Generator_TablePropName="Technicians" msprop:Generator_RowDeletingName="TechniciansRowDeleting" msprop:Generator_RowChangingName="TechniciansRowChanging" msprop:Generator_RowEvHandlerName="TechniciansRowChangeEventHandler" msprop:Generator_RowDeletedName="TechniciansRowDeleted" msprop:Generator_UserTableName="Technicians" msprop:Generator_RowChangedName="TechniciansRowChanged" msprop:Generator_RowEvArgName="TechniciansRowChangeEvent" msprop:Generator_RowClassName="TechniciansRow">

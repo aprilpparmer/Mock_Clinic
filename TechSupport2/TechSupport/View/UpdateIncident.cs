@@ -36,8 +36,8 @@ namespace TechSupport2.TechSupport.View
                 inController = new IncidentController();
                 List<Technician> technicians = inController.GetTechnicians();
                 technicianBox.DataSource = technicians;
-                technicianBox.DisplayMember = "technician";
-                technicianBox.ValueMember = "technician";
+                technicianBox.DisplayMember = "name";
+                technicianBox.ValueMember = "name";
             }
             catch (Exception ex)
             {

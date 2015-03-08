@@ -15,5 +15,6 @@ namespace TechSupport2.TechSupport.Model
         public string name { get; set; }
         public string email { get; set; }
         public string phone { get; set; }
+        public int techID { get; set; }
     }
 }

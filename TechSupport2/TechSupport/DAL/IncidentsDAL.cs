@@ -473,7 +473,7 @@ namespace OpenIncidents.DAL
         List<Technician> techList = new List<Technician>();
 
         string selectStatement =
-            "SELECT Name, Phone, Email from Technicians";
+            "SELECT TechID, Name, Phone, Email from Technicians";
 
         try
         {
@@ -491,6 +491,7 @@ namespace OpenIncidents.DAL
                            tech.name = reader["Name"].ToString();
                            tech.email = reader["Email"].ToString();
                            tech.phone = reader["Phone"].ToString();
+                           tech.techID = (int)reader["TechID"];
                             techList.Add(tech);
 
                         }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using PayablesData.model;
 using OpenIncidents.DAL;
+using TechSupport2.TechSupport.Model;
 
 namespace OpenIncidents.Controller
 {
@@ -86,7 +87,7 @@ namespace OpenIncidents.Controller
         /// Gets a list of technicians
         /// </summary>
         /// <returns>the techs</returns>
-        internal List<Incidents> GetTechnicians()
+        internal List<Technician> GetTechnicians()
         {
             return IncidentsDAL.GetTechnicians();
         }

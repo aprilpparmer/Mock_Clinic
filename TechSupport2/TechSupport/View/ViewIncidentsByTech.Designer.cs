@@ -36,9 +36,6 @@
             this.techniciansBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.techniciansTableAdapter = new TechSupport2.TechnicanDataTableAdapters.TechniciansTableAdapter();
             this.tableAdapterManager = new TechSupport2.TechnicanDataTableAdapters.TableAdapterManager();
-            this.nameComboBox = new System.Windows.Forms.ComboBox();
-            this.emailTextBox = new System.Windows.Forms.TextBox();
-            this.phoneTextBox = new System.Windows.Forms.TextBox();
             this.incidentsData = new TechSupport2.IncidentsData();
             this.incidentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.incidentsTableAdapter = new TechSupport2.IncidentsDataTableAdapters.IncidentsTableAdapter();
@@ -48,6 +45,9 @@
             this.Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DateOpened = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameComboBox = new System.Windows.Forms.ComboBox();
+            this.emailTextBox = new System.Windows.Forms.TextBox();
+            this.phoneTextBox = new System.Windows.Forms.TextBox();
             nameLabel = new System.Windows.Forms.Label();
             emailLabel = new System.Windows.Forms.Label();
             phoneLabel = new System.Windows.Forms.Label();
@@ -57,33 +57,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.incidentsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.incidentsDataGridView)).BeginInit();
             this.SuspendLayout();
-            // 
-            // nameLabel
-            // 
-            nameLabel.AutoSize = true;
-            nameLabel.Location = new System.Drawing.Point(11, 12);
-            nameLabel.Name = "nameLabel";
-            nameLabel.Size = new System.Drawing.Size(49, 17);
-            nameLabel.TabIndex = 1;
-            nameLabel.Text = "Name:";
-            // 
-            // emailLabel
-            // 
-            emailLabel.AutoSize = true;
-            emailLabel.Location = new System.Drawing.Point(14, 42);
-            emailLabel.Name = "emailLabel";
-            emailLabel.Size = new System.Drawing.Size(46, 17);
-            emailLabel.TabIndex = 2;
-            emailLabel.Text = "Email:";
-            // 
-            // phoneLabel
-            // 
-            phoneLabel.AutoSize = true;
-            phoneLabel.Location = new System.Drawing.Point(7, 70);
-            phoneLabel.Name = "phoneLabel";
-            phoneLabel.Size = new System.Drawing.Size(53, 17);
-            phoneLabel.TabIndex = 4;
-            phoneLabel.Text = "Phone:";
             // 
             // technicanData
             // 
@@ -104,37 +77,6 @@
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.TechniciansTableAdapter = this.techniciansTableAdapter;
             this.tableAdapterManager.UpdateOrder = TechSupport2.TechnicanDataTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // nameComboBox
-            // 
-            this.nameComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.techniciansBindingSource, "Name", true));
-            this.nameComboBox.DataSource = this.techniciansBindingSource;
-            this.nameComboBox.DisplayMember = "Name";
-            this.nameComboBox.FormattingEnabled = true;
-            this.nameComboBox.Location = new System.Drawing.Point(66, 12);
-            this.nameComboBox.Name = "nameComboBox";
-            this.nameComboBox.Size = new System.Drawing.Size(202, 24);
-            this.nameComboBox.TabIndex = 2;
-            this.nameComboBox.ValueMember = "TechID";
-            this.nameComboBox.SelectedIndexChanged += new System.EventHandler(this.nameComboBox_SelectedIndexChanged);
-            // 
-            // emailTextBox
-            // 
-            this.emailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.techniciansBindingSource, "Email", true));
-            this.emailTextBox.Location = new System.Drawing.Point(66, 39);
-            this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.ReadOnly = true;
-            this.emailTextBox.Size = new System.Drawing.Size(202, 22);
-            this.emailTextBox.TabIndex = 3;
-            // 
-            // phoneTextBox
-            // 
-            this.phoneTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.techniciansBindingSource, "Phone", true));
-            this.phoneTextBox.Location = new System.Drawing.Point(66, 67);
-            this.phoneTextBox.Name = "phoneTextBox";
-            this.phoneTextBox.ReadOnly = true;
-            this.phoneTextBox.Size = new System.Drawing.Size(202, 22);
-            this.phoneTextBox.TabIndex = 5;
             // 
             // incidentsData
             // 
@@ -198,18 +140,73 @@
             this.Title.Name = "Title";
             this.Title.Width = 250;
             // 
+            // nameLabel
+            // 
+            nameLabel.AutoSize = true;
+            nameLabel.Location = new System.Drawing.Point(10, 15);
+            nameLabel.Name = "nameLabel";
+            nameLabel.Size = new System.Drawing.Size(49, 17);
+            nameLabel.TabIndex = 6;
+            nameLabel.Text = "Name:";
+            // 
+            // nameComboBox
+            // 
+            this.nameComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.techniciansBindingSource, "Name", true));
+            this.nameComboBox.DataSource = this.techniciansBindingSource;
+            this.nameComboBox.DisplayMember = "Name";
+            this.nameComboBox.FormattingEnabled = true;
+            this.nameComboBox.Location = new System.Drawing.Point(65, 12);
+            this.nameComboBox.Name = "nameComboBox";
+            this.nameComboBox.Size = new System.Drawing.Size(220, 24);
+            this.nameComboBox.TabIndex = 7;
+            this.nameComboBox.ValueMember = "TechID";
+            // 
+            // emailLabel
+            // 
+            emailLabel.AutoSize = true;
+            emailLabel.Location = new System.Drawing.Point(13, 45);
+            emailLabel.Name = "emailLabel";
+            emailLabel.Size = new System.Drawing.Size(46, 17);
+            emailLabel.TabIndex = 7;
+            emailLabel.Text = "Email:";
+            // 
+            // emailTextBox
+            // 
+            this.emailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.techniciansBindingSource, "Email", true));
+            this.emailTextBox.Location = new System.Drawing.Point(65, 40);
+            this.emailTextBox.Name = "emailTextBox";
+            this.emailTextBox.Size = new System.Drawing.Size(220, 22);
+            this.emailTextBox.TabIndex = 8;
+            // 
+            // phoneLabel
+            // 
+            phoneLabel.AutoSize = true;
+            phoneLabel.Location = new System.Drawing.Point(6, 73);
+            phoneLabel.Name = "phoneLabel";
+            phoneLabel.Size = new System.Drawing.Size(53, 17);
+            phoneLabel.TabIndex = 8;
+            phoneLabel.Text = "Phone:";
+            // 
+            // phoneTextBox
+            // 
+            this.phoneTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.techniciansBindingSource, "Phone", true));
+            this.phoneTextBox.Location = new System.Drawing.Point(65, 70);
+            this.phoneTextBox.Name = "phoneTextBox";
+            this.phoneTextBox.Size = new System.Drawing.Size(220, 22);
+            this.phoneTextBox.TabIndex = 9;
+            // 
             // ViewIncidentsByTech
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(771, 380);
-            this.Controls.Add(this.incidentsDataGridView);
+            this.ClientSize = new System.Drawing.Size(780, 388);
             this.Controls.Add(phoneLabel);
             this.Controls.Add(this.phoneTextBox);
             this.Controls.Add(emailLabel);
             this.Controls.Add(this.emailTextBox);
             this.Controls.Add(nameLabel);
             this.Controls.Add(this.nameComboBox);
+            this.Controls.Add(this.incidentsDataGridView);
             this.Name = "ViewIncidentsByTech";
             this.Text = "View Incidents By Tech";
             this.Load += new System.EventHandler(this.ViewIncidentsByTech_Load);
@@ -229,9 +226,6 @@
         private System.Windows.Forms.BindingSource techniciansBindingSource;
         private TechnicanDataTableAdapters.TechniciansTableAdapter techniciansTableAdapter;
         private TechnicanDataTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.ComboBox nameComboBox;
-        private System.Windows.Forms.TextBox emailTextBox;
-        private System.Windows.Forms.TextBox phoneTextBox;
         private IncidentsData incidentsData;
         private System.Windows.Forms.BindingSource incidentsBindingSource;
         private IncidentsDataTableAdapters.IncidentsTableAdapter incidentsTableAdapter;
@@ -241,5 +235,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Customer;
         private System.Windows.Forms.DataGridViewTextBoxColumn DateOpened;
         private System.Windows.Forms.DataGridViewTextBoxColumn Title;
+        private System.Windows.Forms.ComboBox nameComboBox;
+        private System.Windows.Forms.TextBox emailTextBox;
+        private System.Windows.Forms.TextBox phoneTextBox;
     }
 }

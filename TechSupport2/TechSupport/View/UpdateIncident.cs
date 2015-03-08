@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TechSupport2.TechSupport.Model;
 
 namespace TechSupport2.TechSupport.View
 {
@@ -33,7 +34,7 @@ namespace TechSupport2.TechSupport.View
             try
             {
                 inController = new IncidentController();
-                List<Incidents> technicians = inController.GetTechnicians();
+                List<Technician> technicians = inController.GetTechnicians();
                 technicianBox.DataSource = technicians;
                 technicianBox.DisplayMember = "technician";
                 technicianBox.ValueMember = "technician";

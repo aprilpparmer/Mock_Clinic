@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using OpenIncidents.Controller;
 using PayablesData.model;
+using TechSupport2.TechSupport.Model;
 
 namespace TechSupport2.TechSupport.View
 {
@@ -17,44 +18,66 @@ namespace TechSupport2.TechSupport.View
         public ViewIncidentsByTech()
         {
             InitializeComponent();
-            
-        }
-
-        private void techniciansBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.techniciansBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.technicanData);
 
         }
+
+        private Incidents incident;
+        private List<Incidents> incidentList;
+        private List<Technician> techList;
+        private IncidentController inController;
+
+       
 
         private void ViewIncidentsByTech_Load(object sender, EventArgs e)
         {
+            this.GetTechList();
+
+       
+        }
+
+        private void GetTechList()
+        {
+            inController = new IncidentController();
+            try
+            {
+                // Get the list of Technican objects
+                // and bind the combo box to the list
+                techList = inController.GetTechnicians();
+                nameComboBox.DataSource = techList;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+        }
+
+        private void GetTechIncidents()
+        {
+            int techID = (int)nameComboBox.SelectedValue;
             
-            // TODO: This line of code loads data into the 'technicanData.Technicians' table. You can move, or remove it, as needed.
-            this.techniciansTableAdapter.Fill(this.technicanData.Technicians);
+            inController = new IncidentController();
+            techniciansBindingSource.Clear();
+            //techniciansBindingSource.Add();
+            try
+            {
+                incidentList = inController.GetTechIncident(techID);
+                incidentsDataGridView.DataSource = incidentList;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
 
         }
 
+
+
+
         private void nameComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int techID;
-           try {
-                techID = Convert.ToInt32(nameComboBox.SelectedValue);
-            }
-             catch (Exception)
-            {
-                MessageBox.Show("Invalid Tech ID");
-                return;
-            }
+            this.GetTechIncidents();
 
-       //     IncidentController inController = new IncidentController();
-        //    List<Incidents> incidentList = inController.GetTechIncident(techID);
-        //    incidentsDataGridView.DataSource = incidentList;
-         //   foreach (DataGridViewRow row in incidentsDataGridView.Rows)
-        //    {
-         //       Incidents incedent = (Incidents)row.DataBoundItem;
-        //    }
+
         }
     }
 }

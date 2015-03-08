@@ -5,6 +5,7 @@ using System.Text;
 using System.Data.SqlClient;
 using PayablesData.model;
 using System.Collections;
+using TechSupport2.TechSupport.Model;
 
 namespace OpenIncidents.DAL
 {
@@ -467,12 +468,12 @@ namespace OpenIncidents.DAL
         return incidentList;
     }
 
-    public static List<Incidents> GetTechnicians()
+    public static List<Technician> GetTechnicians()
     {
-        List<Incidents> incidentList = new List<Incidents>();
+        List<Technician> techList = new List<Technician>();
 
         string selectStatement =
-            "SELECT Name from Technicians";
+            "SELECT Name, Phone, Email from Technicians";
 
         try
         {
@@ -486,9 +487,11 @@ namespace OpenIncidents.DAL
                     {
                         while (reader.Read())
                         {
-                            Incidents incidents = new Incidents();
-                            incidents.technician = reader["Name"].ToString();
-                            incidentList.Add(incidents);
+                           Technician tech = new Technician();
+                           tech.name = reader["Name"].ToString();
+                           tech.email = reader["Email"].ToString();
+                           tech.phone = reader["Phone"].ToString();
+                            techList.Add(tech);
 
                         }
 
@@ -509,7 +512,7 @@ namespace OpenIncidents.DAL
         }
 
 
-        return incidentList;
+        return techList;
     }
 
 

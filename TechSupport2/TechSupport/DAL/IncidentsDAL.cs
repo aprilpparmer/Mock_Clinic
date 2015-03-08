@@ -567,7 +567,7 @@ namespace OpenIncidents.DAL
         List<Incidents> incidentList = new List<Incidents>();
 
         string selectStatement =
-            "SELECT SELECT c.Name, p.Name, DateOpened, Title " +
+            "SELECT SELECT c.Name as Customer, p.Name as Product, DateOpened, Title " +
             "FROM Incidents i join Customers c " +
             "ON c.CustomerID = i.CustomerID " +
             "JOIN Products p ON p.ProductCode = i.ProductCode" +
@@ -587,11 +587,9 @@ namespace OpenIncidents.DAL
                         while (reader.Read())
                         {
                             Incidents incidents = new Incidents();
-                            incidents.productCode = reader["ProductCode"].ToString();
-                            incidents.description = reader["Description"].ToString();
+                            incidents.product = reader["Product"].ToString();                          
                             incidents.openDate = (DateTime)reader["DateOpened"];
-                            incidents.customer = reader["custName"].ToString();
-                            incidents.technician = reader["techName"].ToString();
+                            incidents.customer = reader["Customer"].ToString();                            
                             incidents.title = reader["Title"].ToString();
                             incidentList.Add(incidents);
                         }

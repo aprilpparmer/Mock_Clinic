@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using OpenIncidents.Controller;
+using PayablesData.model;
 
 namespace TechSupport2.TechSupport.View
 {
@@ -15,6 +17,7 @@ namespace TechSupport2.TechSupport.View
         public ViewIncidentsByTech()
         {
             InitializeComponent();
+            
         }
 
         private void techniciansBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -27,11 +30,31 @@ namespace TechSupport2.TechSupport.View
 
         private void ViewIncidentsByTech_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'incidentsData.Incidents' table. You can move, or remove it, as needed.
-            this.incidentsTableAdapter.Fill(this.incidentsData.Incidents);
+            
             // TODO: This line of code loads data into the 'technicanData.Technicians' table. You can move, or remove it, as needed.
             this.techniciansTableAdapter.Fill(this.technicanData.Technicians);
 
+        }
+
+        private void nameComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int techID;
+           try {
+                techID = Convert.ToInt32(nameComboBox.SelectedValue);
+            }
+             catch (Exception)
+            {
+                MessageBox.Show("Invalid Tech ID");
+                return;
+            }
+
+       //     IncidentController inController = new IncidentController();
+        //    List<Incidents> incidentList = inController.GetTechIncident(techID);
+        //    incidentsDataGridView.DataSource = incidentList;
+         //   foreach (DataGridViewRow row in incidentsDataGridView.Rows)
+        //    {
+         //       Incidents incedent = (Incidents)row.DataBoundItem;
+        //    }
         }
     }
 }

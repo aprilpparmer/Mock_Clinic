@@ -18,7 +18,7 @@ namespace OpenIncidents.Controller
         public IncidentControllers()
         {
         }
-          /// <summary>
+        /// <summary>
         /// Gets the open incidents
         /// </summary>
         /// <returns>a list of open incidents</returns>
@@ -46,7 +46,7 @@ namespace OpenIncidents.Controller
         /// <returns>the values from the incidents table</returns>
         internal List<Incidents> GetIncident(int p)
         {
-           return IncidentsDAL.GetIncident(p);
+            return IncidentsDAL.GetIncident(p);
         }
         /// <summary>
         /// Updates the incident
@@ -70,7 +70,7 @@ namespace OpenIncidents.Controller
         /// Gets a list of customers
         /// </summary>
         /// <returns>customers</returns>
-        internal  List<Incidents> GetCustomers()
+        internal List<Incidents> GetCustomers()
         {
             return IncidentsDAL.GetCustomers();
         }
@@ -97,7 +97,7 @@ namespace OpenIncidents.Controller
         /// </summary>
         /// <param name="IncidentID"> the id to be checked</param>
         /// <returns>false if it isn't closed, true if it is</returns>
-       internal Boolean GetCloseDate(int IncidentID)
+        internal Boolean GetCloseDate(int IncidentID)
         {
             return IncidentsDAL.GetCloseDate(IncidentID);
         }
@@ -106,13 +106,24 @@ namespace OpenIncidents.Controller
         /// </summary>
         /// <param name="TechID"></param>
         /// <returns></returns>
-       internal List<Incidents> GetTechIncident(int TechID)
-       {
-           return IncidentsDAL.GetTechIncident(TechID);
-       }
-    }
+        internal List<Incidents> GetTechIncident(int TechID)
+        {
+            return IncidentsDAL.GetTechIncident(TechID);
+        }
 
-    
+        /// <summary>
+        /// Gets the phone and email for a technician
+        /// </summary>
+        /// <param name="techID"></param>
+        /// <returns></returns>
+        internal List<Technician> GetTechnicianPhoneAndEmail(int techID)
+        {
+            return IncidentsDAL.GetTechnicianPhoneAndEmail(techID);
+        }
+
+     
+
+    }   
 }
 
 

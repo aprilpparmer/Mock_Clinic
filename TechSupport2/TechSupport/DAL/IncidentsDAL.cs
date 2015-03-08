@@ -7,6 +7,7 @@ using PayablesData.model;
 using System.Collections;
 using TechSupport2.TechSupport.Model;
 
+
 namespace OpenIncidents.DAL
 {
 
@@ -473,7 +474,7 @@ namespace OpenIncidents.DAL
         List<Technician> techList = new List<Technician>();
 
         string selectStatement =
-            "SELECT TechID, Name, Phone, Email from Technicians";
+            "SELECT DISTINCT t.TechID, Name, Phone, Email from Technicians t JOIN Incidents I ON t.TechID = i.TechID";
 
         try
         {
@@ -615,6 +616,54 @@ namespace OpenIncidents.DAL
 
 
         return incidentList;
+    }
+
+    public static List<Technician> GetTechnicianPhoneAndEmail(int techID)
+    {
+        List<Technician> techList = new List<Technician>();
+
+        string selectStatement =
+            "SELECT TechID, Name, Phone, Email from Technicians WHERE TechID = " + techID;
+
+        try
+        {
+            using (SqlConnection connection = TechSupportData.TechniciansDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Technician tech = new Technician();
+                            tech.name = reader["Name"].ToString();
+                            tech.email = reader["Email"].ToString();
+                            tech.phone = reader["Phone"].ToString();
+                            tech.techID = (int)reader["TechID"];
+                            techList.Add(tech);
+
+                        }
+
+
+                    }
+                }
+            }
+
+
+        }
+        catch (SqlException ex)
+        {
+            throw ex;
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+
+
+        return techList;
     }
 
        

@@ -44,10 +44,10 @@
             this.incidentsTableAdapter = new TechSupport2.TechSupportDataSetTableAdapters.IncidentsTableAdapter();
             this.tableAdapterManager1 = new TechSupport2.TechSupportDataSetTableAdapters.TableAdapterManager();
             this.incidentsDataGrid = new System.Windows.Forms.DataGridView();
-            this.customerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateOpenedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateOpened = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             nameLabel = new System.Windows.Forms.Label();
             emailLabel = new System.Windows.Forms.Label();
             phoneLabel = new System.Windows.Forms.Label();
@@ -110,6 +110,7 @@
             this.nameComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.techniciansBindingSource, "Name", true));
             this.nameComboBox.DataSource = this.techniciansBindingSource;
             this.nameComboBox.DisplayMember = "Name";
+            this.nameComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.nameComboBox.FormattingEnabled = true;
             this.nameComboBox.Location = new System.Drawing.Point(102, 12);
             this.nameComboBox.Name = "nameComboBox";
@@ -123,6 +124,7 @@
             this.emailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.techniciansBindingSource, "Email", true));
             this.emailTextBox.Location = new System.Drawing.Point(102, 42);
             this.emailTextBox.Name = "emailTextBox";
+            this.emailTextBox.ReadOnly = true;
             this.emailTextBox.Size = new System.Drawing.Size(195, 22);
             this.emailTextBox.TabIndex = 3;
             // 
@@ -131,6 +133,7 @@
             this.phoneTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.techniciansBindingSource, "Phone", true));
             this.phoneTextBox.Location = new System.Drawing.Point(102, 70);
             this.phoneTextBox.Name = "phoneTextBox";
+            this.phoneTextBox.ReadOnly = true;
             this.phoneTextBox.Size = new System.Drawing.Size(195, 22);
             this.phoneTextBox.TabIndex = 5;
             // 
@@ -166,10 +169,10 @@
             this.incidentsDataGrid.AutoGenerateColumns = false;
             this.incidentsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.incidentsDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.customerIDDataGridViewTextBoxColumn,
-            this.productCodeDataGridViewTextBoxColumn,
-            this.dateOpenedDataGridViewTextBoxColumn,
-            this.titleDataGridViewTextBoxColumn});
+            this.ProductCode,
+            this.DateOpened,
+            this.Column1,
+            this.Title});
             this.incidentsDataGrid.DataSource = this.incidentsBindingSource;
             this.incidentsDataGrid.Location = new System.Drawing.Point(12, 140);
             this.incidentsDataGrid.Name = "incidentsDataGrid";
@@ -178,37 +181,41 @@
             this.incidentsDataGrid.Size = new System.Drawing.Size(694, 181);
             this.incidentsDataGrid.TabIndex = 6;
             // 
-            // customerIDDataGridViewTextBoxColumn
+            // ProductCode
             // 
-            this.customerIDDataGridViewTextBoxColumn.DataPropertyName = "Customer";
-            this.customerIDDataGridViewTextBoxColumn.FillWeight = 150F;
-            this.customerIDDataGridViewTextBoxColumn.HeaderText = "Customer";
-            this.customerIDDataGridViewTextBoxColumn.Name = "customerIDDataGridViewTextBoxColumn";
-            this.customerIDDataGridViewTextBoxColumn.Width = 150;
+            this.ProductCode.DataPropertyName = "Product";
+            this.ProductCode.FillWeight = 150F;
+            this.ProductCode.HeaderText = "Product";
+            this.ProductCode.Name = "ProductCode";
+            this.ProductCode.ReadOnly = true;
+            this.ProductCode.Width = 150;
             // 
-            // productCodeDataGridViewTextBoxColumn
+            // DateOpened
             // 
-            this.productCodeDataGridViewTextBoxColumn.DataPropertyName = "Product";
-            this.productCodeDataGridViewTextBoxColumn.FillWeight = 150F;
-            this.productCodeDataGridViewTextBoxColumn.HeaderText = "Product";
-            this.productCodeDataGridViewTextBoxColumn.Name = "productCodeDataGridViewTextBoxColumn";
-            this.productCodeDataGridViewTextBoxColumn.Width = 150;
+            this.DateOpened.DataPropertyName = "openDate";
+            this.DateOpened.FillWeight = 150F;
+            this.DateOpened.HeaderText = "Date Opened";
+            this.DateOpened.Name = "DateOpened";
+            this.DateOpened.ReadOnly = true;
+            this.DateOpened.Width = 150;
             // 
-            // dateOpenedDataGridViewTextBoxColumn
+            // Column1
             // 
-            this.dateOpenedDataGridViewTextBoxColumn.DataPropertyName = "DateOpened";
-            this.dateOpenedDataGridViewTextBoxColumn.FillWeight = 150F;
-            this.dateOpenedDataGridViewTextBoxColumn.HeaderText = "Date Opened";
-            this.dateOpenedDataGridViewTextBoxColumn.Name = "dateOpenedDataGridViewTextBoxColumn";
-            this.dateOpenedDataGridViewTextBoxColumn.Width = 150;
+            this.Column1.DataPropertyName = "Customer";
+            this.Column1.FillWeight = 150F;
+            this.Column1.HeaderText = "Customer";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 150;
             // 
-            // titleDataGridViewTextBoxColumn
+            // Title
             // 
-            this.titleDataGridViewTextBoxColumn.DataPropertyName = "Title";
-            this.titleDataGridViewTextBoxColumn.FillWeight = 200F;
-            this.titleDataGridViewTextBoxColumn.HeaderText = "Title";
-            this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
-            this.titleDataGridViewTextBoxColumn.Width = 200;
+            this.Title.DataPropertyName = "Title";
+            this.Title.FillWeight = 200F;
+            this.Title.HeaderText = "Title";
+            this.Title.Name = "Title";
+            this.Title.ReadOnly = true;
+            this.Title.Width = 200;
             // 
             // ViewIncidentsByTech
             // 
@@ -249,9 +256,9 @@
         private TechSupportDataSetTableAdapters.IncidentsTableAdapter incidentsTableAdapter;
         private TechSupportDataSetTableAdapters.TableAdapterManager tableAdapterManager1;
         private System.Windows.Forms.DataGridView incidentsDataGrid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productCodeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateOpenedDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DateOpened;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Title;
     }
 }

@@ -115,5 +115,15 @@ namespace OpenIncidents.Controller
         {
             return IncidentsDAL.GetTechIncident(TechID);
         }
+
+        /// <summary>
+        /// Gets the phone and email for a technician
+        /// </summary>
+        /// <param name="techID"></param>
+        /// <returns></returns>
+        internal List<Technician> GetTechnicianPhoneAndEmail(int techID)
+        {
+            return IncidentsDAL.GetTechnicianPhoneAndEmail(techID);
+        }
     }
 }

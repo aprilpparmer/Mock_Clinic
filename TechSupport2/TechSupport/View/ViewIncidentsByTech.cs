@@ -21,14 +21,16 @@ namespace TechSupport2.TechSupport.View
         {
             this.Validate();
             this.techniciansBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.techSupportDataSet);
+            this.tableAdapterManager.UpdateAll(this.technicanData);
 
         }
 
         private void ViewIncidentsByTech_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'techSupportDataSet.Technicians' table. You can move, or remove it, as needed.
-            this.techniciansTableAdapter.Fill(this.techSupportDataSet.Technicians);
+            // TODO: This line of code loads data into the 'incidentsData.Incidents' table. You can move, or remove it, as needed.
+            this.incidentsTableAdapter.Fill(this.incidentsData.Incidents);
+            // TODO: This line of code loads data into the 'technicanData.Technicians' table. You can move, or remove it, as needed.
+            this.techniciansTableAdapter.Fill(this.technicanData.Technicians);
 
         }
     }

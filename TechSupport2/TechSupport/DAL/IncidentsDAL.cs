@@ -562,6 +562,60 @@ namespace OpenIncidents.DAL
         return closed;
     }
 
+    public static List<Incidents> GetTechIncident(int TechID)
+    {
+        List<Incidents> incidentList = new List<Incidents>();
+
+        string selectStatement =
+            "SELECT SELECT c.Name, p.Name, DateOpened, Title " +
+            "FROM Incidents i join Customers c " +
+            "ON c.CustomerID = i.CustomerID " +
+            "JOIN Products p ON p.ProductCode = i.ProductCode" +
+            "Join Technicians t ON " +
+            "i.TechID = "+TechID +" WHERE IncidentID = IncidentID";
+
+        try
+        {
+            using (SqlConnection connection = TechSupportData.TechniciansDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Incidents incidents = new Incidents();
+                            incidents.productCode = reader["ProductCode"].ToString();
+                            incidents.description = reader["Description"].ToString();
+                            incidents.openDate = (DateTime)reader["DateOpened"];
+                            incidents.customer = reader["custName"].ToString();
+                            incidents.technician = reader["techName"].ToString();
+                            incidents.title = reader["Title"].ToString();
+                            incidentList.Add(incidents);
+                        }
+                        reader.Dispose();
+                    }
+                    connection.Close();
+                }
+            }
+
+
+        }
+        catch (SqlException ex)
+        {
+            throw ex;
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+
+
+        return incidentList;
+    }
+
        
         
     }

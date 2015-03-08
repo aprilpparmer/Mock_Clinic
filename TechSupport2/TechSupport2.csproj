@@ -44,11 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ComboIncidentData.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ComboIncidentData.xsd</DependentUpon>
-    </Compile>
     <Compile Include="IncidentsData.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -116,17 +111,6 @@
     <EmbeddedResource Include="TechSupport\View\ViewIncidentsByTech.resx">
       <DependentUpon>ViewIncidentsByTech.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="ComboIncidentData.xsc">
-      <DependentUpon>ComboIncidentData.xsd</DependentUpon>
-    </None>
-    <None Include="ComboIncidentData.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ComboIncidentData.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="ComboIncidentData.xss">
-      <DependentUpon>ComboIncidentData.xsd</DependentUpon>
-    </None>
     <None Include="IncidentsData.xsc">
       <DependentUpon>IncidentsData.xsd</DependentUpon>
     </None>

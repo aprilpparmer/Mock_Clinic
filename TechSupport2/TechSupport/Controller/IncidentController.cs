@@ -100,6 +100,18 @@ namespace OpenIncidents.Controller
         {
             return IncidentsDAL.GetCloseDate(IncidentID);
         }
+        /// <summary>
+        /// Gets open incidents for that technician
+        /// </summary>
+        /// <param name="TechID"></param>
+        /// <returns></returns>
+       internal List<Incidents> GetTechIncident(int TechID)
+       {
+           return IncidentsDAL.GetTechIncident(TechID);
+       }
     }
 
+    
 }
+
+

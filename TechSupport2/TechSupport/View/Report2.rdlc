@@ -520,9 +520,7 @@
                                         </Style>
                                       </TextRun>
                                     </TextRuns>
-                                    <Style>
-                                      <TextAlign>Center</TextAlign>
-                                    </Style>
+                                    <Style />
                                   </Paragraph>
                                 </Paragraphs>
                                 <rd:DefaultName>DateOpened</rd:DefaultName>
@@ -538,7 +536,6 @@
                                   <PaddingBottom>2pt</PaddingBottom>
                                 </Style>
                               </Textbox>
-                              <rd:Selected>true</rd:Selected>
                             </CellContents>
                           </TablixHeader>
                           <TablixMembers>
@@ -633,7 +630,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Total Incidents Assigned </Value>
+                <Value> Assigned Incidents: </Value>
                 <Style>
                   <FontFamily>Tahoma</FontFamily>
                   <FontWeight>Bold</FontWeight>
@@ -655,8 +652,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox15</rd:DefaultName>
-        <Top>1.38611in</Top>
-        <Left>0.00833in</Left>
+        <Top>1.43611in</Top>
         <Height>0.25in</Height>
         <Width>7.23333in</Width>
         <ZIndex>1</ZIndex>
@@ -680,9 +676,7 @@
             <TextRuns>
               <TextRun>
                 <Value>Open Incidents Assigned to Technicians</Value>
-                <Style>
-                  <FontSize>16pt</FontSize>
-                </Style>
+                <Style />
               </TextRun>
             </TextRuns>
             <Style />
@@ -690,9 +684,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox53</rd:DefaultName>
         <Top>0.11944in</Top>
-        <Left>1.625in</Left>
-        <Height>0.37778in</Height>
-        <Width>4.18333in</Width>
+        <Left>2.55833in</Left>
+        <Height>0.19167in</Height>
+        <Width>2.50833in</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>

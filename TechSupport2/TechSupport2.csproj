@@ -32,8 +32,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,10 +47,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ReportDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Technician.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Technician.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TechSupportDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TechSupportDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TechSupportDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TechSupportDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TechSupportDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TechSupportDataSet3.xsd</DependentUpon>
     </Compile>
     <Compile Include="TechSupport\Model\Technician.cs" />
     <Compile Include="TechSupport\Validator.cs" />
@@ -60,6 +83,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>TechSupportDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TechSupport\View\DisplayOpenIncidentsReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TechSupport\View\DisplayOpenIncidentsReport.Designer.cs">
+      <DependentUpon>DisplayOpenIncidentsReport.cs</DependentUpon>
     </Compile>
     <Compile Include="TechSupport\View\UpdateIncident.cs">
       <SubType>Form</SubType>
@@ -92,6 +121,11 @@
     <Compile Include="TechSupport\View\ViewIncidentsByTech.Designer.cs">
       <DependentUpon>ViewIncidentsByTech.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TechSupport\View\DisplayOpenIncidentsReport.resx">
+      <DependentUpon>DisplayOpenIncidentsReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TechSupport\View\Report1.rdlc" />
+    <EmbeddedResource Include="TechSupport\View\Report2.rdlc" />
     <EmbeddedResource Include="TechSupport\View\TechSupport.resx">
       <DependentUpon>TechSupport.cs</DependentUpon>
     </EmbeddedResource>
@@ -107,6 +141,8 @@
     <EmbeddedResource Include="TechSupport\View\ViewIncidentsByTech.resx">
       <DependentUpon>ViewIncidentsByTech.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\OpenIncidents.Controller.IncidentController.datasource" />
+    <None Include="Properties\DataSources\OpenIncidents.Controller.IncidentControllers.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -116,6 +152,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="ReportDataSet.xsc">
+      <DependentUpon>ReportDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ReportDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReportDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ReportDataSet.xss">
+      <DependentUpon>ReportDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Technician.xsc">
       <DependentUpon>Technician.xsd</DependentUpon>
     </None>
@@ -140,6 +187,39 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="TechSupportDataSet1.xsc">
+      <DependentUpon>TechSupportDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="TechSupportDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TechSupportDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TechSupportDataSet1.xss">
+      <DependentUpon>TechSupportDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="TechSupportDataSet2.xsc">
+      <DependentUpon>TechSupportDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="TechSupportDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TechSupportDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TechSupportDataSet2.xss">
+      <DependentUpon>TechSupportDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="TechSupportDataSet3.xsc">
+      <DependentUpon>TechSupportDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="TechSupportDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TechSupportDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TechSupportDataSet3.xss">
+      <DependentUpon>TechSupportDataSet3.xsd</DependentUpon>
+    </None>
     <None Include="TechSupport\App.config" />
   </ItemGroup>
   <ItemGroup>

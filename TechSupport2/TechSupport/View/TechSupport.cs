@@ -27,6 +27,7 @@ namespace TechSupport2
         TechSupport2.View.OpenIncidents f3;
         UpdateIncident f4;
         ViewIncidentsByTech f5;
+        DisplayOpenIncidentsReport f6;
 
         /// <summary>
         /// deals with the open incidents form
@@ -135,7 +136,7 @@ private void getInicdentsByTechnicanToolStripMenuItem_Click(object sender, Event
         f5 = new ViewIncidentsByTech();
         f5.MdiParent = this;
         f5.Show();
-        f5.FormClosed += f3_FormClosed;
+        f5.FormClosed += f5_FormClosed;
     }
     else
         f5.Activate();
@@ -144,6 +145,24 @@ private void getInicdentsByTechnicanToolStripMenuItem_Click(object sender, Event
 private void f5_FormClosed(object sender, FormClosedEventArgs e)
 {
     f5 = null;
+}
+
+private void displayOpenIncidentsReportToolStripMenuItem_Click(object sender, EventArgs e)
+{
+    if (f6 == null)
+    {
+        f6 = new DisplayOpenIncidentsReport();
+        f6.MdiParent = this;
+        f6.Show();
+        f6.FormClosed += f6_FormClosed;
+    }
+    else
+        f5.Activate();
+}
+
+private void f6_FormClosed(object sender, FormClosedEventArgs e)
+{
+    f6 = null;
 }
         
        

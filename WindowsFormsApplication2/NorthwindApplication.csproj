@@ -44,159 +44,114 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NWGenerateReport.cs">
+    <Compile Include="Other\NWGenerateReport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NWGenerateReport.Designer.cs">
+    <Compile Include="Other\NWGenerateReport.Designer.cs">
       <DependentUpon>NWGenerateReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="NWSearchTest.cs">
+    <Compile Include="Other\NWSearchTest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NWSearchTest.Designer.cs">
+    <Compile Include="Other\NWSearchTest.Designer.cs">
       <DependentUpon>NWSearchTest.cs</DependentUpon>
     </Compile>
-    <Compile Include="NWNurseSearch.cs">
+    <Compile Include="Other\NWNurseSearch.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NWNurseSearch.Designer.cs">
+    <Compile Include="Other\NWNurseSearch.Designer.cs">
       <DependentUpon>NWNurseSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="NWDocSearch.cs">
+    <Compile Include="Other\NWDocSearch.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NWDocSearch.Designer.cs">
+    <Compile Include="Other\NWDocSearch.Designer.cs">
       <DependentUpon>NWDocSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="NWUpdateTest.cs">
+    <Compile Include="Other\NWUpdateTest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NWUpdateTest.Designer.cs">
+    <Compile Include="Other\NWUpdateTest.Designer.cs">
       <DependentUpon>NWUpdateTest.cs</DependentUpon>
     </Compile>
-    <Compile Include="NWUpdateDoc.cs">
+    <Compile Include="Other\NWUpdateDoc.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NWUpdateDoc.Designer.cs">
+    <Compile Include="Other\NWUpdateDoc.Designer.cs">
       <DependentUpon>NWUpdateDoc.cs</DependentUpon>
     </Compile>
-    <Compile Include="NWSearchDoc.cs">
+    <Compile Include="Other\NWOrderTest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NWSearchDoc.Designer.cs">
-      <DependentUpon>NWSearchDoc.cs</DependentUpon>
-    </Compile>
-    <Compile Include="NWRegisterTest.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NWRegisterTest.Designer.cs">
-      <DependentUpon>NWRegisterTest.cs</DependentUpon>
-    </Compile>
-    <Compile Include="NWRegisterNurses.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NWRegisterNurses.Designer.cs">
-      <DependentUpon>NWRegisterNurses.cs</DependentUpon>
-    </Compile>
-    <Compile Include="NWRegisterDoc.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NWRegisterDoc.Designer.cs">
-      <DependentUpon>NWRegisterDoc.cs</DependentUpon>
-    </Compile>
-    <Compile Include="NorthwindAdminHome.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NorthwindAdminHome.Designer.cs">
-      <DependentUpon>NorthwindAdminHome.cs</DependentUpon>
-    </Compile>
-    <Compile Include="NWOrderTest.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NWOrderTest.Designer.cs">
+    <Compile Include="Other\NWOrderTest.Designer.cs">
       <DependentUpon>NWOrderTest.cs</DependentUpon>
     </Compile>
-    <Compile Include="NorthwindHome.cs">
+    <Compile Include="Other\NorthwindHome.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NorthwindHome.Designer.cs">
+    <Compile Include="Other\NorthwindHome.Designer.cs">
       <DependentUpon>NorthwindHome.cs</DependentUpon>
     </Compile>
-    <Compile Include="NWLogin.cs">
+    <Compile Include="Other\NWLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NWLogin.Designer.cs">
+    <Compile Include="Other\NWLogin.Designer.cs">
       <DependentUpon>NWLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="NWPatientSearch.cs">
+    <Compile Include="Other\NWPatientSearch.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NWPatientSearch.Designer.cs">
+    <Compile Include="Other\NWPatientSearch.Designer.cs">
       <DependentUpon>NWPatientSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="NWNewVisit.cs">
+    <Compile Include="Other\NWNewVisit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NWNewVisit.Designer.cs">
+    <Compile Include="Other\NWNewVisit.Designer.cs">
       <DependentUpon>NWNewVisit.cs</DependentUpon>
     </Compile>
-    <Compile Include="NWNewPatient.cs">
+    <Compile Include="Other\NWNewPatient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NWNewPatient.Designer.cs">
+    <Compile Include="Other\NWNewPatient.Designer.cs">
       <DependentUpon>NWNewPatient.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="Controller\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="NWGenerateReport.resx">
+    <EmbeddedResource Include="Other\NWGenerateReport.resx">
       <DependentUpon>NWGenerateReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NWNurseSearch.resx">
+    <EmbeddedResource Include="Other\NWNurseSearch.resx">
       <DependentUpon>NWNurseSearch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NWDocSearch.resx">
+    <EmbeddedResource Include="Other\NWDocSearch.resx">
       <DependentUpon>NWDocSearch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NWRegisterTest.resx">
-      <DependentUpon>NWRegisterTest.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NWRegisterNurses.resx">
-      <DependentUpon>NWRegisterNurses.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NorthwindAdminHome.resx">
-      <DependentUpon>NorthwindAdminHome.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NWOrderTest.resx">
+    <EmbeddedResource Include="Other\NWOrderTest.resx">
       <DependentUpon>NWOrderTest.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NorthwindHome.resx">
+    <EmbeddedResource Include="Other\NorthwindHome.resx">
       <DependentUpon>NorthwindHome.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NWLogin.resx">
+    <EmbeddedResource Include="Other\NWLogin.resx">
       <DependentUpon>NWLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NWPatientSearch.resx">
+    <EmbeddedResource Include="Other\NWPatientSearch.resx">
       <DependentUpon>NWPatientSearch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NWNewVisit.resx">
+    <EmbeddedResource Include="Other\NWNewVisit.resx">
       <DependentUpon>NWNewVisit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NWNewPatient.resx">
+    <EmbeddedResource Include="Other\NWNewPatient.resx">
       <DependentUpon>NWNewPatient.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NWRegisterDoc.resx">
-      <DependentUpon>NWRegisterDoc.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NWSearchDoc.resx">
-      <DependentUpon>NWSearchDoc.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NWSearchTest.resx">
+    <EmbeddedResource Include="Other\NWSearchTest.resx">
       <DependentUpon>NWSearchTest.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NWUpdateDoc.resx">
+    <EmbeddedResource Include="Other\NWUpdateDoc.resx">
       <DependentUpon>NWUpdateDoc.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NWUpdateTest.resx">
+    <EmbeddedResource Include="Other\NWUpdateTest.resx">
       <DependentUpon>NWUpdateTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -220,6 +175,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DAL\" />
+    <Folder Include="Model\" />
+    <Folder Include="View\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

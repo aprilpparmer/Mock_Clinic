@@ -51,9 +51,9 @@ namespace OpenIncidents.DAL
                                 incidentList.Add(incidents);
                             }
                             
-                            reader.Dispose();
+                            
                         }
-                    }  connection.Close();
+                    }  
                 }
 
 
@@ -96,9 +96,9 @@ namespace OpenIncidents.DAL
                                productCode = reader["ProductCode"].ToString();
                                
                             }
-                            reader.Dispose();
+                            
                         } 
-                        connection.Close();
+                        
                     }
                 }
 
@@ -146,9 +146,9 @@ namespace OpenIncidents.DAL
                                string customer = reader["CustomerID"].ToString();
                                customerID = Convert.ToInt32(customer);
                             }
-                            reader.Dispose();
+                            
                         }
-                        connection.Close();
+                        
                     }
                 }
 
@@ -197,9 +197,9 @@ namespace OpenIncidents.DAL
                                  string customer = reader["TechID"].ToString();
                                  techID = Convert.ToInt32(customer);
                              }
-                             reader.Dispose();
+                             
                          }
-                         connection.Close();
+                         
                      }
                  }
 
@@ -299,9 +299,9 @@ namespace OpenIncidents.DAL
                             incidents.title = reader["Title"].ToString();
                             incidentList.Add(incidents);
                         }
-                        reader.Dispose();
+                        
                     }
-                    connection.Close();
+                    
                 }
             }
 
@@ -597,9 +597,9 @@ namespace OpenIncidents.DAL
                             incidents.title = reader["Title"].ToString();
                             incidentList.Add(incidents);
                         }
-                        reader.Dispose();
+                        
                     }
-                    connection.Close();
+                    
                 }
             }
 

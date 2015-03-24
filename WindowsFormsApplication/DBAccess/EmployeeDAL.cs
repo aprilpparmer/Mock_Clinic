@@ -20,7 +20,7 @@ namespace WindowsFormsApplication.DBAccess
                 using (SqlConnection connection = NorthwindDbConnection.GetConnection())
                 {
                     connection.Open();
-
+                    
                     using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
                     {
                         using (SqlDataReader reader = selectCommand.ExecuteReader())
@@ -34,10 +34,13 @@ namespace WindowsFormsApplication.DBAccess
                                 employee.LastName = reader["last_name"].ToString().Trim();
                                 employee.Login = reader["login"].ToString().Trim();
                                 employee.Password = reader["password"].ToString().Trim();
-                                employee.PositionId = (Int32)reader["positionID"];
-                                return employee;
+                                employee.PositionId = (Int32)reader["positionID"];                              
+                                
                             }
                         }
+                                selectStatement = " Update employees SET last_login = getdate() where employeeID = " + employee.EmployeeId;
+                                SqlCommand selectCommand2 = new SqlCommand(selectStatement, connection);
+                                selectCommand2.ExecuteNonQuery();
 
                     }
                 }

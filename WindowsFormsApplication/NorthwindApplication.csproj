@@ -47,7 +47,6 @@
     <Compile Include="Controller\NorthwindController.cs" />
     <Compile Include="DBAccess\DiagnosesDAL.cs" />
     <Compile Include="DBAccess\EmployeeDAL.cs" />
-    <Compile Include="DBAccess\NorthwindDAL.cs" />
     <Compile Include="DBAccess\NorthwindDBConnection.cs" />
     <Compile Include="DBAccess\PatientDAL.cs" />
     <Compile Include="DBAccess\PatientAllergiesDAL.cs" />

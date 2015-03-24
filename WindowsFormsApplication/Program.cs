@@ -14,7 +14,9 @@ namespace WindowsFormsApplication
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new NorthwindAdmin());
+            NwLogin login = new NwLogin();
+            login.Show();
+            Application.Run();
         }
     }
 }

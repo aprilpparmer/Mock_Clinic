@@ -51,5 +51,19 @@ namespace WindowsFormsApplication.View
         {
             this.Close();
         }
+
+        private void NwLogin_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+
+            Environment.Exit(0);
+        }
+
+        
     }
 }

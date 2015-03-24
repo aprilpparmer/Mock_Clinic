@@ -1,16 +1,17 @@
 ﻿using System;
 using WindowsFormsApplication.DBAccess;
+using WindowsFormsApplication.Model;
 
 namespace WindowsFormsApplication.Controller
 {
     public class NorthwindController
     {
-        internal String LogIn(string name, string password)
+        internal Employee LogIn(string name, string password)
         {
             return EmployeeDal.LogIn(name, password);
         }
 
-        internal Boolean ValidLogIn(String name, String password)
+        internal Employee ValidLogIn(String name, String password)
         {
             return EmployeeDal.ValidNurseLogIn(name, password);
         }

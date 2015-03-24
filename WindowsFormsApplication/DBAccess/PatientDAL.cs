@@ -31,7 +31,7 @@ namespace WindowsFormsApplication.DBAccess
                                 patient.City = reader["city"].ToString().Trim();
                                 patient.Dob = (DateTime)reader["dob"];
                                 patient.FirstName = reader["first_name"].ToString().Trim();
-                                patient.Gender = (char)reader["gender"];
+                                patient.Gender = reader["gender"].ToString().Trim();
                                 patient.LastName = reader["last_name"].ToString().Trim();
                                 patient.MiddleInitial = reader["middle_initial"].ToString().Trim();
                                 patient.HomePhone = reader["home_phone"].ToString().Trim();

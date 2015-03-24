@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using WindowsFormsApplication.Controller;
+using WindowsFormsApplication.Model;
 
 namespace WindowsFormsApplication.View
 {
@@ -26,23 +27,28 @@ namespace WindowsFormsApplication.View
             String password = PasswordBox.Text;
             try
             {
-                String user = _controller.LogIn(name, password);
-                Boolean valid = _controller.ValidLogIn(name, password);
-                if (valid == true) {
-                NorthwindAdmin home = new NorthwindAdmin(user);
-                    home.Show();
-                    this.Hide();
-                }
-                else
+                Employee employee = _controller.LogIn(name, password);
+               
+                if (employee == null)
                 {
                     MessageBox.Show(@"No valid user found, please try your user name and password again");
+                } else if (employee.PositionId == 1)
+                {
+                    MessageBox.Show(@"Valid Account.");
+                    NorthwindAdmin home = new NorthwindAdmin(employee);
+                    home.Show();
+                    this.Hide();
+                } else
+                {
+                    MessageBox.Show(@"Only Nurses May login at this time.");
                 }
                 
                 
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
+
+                MessageBox.Show(ex.Message, ex.GetType().ToString() + "Something happened");
             }
 
         }

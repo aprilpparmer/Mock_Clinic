@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using WindowsFormsApplication.Model;
 
 namespace WindowsFormsApplication.View
 {
@@ -13,9 +14,10 @@ namespace WindowsFormsApplication.View
             _loginScreen.Show();
         }
 
-        public NorthwindAdmin(string username)
+        public NorthwindAdmin(Employee employee)
         {
-            InitializeComponent();          
+            InitializeComponent();
+            String username = employee.FirstName + " " + employee.LastName;
             UserLabel.Text = "Welcome " + username;
             NWmenuStrip.Enabled = true;
             UserLabel.Visible = true;

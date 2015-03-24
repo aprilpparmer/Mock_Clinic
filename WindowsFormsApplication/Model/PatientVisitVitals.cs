@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApplication.Model
 {
-    class PatientVisitVitals
+    public class PatientVisitVitals
     {
         public int VistalsId { get; set; }
         public int VisitId { get; set; }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApplication.Model
 {
-    class Employee
+    public class Employee
     {
         public int EmployeeId { get; set; }
         public string FirstName { get; set; }
@@ -14,7 +14,7 @@ namespace WindowsFormsApplication.Model
         public string LastName { get; set; }
         public int Ssn { get; set; }
         public DateTime Dob { get; set; }
-        public Char Gender { get; set; }
+        public string Gender { get; set; }
         public string Address { get; set; }
         public string City { get; set; }
         public string State { get; set; }
@@ -23,7 +23,7 @@ namespace WindowsFormsApplication.Model
         public string Login { get; set; }
         public string Password { get; set; }
         public string LastLogin { get; set; }
-        public int Enabled { get; set; }
+        public Byte Enabled { get; set; }
         public int PositionId { get; set; }
     }
 }

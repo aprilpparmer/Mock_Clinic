@@ -7,7 +7,7 @@ namespace WindowsFormsApplication.View
 {
     public partial class NwLogin : Form
     {
-        NorthwindController _controller;
+        NorthwindController _controller = new NorthwindController();
 
         public NwLogin()
         {
@@ -22,7 +22,7 @@ namespace WindowsFormsApplication.View
 
         private void button1_Click(object sender, EventArgs e)
         {
-            _controller = new NorthwindController();
+            
             String name = NameBox.Text;
             String password = PasswordBox.Text;
             try

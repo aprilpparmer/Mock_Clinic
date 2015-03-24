@@ -62,5 +62,49 @@ namespace WindowsFormsApplication.DBAccess
             return patientList;
         }
 
+        public static void AddPatients(Patient patient)
+        {
+            //string dateNow = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+
+            const string insertStatement = "INSERT into patients " +
+                                           " (patientID, address, city, dob, first_name, gender, last_name, middle_initial, home_phone, work_phone, ssn, state, zip) " +
+                                           " values(@patientID, @address, @city, @dob, @first_name, @gender, @last_name, @middle_initial, @home_phone, @work_phone, @ssn, @state, @zip)";
+
+            try
+            {
+                using (SqlConnection connection = NorthwindDbConnection.GetConnection())
+                {
+                    connection.Open();
+
+                    using (SqlCommand insertCommand = new SqlCommand(insertStatement, connection))
+                    {
+
+                        insertCommand.Parameters.AddWithValue("@patientID", patient.PatientId);
+                        insertCommand.Parameters.AddWithValue("@address", patient.Address);
+                        insertCommand.Parameters.AddWithValue("@city", patient.City);
+                        insertCommand.Parameters.AddWithValue("@dob", patient.Dob);
+                        insertCommand.Parameters.AddWithValue("@first_name", patient.FirstName);
+                        insertCommand.Parameters.AddWithValue("@gender", patient.Gender);
+                        insertCommand.Parameters.AddWithValue("@last_name", patient.LastName);
+                        insertCommand.Parameters.AddWithValue("@middle_initial", patient.MiddleInitial);
+                        insertCommand.Parameters.AddWithValue("@home_phone", patient.HomePhone);
+                        insertCommand.Parameters.AddWithValue("@work_phone", patient.WorkPhone);
+                        insertCommand.Parameters.AddWithValue("@ssn", patient.Ssn);
+                        insertCommand.Parameters.AddWithValue("@state", patient.State);
+                        insertCommand.Parameters.AddWithValue("@zip", patient.Zip);
+                        insertCommand.ExecuteNonQuery();
+                    }
+
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

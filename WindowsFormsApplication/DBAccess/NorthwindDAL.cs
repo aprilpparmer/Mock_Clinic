@@ -52,6 +52,7 @@ namespace WindowsFormsApplication.DBAccess
 
             return valid;
         }
+
         public static String LogIn(String userName, String password)
         {
             String name = " ";

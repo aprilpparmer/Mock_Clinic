@@ -5,7 +5,7 @@
         public int NurseId { get; set; }
         public string Name { get; set; }
         public string Username { get; set; }
-        private string Password { get; set; }
+        public string Password { get; set; }
          
     }
 }

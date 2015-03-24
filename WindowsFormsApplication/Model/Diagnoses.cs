@@ -11,6 +11,6 @@ namespace WindowsFormsApplication.Model
         public int DiagnosesId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        private string Treatment { get; set; }
+        public string Treatment { get; set; }
     }
 }

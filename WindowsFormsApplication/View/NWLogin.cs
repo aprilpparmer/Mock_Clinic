@@ -51,5 +51,12 @@ namespace WindowsFormsApplication.View
         {
             this.Close();
         }
+
+        private void NwLogin_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }

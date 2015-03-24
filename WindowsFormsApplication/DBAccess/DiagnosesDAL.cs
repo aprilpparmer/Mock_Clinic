@@ -15,6 +15,7 @@ namespace WindowsFormsApplication.DBAccess
             List<Diagnoses> diagList = new List<Diagnoses>();
             string selectStatement =
                 "Select * from diagnoses";
+            
 
             try
             {
@@ -32,15 +33,9 @@ namespace WindowsFormsApplication.DBAccess
 
                                 diag.Description = reader["Description"].ToString().Trim();
                                 diag.DiagnosesId = (Int32)reader["positionID"];
-                                diag.Name == reader["Name"].ToString().Trim();
-                                diag.t
-                                String currentPassword = reader["login"].ToString().Trim();
-                                Int32 nurse = (Int32)reader["positionID"];
-
-                                if (currentUser == userName && currentPassword == password && nurse == 1)
-                                {
-                                    valid = true;
-                                }
+                                diag.Name = reader["Name"].ToString().Trim();
+                               // diag.t
+                            
 
 
                             }
@@ -58,7 +53,7 @@ namespace WindowsFormsApplication.DBAccess
                 throw ex;
             }
 
-            return valid;
+            return diagList;
         }
     }
 }

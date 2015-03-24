@@ -50,5 +50,15 @@ namespace WindowsFormsApplication.View
 
             Environment.Exit(0);
         }
+
+        private void RegisterPatient_Click(object sender, EventArgs e)
+        {
+            NwNewPatient NwNewPatientViewForm = NwNewPatient.GetChildInstance();
+            NwNewPatientViewForm.MdiParent = this;
+            NwNewPatientViewForm.Show();
+            NwNewPatientViewForm.BringToFront();
+        }
+
+       
     }
 }

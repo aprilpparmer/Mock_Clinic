@@ -13,8 +13,7 @@ namespace WindowsFormsApplication.DBAccess
         public static List<Diagnoses> GetAllDiagnoses()
         {
             List<Diagnoses> diagList = new List<Diagnoses>();
-            string selectStatement =
-                "Select * from diagnoses";
+            const string selectStatement = "Select * from diagnoses";
 
             try
             {
@@ -32,16 +31,10 @@ namespace WindowsFormsApplication.DBAccess
 
                                 diag.Description = reader["Description"].ToString().Trim();
                                 diag.DiagnosesId = (Int32)reader["positionID"];
-                                diag.Name == reader["Name"].ToString().Trim();
-                                diag.t
-                                String currentPassword = reader["login"].ToString().Trim();
-                                Int32 nurse = (Int32)reader["positionID"];
+                                diag.Name = reader["Name"].ToString().Trim();
+                                diag.Treatment = reader["Name"].ToString().Trim();
 
-                                if (currentUser == userName && currentPassword == password && nurse == 1)
-                                {
-                                    valid = true;
-                                }
-
+                                diagList.Add(diag);
 
                             }
                         }
@@ -58,7 +51,11 @@ namespace WindowsFormsApplication.DBAccess
                 throw ex;
             }
 
-            return valid;
+            return diagList;
         }
+
+
+
+
     }
 }

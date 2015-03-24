@@ -10,7 +10,7 @@ namespace WindowsFormsApplication.DBAccess
         public static List<Patient> GetAllPatients()
         {
             List<Patient> patientList = new List<Patient>();
-            const string selectStatement = "Select * from employees";
+            const string selectStatement = "Select * from patients";
 
             try
             {

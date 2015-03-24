@@ -9,11 +9,9 @@ namespace WindowsFormsApplication.DBAccess
     {
         public static Boolean ValidNurseLogIn(String userName, String password)
         {
-            
-            Boolean valid = false;
             string selectStatement =
                 "Select first_name, last_name, login, password, positionID FROM employees where login = '" +
-                userName + "' and password = '" + password + "'";
+                userName + "' and password = '" + password + "' and positionID = 1 ";
 
             try
             {
@@ -27,15 +25,8 @@ namespace WindowsFormsApplication.DBAccess
                         {
                             while (reader.Read())
                             {
-                                    String currentUser = reader["login"].ToString().Trim();
-                                    String currentPassword = reader["login"].ToString().Trim();
-                                    Int32 nurse = (Int32)reader["positionID"];
 
-                                    if (currentUser == userName && currentPassword == password && nurse == 1)
-                                {
-                                    valid = true;
-                                }
-                                
+                                return  true;
                                 
                             }
                         }
@@ -52,7 +43,7 @@ namespace WindowsFormsApplication.DBAccess
                 throw ex;
             }
 
-            return valid;
+            return false;
         }
 
         public static List<Employee> GetAllEmployees()

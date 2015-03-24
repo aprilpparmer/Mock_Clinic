@@ -123,7 +123,6 @@ namespace WindowsFormsApplication.DBAccess
 
         public static Employee LogIn(String userName, String password)
         {
-            String name = " ";
             string selectStatement =
                 "Select * FROM employees where login = '" +
                 userName + "' and password = '" + password +"'";
@@ -151,10 +150,8 @@ namespace WindowsFormsApplication.DBAccess
                                 employee.FirstName = reader["first_name"].ToString().Trim();
                                 employee.Gender = reader["gender"].ToString().Trim();
                                 employee.LastLogin = reader["last_login"].ToString().Trim();
-                                MessageBox.Show(@"step 5", "here");
                                 employee.LastName = reader["last_name"].ToString().Trim();
                                 employee.Login = reader["login"].ToString().Trim();
-                                MessageBox.Show(@"step 6", "here");
                                 employee.MiddleInitial = reader["middle_initial"].ToString().Trim();
                                 employee.Password = reader["password"].ToString().Trim();
                                 employee.Phone = reader["phone"].ToString().Trim();

@@ -7,12 +7,12 @@ namespace WindowsFormsApplication.Controller
     {
         internal String LogIn(string name, string password)
         {
-            return NorthwindDal.LogIn(name, password);
+            return EmployeeDal.LogIn(name, password);
         }
 
         internal Boolean ValidLogIn(String name, String password)
         {
-            return NorthwindDal.ValidNurseLogIn(name, password);
+            return EmployeeDal.ValidNurseLogIn(name, password);
         }
     }
 }

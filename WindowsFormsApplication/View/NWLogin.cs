@@ -31,7 +31,7 @@ namespace WindowsFormsApplication.View
                 if (valid == true) {
                 NorthwindAdmin home = new NorthwindAdmin(user);
                     home.Show();
-                    this.Close();
+                    this.Hide();
                 }
                 else
                 {

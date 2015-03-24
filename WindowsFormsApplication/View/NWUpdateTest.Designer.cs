@@ -1,6 +1,6 @@
-﻿namespace WindowsFormsApplication2
+﻿namespace WindowsFormsApplication.View
 {
-    partial class NWUpdateTest
+    partial class NwUpdateTest
     {
         /// <summary>
         /// Required designer variable.
@@ -97,7 +97,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.NWRegisterNurse);
-            this.Name = "NWUpdateTest";
+            this.Name = "NwUpdateTest";
             this.Text = "Update Test";
             this.ResumeLayout(false);
             this.PerformLayout();

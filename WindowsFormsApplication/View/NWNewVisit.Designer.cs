@@ -1,6 +1,6 @@
-﻿namespace WindowsFormsApplication2
+﻿namespace WindowsFormsApplication.View
 {
-    partial class NWNewVisit
+    partial class NwNewVisit
     {
         /// <summary>
         /// Required designer variable.
@@ -173,7 +173,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "NWNewVisit";
+            this.Name = "NwNewVisit";
             this.Text = "New Visit";
             this.ResumeLayout(false);
             this.PerformLayout();

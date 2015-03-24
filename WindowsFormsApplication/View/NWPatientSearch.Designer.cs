@@ -1,6 +1,6 @@
-﻿namespace WindowsFormsApplication2
+﻿namespace WindowsFormsApplication.View
 {
-    partial class NWPatientSearch
+    partial class NwPatientSearch
     {
         /// <summary>
         /// Required designer variable.
@@ -76,7 +76,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1011, 445);
             this.Controls.Add(this.listView1);
-            this.Name = "NWPatientSearch";
+            this.Name = "NwPatientSearch";
             this.Text = "Patient Search";
             this.ResumeLayout(false);
 

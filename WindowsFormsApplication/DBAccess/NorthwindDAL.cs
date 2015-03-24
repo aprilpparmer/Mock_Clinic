@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
 
-namespace WindowsFormsApplication2.DBAccess
+namespace WindowsFormsApplication.DBAccess
 {
-    class NorthwindDAL
+    class NorthwindDal
     {
-        public static Boolean validNurseLogIn(String userName, String password)
+        public static Boolean ValidNurseLogIn(String userName, String password)
         {
             
             Boolean valid = false;
@@ -19,7 +15,7 @@ namespace WindowsFormsApplication2.DBAccess
 
             try
             {
-                using (SqlConnection connection = NorthwindDBConnection.GetConnection())
+                using (SqlConnection connection = NorthwindDbConnection.GetConnection())
                 {
                     connection.Open();
 
@@ -65,7 +61,7 @@ namespace WindowsFormsApplication2.DBAccess
 
             try
             {
-                using (SqlConnection connection = NorthwindDBConnection.GetConnection())
+                using (SqlConnection connection = NorthwindDbConnection.GetConnection())
                 {
                     connection.Open();
 

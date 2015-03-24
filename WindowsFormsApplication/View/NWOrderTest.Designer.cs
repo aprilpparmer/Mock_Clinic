@@ -1,6 +1,6 @@
-﻿namespace WindowsFormsApplication2
+﻿namespace WindowsFormsApplication.View
 {
-    partial class NWOrderTest
+    partial class NwOrderTest
     {
         /// <summary>
         /// Required designer variable.

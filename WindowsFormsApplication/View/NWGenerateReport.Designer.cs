@@ -1,6 +1,6 @@
-﻿namespace WindowsFormsApplication2
+﻿namespace WindowsFormsApplication.View
 {
-    partial class NWGenerateReport
+    partial class NwGenerateReport
     {
         /// <summary>
         /// Required designer variable.

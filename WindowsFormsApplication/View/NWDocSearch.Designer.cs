@@ -1,6 +1,6 @@
-﻿namespace WindowsFormsApplication2
+﻿namespace WindowsFormsApplication.View
 {
-    partial class NWDocSearch
+    partial class NwDocSearch
     {
         /// <summary>
         /// Required designer variable.

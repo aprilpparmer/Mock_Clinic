@@ -54,6 +54,9 @@
             this.workPhoneTextBox = new System.Windows.Forms.TextBox();
             this.workPhoneLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.genderLabel = new System.Windows.Forms.Label();
+            this.maleRadioButton = new System.Windows.Forms.RadioButton();
+            this.femaleRadioButton = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // firstNameLabel
@@ -83,7 +86,7 @@
             this.firstNameTextBox.MaxLength = 50;
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Size = new System.Drawing.Size(162, 20);
-            this.firstNameTextBox.TabIndex = 2;
+            this.firstNameTextBox.TabIndex = 1;
             // 
             // middleInitialTextBox
             // 
@@ -92,7 +95,7 @@
             this.middleInitialTextBox.MaxLength = 1;
             this.middleInitialTextBox.Name = "middleInitialTextBox";
             this.middleInitialTextBox.Size = new System.Drawing.Size(24, 20);
-            this.middleInitialTextBox.TabIndex = 3;
+            this.middleInitialTextBox.TabIndex = 2;
             // 
             // ssnLabel
             // 
@@ -131,7 +134,7 @@
             this.ssnTextBox.MaxLength = 9;
             this.ssnTextBox.Name = "ssnTextBox";
             this.ssnTextBox.Size = new System.Drawing.Size(105, 20);
-            this.ssnTextBox.TabIndex = 7;
+            this.ssnTextBox.TabIndex = 4;
             // 
             // lastNameTextBox
             // 
@@ -140,7 +143,7 @@
             this.lastNameTextBox.MaxLength = 50;
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.Size = new System.Drawing.Size(162, 20);
-            this.lastNameTextBox.TabIndex = 9;
+            this.lastNameTextBox.TabIndex = 3;
             // 
             // phoneLabel
             // 
@@ -169,7 +172,7 @@
             this.homePhoneTextBox.MaxLength = 15;
             this.homePhoneTextBox.Name = "homePhoneTextBox";
             this.homePhoneTextBox.Size = new System.Drawing.Size(162, 20);
-            this.homePhoneTextBox.TabIndex = 12;
+            this.homePhoneTextBox.TabIndex = 5;
             // 
             // addressTextBox
             // 
@@ -179,7 +182,7 @@
             this.addressTextBox.Multiline = true;
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(162, 24);
-            this.addressTextBox.TabIndex = 13;
+            this.addressTextBox.TabIndex = 8;
             // 
             // SubmitButton
             // 
@@ -187,7 +190,7 @@
             this.SubmitButton.Margin = new System.Windows.Forms.Padding(2);
             this.SubmitButton.Name = "SubmitButton";
             this.SubmitButton.Size = new System.Drawing.Size(56, 19);
-            this.SubmitButton.TabIndex = 14;
+            this.SubmitButton.TabIndex = 12;
             this.SubmitButton.Text = "Submit";
             this.SubmitButton.UseVisualStyleBackColor = true;
             this.SubmitButton.Click += new System.EventHandler(this.SubmitButton_Click);
@@ -198,7 +201,7 @@
             this.CancelButton.Margin = new System.Windows.Forms.Padding(2);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(56, 19);
-            this.CancelButton.TabIndex = 15;
+            this.CancelButton.TabIndex = 13;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
@@ -209,7 +212,7 @@
             this.dateTimePicker.Location = new System.Drawing.Point(94, 132);
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(97, 20);
-            this.dateTimePicker.TabIndex = 16;
+            this.dateTimePicker.TabIndex = 7;
             this.dateTimePicker.Value = new System.DateTime(2015, 3, 24, 18, 35, 27, 0);
             // 
             // cityTextBox
@@ -220,7 +223,7 @@
             this.cityTextBox.Multiline = true;
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(105, 24);
-            this.cityTextBox.TabIndex = 18;
+            this.cityTextBox.TabIndex = 9;
             // 
             // cityLabel
             // 
@@ -240,7 +243,7 @@
             this.stateTextBox.Multiline = true;
             this.stateTextBox.Name = "stateTextBox";
             this.stateTextBox.Size = new System.Drawing.Size(162, 24);
-            this.stateTextBox.TabIndex = 20;
+            this.stateTextBox.TabIndex = 10;
             // 
             // stateLabel
             // 
@@ -260,7 +263,7 @@
             this.zipTextBox.Multiline = true;
             this.zipTextBox.Name = "zipTextBox";
             this.zipTextBox.Size = new System.Drawing.Size(105, 24);
-            this.zipTextBox.TabIndex = 22;
+            this.zipTextBox.TabIndex = 11;
             // 
             // zipLabel
             // 
@@ -289,7 +292,7 @@
             this.workPhoneTextBox.MaxLength = 15;
             this.workPhoneTextBox.Name = "workPhoneTextBox";
             this.workPhoneTextBox.Size = new System.Drawing.Size(105, 20);
-            this.workPhoneTextBox.TabIndex = 25;
+            this.workPhoneTextBox.TabIndex = 6;
             // 
             // workPhoneLabel
             // 
@@ -311,11 +314,48 @@
             this.label2.TabIndex = 26;
             this.label2.Text = "(optional)";
             // 
+            // genderLabel
+            // 
+            this.genderLabel.AutoSize = true;
+            this.genderLabel.Location = new System.Drawing.Point(264, 139);
+            this.genderLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.genderLabel.Name = "genderLabel";
+            this.genderLabel.Size = new System.Drawing.Size(42, 13);
+            this.genderLabel.TabIndex = 27;
+            this.genderLabel.Text = "Gender";
+            // 
+            // maleRadioButton
+            // 
+            this.maleRadioButton.AutoSize = true;
+            this.maleRadioButton.Location = new System.Drawing.Point(346, 139);
+            this.maleRadioButton.Name = "maleRadioButton";
+            this.maleRadioButton.Size = new System.Drawing.Size(48, 17);
+            this.maleRadioButton.TabIndex = 28;
+            this.maleRadioButton.TabStop = true;
+            this.maleRadioButton.Text = "Male";
+            this.maleRadioButton.UseVisualStyleBackColor = true;
+            this.maleRadioButton.Click += new System.EventHandler(this.maleRadioButton_Clicked);
+            // 
+            // femaleRadioButton
+            // 
+            this.femaleRadioButton.AutoSize = true;
+            this.femaleRadioButton.Location = new System.Drawing.Point(403, 139);
+            this.femaleRadioButton.Name = "femaleRadioButton";
+            this.femaleRadioButton.Size = new System.Drawing.Size(59, 17);
+            this.femaleRadioButton.TabIndex = 29;
+            this.femaleRadioButton.TabStop = true;
+            this.femaleRadioButton.Text = "Female";
+            this.femaleRadioButton.UseVisualStyleBackColor = true;
+            this.femaleRadioButton.Click += new System.EventHandler(this.femaleRadioButton_Clicked);
+            // 
             // NwNewPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(495, 293);
+            this.Controls.Add(this.femaleRadioButton);
+            this.Controls.Add(this.maleRadioButton);
+            this.Controls.Add(this.genderLabel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.workPhoneTextBox);
             this.Controls.Add(this.workPhoneLabel);
@@ -379,5 +419,8 @@
         private System.Windows.Forms.TextBox workPhoneTextBox;
         private System.Windows.Forms.Label workPhoneLabel;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label genderLabel;
+        private System.Windows.Forms.RadioButton maleRadioButton;
+        private System.Windows.Forms.RadioButton femaleRadioButton;
     }
 }

@@ -27,14 +27,14 @@ namespace WindowsFormsApplication.View
             String password = PasswordBox.Text;
             try
             {
-                Employee employee = _controller.LogIn(name, password);
+                Employee employee = _controller.ValidNurseLogIn(name, password);
                
                 if (employee == null)
                 {
                     MessageBox.Show(@"No valid user found, please try your user name and password again");
                 } else if (employee.PositionId == 1)
                 {
-                    MessageBox.Show(@"Valid Account.");
+                    MessageBox.Show(@"Valid login. Welcome " + employee.FirstName + " " + employee.LastName);
                     NorthwindAdmin home = new NorthwindAdmin(employee);
                     home.Show();
                     this.Hide();

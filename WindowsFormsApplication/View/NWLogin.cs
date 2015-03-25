@@ -29,10 +29,10 @@ namespace WindowsFormsApplication.View
             {
                 Employee employee = _controller.ValidNurseLogIn(name, password);
                
-                if (employee == null)
+                if (employee == null )
                 {
-                    MessageBox.Show(@"No valid user found, please try your user name and password again");
-                } else if (employee.PositionId == 1)
+                  MessageBox.Show(@"No valid user found, please try your user name and password again");
+                } else if (employee.PositionId == 1 && employee.Enabled == 1)
                 {
                     MessageBox.Show(@"Valid login. Welcome " + employee.FirstName + " " + employee.LastName);
                     NorthwindAdmin home = new NorthwindAdmin(employee);

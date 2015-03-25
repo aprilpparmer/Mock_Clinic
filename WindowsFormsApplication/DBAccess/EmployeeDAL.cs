@@ -10,6 +10,7 @@ namespace WindowsFormsApplication.DBAccess
     {
         public static Employee ValidNurseLogIn(String userName, String password)
         {
+            Employee employeeReturn = null;
             Employee employee = new Employee();
 
             String selectStatement = "Select employeeID, enabled, first_name, last_name, last_login, password, positionID, login, password from employees where login = '" + userName
@@ -23,10 +24,12 @@ namespace WindowsFormsApplication.DBAccess
                     
                     using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
                     {
+                        
                         using (SqlDataReader reader = selectCommand.ExecuteReader())
                         {
                             while (reader.Read())
                             {
+                                
                                 employee.EmployeeId = (Int32)reader["employeeID"];
                                 employee.Enabled = (Byte)reader["enabled"];
                                 employee.FirstName = reader["first_name"].ToString().Trim();
@@ -44,6 +47,12 @@ namespace WindowsFormsApplication.DBAccess
 
                     }
                 }
+                if (employee.Login != null && employee.Login != "")
+                {
+                    employeeReturn = employee; 
+                } else {
+                    return employeeReturn;
+                }
             }
             catch (SqlException ex)
             {
@@ -53,8 +62,8 @@ namespace WindowsFormsApplication.DBAccess
             {
                 throw ex;
             }
-
-            return employee;
+            
+            return employeeReturn;
         }
 
         public static List<Employee> GetAllEmployees()

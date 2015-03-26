@@ -28,5 +28,12 @@ namespace WindowsFormsApplication.View
 
         }
 
+        private void NwNewVisit_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the '_CS6232_g7DataSet.employees' table. You can move, or remove it, as needed.
+            this.employeesTableAdapter.Fill(this._CS6232_g7DataSet.employees);
+
+        }
+
     }
 }

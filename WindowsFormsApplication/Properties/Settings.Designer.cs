@@ -22,5 +22,15 @@ namespace WindowsFormsApplication.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(local);Initial Catalog=CS6232-g7;Integrated Security=True")]
+        public string CS6232_g7ConnectionString {
+            get {
+                return ((string)(this["CS6232_g7ConnectionString"]));
+            }
+        }
     }
 }

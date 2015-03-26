@@ -38,6 +38,7 @@
             this.orderTestsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UserLabel = new System.Windows.Forms.Label();
+            this.newVisitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.NWmenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,7 +85,8 @@
             this.RegisterPatient,
             this.updateToolStripMenuItem,
             this.orderTestsToolStripMenuItem,
-            this.searchToolStripMenuItem});
+            this.searchToolStripMenuItem,
+            this.newVisitToolStripMenuItem});
             this.patientToolStripMenuItem.Name = "patientToolStripMenuItem";
             this.patientToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.patientToolStripMenuItem.Text = "Patient";
@@ -124,6 +126,13 @@
             this.UserLabel.TabIndex = 2;
             this.UserLabel.Visible = false;
             // 
+            // newVisitToolStripMenuItem
+            // 
+            this.newVisitToolStripMenuItem.Name = "newVisitToolStripMenuItem";
+            this.newVisitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newVisitToolStripMenuItem.Text = "New Visit";
+            this.newVisitToolStripMenuItem.Click += new System.EventHandler(this.newVisitToolStripMenuItem_Click);
+            // 
             // NorthwindAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -157,6 +166,7 @@
         private System.Windows.Forms.Label UserLabel;
         private System.Windows.Forms.ToolStripMenuItem orderTestsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newVisitToolStripMenuItem;
     }
 }
 

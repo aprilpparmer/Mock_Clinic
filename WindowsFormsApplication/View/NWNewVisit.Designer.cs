@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtBoxBloodPressure = new System.Windows.Forms.TextBox();
@@ -42,10 +43,10 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOrderTests = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtBoxHeight = new System.Windows.Forms.TextBox();
             this.txtBoxWeight = new System.Windows.Forms.TextBox();
+            this.txtBoxHeight = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txtBoxNotes = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -56,7 +57,12 @@
             this.txtBoxPatientID = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtBoxVisitDate = new System.Windows.Forms.TextBox();
+            this._CS6232_g7DataSet = new WindowsFormsApplication._CS6232_g7DataSet();
+            this.employeesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.employeesTableAdapter = new WindowsFormsApplication._CS6232_g7DataSetTableAdapters.employeesTableAdapter();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._CS6232_g7DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -206,14 +212,19 @@
             this.groupBox1.Text = "Vitals";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // label6
+            // txtBoxWeight
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(145, 51);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(41, 13);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Height:";
+            this.txtBoxWeight.Location = new System.Drawing.Point(296, 48);
+            this.txtBoxWeight.Name = "txtBoxWeight";
+            this.txtBoxWeight.Size = new System.Drawing.Size(40, 20);
+            this.txtBoxWeight.TabIndex = 15;
+            // 
+            // txtBoxHeight
+            // 
+            this.txtBoxHeight.Location = new System.Drawing.Point(190, 48);
+            this.txtBoxHeight.Name = "txtBoxHeight";
+            this.txtBoxHeight.Size = new System.Drawing.Size(40, 20);
+            this.txtBoxHeight.TabIndex = 14;
             // 
             // label7
             // 
@@ -224,19 +235,14 @@
             this.label7.TabIndex = 13;
             this.label7.Text = "Weight:";
             // 
-            // txtBoxHeight
+            // label6
             // 
-            this.txtBoxHeight.Location = new System.Drawing.Point(190, 48);
-            this.txtBoxHeight.Name = "txtBoxHeight";
-            this.txtBoxHeight.Size = new System.Drawing.Size(40, 20);
-            this.txtBoxHeight.TabIndex = 14;
-            // 
-            // txtBoxWeight
-            // 
-            this.txtBoxWeight.Location = new System.Drawing.Point(296, 48);
-            this.txtBoxWeight.Name = "txtBoxWeight";
-            this.txtBoxWeight.Size = new System.Drawing.Size(40, 20);
-            this.txtBoxWeight.TabIndex = 15;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(145, 51);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(41, 13);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Height:";
             // 
             // label8
             // 
@@ -276,11 +282,14 @@
             // 
             // comboBoxDoctorName
             // 
+            this.comboBoxDoctorName.DataSource = this.employeesBindingSource;
+            this.comboBoxDoctorName.DisplayMember = "last_name";
             this.comboBoxDoctorName.FormattingEnabled = true;
             this.comboBoxDoctorName.Location = new System.Drawing.Point(101, 87);
             this.comboBoxDoctorName.Name = "comboBoxDoctorName";
             this.comboBoxDoctorName.Size = new System.Drawing.Size(117, 21);
             this.comboBoxDoctorName.TabIndex = 21;
+            this.comboBoxDoctorName.ValueMember = "employeeID";
             // 
             // comboBoxNurseName
             // 
@@ -322,6 +331,20 @@
             this.txtBoxVisitDate.Size = new System.Drawing.Size(108, 20);
             this.txtBoxVisitDate.TabIndex = 26;
             // 
+            // _CS6232_g7DataSet
+            // 
+            this._CS6232_g7DataSet.DataSetName = "_CS6232_g7DataSet";
+            this._CS6232_g7DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // employeesBindingSource
+            // 
+            this.employeesBindingSource.DataMember = "employees";
+            this.employeesBindingSource.DataSource = this._CS6232_g7DataSet;
+            // 
+            // employeesTableAdapter
+            // 
+            this.employeesTableAdapter.ClearBeforeFill = true;
+            // 
             // NwNewVisit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -348,8 +371,11 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "NwNewVisit";
             this.Text = "New Visit";
+            this.Load += new System.EventHandler(this.NwNewVisit_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._CS6232_g7DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -385,6 +411,9 @@
         private System.Windows.Forms.TextBox txtBoxPatientID;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtBoxVisitDate;
+        private _CS6232_g7DataSet _CS6232_g7DataSet;
+        private System.Windows.Forms.BindingSource employeesBindingSource;
+        private _CS6232_g7DataSetTableAdapters.employeesTableAdapter employeesTableAdapter;
 
     }
 }

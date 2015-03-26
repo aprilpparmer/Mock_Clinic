@@ -182,7 +182,7 @@
             this.addressTextBox.Multiline = true;
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(162, 24);
-            this.addressTextBox.TabIndex = 8;
+            this.addressTextBox.TabIndex = 10;
             // 
             // SubmitButton
             // 
@@ -190,7 +190,7 @@
             this.SubmitButton.Margin = new System.Windows.Forms.Padding(2);
             this.SubmitButton.Name = "SubmitButton";
             this.SubmitButton.Size = new System.Drawing.Size(56, 19);
-            this.SubmitButton.TabIndex = 12;
+            this.SubmitButton.TabIndex = 14;
             this.SubmitButton.Text = "Submit";
             this.SubmitButton.UseVisualStyleBackColor = true;
             this.SubmitButton.Click += new System.EventHandler(this.SubmitButton_Click);
@@ -201,7 +201,7 @@
             this.CancelButton.Margin = new System.Windows.Forms.Padding(2);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(56, 19);
-            this.CancelButton.TabIndex = 13;
+            this.CancelButton.TabIndex = 15;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
@@ -223,7 +223,7 @@
             this.cityTextBox.Multiline = true;
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(105, 24);
-            this.cityTextBox.TabIndex = 9;
+            this.cityTextBox.TabIndex = 11;
             // 
             // cityLabel
             // 
@@ -243,7 +243,7 @@
             this.stateTextBox.Multiline = true;
             this.stateTextBox.Name = "stateTextBox";
             this.stateTextBox.Size = new System.Drawing.Size(162, 24);
-            this.stateTextBox.TabIndex = 10;
+            this.stateTextBox.TabIndex = 12;
             // 
             // stateLabel
             // 
@@ -263,7 +263,7 @@
             this.zipTextBox.Multiline = true;
             this.zipTextBox.Name = "zipTextBox";
             this.zipTextBox.Size = new System.Drawing.Size(105, 24);
-            this.zipTextBox.TabIndex = 11;
+            this.zipTextBox.TabIndex = 13;
             // 
             // zipLabel
             // 
@@ -330,7 +330,7 @@
             this.maleRadioButton.Location = new System.Drawing.Point(346, 139);
             this.maleRadioButton.Name = "maleRadioButton";
             this.maleRadioButton.Size = new System.Drawing.Size(48, 17);
-            this.maleRadioButton.TabIndex = 28;
+            this.maleRadioButton.TabIndex = 8;
             this.maleRadioButton.TabStop = true;
             this.maleRadioButton.Text = "Male";
             this.maleRadioButton.UseVisualStyleBackColor = true;
@@ -342,7 +342,7 @@
             this.femaleRadioButton.Location = new System.Drawing.Point(403, 139);
             this.femaleRadioButton.Name = "femaleRadioButton";
             this.femaleRadioButton.Size = new System.Drawing.Size(59, 17);
-            this.femaleRadioButton.TabIndex = 29;
+            this.femaleRadioButton.TabIndex = 9;
             this.femaleRadioButton.TabStop = true;
             this.femaleRadioButton.Text = "Female";
             this.femaleRadioButton.UseVisualStyleBackColor = true;

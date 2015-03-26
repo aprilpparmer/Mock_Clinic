@@ -10,7 +10,7 @@ namespace WindowsFormsApplication.Controller
 
         internal Employee ValidNurseLogIn(String name, String password)
         {
-            return EmployeeDal.ValidNurseLogIn(name, password);
+            return EmployeeDal.EmployeeLogIn(name, password);
         }
 
         internal List<Patient> GetAllPatients()

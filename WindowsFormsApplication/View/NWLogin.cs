@@ -20,7 +20,12 @@ namespace WindowsFormsApplication.View
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Logs in the user
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void loginButton_Click(object sender, EventArgs e)
         {
             
             String name = NameBox.Text;
@@ -53,7 +58,12 @@ namespace WindowsFormsApplication.View
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Closes the log in program
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -63,6 +73,10 @@ namespace WindowsFormsApplication.View
 
         }
 
+        /// <summary>
+        /// Makes sure the program closes when the form is closed with the x button
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);

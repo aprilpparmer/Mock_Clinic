@@ -47,11 +47,11 @@ namespace WindowsFormsApplication.View
                 String gender;
                 if ((femaleRadioButton.Checked == true))
                 {
-                    gender = "Female";
+                    gender = "F";
                 }
                 else
                 {
-                    gender = "Male";
+                    gender = "M";
                 }
 
                 if ((int.TryParse(ssnTextBox.Text, out ssn)) & (ssnTextBox.Text.Length == 9))
@@ -79,6 +79,9 @@ namespace WindowsFormsApplication.View
                             try
                             {
                                 _controller.AddPatients(newPatient);
+                                MessageBox.Show(@"The patient has been added.");
+                                this.Close();
+
                             }
                             catch (Exception exception)
                             {

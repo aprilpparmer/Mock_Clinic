@@ -67,8 +67,8 @@ namespace WindowsFormsApplication.DBAccess
             //string dateNow = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
             const string insertStatement = "INSERT into patients " +
-                                           " (patientID, address, city, dob, first_name, gender, last_name, middle_initial, home_phone, work_phone, ssn, state, zip) " +
-                                           " values(@patientID, @address, @city, @dob, @first_name, @gender, @last_name, @middle_initial, @home_phone, @work_phone, @ssn, @state, @zip)";
+                                           " (address, city, dob, first_name, gender, last_name, middle_initial, home_phone, work_phone, ssn, state, zip) " +
+                                           " values(@address, @city, @dob, @first_name, @gender, @last_name, @middle_initial, @home_phone, @work_phone, @ssn, @state, @zip)";
 
             try
             {
@@ -79,7 +79,6 @@ namespace WindowsFormsApplication.DBAccess
                     using (SqlCommand insertCommand = new SqlCommand(insertStatement, connection))
                     {
 
-                        insertCommand.Parameters.AddWithValue("@patientID", patient.PatientId);
                         insertCommand.Parameters.AddWithValue("@address", patient.Address);
                         insertCommand.Parameters.AddWithValue("@city", patient.City);
                         insertCommand.Parameters.AddWithValue("@dob", patient.Dob);

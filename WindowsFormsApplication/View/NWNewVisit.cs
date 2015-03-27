@@ -30,10 +30,12 @@ namespace WindowsFormsApplication.View
 
         private void NwNewVisit_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the '_CS6232_g7DataSet.employees' table. You can move, or remove it, as needed.
-            this.employeesTableAdapter.Fill(this._CS6232_g7DataSet.employees);
-
+            // TODO: This line of code loads data into the '_CS6232_g7DataSet.doctors' table. You can move, or remove it, as needed.
+            this.doctorsTableAdapter.Fill(this._CS6232_g7DataSet.doctors);
+            this.comboBoxDoctorName.SelectedIndex = -1;
+            // TODO: This line of code loads data into the '_CS6232_g7DataSet.nurses' table. You can move, or remove it, as needed.
+            this.nursesTableAdapter.Fill(this._CS6232_g7DataSet.nurses);
+            this.comboBoxNurseName.SelectedIndex = -1;
         }
-
     }
 }

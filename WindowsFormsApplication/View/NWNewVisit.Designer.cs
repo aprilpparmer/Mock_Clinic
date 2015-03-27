@@ -58,11 +58,14 @@
             this.label12 = new System.Windows.Forms.Label();
             this.txtBoxVisitDate = new System.Windows.Forms.TextBox();
             this._CS6232_g7DataSet = new WindowsFormsApplication._CS6232_g7DataSet();
-            this.employeesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.employeesTableAdapter = new WindowsFormsApplication._CS6232_g7DataSetTableAdapters.employeesTableAdapter();
+            this.nursesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nursesTableAdapter = new WindowsFormsApplication._CS6232_g7DataSetTableAdapters.nursesTableAdapter();
+            this.doctorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.doctorsTableAdapter = new WindowsFormsApplication._CS6232_g7DataSetTableAdapters.doctorsTableAdapter();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._CS6232_g7DataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nursesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.doctorsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -282,7 +285,8 @@
             // 
             // comboBoxDoctorName
             // 
-            this.comboBoxDoctorName.DataSource = this.employeesBindingSource;
+            this.comboBoxDoctorName.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.doctorsBindingSource, "last_name", true));
+            this.comboBoxDoctorName.DataSource = this.doctorsBindingSource;
             this.comboBoxDoctorName.DisplayMember = "last_name";
             this.comboBoxDoctorName.FormattingEnabled = true;
             this.comboBoxDoctorName.Location = new System.Drawing.Point(101, 87);
@@ -293,11 +297,14 @@
             // 
             // comboBoxNurseName
             // 
+            this.comboBoxNurseName.DataSource = this.nursesBindingSource;
+            this.comboBoxNurseName.DisplayMember = "last_name";
             this.comboBoxNurseName.FormattingEnabled = true;
             this.comboBoxNurseName.Location = new System.Drawing.Point(284, 87);
             this.comboBoxNurseName.Name = "comboBoxNurseName";
             this.comboBoxNurseName.Size = new System.Drawing.Size(121, 21);
             this.comboBoxNurseName.TabIndex = 22;
+            this.comboBoxNurseName.ValueMember = "employeeID";
             // 
             // label11
             // 
@@ -336,14 +343,23 @@
             this._CS6232_g7DataSet.DataSetName = "_CS6232_g7DataSet";
             this._CS6232_g7DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // employeesBindingSource
+            // nursesBindingSource
             // 
-            this.employeesBindingSource.DataMember = "employees";
-            this.employeesBindingSource.DataSource = this._CS6232_g7DataSet;
+            this.nursesBindingSource.DataMember = "nurses";
+            this.nursesBindingSource.DataSource = this._CS6232_g7DataSet;
             // 
-            // employeesTableAdapter
+            // nursesTableAdapter
             // 
-            this.employeesTableAdapter.ClearBeforeFill = true;
+            this.nursesTableAdapter.ClearBeforeFill = true;
+            // 
+            // doctorsBindingSource
+            // 
+            this.doctorsBindingSource.DataMember = "doctors";
+            this.doctorsBindingSource.DataSource = this._CS6232_g7DataSet;
+            // 
+            // doctorsTableAdapter
+            // 
+            this.doctorsTableAdapter.ClearBeforeFill = true;
             // 
             // NwNewVisit
             // 
@@ -375,7 +391,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this._CS6232_g7DataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nursesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.doctorsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -412,8 +429,10 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtBoxVisitDate;
         private _CS6232_g7DataSet _CS6232_g7DataSet;
-        private System.Windows.Forms.BindingSource employeesBindingSource;
-        private _CS6232_g7DataSetTableAdapters.employeesTableAdapter employeesTableAdapter;
+        private System.Windows.Forms.BindingSource nursesBindingSource;
+        private _CS6232_g7DataSetTableAdapters.nursesTableAdapter nursesTableAdapter;
+        private System.Windows.Forms.BindingSource doctorsBindingSource;
+        private _CS6232_g7DataSetTableAdapters.doctorsTableAdapter doctorsTableAdapter;
 
     }
 }

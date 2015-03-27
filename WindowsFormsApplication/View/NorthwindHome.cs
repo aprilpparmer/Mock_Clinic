@@ -8,7 +8,7 @@ namespace WindowsFormsApplication.View
     public partial class NorthwindAdmin : Form
     {
         NwLogin _loginScreen;
-        NwNewVisit newVisitForm;
+        NWNewVisit newVisitForm;
 
         public NorthwindAdmin()
         {
@@ -92,7 +92,7 @@ namespace WindowsFormsApplication.View
             {
                 if (newVisitForm == null)
                 {
-                    newVisitForm = new NwNewVisit();
+                    newVisitForm = new NWNewVisit();
                     newVisitForm.MdiParent = this;
                     newVisitForm.FormClosed += newVisitForm_FormClosed;
                     newVisitForm.Show();

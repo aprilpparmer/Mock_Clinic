@@ -23,9 +23,14 @@ namespace WindowsFormsApplication.Controller
             PatientDal.AddPatients(patient);
         }
 
-        public static void AddPatientVisit(PatientVisit patientVisit)
+        public static int AddPatientVisit(PatientVisit patientVisit)
         {
-            PatientVisitDal.AddPatientVisit(patientVisit);
+           return PatientVisitDal.AddPatientVisit(patientVisit);
+        }
+
+        public static void AddPatientVisitVitals(PatientVisitVitals vitals)
+        {
+            PatientVisitVitalsDal.AddPatientVisitVitals(vitals);
         }
     }
 }

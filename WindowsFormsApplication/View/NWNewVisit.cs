@@ -16,6 +16,7 @@ namespace WindowsFormsApplication.View
     public partial class NWNewVisit : Form
     {
         private PatientVisit patientVisit;
+        private PatientVisitVitals vitals;
 
         public NWNewVisit()
         {
@@ -47,28 +48,26 @@ namespace WindowsFormsApplication.View
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            if (IsValidData())
+            patientVisit = new PatientVisit();
+            this.PutPatientVisitData(patientVisit);
+            try
             {
-                patientVisit = new PatientVisit();
-                this.PutPatientVisitData(patientVisit);
-                try
-                {
-                    NorthwindController.AddPatientVisit(patientVisit);
-                    saveButton.Visible = false;
-                    editButton.Visible = true;
-                    editButton.Enabled = false;
-                }
-                catch (SqlException ex)
-                {
-                    MessageBox.Show(ex.Message, ex.GetType().ToString());
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, ex.GetType().ToString());
-                }
+                patientVisit.VisitId = NorthwindController.AddPatientVisit(patientVisit);
+                saveButton.Visible = false;
+                editButton.Visible = true;
+                editButton.Enabled = false;
+                saveButton2.Enabled = true;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
         }
-
+        //Saves the visit data
         private void PutPatientVisitData(PatientVisit patientVisit)
         {
             patientVisit.PatientId = int.Parse(patientIDLabel.Text);
@@ -78,41 +77,14 @@ namespace WindowsFormsApplication.View
             patientVisit.NurseId = NwLogin.employeeUser.EmployeeId;
         }
 
-        private void visitDateBox_ValueChanged(object sender, EventArgs e)
-        {
-            editButton.Enabled = true;
-        }
-
-        private void appointmentDateBox_ValueChanged(object sender, EventArgs e)
-        {
-            editButton.Enabled = true;
-        }
-
-        private void doctorsComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            editButton.Enabled = true;
-        }
+        private void visitDateBox_ValueChanged(object sender, EventArgs e){editButton.Enabled = true;}
+        private void appointmentDateBox_ValueChanged(object sender, EventArgs e){editButton.Enabled = true;}
+        private void doctorsComboBox_SelectedIndexChanged(object sender, EventArgs e){editButton.Enabled = true;}
 
         private void editButton_Click(object sender, EventArgs e)
         {
 
         }
-
-        /// <summary>
-        /// Checks if any fields are left blank
-        /// </summary>
-        /// <returns></returns>
-        private bool IsValidData()
-        {
-            if (Validator.IsPresent(patientIDLabel) &&
-                Validator.IsPresent(visitDateBox) &&
-                Validator.IsPresent(doctorsComboBox)) {
-                return true;
-            }
-            else
-                return false;
-        }
-
         //Visit Info Cancel Button - closes form
         private void cancelbutton_Click(object sender, EventArgs e)
         {
@@ -165,6 +137,36 @@ namespace WindowsFormsApplication.View
                 return;
             }
         }
-
+        //Saves the vitals data to the database
+        private void saveButton2_Click(object sender, EventArgs e)
+        {
+            vitals = new PatientVisitVitals();
+            this.PutPatientVisitVitalsData(vitals);
+            try
+            {
+                NorthwindController.AddPatientVisitVitals(vitals);
+                saveButton2.Visible = false;
+                editButton2.Visible = true;
+                editButton2.Enabled = false;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+        }
+        //Saves the vitals data
+        private void PutPatientVisitVitalsData(PatientVisitVitals vitals)
+        {
+            vitals.VisitId = patientVisit.VisitId;
+            vitals.BloodPressure = txtBoxBloodPressure.Text;
+            vitals.Temp = txtBoxTemperature.Text;
+            vitals.Pulse = txtBoxPulse.Text;
+            vitals.Height = int.Parse(txtBoxHeight.Text);
+            vitals.Weight = int.Parse(txtBoxWeight.Text);
+        }
     }
 }

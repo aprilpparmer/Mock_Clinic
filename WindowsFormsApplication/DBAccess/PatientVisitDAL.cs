@@ -10,7 +10,7 @@ namespace WindowsFormsApplication.DBAccess
 {
     class PatientVisitDal
     {
-      public static void AddPatientVisit(PatientVisit patientVisit)
+      public static int AddPatientVisit(PatientVisit patientVisit)
         {
           string insertStatement =
             "INSERT patient_visit " +
@@ -37,6 +37,13 @@ namespace WindowsFormsApplication.DBAccess
                       insertCommand.Parameters.AddWithValue("@doctorID", patientVisit.DoctorId);
                       insertCommand.Parameters.AddWithValue("@nurseID", patientVisit.NurseId);
                       insertCommand.ExecuteNonQuery();
+
+                      string selectStatement =
+                          "SELECT IDENT_CURRENT('patient_visit') FROM patient_visit";
+                      SqlCommand selectCommand =
+                          new SqlCommand(selectStatement, connection);
+                      int visitID = Convert.ToInt32(selectCommand.ExecuteScalar());
+                      return visitID;
                   }
               }
           }

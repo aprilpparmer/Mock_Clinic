@@ -45,7 +45,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\NorthwindController.cs" />
-    <Compile Include="Controller\Validator.cs" />
     <Compile Include="DBAccess\DiagnosesDAL.cs" />
     <Compile Include="DBAccess\EmployeeDAL.cs" />
     <Compile Include="DBAccess\NorthwindDBConnection.cs" />

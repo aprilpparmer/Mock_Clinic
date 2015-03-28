@@ -933,6 +933,7 @@
             this.saveButton4.TabIndex = 19;
             this.saveButton4.Text = "Save";
             this.saveButton4.UseVisualStyleBackColor = true;
+            this.saveButton4.Click += new System.EventHandler(this.saveButton4_Click);
             // 
             // editButton4
             // 
@@ -1268,11 +1269,15 @@
             // diagnosesComboBox
             // 
             this.diagnosesComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.diagnosesBindingSource, "diagnoses_name", true));
+            this.diagnosesComboBox.DataSource = this.diagnosesBindingSource;
+            this.diagnosesComboBox.DisplayMember = "diagnoses_name";
+            this.diagnosesComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.diagnosesComboBox.FormattingEnabled = true;
             this.diagnosesComboBox.Location = new System.Drawing.Point(98, 123);
             this.diagnosesComboBox.Name = "diagnosesComboBox";
             this.diagnosesComboBox.Size = new System.Drawing.Size(149, 21);
             this.diagnosesComboBox.TabIndex = 21;
+            this.diagnosesComboBox.ValueMember = "diagnosesID";
             // 
             // diagnoses_descriptionLabel
             // 

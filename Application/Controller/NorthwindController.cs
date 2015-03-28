@@ -33,14 +33,19 @@ namespace WindowsFormsApplication.Controller
             PatientVisitVitalsDal.AddPatientVisitVitals(vitals);
         }
 
-        public static void AddPatientVisitSymptoms(PatientVisitSymptoms symptoms)
+        public static int AddPatientVisitSymptoms(PatientVisitSymptoms symptoms)
         {
-            PatientVisitSymptomsDal.AddPatientVisitSymptoms(symptoms);
+            return PatientVisitSymptomsDal.AddPatientVisitSymptoms(symptoms);
         }
 
         public static void AddPatientVisitNotes(PatientVisitNotes note)
         {
             PatientVisitNotesDal.AddPatientVisitNotes(note);
+        }
+
+        public static void UpdatePatientDiagnoses(PatientVisitSymptoms symptoms)
+        {
+            PatientVisitSymptomsDal.UpdatePatientDiagnoses(symptoms);
         }
     }
 }

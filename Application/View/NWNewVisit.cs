@@ -29,12 +29,12 @@ namespace WindowsFormsApplication.View
         {
             // TODO: This line of code loads data into the 'diagnosesDataSet.diagnoses' table. You can move, or remove it, as needed.
             this.diagnosesTableAdapter.Fill(this.diagnosesDataSet.diagnoses);
+            this.diagnosesComboBox.SelectedIndex = -1;
             // TODO: This line of code loads data into the 'employeesDataSet1.doctors' table. You can move, or remove it, as needed.
             this.doctorsTableAdapter.FillDoctors(this.employeesDataSet1.doctors);
             this.doctorsComboBox.SelectedIndex = -1;
             // TODO: This line of code loads data into the 'patientsDataSet.patients' table. You can move, or remove it, as needed.
             this.patientsTableAdapter.Fill(this.patientsDataSet.patients);
-
         }
 
         private void fillPatientInfoToolStripButton_Click(object sender, EventArgs e)
@@ -180,7 +180,7 @@ namespace WindowsFormsApplication.View
             this.PutPatientVisitSymptomsData(symptoms, note);
             try
             {
-                NorthwindController.AddPatientVisitSymptoms(symptoms);
+                symptoms.SymptomId = NorthwindController.AddPatientVisitSymptoms(symptoms);
                 if (note.Note != null)
                 {
                     NorthwindController.AddPatientVisitNotes(note);
@@ -206,6 +206,42 @@ namespace WindowsFormsApplication.View
             note.Note = txtBoxNotes.Text;
             note.EmployeeId = NwLogin.employeeUser.EmployeeId;
             note.VisitId = patientVisit.VisitId;
+        }
+        //Saves info in the symptoms table for the diagnoses
+        private void saveButton4_Click(object sender, EventArgs e)
+        {
+            symptoms = new PatientVisitSymptoms();
+            note = new PatientVisitNotes();
+            this.PutPatientVisitSymptomsData(symptoms, note);
+            try
+            {
+                NorthwindController.UpdatePatientDiagnoses(symptoms);
+                if (note.Note != null)
+                {
+                    NorthwindController.AddPatientVisitNotes(note);
+                }
+                saveButton4.Visible = false;
+                editButton4.Visible = true;
+                editButton4.Enabled = false;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+        }
+        //Saves the diagnoses for the symptoms/notes data
+        private void PutPatientVisitDiagnosesData(PatientVisitSymptoms symptoms, PatientVisitNotes note)
+        {
+            symptoms.VisitId = patientVisit.VisitId;
+            symptoms.DiagnosesID = (int)diagnosesComboBox.SelectedValue;
+            note.Note = txtBoxNotes.Text;
+            note.EmployeeId = NwLogin.employeeUser.EmployeeId;
+            note.VisitId = patientVisit.VisitId;
+        }
         }
     }
 }

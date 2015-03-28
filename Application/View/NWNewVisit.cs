@@ -27,6 +27,8 @@ namespace WindowsFormsApplication.View
 
         private void NWNewVisit_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'diagnosesDataSet.diagnoses' table. You can move, or remove it, as needed.
+            this.diagnosesTableAdapter.Fill(this.diagnosesDataSet.diagnoses);
             // TODO: This line of code loads data into the 'employeesDataSet1.doctors' table. You can move, or remove it, as needed.
             this.doctorsTableAdapter.FillDoctors(this.employeesDataSet1.doctors);
             this.doctorsComboBox.SelectedIndex = -1;
@@ -170,7 +172,7 @@ namespace WindowsFormsApplication.View
             vitals.Height = int.Parse(txtBoxHeight.Text);
             vitals.Weight = int.Parse(txtBoxWeight.Text);
         }
-
+        //Saves the symptoms data, and notes data (if present)
         private void saveButton3_Click(object sender, EventArgs e)
         {
             symptoms = new PatientVisitSymptoms();
@@ -196,7 +198,7 @@ namespace WindowsFormsApplication.View
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
         }
-        //Saves the symptoms data
+        //Saves the symptoms/notes data
         private void PutPatientVisitSymptomsData(PatientVisitSymptoms symptoms, PatientVisitNotes note)
         {
             symptoms.VisitId = patientVisit.VisitId;

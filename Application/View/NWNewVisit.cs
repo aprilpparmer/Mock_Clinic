@@ -242,6 +242,34 @@ namespace WindowsFormsApplication.View
             note.EmployeeId = NwLogin.employeeUser.EmployeeId;
             note.VisitId = patientVisit.VisitId;
         }
+
+        private void saveButton5_Click(object sender, EventArgs e)
+        {
+            note = new PatientVisitNotes();
+            this.PutPatientVisitNotesData(note);
+            try
+            {
+                NorthwindController.AddPatientVisitNotes(note);
+                saveButton5.Visible = false;
+                editButton5.Visible = true;
+                editButton5.Enabled = false;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+        }
+        //Saves the diagnoses for the symptoms/notes data
+        private void PutPatientVisitNotesData(PatientVisitNotes note)
+        {
+            note.Note = txtBoxNotes.Text;
+            note.EmployeeId = NwLogin.employeeUser.EmployeeId;
+            note.VisitId = patientVisit.VisitId;
+        }
         }
     }
 }

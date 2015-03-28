@@ -65,31 +65,35 @@ namespace WindowsFormsApplication.View
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            patientVisit = new PatientVisit();
-            this.PutPatientVisitData(patientVisit);
-            try
+            if (IsValidData())
             {
-                NorthwindController.AddPatientVisit(patientVisit);
-                saveButton.Visible = false;
-                editButton.Visible = true;
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
+                patientVisit = new PatientVisit();
+                this.PutPatientVisitData(patientVisit);
+                try
+                {
+                    NorthwindController.AddPatientVisit(patientVisit);
+                    saveButton.Visible = false;
+                    editButton.Visible = true;
+                    editButton.Enabled = false;
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
             }
         }
 
         private void PutPatientVisitData(PatientVisit patientVisit)
         {
-                patientVisit.PatientId = int.Parse(patientIDLabel.Text);
-                patientVisit.VisitDate = visitDateBox.Value;
-                patientVisit.ApptDate = appointmentDateBox.Value;
-                patientVisit.DoctorId = (int)doctorsComboBox.SelectedValue;
-                patientVisit.NurseId = NwLogin.employeeUser.EmployeeId;
+            patientVisit.PatientId = int.Parse(patientIDLabel.Text);
+            patientVisit.VisitDate = visitDateBox.Value;
+            patientVisit.ApptDate = appointmentDateBox.Value;
+            patientVisit.DoctorId = (int)doctorsComboBox.SelectedValue;
+            patientVisit.NurseId = NwLogin.employeeUser.EmployeeId;
         }
 
         private void visitDateBox_ValueChanged(object sender, EventArgs e)
@@ -112,7 +116,20 @@ namespace WindowsFormsApplication.View
 
         }
 
-
+        /// <summary>
+        /// Checks if any fields are left blank
+        /// </summary>
+        /// <returns></returns>
+        private bool IsValidData()
+        {
+            if (Validator.IsPresent(patientIDLabel) &&
+                Validator.IsPresent(visitDateBox) &&
+                Validator.IsPresent(doctorsComboBox)) {
+                return true;
+            }
+            else
+                return false;
+        }
 
     }
 }

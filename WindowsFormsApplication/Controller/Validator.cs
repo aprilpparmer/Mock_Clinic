@@ -38,7 +38,7 @@ namespace WindowsFormsApplication.Controller
             else if (control.GetType().ToString() == "System.Windows.Forms.ComboBox")
             {
                 ComboBox comboBox = (ComboBox)control;
-                if (comboBox.SelectedIndex == -1)
+                if (comboBox.SelectedIndex == -1 || comboBox.SelectedValue == null)
                 {
                     MessageBox.Show(comboBox.Tag.ToString() + " is a required field.", Title);
                     comboBox.Focus();

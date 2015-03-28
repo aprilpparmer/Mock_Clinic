@@ -28,67 +28,240 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.Patient = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.listViewPatients = new System.Windows.Forms.ListView();
+            this.PatientID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.SSN = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.LastName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.MiddleInitial = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.FirstName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.DOB = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Diagnosis = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Test = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Gender = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Address = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.City = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.State = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Zip = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.HomePhone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.WorkPhone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Child = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.MotherID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.FatherID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.labelFirstName = new System.Windows.Forms.Label();
+            this.textBoxFirstName = new System.Windows.Forms.TextBox();
+            this.textBoxLastName = new System.Windows.Forms.TextBox();
+            this.labelLastName = new System.Windows.Forms.Label();
+            this.buttonSearch = new System.Windows.Forms.Button();
+            this.buttonCloseSearch = new System.Windows.Forms.Button();
+            this.buttonClear = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // listView1
+            // listViewPatients
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Patient,
+            this.listViewPatients.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.PatientID,
+            this.SSN,
+            this.LastName,
+            this.MiddleInitial,
+            this.FirstName,
             this.DOB,
-            this.Diagnosis,
-            this.Test});
-            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView1.Location = new System.Drawing.Point(0, 0);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1011, 445);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.Gender,
+            this.Address,
+            this.City,
+            this.State,
+            this.Zip,
+            this.HomePhone,
+            this.WorkPhone,
+            this.Child,
+            this.MotherID,
+            this.FatherID});
+            this.listViewPatients.Location = new System.Drawing.Point(11, 133);
+            this.listViewPatients.Margin = new System.Windows.Forms.Padding(2);
+            this.listViewPatients.Name = "listViewPatients";
+            this.listViewPatients.Size = new System.Drawing.Size(1295, 166);
+            this.listViewPatients.TabIndex = 0;
+            this.listViewPatients.UseCompatibleStateImageBehavior = false;
+            this.listViewPatients.View = System.Windows.Forms.View.Details;
             // 
-            // Patient
+            // PatientID
             // 
-            this.Patient.Text = "Patient";
-            this.Patient.Width = 200;
+            this.PatientID.Text = "PatientID";
+            this.PatientID.Width = 63;
+            // 
+            // SSN
+            // 
+            this.SSN.Text = "SSN";
+            this.SSN.Width = 100;
+            // 
+            // LastName
+            // 
+            this.LastName.Text = "Last Name";
+            this.LastName.Width = 106;
+            // 
+            // MiddleInitial
+            // 
+            this.MiddleInitial.Text = "Middle Initial";
+            this.MiddleInitial.Width = 72;
+            // 
+            // FirstName
+            // 
+            this.FirstName.Text = "First Name";
+            this.FirstName.Width = 95;
             // 
             // DOB
             // 
             this.DOB.Text = "DOB";
-            this.DOB.Width = 100;
             // 
-            // Diagnosis
+            // Gender
             // 
-            this.Diagnosis.Text = "Diagnosis";
-            this.Diagnosis.Width = 200;
+            this.Gender.Text = "Gender";
             // 
-            // Test
+            // Address
             // 
-            this.Test.Text = "Test";
-            this.Test.Width = 500;
+            this.Address.Text = "Address";
+            this.Address.Width = 150;
             // 
-            // NWPatientSearch
+            // City
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.City.Text = "City";
+            // 
+            // State
+            // 
+            this.State.Text = "State";
+            // 
+            // Zip
+            // 
+            this.Zip.Text = "Zip";
+            // 
+            // HomePhone
+            // 
+            this.HomePhone.Text = "Home Phone";
+            // 
+            // WorkPhone
+            // 
+            this.WorkPhone.Text = "WorkPhone";
+            // 
+            // Child
+            // 
+            this.Child.Text = "Child";
+            this.Child.Width = 85;
+            // 
+            // MotherID
+            // 
+            this.MotherID.Text = "Mother ID";
+            // 
+            // FatherID
+            // 
+            this.FatherID.Text = "Father ID";
+            // 
+            // labelFirstName
+            // 
+            this.labelFirstName.AutoSize = true;
+            this.labelFirstName.Location = new System.Drawing.Point(68, 39);
+            this.labelFirstName.Name = "labelFirstName";
+            this.labelFirstName.Size = new System.Drawing.Size(63, 13);
+            this.labelFirstName.TabIndex = 1;
+            this.labelFirstName.Text = "First Name :";
+            // 
+            // textBoxFirstName
+            // 
+            this.textBoxFirstName.Location = new System.Drawing.Point(181, 39);
+            this.textBoxFirstName.Name = "textBoxFirstName";
+            this.textBoxFirstName.Size = new System.Drawing.Size(100, 20);
+            this.textBoxFirstName.TabIndex = 2;
+            // 
+            // textBoxLastName
+            // 
+            this.textBoxLastName.Location = new System.Drawing.Point(181, 78);
+            this.textBoxLastName.Name = "textBoxLastName";
+            this.textBoxLastName.Size = new System.Drawing.Size(100, 20);
+            this.textBoxLastName.TabIndex = 4;
+            // 
+            // labelLastName
+            // 
+            this.labelLastName.AutoSize = true;
+            this.labelLastName.Location = new System.Drawing.Point(68, 78);
+            this.labelLastName.Name = "labelLastName";
+            this.labelLastName.Size = new System.Drawing.Size(64, 13);
+            this.labelLastName.TabIndex = 3;
+            this.labelLastName.Text = "Last Name :";
+            // 
+            // buttonSearch
+            // 
+            this.buttonSearch.Location = new System.Drawing.Point(336, 56);
+            this.buttonSearch.Name = "buttonSearch";
+            this.buttonSearch.Size = new System.Drawing.Size(122, 23);
+            this.buttonSearch.TabIndex = 5;
+            this.buttonSearch.Text = "Search Patient";
+            this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
+            // 
+            // buttonCloseSearch
+            // 
+            this.buttonCloseSearch.Location = new System.Drawing.Point(1078, 331);
+            this.buttonCloseSearch.Name = "buttonCloseSearch";
+            this.buttonCloseSearch.Size = new System.Drawing.Size(75, 23);
+            this.buttonCloseSearch.TabIndex = 6;
+            this.buttonCloseSearch.Text = "Close";
+            this.buttonCloseSearch.UseVisualStyleBackColor = true;
+            this.buttonCloseSearch.Click += new System.EventHandler(this.buttonCloseSearch_Click);
+            // 
+            // buttonClear
+            // 
+            this.buttonClear.Location = new System.Drawing.Point(974, 331);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(75, 23);
+            this.buttonClear.TabIndex = 7;
+            this.buttonClear.Text = "Clear";
+            this.buttonClear.UseVisualStyleBackColor = true;
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
+            // 
+            // NwPatientSearch
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1011, 445);
-            this.Controls.Add(this.listView1);
+            this.ClientSize = new System.Drawing.Size(1317, 399);
+            this.Controls.Add(this.buttonClear);
+            this.Controls.Add(this.buttonCloseSearch);
+            this.Controls.Add(this.buttonSearch);
+            this.Controls.Add(this.textBoxLastName);
+            this.Controls.Add(this.labelLastName);
+            this.Controls.Add(this.textBoxFirstName);
+            this.Controls.Add(this.labelFirstName);
+            this.Controls.Add(this.listViewPatients);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "NwPatientSearch";
             this.Text = "Patient Search";
+            this.Load += new System.EventHandler(this.NwPatientSearch_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader Patient;
+        private System.Windows.Forms.ListView listViewPatients;
+        private System.Windows.Forms.ColumnHeader PatientID;
+        private System.Windows.Forms.ColumnHeader SSN;
+        private System.Windows.Forms.ColumnHeader LastName;
+        private System.Windows.Forms.ColumnHeader MiddleInitial;
+        private System.Windows.Forms.ColumnHeader FirstName;
         private System.Windows.Forms.ColumnHeader DOB;
-        private System.Windows.Forms.ColumnHeader Diagnosis;
-        private System.Windows.Forms.ColumnHeader Test;
+        private System.Windows.Forms.ColumnHeader Gender;
+        private System.Windows.Forms.ColumnHeader Address;
+        private System.Windows.Forms.ColumnHeader City;
+        private System.Windows.Forms.ColumnHeader State;
+        private System.Windows.Forms.ColumnHeader Zip;
+        private System.Windows.Forms.ColumnHeader HomePhone;
+        private System.Windows.Forms.ColumnHeader WorkPhone;
+        private System.Windows.Forms.ColumnHeader Child;
+        private System.Windows.Forms.ColumnHeader MotherID;
+        private System.Windows.Forms.ColumnHeader FatherID;
+        private System.Windows.Forms.Label labelFirstName;
+        private System.Windows.Forms.TextBox textBoxFirstName;
+        private System.Windows.Forms.TextBox textBoxLastName;
+        private System.Windows.Forms.Label labelLastName;
+        private System.Windows.Forms.Button buttonSearch;
+        private System.Windows.Forms.Button buttonCloseSearch;
+        private System.Windows.Forms.Button buttonClear;
 
     }
 }

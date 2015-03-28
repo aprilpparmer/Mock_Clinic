@@ -37,8 +37,8 @@
             this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.orderTestsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.UserLabel = new System.Windows.Forms.Label();
             this.newVisitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.UserLabel = new System.Windows.Forms.Label();
             this.NWmenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -115,6 +115,14 @@
             this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
             this.searchToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.searchToolStripMenuItem.Text = "Search";
+            this.searchToolStripMenuItem.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
+            // 
+            // newVisitToolStripMenuItem
+            // 
+            this.newVisitToolStripMenuItem.Name = "newVisitToolStripMenuItem";
+            this.newVisitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newVisitToolStripMenuItem.Text = "New Visit";
+            this.newVisitToolStripMenuItem.Click += new System.EventHandler(this.newVisitToolStripMenuItem_Click);
             // 
             // UserLabel
             // 
@@ -125,13 +133,6 @@
             this.UserLabel.Size = new System.Drawing.Size(0, 13);
             this.UserLabel.TabIndex = 2;
             this.UserLabel.Visible = false;
-            // 
-            // newVisitToolStripMenuItem
-            // 
-            this.newVisitToolStripMenuItem.Name = "newVisitToolStripMenuItem";
-            this.newVisitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.newVisitToolStripMenuItem.Text = "New Visit";
-            this.newVisitToolStripMenuItem.Click += new System.EventHandler(this.newVisitToolStripMenuItem_Click);
             // 
             // NorthwindAdmin
             // 

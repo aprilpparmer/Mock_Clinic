@@ -9,6 +9,7 @@ namespace WindowsFormsApplication.View
     {
         NwLogin _loginScreen;
         NWNewVisit newVisitForm;
+        NwPatientSearch newPatientSearchForm;
 
         public NorthwindAdmin()
         {
@@ -115,6 +116,42 @@ namespace WindowsFormsApplication.View
         void newVisitForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             newVisitForm = null;
+        }
+
+        /// <summary>
+        /// Loads the new Search Form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void searchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (newPatientSearchForm == null)
+                {
+                    newPatientSearchForm = new NwPatientSearch();
+                    newPatientSearchForm.MdiParent = this;
+                    newPatientSearchForm.FormClosed +=newPatientSearchForm_FormClosed;
+                    newPatientSearchForm.Show();
+                }
+                else
+                    newPatientSearchForm.Activate();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+                this.Close();
+            }
+        }
+
+        /// <summary>
+        /// Sets the new Patient Search to closed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void newPatientSearchForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            newPatientSearchForm = null;
         }
     }
 }

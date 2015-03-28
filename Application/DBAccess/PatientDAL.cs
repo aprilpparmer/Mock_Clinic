@@ -171,7 +171,7 @@ namespace WindowsFormsApplication.DBAccess
                                 else
                                    patient.MiddleInitial = string.Empty;
 
-                                patient.FirstName = dataReader.GetString(last_nameOrdinal);
+                                patient.FirstName = dataReader.GetString(first_nameOrdinal);
                                 patient.Dob = dataReader.GetDateTime(dobOrdinal);
                                 patient.Gender = dataReader.GetString(genderOrdinal);
                                 patient.Address = dataReader.GetString(addressOrdinal);

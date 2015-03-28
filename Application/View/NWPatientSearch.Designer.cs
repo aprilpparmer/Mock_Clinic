@@ -151,6 +151,7 @@
             // FatherID
             // 
             this.FatherID.Text = "Father ID";
+            this.FatherID.Width = 66;
             // 
             // labelFirstName
             // 

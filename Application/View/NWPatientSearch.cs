@@ -65,8 +65,25 @@ namespace WindowsFormsApplication.View
                                 listViewPatients.Items[i].SubItems.Add(patient.HomePhone.Trim());
                                 listViewPatients.Items[i].SubItems.Add(patient.WorkPhone.Trim());
                                 listViewPatients.Items[i].SubItems.Add(patient.Child.Trim());
-                                listViewPatients.Items[i].SubItems.Add(patient.MotherId.ToString());
-                                listViewPatients.Items[i].SubItems.Add(patient.FatherId.ToString());
+                                
+                                if (patient.MotherId == -1)
+                                {
+                                    listViewPatients.Items[i].SubItems.Add("");
+                                } else
+                                {
+                                    listViewPatients.Items[i].SubItems.Add(patient.MotherId.ToString());
+                                }
+
+
+                                if (patient.FatherId == -1)
+                                {
+                                    listViewPatients.Items[i].SubItems.Add("");
+                                }
+                                else
+                                {
+                                    listViewPatients.Items[i].SubItems.Add(patient.FatherId.ToString());
+                                }
+
                             }
                         }
                         else

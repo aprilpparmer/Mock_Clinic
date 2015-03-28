@@ -109,8 +109,8 @@
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.diagnosesTab = new System.Windows.Forms.TabPage();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.saveButton4 = new System.Windows.Forms.Button();
+            this.editButton4 = new System.Windows.Forms.Button();
             this.cancelButton4 = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label27 = new System.Windows.Forms.Label();
@@ -128,9 +128,9 @@
             this.tableAdapterManager = new WindowsFormsApplication.PatientsDataSetTableAdapters.TableAdapterManager();
             this.doctorsTableAdapter = new WindowsFormsApplication.EmployeesDataSetTableAdapters.doctorsTableAdapter();
             this.notesTab = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.saveButton5 = new System.Windows.Forms.Button();
+            this.editButton5 = new System.Windows.Forms.Button();
+            this.cancelButton5 = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label44 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
@@ -148,6 +148,8 @@
             this.treatmentLabel = new System.Windows.Forms.Label();
             this.notes = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label53 = new System.Windows.Forms.Label();
             last_nameLabel = new System.Windows.Forms.Label();
             dob = new System.Windows.Forms.Label();
             patientID = new System.Windows.Forms.Label();
@@ -911,8 +913,8 @@
             this.diagnosesTab.Controls.Add(this.descriptionLabel);
             this.diagnosesTab.Controls.Add(diagnoses_nameLabel);
             this.diagnosesTab.Controls.Add(this.diagnosesComboBox);
-            this.diagnosesTab.Controls.Add(this.button8);
-            this.diagnosesTab.Controls.Add(this.button9);
+            this.diagnosesTab.Controls.Add(this.saveButton4);
+            this.diagnosesTab.Controls.Add(this.editButton4);
             this.diagnosesTab.Controls.Add(this.cancelButton4);
             this.diagnosesTab.Controls.Add(this.groupBox4);
             this.diagnosesTab.Location = new System.Drawing.Point(4, 22);
@@ -923,25 +925,25 @@
             this.diagnosesTab.Text = "Diagnoses";
             this.diagnosesTab.UseVisualStyleBackColor = true;
             // 
-            // button8
+            // saveButton4
             // 
-            this.button8.Location = new System.Drawing.Point(297, 242);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 19;
-            this.button8.Text = "Save";
-            this.button8.UseVisualStyleBackColor = true;
+            this.saveButton4.Location = new System.Drawing.Point(297, 242);
+            this.saveButton4.Name = "saveButton4";
+            this.saveButton4.Size = new System.Drawing.Size(75, 23);
+            this.saveButton4.TabIndex = 19;
+            this.saveButton4.Text = "Save";
+            this.saveButton4.UseVisualStyleBackColor = true;
             // 
-            // button9
+            // editButton4
             // 
-            this.button9.Enabled = false;
-            this.button9.Location = new System.Drawing.Point(290, 242);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(87, 23);
-            this.button9.TabIndex = 20;
-            this.button9.Text = "Save Changes";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Visible = false;
+            this.editButton4.Enabled = false;
+            this.editButton4.Location = new System.Drawing.Point(290, 242);
+            this.editButton4.Name = "editButton4";
+            this.editButton4.Size = new System.Drawing.Size(87, 23);
+            this.editButton4.TabIndex = 20;
+            this.editButton4.Text = "Save Changes";
+            this.editButton4.UseVisualStyleBackColor = true;
+            this.editButton4.Visible = false;
             // 
             // cancelButton4
             // 
@@ -1082,10 +1084,12 @@
             // 
             // notesTab
             // 
+            this.notesTab.Controls.Add(this.label53);
+            this.notesTab.Controls.Add(this.textBox2);
             this.notesTab.Controls.Add(this.groupBox5);
-            this.notesTab.Controls.Add(this.button1);
-            this.notesTab.Controls.Add(this.button2);
-            this.notesTab.Controls.Add(this.button3);
+            this.notesTab.Controls.Add(this.saveButton5);
+            this.notesTab.Controls.Add(this.editButton5);
+            this.notesTab.Controls.Add(this.cancelButton5);
             this.notesTab.Location = new System.Drawing.Point(4, 22);
             this.notesTab.Name = "notesTab";
             this.notesTab.Padding = new System.Windows.Forms.Padding(3);
@@ -1094,34 +1098,34 @@
             this.notesTab.Text = "Notes";
             this.notesTab.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // saveButton5
             // 
-            this.button1.Location = new System.Drawing.Point(293, 242);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 22;
-            this.button1.Text = "Save";
-            this.button1.UseVisualStyleBackColor = true;
+            this.saveButton5.Location = new System.Drawing.Point(293, 242);
+            this.saveButton5.Name = "saveButton5";
+            this.saveButton5.Size = new System.Drawing.Size(75, 23);
+            this.saveButton5.TabIndex = 22;
+            this.saveButton5.Text = "Save";
+            this.saveButton5.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // editButton5
             // 
-            this.button2.Enabled = false;
-            this.button2.Location = new System.Drawing.Point(286, 242);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(87, 23);
-            this.button2.TabIndex = 23;
-            this.button2.Text = "Save Changes";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Visible = false;
+            this.editButton5.Enabled = false;
+            this.editButton5.Location = new System.Drawing.Point(286, 242);
+            this.editButton5.Name = "editButton5";
+            this.editButton5.Size = new System.Drawing.Size(87, 23);
+            this.editButton5.TabIndex = 23;
+            this.editButton5.Text = "Save Changes";
+            this.editButton5.UseVisualStyleBackColor = true;
+            this.editButton5.Visible = false;
             // 
-            // button3
+            // cancelButton5
             // 
-            this.button3.Location = new System.Drawing.Point(64, 242);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 21;
-            this.button3.Text = "Cancel";
-            this.button3.UseVisualStyleBackColor = true;
+            this.cancelButton5.Location = new System.Drawing.Point(64, 242);
+            this.cancelButton5.Name = "cancelButton5";
+            this.cancelButton5.Size = new System.Drawing.Size(75, 23);
+            this.cancelButton5.TabIndex = 21;
+            this.cancelButton5.Text = "Cancel";
+            this.cancelButton5.UseVisualStyleBackColor = true;
             // 
             // groupBox5
             // 
@@ -1323,6 +1327,23 @@
             this.textBox1.Size = new System.Drawing.Size(143, 94);
             this.textBox1.TabIndex = 25;
             // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(39, 141);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(346, 95);
+            this.textBox2.TabIndex = 25;
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(36, 125);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(38, 13);
+            this.label53.TabIndex = 26;
+            this.label53.Text = "Notes:";
+            // 
             // NWNewVisit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1358,6 +1379,7 @@
             this.fillPatientInfoToolStrip.ResumeLayout(false);
             this.fillPatientInfoToolStrip.PerformLayout();
             this.notesTab.ResumeLayout(false);
+            this.notesTab.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.diagnosesDataSet)).EndInit();
@@ -1432,8 +1454,8 @@
         private System.Windows.Forms.Button saveButton3;
         private System.Windows.Forms.Button editButton3;
         private System.Windows.Forms.Button cancelButton3;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button saveButton4;
+        private System.Windows.Forms.Button editButton4;
         private System.Windows.Forms.Button cancelButton4;
         private System.Windows.Forms.TextBox txtBoxHeight;
         private System.Windows.Forms.TextBox txtBoxBloodPressure;
@@ -1458,9 +1480,9 @@
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.Label label51;
         private System.Windows.Forms.Label label52;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button saveButton5;
+        private System.Windows.Forms.Button editButton5;
+        private System.Windows.Forms.Button cancelButton5;
         private DiagnosesDataSet diagnosesDataSet;
         private System.Windows.Forms.BindingSource diagnosesBindingSource;
         private DiagnosesDataSetTableAdapters.diagnosesTableAdapter diagnosesTableAdapter;
@@ -1470,5 +1492,7 @@
         private System.Windows.Forms.Label treatmentLabel;
         private System.Windows.Forms.Label descriptionLabel;
         private System.Windows.Forms.ComboBox diagnosesComboBox;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.TextBox textBox2;
         }
 }

@@ -41,6 +41,12 @@
             System.Windows.Forms.Label label26;
             System.Windows.Forms.Label label30;
             System.Windows.Forms.Label label31;
+            System.Windows.Forms.Label label43;
+            System.Windows.Forms.Label label47;
+            System.Windows.Forms.Label label48;
+            System.Windows.Forms.Label diagnoses_nameLabel;
+            System.Windows.Forms.Label diagnoses_descriptionLabel;
+            System.Windows.Forms.Label diagnoses_treatmentLabel;
             this.patientVisitTabs = new System.Windows.Forms.TabControl();
             this.visitInfoTab = new System.Windows.Forms.TabPage();
             this.cancelbutton = new System.Windows.Forms.Button();
@@ -65,6 +71,8 @@
             this.firstNameLabel = new System.Windows.Forms.Label();
             this.editButton = new System.Windows.Forms.Button();
             this.vitalsTab = new System.Windows.Forms.TabPage();
+            this.txtBoxTemperature = new System.Windows.Forms.TextBox();
+            this.txtBoxWeight = new System.Windows.Forms.TextBox();
             this.txtBoxHeight = new System.Windows.Forms.TextBox();
             this.txtBoxBloodPressure = new System.Windows.Forms.TextBox();
             this.txtBoxPulse = new System.Windows.Forms.TextBox();
@@ -85,8 +93,12 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.symptomsTab = new System.Windows.Forms.TabPage();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.label42 = new System.Windows.Forms.Label();
+            this.txtBoxNotes = new System.Windows.Forms.TextBox();
+            this.txtBoxSymptoms = new System.Windows.Forms.TextBox();
+            this.label41 = new System.Windows.Forms.Label();
+            this.saveButton3 = new System.Windows.Forms.Button();
+            this.editButton3 = new System.Windows.Forms.Button();
             this.cancelButton3 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label17 = new System.Windows.Forms.Label();
@@ -97,8 +109,8 @@
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.diagnosesTab = new System.Windows.Forms.TabPage();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.saveButton4 = new System.Windows.Forms.Button();
+            this.editButton4 = new System.Windows.Forms.Button();
             this.cancelButton4 = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label27 = new System.Windows.Forms.Label();
@@ -115,8 +127,29 @@
             this.patientsTableAdapter = new WindowsFormsApplication.PatientsDataSetTableAdapters.patientsTableAdapter();
             this.tableAdapterManager = new WindowsFormsApplication.PatientsDataSetTableAdapters.TableAdapterManager();
             this.doctorsTableAdapter = new WindowsFormsApplication.EmployeesDataSetTableAdapters.doctorsTableAdapter();
-            this.txtBoxWeight = new System.Windows.Forms.TextBox();
-            this.txtBoxTemperature = new System.Windows.Forms.TextBox();
+            this.notesTab = new System.Windows.Forms.TabPage();
+            this.saveButton5 = new System.Windows.Forms.Button();
+            this.editButton5 = new System.Windows.Forms.Button();
+            this.cancelButton5 = new System.Windows.Forms.Button();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label49 = new System.Windows.Forms.Label();
+            this.label50 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
+            this.diagnosesDataSet = new WindowsFormsApplication.DiagnosesDataSet();
+            this.diagnosesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.diagnosesTableAdapter = new WindowsFormsApplication.DiagnosesDataSetTableAdapters.diagnosesTableAdapter();
+            this.tableAdapterManager1 = new WindowsFormsApplication.DiagnosesDataSetTableAdapters.TableAdapterManager();
+            this.diagnosesComboBox = new System.Windows.Forms.ComboBox();
+            this.descriptionLabel = new System.Windows.Forms.Label();
+            this.treatmentLabel = new System.Windows.Forms.Label();
+            this.notes = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label53 = new System.Windows.Forms.Label();
             last_nameLabel = new System.Windows.Forms.Label();
             dob = new System.Windows.Forms.Label();
             patientID = new System.Windows.Forms.Label();
@@ -129,6 +162,12 @@
             label26 = new System.Windows.Forms.Label();
             label30 = new System.Windows.Forms.Label();
             label31 = new System.Windows.Forms.Label();
+            label43 = new System.Windows.Forms.Label();
+            label47 = new System.Windows.Forms.Label();
+            label48 = new System.Windows.Forms.Label();
+            diagnoses_nameLabel = new System.Windows.Forms.Label();
+            diagnoses_descriptionLabel = new System.Windows.Forms.Label();
+            diagnoses_treatmentLabel = new System.Windows.Forms.Label();
             this.patientVisitTabs.SuspendLayout();
             this.visitInfoTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.doctorsBindingSource)).BeginInit();
@@ -143,6 +182,10 @@
             this.diagnosesTab.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.fillPatientInfoToolStrip.SuspendLayout();
+            this.notesTab.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.diagnosesDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.diagnosesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // last_nameLabel
@@ -259,11 +302,12 @@
             this.patientVisitTabs.Controls.Add(this.vitalsTab);
             this.patientVisitTabs.Controls.Add(this.symptomsTab);
             this.patientVisitTabs.Controls.Add(this.diagnosesTab);
+            this.patientVisitTabs.Controls.Add(this.notesTab);
             this.patientVisitTabs.Dock = System.Windows.Forms.DockStyle.Fill;
             this.patientVisitTabs.Location = new System.Drawing.Point(0, 25);
             this.patientVisitTabs.Name = "patientVisitTabs";
             this.patientVisitTabs.SelectedIndex = 0;
-            this.patientVisitTabs.Size = new System.Drawing.Size(444, 270);
+            this.patientVisitTabs.Size = new System.Drawing.Size(444, 299);
             this.patientVisitTabs.TabIndex = 0;
             // 
             // visitInfoTab
@@ -281,14 +325,14 @@
             this.visitInfoTab.Location = new System.Drawing.Point(4, 22);
             this.visitInfoTab.Name = "visitInfoTab";
             this.visitInfoTab.Padding = new System.Windows.Forms.Padding(3);
-            this.visitInfoTab.Size = new System.Drawing.Size(436, 244);
+            this.visitInfoTab.Size = new System.Drawing.Size(436, 273);
             this.visitInfoTab.TabIndex = 0;
             this.visitInfoTab.Text = "Visit Info";
             this.visitInfoTab.UseVisualStyleBackColor = true;
             // 
             // cancelbutton
             // 
-            this.cancelbutton.Location = new System.Drawing.Point(70, 213);
+            this.cancelbutton.Location = new System.Drawing.Point(70, 242);
             this.cancelbutton.Name = "cancelbutton";
             this.cancelbutton.Size = new System.Drawing.Size(75, 23);
             this.cancelbutton.TabIndex = 17;
@@ -298,7 +342,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(296, 213);
+            this.saveButton.Location = new System.Drawing.Point(296, 242);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
             this.saveButton.TabIndex = 16;
@@ -466,7 +510,7 @@
             // editButton
             // 
             this.editButton.Enabled = false;
-            this.editButton.Location = new System.Drawing.Point(289, 213);
+            this.editButton.Location = new System.Drawing.Point(289, 242);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(87, 23);
             this.editButton.TabIndex = 18;
@@ -494,10 +538,24 @@
             this.vitalsTab.Location = new System.Drawing.Point(4, 22);
             this.vitalsTab.Name = "vitalsTab";
             this.vitalsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.vitalsTab.Size = new System.Drawing.Size(436, 244);
+            this.vitalsTab.Size = new System.Drawing.Size(436, 273);
             this.vitalsTab.TabIndex = 1;
             this.vitalsTab.Text = "Vitals";
             this.vitalsTab.UseVisualStyleBackColor = true;
+            // 
+            // txtBoxTemperature
+            // 
+            this.txtBoxTemperature.Location = new System.Drawing.Point(108, 165);
+            this.txtBoxTemperature.Name = "txtBoxTemperature";
+            this.txtBoxTemperature.Size = new System.Drawing.Size(56, 20);
+            this.txtBoxTemperature.TabIndex = 31;
+            // 
+            // txtBoxWeight
+            // 
+            this.txtBoxWeight.Location = new System.Drawing.Point(329, 165);
+            this.txtBoxWeight.Name = "txtBoxWeight";
+            this.txtBoxWeight.Size = new System.Drawing.Size(56, 20);
+            this.txtBoxWeight.TabIndex = 30;
             // 
             // txtBoxHeight
             // 
@@ -568,7 +626,7 @@
             // saveButton2
             // 
             this.saveButton2.Enabled = false;
-            this.saveButton2.Location = new System.Drawing.Point(297, 213);
+            this.saveButton2.Location = new System.Drawing.Point(297, 242);
             this.saveButton2.Name = "saveButton2";
             this.saveButton2.Size = new System.Drawing.Size(75, 23);
             this.saveButton2.TabIndex = 19;
@@ -579,7 +637,7 @@
             // editButton2
             // 
             this.editButton2.Enabled = false;
-            this.editButton2.Location = new System.Drawing.Point(290, 213);
+            this.editButton2.Location = new System.Drawing.Point(290, 242);
             this.editButton2.Name = "editButton2";
             this.editButton2.Size = new System.Drawing.Size(87, 23);
             this.editButton2.TabIndex = 20;
@@ -589,7 +647,7 @@
             // 
             // cancelButton2
             // 
-            this.cancelButton2.Location = new System.Drawing.Point(71, 213);
+            this.cancelButton2.Location = new System.Drawing.Point(71, 242);
             this.cancelButton2.Name = "cancelButton2";
             this.cancelButton2.Size = new System.Drawing.Size(75, 23);
             this.cancelButton2.TabIndex = 18;
@@ -681,41 +739,80 @@
             // 
             // symptomsTab
             // 
-            this.symptomsTab.Controls.Add(this.button6);
-            this.symptomsTab.Controls.Add(this.button7);
+            this.symptomsTab.Controls.Add(this.label42);
+            this.symptomsTab.Controls.Add(this.txtBoxNotes);
+            this.symptomsTab.Controls.Add(this.txtBoxSymptoms);
+            this.symptomsTab.Controls.Add(this.label41);
+            this.symptomsTab.Controls.Add(this.saveButton3);
+            this.symptomsTab.Controls.Add(this.editButton3);
             this.symptomsTab.Controls.Add(this.cancelButton3);
             this.symptomsTab.Controls.Add(this.groupBox3);
             this.symptomsTab.Location = new System.Drawing.Point(4, 22);
             this.symptomsTab.Name = "symptomsTab";
             this.symptomsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.symptomsTab.Size = new System.Drawing.Size(436, 244);
+            this.symptomsTab.Size = new System.Drawing.Size(436, 273);
             this.symptomsTab.TabIndex = 2;
             this.symptomsTab.Text = "Symptoms";
             this.symptomsTab.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // label42
             // 
-            this.button6.Location = new System.Drawing.Point(294, 213);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 19;
-            this.button6.Text = "Save";
-            this.button6.UseVisualStyleBackColor = true;
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(29, 182);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(38, 13);
+            this.label42.TabIndex = 24;
+            this.label42.Text = "Notes:";
             // 
-            // button7
+            // txtBoxNotes
             // 
-            this.button7.Enabled = false;
-            this.button7.Location = new System.Drawing.Point(287, 213);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(87, 23);
-            this.button7.TabIndex = 20;
-            this.button7.Text = "Save Changes";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Visible = false;
+            this.txtBoxNotes.Location = new System.Drawing.Point(32, 199);
+            this.txtBoxNotes.Multiline = true;
+            this.txtBoxNotes.Name = "txtBoxNotes";
+            this.txtBoxNotes.Size = new System.Drawing.Size(352, 37);
+            this.txtBoxNotes.TabIndex = 23;
+            // 
+            // txtBoxSymptoms
+            // 
+            this.txtBoxSymptoms.Location = new System.Drawing.Point(32, 130);
+            this.txtBoxSymptoms.Multiline = true;
+            this.txtBoxSymptoms.Name = "txtBoxSymptoms";
+            this.txtBoxSymptoms.Size = new System.Drawing.Size(352, 49);
+            this.txtBoxSymptoms.TabIndex = 22;
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(29, 114);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(58, 13);
+            this.label41.TabIndex = 21;
+            this.label41.Text = "Symptoms:";
+            // 
+            // saveButton3
+            // 
+            this.saveButton3.Location = new System.Drawing.Point(294, 242);
+            this.saveButton3.Name = "saveButton3";
+            this.saveButton3.Size = new System.Drawing.Size(75, 23);
+            this.saveButton3.TabIndex = 19;
+            this.saveButton3.Text = "Save";
+            this.saveButton3.UseVisualStyleBackColor = true;
+            this.saveButton3.Click += new System.EventHandler(this.saveButton3_Click);
+            // 
+            // editButton3
+            // 
+            this.editButton3.Enabled = false;
+            this.editButton3.Location = new System.Drawing.Point(287, 242);
+            this.editButton3.Name = "editButton3";
+            this.editButton3.Size = new System.Drawing.Size(87, 23);
+            this.editButton3.TabIndex = 20;
+            this.editButton3.Text = "Save Changes";
+            this.editButton3.UseVisualStyleBackColor = true;
+            this.editButton3.Visible = false;
             // 
             // cancelButton3
             // 
-            this.cancelButton3.Location = new System.Drawing.Point(68, 213);
+            this.cancelButton3.Location = new System.Drawing.Point(68, 242);
             this.cancelButton3.Name = "cancelButton3";
             this.cancelButton3.Size = new System.Drawing.Size(75, 23);
             this.cancelButton3.TabIndex = 18;
@@ -807,41 +904,51 @@
             // 
             // diagnosesTab
             // 
-            this.diagnosesTab.Controls.Add(this.button8);
-            this.diagnosesTab.Controls.Add(this.button9);
+            this.diagnosesTab.AutoScroll = true;
+            this.diagnosesTab.Controls.Add(this.textBox1);
+            this.diagnosesTab.Controls.Add(this.notes);
+            this.diagnosesTab.Controls.Add(diagnoses_treatmentLabel);
+            this.diagnosesTab.Controls.Add(this.treatmentLabel);
+            this.diagnosesTab.Controls.Add(diagnoses_descriptionLabel);
+            this.diagnosesTab.Controls.Add(this.descriptionLabel);
+            this.diagnosesTab.Controls.Add(diagnoses_nameLabel);
+            this.diagnosesTab.Controls.Add(this.diagnosesComboBox);
+            this.diagnosesTab.Controls.Add(this.saveButton4);
+            this.diagnosesTab.Controls.Add(this.editButton4);
             this.diagnosesTab.Controls.Add(this.cancelButton4);
             this.diagnosesTab.Controls.Add(this.groupBox4);
             this.diagnosesTab.Location = new System.Drawing.Point(4, 22);
             this.diagnosesTab.Name = "diagnosesTab";
             this.diagnosesTab.Padding = new System.Windows.Forms.Padding(3);
-            this.diagnosesTab.Size = new System.Drawing.Size(436, 244);
+            this.diagnosesTab.Size = new System.Drawing.Size(436, 273);
             this.diagnosesTab.TabIndex = 3;
             this.diagnosesTab.Text = "Diagnoses";
             this.diagnosesTab.UseVisualStyleBackColor = true;
             // 
-            // button8
+            // saveButton4
             // 
-            this.button8.Location = new System.Drawing.Point(297, 213);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 19;
-            this.button8.Text = "Save";
-            this.button8.UseVisualStyleBackColor = true;
+            this.saveButton4.Location = new System.Drawing.Point(297, 242);
+            this.saveButton4.Name = "saveButton4";
+            this.saveButton4.Size = new System.Drawing.Size(75, 23);
+            this.saveButton4.TabIndex = 19;
+            this.saveButton4.Text = "Save";
+            this.saveButton4.UseVisualStyleBackColor = true;
+            this.saveButton4.Click += new System.EventHandler(this.saveButton4_Click);
             // 
-            // button9
+            // editButton4
             // 
-            this.button9.Enabled = false;
-            this.button9.Location = new System.Drawing.Point(290, 213);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(87, 23);
-            this.button9.TabIndex = 20;
-            this.button9.Text = "Save Changes";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Visible = false;
+            this.editButton4.Enabled = false;
+            this.editButton4.Location = new System.Drawing.Point(290, 242);
+            this.editButton4.Name = "editButton4";
+            this.editButton4.Size = new System.Drawing.Size(87, 23);
+            this.editButton4.TabIndex = 20;
+            this.editButton4.Text = "Save Changes";
+            this.editButton4.UseVisualStyleBackColor = true;
+            this.editButton4.Visible = false;
             // 
             // cancelButton4
             // 
-            this.cancelButton4.Location = new System.Drawing.Point(68, 213);
+            this.cancelButton4.Location = new System.Drawing.Point(68, 242);
             this.cancelButton4.Name = "cancelButton4";
             this.cancelButton4.Size = new System.Drawing.Size(75, 23);
             this.cancelButton4.TabIndex = 18;
@@ -976,25 +1083,278 @@
             // 
             this.doctorsTableAdapter.ClearBeforeFill = true;
             // 
-            // txtBoxWeight
+            // notesTab
             // 
-            this.txtBoxWeight.Location = new System.Drawing.Point(329, 165);
-            this.txtBoxWeight.Name = "txtBoxWeight";
-            this.txtBoxWeight.Size = new System.Drawing.Size(56, 20);
-            this.txtBoxWeight.TabIndex = 30;
+            this.notesTab.Controls.Add(this.label53);
+            this.notesTab.Controls.Add(this.textBox2);
+            this.notesTab.Controls.Add(this.groupBox5);
+            this.notesTab.Controls.Add(this.saveButton5);
+            this.notesTab.Controls.Add(this.editButton5);
+            this.notesTab.Controls.Add(this.cancelButton5);
+            this.notesTab.Location = new System.Drawing.Point(4, 22);
+            this.notesTab.Name = "notesTab";
+            this.notesTab.Padding = new System.Windows.Forms.Padding(3);
+            this.notesTab.Size = new System.Drawing.Size(436, 273);
+            this.notesTab.TabIndex = 4;
+            this.notesTab.Text = "Notes";
+            this.notesTab.UseVisualStyleBackColor = true;
             // 
-            // txtBoxTemperature
+            // saveButton5
             // 
-            this.txtBoxTemperature.Location = new System.Drawing.Point(108, 165);
-            this.txtBoxTemperature.Name = "txtBoxTemperature";
-            this.txtBoxTemperature.Size = new System.Drawing.Size(56, 20);
-            this.txtBoxTemperature.TabIndex = 31;
+            this.saveButton5.Location = new System.Drawing.Point(293, 242);
+            this.saveButton5.Name = "saveButton5";
+            this.saveButton5.Size = new System.Drawing.Size(75, 23);
+            this.saveButton5.TabIndex = 22;
+            this.saveButton5.Text = "Save";
+            this.saveButton5.UseVisualStyleBackColor = true;
+            this.saveButton5.Click += new System.EventHandler(this.saveButton5_Click);
+            // 
+            // editButton5
+            // 
+            this.editButton5.Enabled = false;
+            this.editButton5.Location = new System.Drawing.Point(286, 242);
+            this.editButton5.Name = "editButton5";
+            this.editButton5.Size = new System.Drawing.Size(87, 23);
+            this.editButton5.TabIndex = 23;
+            this.editButton5.Text = "Save Changes";
+            this.editButton5.UseVisualStyleBackColor = true;
+            this.editButton5.Visible = false;
+            // 
+            // cancelButton5
+            // 
+            this.cancelButton5.Location = new System.Drawing.Point(64, 242);
+            this.cancelButton5.Name = "cancelButton5";
+            this.cancelButton5.Size = new System.Drawing.Size(75, 23);
+            this.cancelButton5.TabIndex = 21;
+            this.cancelButton5.Text = "Cancel";
+            this.cancelButton5.UseVisualStyleBackColor = true;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(label43);
+            this.groupBox5.Controls.Add(this.label44);
+            this.groupBox5.Controls.Add(this.label45);
+            this.groupBox5.Controls.Add(this.label46);
+            this.groupBox5.Controls.Add(label47);
+            this.groupBox5.Controls.Add(label48);
+            this.groupBox5.Controls.Add(this.label49);
+            this.groupBox5.Controls.Add(this.label50);
+            this.groupBox5.Controls.Add(this.label51);
+            this.groupBox5.Controls.Add(this.label52);
+            this.groupBox5.Location = new System.Drawing.Point(27, 24);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(372, 94);
+            this.groupBox5.TabIndex = 24;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Patient";
+            // 
+            // label43
+            // 
+            label43.AutoSize = true;
+            label43.Location = new System.Drawing.Point(159, 50);
+            label43.Name = "label43";
+            label43.Size = new System.Drawing.Size(57, 13);
+            label43.TabIndex = 9;
+            label43.Text = "Patient ID:";
+            // 
+            // label44
+            // 
+            this.label44.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.patientsBindingSource, "patientID", true));
+            this.label44.Location = new System.Drawing.Point(221, 50);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(100, 23);
+            this.label44.TabIndex = 10;
+            this.label44.Text = "*";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(240, 24);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(22, 13);
+            this.label45.TabIndex = 9;
+            this.label45.Text = "MI:";
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(124, 24);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(29, 13);
+            this.label46.TabIndex = 8;
+            this.label46.Text = "First:";
+            // 
+            // label47
+            // 
+            label47.AutoSize = true;
+            label47.Location = new System.Drawing.Point(6, 25);
+            label47.Name = "label47";
+            label47.Size = new System.Drawing.Size(30, 13);
+            label47.TabIndex = 0;
+            label47.Text = "Last:";
+            // 
+            // label48
+            // 
+            label48.AutoSize = true;
+            label48.Location = new System.Drawing.Point(6, 50);
+            label48.Name = "label48";
+            label48.Size = new System.Drawing.Size(33, 13);
+            label48.TabIndex = 6;
+            label48.Text = "DOB:";
+            // 
+            // label49
+            // 
+            this.label49.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.patientsBindingSource, "last_name", true));
+            this.label49.Location = new System.Drawing.Point(42, 25);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(75, 23);
+            this.label49.TabIndex = 1;
+            this.label49.Text = "*";
+            // 
+            // label50
+            // 
+            this.label50.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.patientsBindingSource, "dob", true));
+            this.label50.Location = new System.Drawing.Point(42, 50);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(100, 23);
+            this.label50.TabIndex = 7;
+            this.label50.Text = "*";
+            // 
+            // label51
+            // 
+            this.label51.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.patientsBindingSource, "middle_initial", true));
+            this.label51.Location = new System.Drawing.Point(268, 24);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(14, 23);
+            this.label51.TabIndex = 3;
+            this.label51.Text = "*";
+            // 
+            // label52
+            // 
+            this.label52.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.patientsBindingSource, "first_name", true));
+            this.label52.Location = new System.Drawing.Point(159, 24);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(75, 23);
+            this.label52.TabIndex = 5;
+            this.label52.Text = "*";
+            // 
+            // diagnosesDataSet
+            // 
+            this.diagnosesDataSet.DataSetName = "DiagnosesDataSet";
+            this.diagnosesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // diagnosesBindingSource
+            // 
+            this.diagnosesBindingSource.DataMember = "diagnoses";
+            this.diagnosesBindingSource.DataSource = this.diagnosesDataSet;
+            // 
+            // diagnosesTableAdapter
+            // 
+            this.diagnosesTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager1
+            // 
+            this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager1.diagnosesTableAdapter = this.diagnosesTableAdapter;
+            this.tableAdapterManager1.UpdateOrder = WindowsFormsApplication.DiagnosesDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // diagnoses_nameLabel
+            // 
+            diagnoses_nameLabel.AutoSize = true;
+            diagnoses_nameLabel.Location = new System.Drawing.Point(32, 126);
+            diagnoses_nameLabel.Name = "diagnoses_nameLabel";
+            diagnoses_nameLabel.Size = new System.Drawing.Size(60, 13);
+            diagnoses_nameLabel.TabIndex = 20;
+            diagnoses_nameLabel.Text = "Diagnoses:";
+            // 
+            // diagnosesComboBox
+            // 
+            this.diagnosesComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.diagnosesBindingSource, "diagnoses_name", true));
+            this.diagnosesComboBox.DataSource = this.diagnosesBindingSource;
+            this.diagnosesComboBox.DisplayMember = "diagnoses_name";
+            this.diagnosesComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.diagnosesComboBox.FormattingEnabled = true;
+            this.diagnosesComboBox.Location = new System.Drawing.Point(98, 123);
+            this.diagnosesComboBox.Name = "diagnosesComboBox";
+            this.diagnosesComboBox.Size = new System.Drawing.Size(149, 21);
+            this.diagnosesComboBox.TabIndex = 21;
+            this.diagnosesComboBox.ValueMember = "diagnosesID";
+            // 
+            // diagnoses_descriptionLabel
+            // 
+            diagnoses_descriptionLabel.AutoSize = true;
+            diagnoses_descriptionLabel.Location = new System.Drawing.Point(32, 157);
+            diagnoses_descriptionLabel.Name = "diagnoses_descriptionLabel";
+            diagnoses_descriptionLabel.Size = new System.Drawing.Size(63, 13);
+            diagnoses_descriptionLabel.TabIndex = 21;
+            diagnoses_descriptionLabel.Text = "Description:";
+            // 
+            // descriptionLabel
+            // 
+            this.descriptionLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.diagnosesBindingSource, "diagnoses_description", true));
+            this.descriptionLabel.Location = new System.Drawing.Point(98, 157);
+            this.descriptionLabel.Name = "descriptionLabel";
+            this.descriptionLabel.Size = new System.Drawing.Size(149, 23);
+            this.descriptionLabel.TabIndex = 22;
+            this.descriptionLabel.Text = "***";
+            // 
+            // diagnoses_treatmentLabel
+            // 
+            diagnoses_treatmentLabel.AutoSize = true;
+            diagnoses_treatmentLabel.Location = new System.Drawing.Point(32, 203);
+            diagnoses_treatmentLabel.Name = "diagnoses_treatmentLabel";
+            diagnoses_treatmentLabel.Size = new System.Drawing.Size(58, 13);
+            diagnoses_treatmentLabel.TabIndex = 22;
+            diagnoses_treatmentLabel.Text = "Treatment:";
+            // 
+            // treatmentLabel
+            // 
+            this.treatmentLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.diagnosesBindingSource, "diagnoses_treatment", true));
+            this.treatmentLabel.Location = new System.Drawing.Point(98, 203);
+            this.treatmentLabel.Name = "treatmentLabel";
+            this.treatmentLabel.Size = new System.Drawing.Size(151, 23);
+            this.treatmentLabel.TabIndex = 23;
+            this.treatmentLabel.Text = "***";
+            // 
+            // notes
+            // 
+            this.notes.AutoSize = true;
+            this.notes.Location = new System.Drawing.Point(309, 126);
+            this.notes.Name = "notes";
+            this.notes.Size = new System.Drawing.Size(38, 13);
+            this.notes.TabIndex = 24;
+            this.notes.Text = "Notes:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(255, 142);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(143, 94);
+            this.textBox1.TabIndex = 25;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(39, 141);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(346, 95);
+            this.textBox2.TabIndex = 25;
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(36, 125);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(38, 13);
+            this.label53.TabIndex = 26;
+            this.label53.Text = "Notes:";
             // 
             // NWNewVisit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(444, 295);
+            this.ClientSize = new System.Drawing.Size(444, 324);
             this.Controls.Add(this.patientVisitTabs);
             this.Controls.Add(this.fillPatientInfoToolStrip);
             this.Name = "NWNewVisit";
@@ -1015,13 +1375,21 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.symptomsTab.ResumeLayout(false);
+            this.symptomsTab.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.diagnosesTab.ResumeLayout(false);
+            this.diagnosesTab.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.fillPatientInfoToolStrip.ResumeLayout(false);
             this.fillPatientInfoToolStrip.PerformLayout();
+            this.notesTab.ResumeLayout(false);
+            this.notesTab.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.diagnosesDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.diagnosesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1089,11 +1457,11 @@
         private System.Windows.Forms.Button saveButton2;
         private System.Windows.Forms.Button editButton2;
         private System.Windows.Forms.Button cancelButton2;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button saveButton3;
+        private System.Windows.Forms.Button editButton3;
         private System.Windows.Forms.Button cancelButton3;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button saveButton4;
+        private System.Windows.Forms.Button editButton4;
         private System.Windows.Forms.Button cancelButton4;
         private System.Windows.Forms.TextBox txtBoxHeight;
         private System.Windows.Forms.TextBox txtBoxBloodPressure;
@@ -1105,5 +1473,32 @@
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.TextBox txtBoxTemperature;
         private System.Windows.Forms.TextBox txtBoxWeight;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.TextBox txtBoxNotes;
+        private System.Windows.Forms.TextBox txtBoxSymptoms;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.TabPage notesTab;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.Button saveButton5;
+        private System.Windows.Forms.Button editButton5;
+        private System.Windows.Forms.Button cancelButton5;
+        private DiagnosesDataSet diagnosesDataSet;
+        private System.Windows.Forms.BindingSource diagnosesBindingSource;
+        private DiagnosesDataSetTableAdapters.diagnosesTableAdapter diagnosesTableAdapter;
+        private DiagnosesDataSetTableAdapters.TableAdapterManager tableAdapterManager1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label notes;
+        private System.Windows.Forms.Label treatmentLabel;
+        private System.Windows.Forms.Label descriptionLabel;
+        private System.Windows.Forms.ComboBox diagnosesComboBox;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.TextBox textBox2;
         }
 }

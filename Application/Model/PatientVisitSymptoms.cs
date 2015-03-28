@@ -8,11 +8,9 @@ namespace WindowsFormsApplication.Model
 {
     public class PatientVisitSymptoms
     {
-        public int PatientVisitSymptomsId { get; set; }
         public int SymptomId { get; set; }
-        public int EmployeeId { get; set; }
         public int VisitId { get; set; }
-        public string Note { get; set; }
-        public DateTime Date { get; set; }
+        public string SymptomName { get; set; }
+        public int DiagnosesID { get; set; }
     }
 }

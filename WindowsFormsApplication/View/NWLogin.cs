@@ -8,16 +8,12 @@ namespace WindowsFormsApplication.View
     public partial class NwLogin : Form
     {
         NorthwindController _controller = new NorthwindController();
+        public static Employee employeeUser;
 
         public NwLogin()
         {
             InitializeComponent();
             
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
 
         /// <summary>
@@ -40,6 +36,7 @@ namespace WindowsFormsApplication.View
                 } else if (employee.PositionId == 1 && employee.Enabled == 1)
                 {
                     MessageBox.Show(@"Valid login. Welcome " + employee.FirstName + " " + employee.LastName);
+                    employeeUser = employee;
                     NorthwindAdmin home = new NorthwindAdmin(employee);
                     home.Show();
                     this.Hide();

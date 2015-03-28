@@ -2,39 +2,31 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApplication.Controller;
+using WindowsFormsApplication.Model;
 
 namespace WindowsFormsApplication.View
 {
     public partial class NWNewVisit : Form
     {
+        private PatientVisit patientVisit;
+
         public NWNewVisit()
         {
             InitializeComponent();
         }
 
-        private void patientsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.patientsBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.patientsDataSet);
-
-        }
-
-        private void patientsBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.patientsBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.patientsDataSet);
-
-        }
-
         private void NWNewVisit_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'employeesDataSet1.doctors' table. You can move, or remove it, as needed.
+            this.doctorsTableAdapter.FillDoctors(this.employeesDataSet1.doctors);
+            this.doctorsComboBox.SelectedIndex = -1;
             // TODO: This line of code loads data into the 'patientsDataSet.patients' table. You can move, or remove it, as needed.
             this.patientsTableAdapter.Fill(this.patientsDataSet.patients);
 
@@ -53,10 +45,74 @@ namespace WindowsFormsApplication.View
 
         }
 
-        private void last_nameLabel_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Closes the Form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cancelbutton_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to cancel?", "Cancel", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Close();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            patientVisit = new PatientVisit();
+            this.PutPatientVisitData(patientVisit);
+            try
+            {
+                NorthwindController.AddPatientVisit(patientVisit);
+                saveButton.Visible = false;
+                editButton.Visible = true;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+        }
+
+        private void PutPatientVisitData(PatientVisit patientVisit)
+        {
+                patientVisit.PatientId = int.Parse(patientIDLabel.Text);
+                patientVisit.VisitDate = visitDateBox.Value;
+                patientVisit.ApptDate = appointmentDateBox.Value;
+                patientVisit.DoctorId = (int)doctorsComboBox.SelectedValue;
+                patientVisit.NurseId = NwLogin.employeeUser.EmployeeId;
+        }
+
+        private void visitDateBox_ValueChanged(object sender, EventArgs e)
+        {
+            editButton.Enabled = true;
+        }
+
+        private void appointmentDateBox_ValueChanged(object sender, EventArgs e)
+        {
+            editButton.Enabled = true;
+        }
+
+        private void doctorsComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            editButton.Enabled = true;
+        }
+
+        private void editButton_Click(object sender, EventArgs e)
         {
 
         }
+
+
 
     }
 }

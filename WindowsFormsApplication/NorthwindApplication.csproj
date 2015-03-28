@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\NorthwindController.cs" />
+    <Compile Include="Controller\Validator.cs" />
     <Compile Include="DBAccess\DiagnosesDAL.cs" />
     <Compile Include="DBAccess\EmployeeDAL.cs" />
     <Compile Include="DBAccess\NorthwindDBConnection.cs" />
@@ -57,6 +58,15 @@
     <Compile Include="DBAccess\PatientVisitVitalsDAL.cs" />
     <Compile Include="DBAccess\PositionDAL.cs" />
     <Compile Include="DBAccess\TestDAL.cs" />
+    <Compile Include="EmployeesDataSet.cs">
+      <DependentUpon>EmployeesDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="EmployeesDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmployeesDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Model\Diagnoses.cs" />
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\Nurse.cs" />
@@ -194,6 +204,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="EmployeesDataSet.xsc">
+      <DependentUpon>EmployeesDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="EmployeesDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EmployeesDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="EmployeesDataSet.xss">
+      <DependentUpon>EmployeesDataSet.xsd</DependentUpon>
+    </None>
     <None Include="PatientsDataSet.xsc">
       <DependentUpon>PatientsDataSet.xsd</DependentUpon>
     </None>

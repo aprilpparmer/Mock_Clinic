@@ -45,24 +45,6 @@ namespace WindowsFormsApplication.View
 
         }
 
-        /// <summary>
-        /// Closes the Form.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void cancelbutton_Click(object sender, EventArgs e)
-        {
-            DialogResult dialogResult = MessageBox.Show("Are you sure you want to cancel?", "Cancel", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
-                Close();
-            }
-            else if (dialogResult == DialogResult.No)
-            {
-                return;
-            }
-        }
-
         private void saveButton_Click(object sender, EventArgs e)
         {
             if (IsValidData())
@@ -129,6 +111,59 @@ namespace WindowsFormsApplication.View
             }
             else
                 return false;
+        }
+
+        //Visit Info Cancel Button - closes form
+        private void cancelbutton_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to cancel?", "Cancel", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Close();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
+        }
+        //Vitals Cancel Button - closes form
+        private void cancelButton2_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to cancel?", "Cancel", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Close();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
+        }
+        //Symptoms Cancel Button - closes form
+        private void cancelButton3_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to cancel?", "Cancel", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Close();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
+        }
+        //Diagnoses Cancel Button - closes form
+        private void cancelButton4_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to cancel?", "Cancel", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Close();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
         }
 
     }

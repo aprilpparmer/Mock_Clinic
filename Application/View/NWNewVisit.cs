@@ -17,6 +17,8 @@ namespace WindowsFormsApplication.View
     {
         private PatientVisit patientVisit;
         private PatientVisitVitals vitals;
+        private PatientVisitSymptoms symptoms;
+        private PatientVisitNotes note;
 
         public NWNewVisit()
         {
@@ -167,6 +169,41 @@ namespace WindowsFormsApplication.View
             vitals.Pulse = txtBoxPulse.Text;
             vitals.Height = int.Parse(txtBoxHeight.Text);
             vitals.Weight = int.Parse(txtBoxWeight.Text);
+        }
+
+        private void saveButton3_Click(object sender, EventArgs e)
+        {
+            symptoms = new PatientVisitSymptoms();
+            note = new PatientVisitNotes();
+            this.PutPatientVisitSymptomsData(symptoms, note);
+            try
+            {
+                NorthwindController.AddPatientVisitSymptoms(symptoms);
+                if (note.Note != null)
+                {
+                    NorthwindController.AddPatientVisitNotes(note);
+                }
+                saveButton3.Visible = false;
+                editButton3.Visible = true;
+                editButton3.Enabled = false;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+        }
+        //Saves the symptoms data
+        private void PutPatientVisitSymptomsData(PatientVisitSymptoms symptoms, PatientVisitNotes note)
+        {
+            symptoms.VisitId = patientVisit.VisitId;
+            symptoms.SymptomName = txtBoxSymptoms.Text;
+            note.Note = txtBoxNotes.Text;
+            note.EmployeeId = NwLogin.employeeUser.EmployeeId;
+            note.VisitId = patientVisit.VisitId;
         }
     }
 }

@@ -65,6 +65,8 @@
             this.firstNameLabel = new System.Windows.Forms.Label();
             this.editButton = new System.Windows.Forms.Button();
             this.vitalsTab = new System.Windows.Forms.TabPage();
+            this.txtBoxTemperature = new System.Windows.Forms.TextBox();
+            this.txtBoxWeight = new System.Windows.Forms.TextBox();
             this.txtBoxHeight = new System.Windows.Forms.TextBox();
             this.txtBoxBloodPressure = new System.Windows.Forms.TextBox();
             this.txtBoxPulse = new System.Windows.Forms.TextBox();
@@ -85,8 +87,12 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.symptomsTab = new System.Windows.Forms.TabPage();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.label42 = new System.Windows.Forms.Label();
+            this.txtBoxNotes = new System.Windows.Forms.TextBox();
+            this.txtBoxSymptoms = new System.Windows.Forms.TextBox();
+            this.label41 = new System.Windows.Forms.Label();
+            this.saveButton3 = new System.Windows.Forms.Button();
+            this.editButton3 = new System.Windows.Forms.Button();
             this.cancelButton3 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label17 = new System.Windows.Forms.Label();
@@ -115,12 +121,6 @@
             this.patientsTableAdapter = new WindowsFormsApplication.PatientsDataSetTableAdapters.patientsTableAdapter();
             this.tableAdapterManager = new WindowsFormsApplication.PatientsDataSetTableAdapters.TableAdapterManager();
             this.doctorsTableAdapter = new WindowsFormsApplication.EmployeesDataSetTableAdapters.doctorsTableAdapter();
-            this.txtBoxWeight = new System.Windows.Forms.TextBox();
-            this.txtBoxTemperature = new System.Windows.Forms.TextBox();
-            this.label41 = new System.Windows.Forms.Label();
-            this.txtBoxSymptoms = new System.Windows.Forms.TextBox();
-            this.txtBoxNotes = new System.Windows.Forms.TextBox();
-            this.label42 = new System.Windows.Forms.Label();
             last_nameLabel = new System.Windows.Forms.Label();
             dob = new System.Windows.Forms.Label();
             patientID = new System.Windows.Forms.Label();
@@ -503,6 +503,20 @@
             this.vitalsTab.Text = "Vitals";
             this.vitalsTab.UseVisualStyleBackColor = true;
             // 
+            // txtBoxTemperature
+            // 
+            this.txtBoxTemperature.Location = new System.Drawing.Point(108, 165);
+            this.txtBoxTemperature.Name = "txtBoxTemperature";
+            this.txtBoxTemperature.Size = new System.Drawing.Size(56, 20);
+            this.txtBoxTemperature.TabIndex = 31;
+            // 
+            // txtBoxWeight
+            // 
+            this.txtBoxWeight.Location = new System.Drawing.Point(329, 165);
+            this.txtBoxWeight.Name = "txtBoxWeight";
+            this.txtBoxWeight.Size = new System.Drawing.Size(56, 20);
+            this.txtBoxWeight.TabIndex = 30;
+            // 
             // txtBoxHeight
             // 
             this.txtBoxHeight.Location = new System.Drawing.Point(217, 165);
@@ -689,8 +703,8 @@
             this.symptomsTab.Controls.Add(this.txtBoxNotes);
             this.symptomsTab.Controls.Add(this.txtBoxSymptoms);
             this.symptomsTab.Controls.Add(this.label41);
-            this.symptomsTab.Controls.Add(this.button6);
-            this.symptomsTab.Controls.Add(this.button7);
+            this.symptomsTab.Controls.Add(this.saveButton3);
+            this.symptomsTab.Controls.Add(this.editButton3);
             this.symptomsTab.Controls.Add(this.cancelButton3);
             this.symptomsTab.Controls.Add(this.groupBox3);
             this.symptomsTab.Location = new System.Drawing.Point(4, 22);
@@ -701,25 +715,60 @@
             this.symptomsTab.Text = "Symptoms";
             this.symptomsTab.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // label42
             // 
-            this.button6.Location = new System.Drawing.Point(294, 213);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 19;
-            this.button6.Text = "Save";
-            this.button6.UseVisualStyleBackColor = true;
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(29, 169);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(38, 13);
+            this.label42.TabIndex = 24;
+            this.label42.Text = "Notes:";
             // 
-            // button7
+            // txtBoxNotes
             // 
-            this.button7.Enabled = false;
-            this.button7.Location = new System.Drawing.Point(287, 213);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(87, 23);
-            this.button7.TabIndex = 20;
-            this.button7.Text = "Save Changes";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Visible = false;
+            this.txtBoxNotes.Location = new System.Drawing.Point(32, 185);
+            this.txtBoxNotes.Multiline = true;
+            this.txtBoxNotes.Name = "txtBoxNotes";
+            this.txtBoxNotes.Size = new System.Drawing.Size(352, 22);
+            this.txtBoxNotes.TabIndex = 23;
+            // 
+            // txtBoxSymptoms
+            // 
+            this.txtBoxSymptoms.Location = new System.Drawing.Point(32, 130);
+            this.txtBoxSymptoms.Multiline = true;
+            this.txtBoxSymptoms.Name = "txtBoxSymptoms";
+            this.txtBoxSymptoms.Size = new System.Drawing.Size(352, 34);
+            this.txtBoxSymptoms.TabIndex = 22;
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(29, 114);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(58, 13);
+            this.label41.TabIndex = 21;
+            this.label41.Text = "Symptoms:";
+            // 
+            // saveButton3
+            // 
+            this.saveButton3.Location = new System.Drawing.Point(294, 213);
+            this.saveButton3.Name = "saveButton3";
+            this.saveButton3.Size = new System.Drawing.Size(75, 23);
+            this.saveButton3.TabIndex = 19;
+            this.saveButton3.Text = "Save";
+            this.saveButton3.UseVisualStyleBackColor = true;
+            this.saveButton3.Click += new System.EventHandler(this.saveButton3_Click);
+            // 
+            // editButton3
+            // 
+            this.editButton3.Enabled = false;
+            this.editButton3.Location = new System.Drawing.Point(287, 213);
+            this.editButton3.Name = "editButton3";
+            this.editButton3.Size = new System.Drawing.Size(87, 23);
+            this.editButton3.TabIndex = 20;
+            this.editButton3.Text = "Save Changes";
+            this.editButton3.UseVisualStyleBackColor = true;
+            this.editButton3.Visible = false;
             // 
             // cancelButton3
             // 
@@ -984,54 +1033,6 @@
             // 
             this.doctorsTableAdapter.ClearBeforeFill = true;
             // 
-            // txtBoxWeight
-            // 
-            this.txtBoxWeight.Location = new System.Drawing.Point(329, 165);
-            this.txtBoxWeight.Name = "txtBoxWeight";
-            this.txtBoxWeight.Size = new System.Drawing.Size(56, 20);
-            this.txtBoxWeight.TabIndex = 30;
-            // 
-            // txtBoxTemperature
-            // 
-            this.txtBoxTemperature.Location = new System.Drawing.Point(108, 165);
-            this.txtBoxTemperature.Name = "txtBoxTemperature";
-            this.txtBoxTemperature.Size = new System.Drawing.Size(56, 20);
-            this.txtBoxTemperature.TabIndex = 31;
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(29, 114);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(58, 13);
-            this.label41.TabIndex = 21;
-            this.label41.Text = "Symptoms:";
-            // 
-            // txtBoxSymptoms
-            // 
-            this.txtBoxSymptoms.Location = new System.Drawing.Point(32, 130);
-            this.txtBoxSymptoms.Multiline = true;
-            this.txtBoxSymptoms.Name = "txtBoxSymptoms";
-            this.txtBoxSymptoms.Size = new System.Drawing.Size(352, 34);
-            this.txtBoxSymptoms.TabIndex = 22;
-            // 
-            // txtBoxNotes
-            // 
-            this.txtBoxNotes.Location = new System.Drawing.Point(32, 185);
-            this.txtBoxNotes.Multiline = true;
-            this.txtBoxNotes.Name = "txtBoxNotes";
-            this.txtBoxNotes.Size = new System.Drawing.Size(352, 22);
-            this.txtBoxNotes.TabIndex = 23;
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(29, 169);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(38, 13);
-            this.label42.TabIndex = 24;
-            this.label42.Text = "Notes:";
-            // 
             // NWNewVisit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1132,8 +1133,8 @@
         private System.Windows.Forms.Button saveButton2;
         private System.Windows.Forms.Button editButton2;
         private System.Windows.Forms.Button cancelButton2;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button saveButton3;
+        private System.Windows.Forms.Button editButton3;
         private System.Windows.Forms.Button cancelButton3;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;

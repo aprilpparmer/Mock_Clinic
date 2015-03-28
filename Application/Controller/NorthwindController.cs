@@ -32,5 +32,15 @@ namespace WindowsFormsApplication.Controller
         {
             PatientVisitVitalsDal.AddPatientVisitVitals(vitals);
         }
+
+        public static void AddPatientVisitSymptoms(PatientVisitSymptoms symptoms)
+        {
+            PatientVisitSymptomsDal.AddPatientVisitSymptoms(symptoms);
+        }
+
+        public static void AddPatientVisitNotes(PatientVisitNotes note)
+        {
+            PatientVisitNotesDal.AddPatientVisitNotes(note);
+        }
     }
 }

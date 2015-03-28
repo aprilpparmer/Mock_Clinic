@@ -33,12 +33,11 @@ namespace WindowsFormsApplication.Controller
             PatientVisitVitalsDal.AddPatientVisitVitals(vitals);
         }
 
-<<<<<<< HEAD:WindowsFormsApplication/Controller/NorthwindController.cs
         internal List<Patient> GetPatientsByNameAndDOB(String firstName, String lastName)
         {
             return PatientDal.getPatientsByNameAndDOB(firstName, lastName);
         } 
-=======
+
         public static int AddPatientVisitSymptoms(PatientVisitSymptoms symptoms)
         {
             return PatientVisitSymptomsDal.AddPatientVisitSymptoms(symptoms);
@@ -53,6 +52,5 @@ namespace WindowsFormsApplication.Controller
         {
             PatientVisitSymptomsDal.UpdatePatientDiagnoses(symptoms);
         }
->>>>>>> abdb118843c343bca7a964edb95712cb3d2fe579:Application/Controller/NorthwindController.cs
     }
 }

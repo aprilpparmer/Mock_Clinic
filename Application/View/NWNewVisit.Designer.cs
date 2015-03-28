@@ -117,6 +117,10 @@
             this.doctorsTableAdapter = new WindowsFormsApplication.EmployeesDataSetTableAdapters.doctorsTableAdapter();
             this.txtBoxWeight = new System.Windows.Forms.TextBox();
             this.txtBoxTemperature = new System.Windows.Forms.TextBox();
+            this.label41 = new System.Windows.Forms.Label();
+            this.txtBoxSymptoms = new System.Windows.Forms.TextBox();
+            this.txtBoxNotes = new System.Windows.Forms.TextBox();
+            this.label42 = new System.Windows.Forms.Label();
             last_nameLabel = new System.Windows.Forms.Label();
             dob = new System.Windows.Forms.Label();
             patientID = new System.Windows.Forms.Label();
@@ -681,6 +685,10 @@
             // 
             // symptomsTab
             // 
+            this.symptomsTab.Controls.Add(this.label42);
+            this.symptomsTab.Controls.Add(this.txtBoxNotes);
+            this.symptomsTab.Controls.Add(this.txtBoxSymptoms);
+            this.symptomsTab.Controls.Add(this.label41);
             this.symptomsTab.Controls.Add(this.button6);
             this.symptomsTab.Controls.Add(this.button7);
             this.symptomsTab.Controls.Add(this.cancelButton3);
@@ -990,6 +998,40 @@
             this.txtBoxTemperature.Size = new System.Drawing.Size(56, 20);
             this.txtBoxTemperature.TabIndex = 31;
             // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(29, 114);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(58, 13);
+            this.label41.TabIndex = 21;
+            this.label41.Text = "Symptoms:";
+            // 
+            // txtBoxSymptoms
+            // 
+            this.txtBoxSymptoms.Location = new System.Drawing.Point(32, 130);
+            this.txtBoxSymptoms.Multiline = true;
+            this.txtBoxSymptoms.Name = "txtBoxSymptoms";
+            this.txtBoxSymptoms.Size = new System.Drawing.Size(352, 34);
+            this.txtBoxSymptoms.TabIndex = 22;
+            // 
+            // txtBoxNotes
+            // 
+            this.txtBoxNotes.Location = new System.Drawing.Point(32, 185);
+            this.txtBoxNotes.Multiline = true;
+            this.txtBoxNotes.Name = "txtBoxNotes";
+            this.txtBoxNotes.Size = new System.Drawing.Size(352, 22);
+            this.txtBoxNotes.TabIndex = 23;
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(29, 169);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(38, 13);
+            this.label42.TabIndex = 24;
+            this.label42.Text = "Notes:";
+            // 
             // NWNewVisit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1015,6 +1057,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.symptomsTab.ResumeLayout(false);
+            this.symptomsTab.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.diagnosesTab.ResumeLayout(false);
@@ -1105,5 +1148,9 @@
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.TextBox txtBoxTemperature;
         private System.Windows.Forms.TextBox txtBoxWeight;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.TextBox txtBoxNotes;
+        private System.Windows.Forms.TextBox txtBoxSymptoms;
+        private System.Windows.Forms.Label label41;
         }
 }

@@ -25,7 +25,7 @@ namespace WindowsFormsApplication.DBAccess
                     {
                         //parameters
                         insertCommand.Parameters.AddWithValue("@visitID", symptoms.VisitId);
-                        insertCommand.Parameters.AddWithValue("@symptoms_name", symptoms.SymptomName);
+                        insertCommand.Parameters.AddWithValue("@symptom_name", symptoms.SymptomName);
                         insertCommand.ExecuteNonQuery();
 
                         string selectStatement =

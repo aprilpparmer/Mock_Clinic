@@ -39,6 +39,7 @@
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newVisitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UserLabel = new System.Windows.Forms.Label();
+            this.updateVisitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.NWmenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,9 +85,10 @@
             this.patientToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.RegisterPatient,
             this.updateToolStripMenuItem,
-            this.orderTestsToolStripMenuItem,
             this.searchToolStripMenuItem,
-            this.newVisitToolStripMenuItem});
+            this.newVisitToolStripMenuItem,
+            this.updateVisitToolStripMenuItem,
+            this.orderTestsToolStripMenuItem});
             this.patientToolStripMenuItem.Name = "patientToolStripMenuItem";
             this.patientToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.patientToolStripMenuItem.Text = "Patient";
@@ -134,6 +136,12 @@
             this.UserLabel.TabIndex = 2;
             this.UserLabel.Visible = false;
             // 
+            // updateVisitToolStripMenuItem
+            // 
+            this.updateVisitToolStripMenuItem.Name = "updateVisitToolStripMenuItem";
+            this.updateVisitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.updateVisitToolStripMenuItem.Text = "Update Visit";
+            // 
             // NorthwindAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -168,6 +176,7 @@
         private System.Windows.Forms.ToolStripMenuItem orderTestsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newVisitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem updateVisitToolStripMenuItem;
     }
 }
 

@@ -10,7 +10,7 @@ namespace WindowsFormsApplication.DBAccess
 {
     class PatientVisitNotesDal
     {
-        public static void AddPatientVisitNotes(PatientVisitNotes note)
+        public static int AddPatientVisitNotes(PatientVisitNotes note)
         {
             string insertStatement =
               "INSERT patient_visit_notes " +
@@ -29,6 +29,46 @@ namespace WindowsFormsApplication.DBAccess
                         insertCommand.Parameters.AddWithValue("@note", note.Note);
                         insertCommand.Parameters.AddWithValue("@date", DateTime.Now);
                         insertCommand.ExecuteNonQuery();
+
+                        string selectStatement =
+                            "SELECT IDENT_CURRENT('patient_visit_notes') FROM patient_visit_notes";
+                        SqlCommand selectCommand =
+                            new SqlCommand(selectStatement, connection);
+                        int noteID = Convert.ToInt32(selectCommand.ExecuteScalar());
+                        return noteID;
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static void UpdatePatientNotes(PatientVisitNotes note)
+        {
+            string updateStatement =
+                "UPDATE patient_visit_notes SET " +
+                    "note = @note, employeeID = @employeeID, date = @date " +
+                "WHERE visitID = @visitID AND notesID = @notesID";
+            try
+            {
+                using (SqlConnection connection = NorthwindDbConnection.GetConnection())
+                {
+                    connection.Open();
+                    using (SqlCommand updateCommand = new SqlCommand(updateStatement, connection))
+                    {
+                        //parameters
+                        updateCommand.Parameters.AddWithValue("@visitID", note.VisitId);
+                        updateCommand.Parameters.AddWithValue("@notesID", note.NotesId);
+                        updateCommand.Parameters.AddWithValue("@note", note.Note);
+                        updateCommand.Parameters.AddWithValue("@employeeID", note.EmployeeId);
+                        updateCommand.Parameters.AddWithValue("@date", DateTime.Now);
+                        updateCommand.ExecuteNonQuery();
                     }
                 }
             }

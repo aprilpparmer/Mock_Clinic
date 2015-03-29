@@ -44,6 +44,7 @@ namespace WindowsFormsApplication.View
             try
             {
                 this.patientsTableAdapter.FillPatientInfo(this.patientsDataSet.patients, ((int)(System.Convert.ChangeType(patientIDToolStripTextBox.Text, typeof(int)))));
+                this.saveButton.Enabled = true;
             }
             catch (System.Exception ex)
             {
@@ -64,6 +65,7 @@ namespace WindowsFormsApplication.View
                     editButton.Visible = true;
                     editButton.Enabled = false;
                     saveButton2.Enabled = true;
+                    this.saveButton5.Enabled = true;
                 }
                 catch (SqlException ex)
                 {
@@ -186,9 +188,9 @@ namespace WindowsFormsApplication.View
                 try
                 {
                     symptoms.SymptomId = NorthwindController.AddPatientVisitSymptoms(symptoms);
-                    if (note.Note != null)
+                    if (note.Note != "")
                     {
-                        NorthwindController.AddPatientVisitNotes(note);
+                        note.NotesId = NorthwindController.AddPatientVisitNotes(note);
                     }
                     saveButton3.Visible = false;
                     editButton3.Visible = true;
@@ -227,7 +229,7 @@ namespace WindowsFormsApplication.View
                     NorthwindController.UpdatePatientDiagnoses(dsymptoms);
                     if (note.Note != null)
                     {
-                        NorthwindController.AddPatientVisitNotes(note);
+                        note.NotesId = NorthwindController.AddPatientVisitNotes(note);
                     }
                     saveButton4.Visible = false;
                     editButton4.Visible = true;
@@ -262,8 +264,10 @@ namespace WindowsFormsApplication.View
                 this.PutPatientVisitNotesData(note);
                 try
                 {
-                    NorthwindController.AddPatientVisitNotes(note);
-                    saveButton5.Enabled = false;
+                    note.NotesId = NorthwindController.AddPatientVisitNotes(note);
+                    saveButton5.Visible = false;
+                    editButton5.Visible = true;
+                    editButton5.Enabled = false;
                 }
                 catch (SqlException ex)
                 {
@@ -286,52 +290,105 @@ namespace WindowsFormsApplication.View
         //Updates the visit info
         private void editButton_Click(object sender, EventArgs e)
         {
-            PatientVisit updateVisit = new PatientVisit();
-            this.PutPatientVisitData(updateVisit);
-            updateVisit.VisitId = patientVisit.VisitId; 
-            try
+            if (IsValidDataVisit())
             {
-                NorthwindController.UpdatePatientVisit(updateVisit);
-                editButton.Enabled = false;
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
+                PatientVisit updateVisit = new PatientVisit();
+                this.PutPatientVisitData(updateVisit);
+                updateVisit.VisitId = patientVisit.VisitId;
+                try
+                {
+                    NorthwindController.UpdatePatientVisit(updateVisit);
+                    editButton.Enabled = false;
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
             }
         }
         //
         private void editButton2_Click(object sender, EventArgs e)
         {
-            PatientVisitVitals updateVitals = new PatientVisitVitals();
-            this.PutPatientVisitVitalsData(updateVitals);
-            updateVitals.VitalsId = vitals.VitalsId;
-            try
+            if (IsValidDataVitals())
             {
-                NorthwindController.UpdatePatientVisitVitals(updateVitals);
-                editButton2.Enabled = false;
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
+                PatientVisitVitals updateVitals = new PatientVisitVitals();
+                this.PutPatientVisitVitalsData(updateVitals);
+                updateVitals.VitalsId = vitals.VitalsId;
+                try
+                {
+                    NorthwindController.UpdatePatientVisitVitals(updateVitals);
+                    editButton2.Enabled = false;
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
             }
         }
 
         private void editButton3_Click(object sender, EventArgs e)
         {
-
+            if (IsValidDataSymptoms())
+            {
+                PatientVisitSymptoms updateSymptoms = new PatientVisitSymptoms();
+                PatientVisitNotes updateNote = new PatientVisitNotes();
+                this.PutPatientVisitSymptomsData(updateSymptoms, updateNote);
+                updateSymptoms.SymptomId = symptoms.SymptomId;
+                updateNote.NotesId = note.NotesId;
+                try
+                {
+                    NorthwindController.UpdatePatientSymptoms(updateSymptoms);
+                    if (updateNote.Note != note.Note)
+                    {
+                        NorthwindController.UpdatePatientNotes(updateNote);
+                    }
+                    editButton3.Enabled = false;
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
+            }
         }
 
         private void editButton4_Click(object sender, EventArgs e)
         {
-
+            if (IsValidDataDiagnoses())
+            {
+                PatientVisitSymptoms updateDiagnoses = new PatientVisitSymptoms();
+                PatientVisitNotes updateNote = new PatientVisitNotes();
+                this.PutPatientVisitDiagnosesData(updateDiagnoses, updateNote);
+                updateNote.NotesId = note.NotesId;
+                try
+                {
+                    NorthwindController.UpdatePatientDiagnoses(updateDiagnoses);
+                    if (updateNote.Note != note.Note)
+                    {
+                        NorthwindController.UpdatePatientNotes(updateNote);
+                    }
+                    editButton4.Enabled = false;
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
+            }
         }
 
         private void txtBoxPulse_TextChanged(object sender, EventArgs e) { editButton2.Enabled = true; }
@@ -390,6 +447,34 @@ namespace WindowsFormsApplication.View
                 return true;
             else
                 return false;
+        }
+
+        private void notesBox3_TextChanged(object sender, EventArgs e)
+        {
+            this.editButton5.Enabled = true;
+        }
+
+        private void editButton5_Click(object sender, EventArgs e)
+        {
+            if (IsValidDataNotes())
+            {
+                PatientVisitNotes updateNote = new PatientVisitNotes();
+                this.PutPatientVisitNotesData(updateNote);
+                updateNote.NotesId = note.NotesId;
+                try
+                {
+                    NorthwindController.UpdatePatientNotes(updateNote);
+                    editButton5.Enabled = false;
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
+            }
         }
 
     }

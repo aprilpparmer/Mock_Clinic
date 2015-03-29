@@ -76,5 +76,36 @@ namespace WindowsFormsApplication.DBAccess
                 throw ex;
             }
         }
+
+        public static void UpdatePatientSymptoms(PatientVisitSymptoms symptoms)
+        {
+            string updateStatement =
+                "UPDATE patient_visit_symptoms SET " +
+                    "symptom_name = @symptom_name " +
+                "WHERE symptomID = @symptomID";
+            try
+            {
+                using (SqlConnection connection = NorthwindDbConnection.GetConnection())
+                {
+                    connection.Open();
+                    using (SqlCommand updateCommand = new SqlCommand(updateStatement, connection))
+                    {
+                        //parameters
+                        //updateCommand.Parameters.AddWithValue("@visitID", symptoms.VisitId);
+                        updateCommand.Parameters.AddWithValue("@symptomID", symptoms.SymptomId);
+                        updateCommand.Parameters.AddWithValue("@symptom_name", symptoms.SymptomName);
+                        updateCommand.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

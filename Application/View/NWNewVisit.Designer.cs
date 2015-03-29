@@ -149,6 +149,7 @@
             this.doctorsTableAdapter = new WindowsFormsApplication.EmployeesDataSetTableAdapters.doctorsTableAdapter();
             this.diagnosesTableAdapter = new WindowsFormsApplication.DiagnosesDataSetTableAdapters.diagnosesTableAdapter();
             this.tableAdapterManager1 = new WindowsFormsApplication.DiagnosesDataSetTableAdapters.TableAdapterManager();
+            this.editButton5 = new System.Windows.Forms.Button();
             last_nameLabel = new System.Windows.Forms.Label();
             dob = new System.Windows.Forms.Label();
             patientID = new System.Windows.Forms.Label();
@@ -395,6 +396,7 @@
             // 
             // saveButton
             // 
+            this.saveButton.Enabled = false;
             this.saveButton.Location = new System.Drawing.Point(296, 242);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
@@ -1178,6 +1180,7 @@
             this.notesTab.Controls.Add(this.groupBox5);
             this.notesTab.Controls.Add(this.saveButton5);
             this.notesTab.Controls.Add(this.cancelButton5);
+            this.notesTab.Controls.Add(this.editButton5);
             this.notesTab.Location = new System.Drawing.Point(4, 22);
             this.notesTab.Name = "notesTab";
             this.notesTab.Padding = new System.Windows.Forms.Padding(3);
@@ -1203,6 +1206,7 @@
             this.notesBox3.Size = new System.Drawing.Size(346, 95);
             this.notesBox3.TabIndex = 19;
             this.notesBox3.Tag = "Notes";
+            this.notesBox3.TextChanged += new System.EventHandler(this.notesBox3_TextChanged);
             // 
             // groupBox5
             // 
@@ -1288,6 +1292,7 @@
             // 
             // saveButton5
             // 
+            this.saveButton5.Enabled = false;
             this.saveButton5.Location = new System.Drawing.Point(293, 242);
             this.saveButton5.Name = "saveButton5";
             this.saveButton5.Size = new System.Drawing.Size(75, 23);
@@ -1359,6 +1364,18 @@
             this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager1.diagnosesTableAdapter = this.diagnosesTableAdapter;
             this.tableAdapterManager1.UpdateOrder = WindowsFormsApplication.DiagnosesDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // editButton5
+            // 
+            this.editButton5.Enabled = false;
+            this.editButton5.Location = new System.Drawing.Point(288, 242);
+            this.editButton5.Name = "editButton5";
+            this.editButton5.Size = new System.Drawing.Size(87, 23);
+            this.editButton5.TabIndex = 27;
+            this.editButton5.Text = "Save Changes";
+            this.editButton5.UseVisualStyleBackColor = true;
+            this.editButton5.Visible = false;
+            this.editButton5.Click += new System.EventHandler(this.editButton5_Click);
             // 
             // NWNewVisit
             // 
@@ -1509,5 +1526,6 @@
         private System.Windows.Forms.Label label53;
         private System.Windows.Forms.TextBox notesBox3;
         private System.Windows.Forms.ComboBox diagnosesComboBox;
+        private System.Windows.Forms.Button editButton5;
         }
 }

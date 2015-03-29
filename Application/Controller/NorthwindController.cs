@@ -43,9 +43,9 @@ namespace WindowsFormsApplication.Controller
             return PatientVisitSymptomsDal.AddPatientVisitSymptoms(symptoms);
         }
 
-        public static void AddPatientVisitNotes(PatientVisitNotes note)
+        public static int AddPatientVisitNotes(PatientVisitNotes note)
         {
-            PatientVisitNotesDal.AddPatientVisitNotes(note);
+            return PatientVisitNotesDal.AddPatientVisitNotes(note);
         }
 
         public static void UpdatePatientDiagnoses(PatientVisitSymptoms symptoms)
@@ -61,6 +61,16 @@ namespace WindowsFormsApplication.Controller
         public static void UpdatePatientVisitVitals(PatientVisitVitals vitals)
         {
             PatientVisitVitalsDal.UpdatePatientVisitVitals(vitals);
+        }
+
+        public static void UpdatePatientSymptoms(PatientVisitSymptoms symptoms)
+        {
+            PatientVisitSymptomsDal.UpdatePatientSymptoms(symptoms);
+        }
+
+        public static void UpdatePatientNotes(PatientVisitNotes note)
+        {
+            PatientVisitNotesDal.UpdatePatientNotes(note);
         }
     }
 }

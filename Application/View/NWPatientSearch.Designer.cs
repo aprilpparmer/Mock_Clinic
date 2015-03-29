@@ -73,10 +73,10 @@
             this.Child,
             this.MotherID,
             this.FatherID});
-            this.listViewPatients.Location = new System.Drawing.Point(11, 133);
+            this.listViewPatients.Location = new System.Drawing.Point(11, 58);
             this.listViewPatients.Margin = new System.Windows.Forms.Padding(2);
             this.listViewPatients.Name = "listViewPatients";
-            this.listViewPatients.Size = new System.Drawing.Size(1295, 166);
+            this.listViewPatients.Size = new System.Drawing.Size(1003, 166);
             this.listViewPatients.TabIndex = 0;
             this.listViewPatients.UseCompatibleStateImageBehavior = false;
             this.listViewPatients.View = System.Windows.Forms.View.Details;
@@ -84,17 +84,17 @@
             // PatientID
             // 
             this.PatientID.Text = "PatientID";
-            this.PatientID.Width = 63;
+            this.PatientID.Width = 56;
             // 
             // SSN
             // 
             this.SSN.Text = "SSN";
-            this.SSN.Width = 100;
+            this.SSN.Width = 63;
             // 
             // LastName
             // 
             this.LastName.Text = "Last Name";
-            this.LastName.Width = 106;
+            this.LastName.Width = 78;
             // 
             // MiddleInitial
             // 
@@ -104,45 +104,52 @@
             // FirstName
             // 
             this.FirstName.Text = "First Name";
-            this.FirstName.Width = 95;
+            this.FirstName.Width = 83;
             // 
             // DOB
             // 
             this.DOB.Text = "DOB";
+            this.DOB.Width = 64;
             // 
             // Gender
             // 
             this.Gender.Text = "Gender";
+            this.Gender.Width = 49;
             // 
             // Address
             // 
             this.Address.Text = "Address";
-            this.Address.Width = 150;
+            this.Address.Width = 75;
             // 
             // City
             // 
             this.City.Text = "City";
+            this.City.Width = 57;
             // 
             // State
             // 
             this.State.Text = "State";
+            this.State.Width = 40;
             // 
             // Zip
             // 
             this.Zip.Text = "Zip";
+            this.Zip.Width = 59;
             // 
             // HomePhone
             // 
             this.HomePhone.Text = "Home Phone";
+            this.HomePhone.Width = 102;
             // 
             // WorkPhone
             // 
-            this.WorkPhone.Text = "WorkPhone";
+            this.WorkPhone.Text = "Work Phone";
+            this.WorkPhone.Width = 106;
             // 
             // Child
             // 
             this.Child.Text = "Child";
-            this.Child.Width = 85;
+            this.Child.Width = 70;
             // 
             // MotherID
             // 
@@ -156,22 +163,22 @@
             // labelFirstName
             // 
             this.labelFirstName.AutoSize = true;
-            this.labelFirstName.Location = new System.Drawing.Point(68, 39);
+            this.labelFirstName.Location = new System.Drawing.Point(12, 24);
             this.labelFirstName.Name = "labelFirstName";
-            this.labelFirstName.Size = new System.Drawing.Size(63, 13);
+            this.labelFirstName.Size = new System.Drawing.Size(110, 13);
             this.labelFirstName.TabIndex = 1;
-            this.labelFirstName.Text = "First Name :";
+            this.labelFirstName.Text = "First Name (required) :";
             // 
             // textBoxFirstName
             // 
-            this.textBoxFirstName.Location = new System.Drawing.Point(181, 39);
+            this.textBoxFirstName.Location = new System.Drawing.Point(128, 21);
             this.textBoxFirstName.Name = "textBoxFirstName";
             this.textBoxFirstName.Size = new System.Drawing.Size(100, 20);
             this.textBoxFirstName.TabIndex = 2;
             // 
             // textBoxLastName
             // 
-            this.textBoxLastName.Location = new System.Drawing.Point(181, 78);
+            this.textBoxLastName.Location = new System.Drawing.Point(371, 21);
             this.textBoxLastName.Name = "textBoxLastName";
             this.textBoxLastName.Size = new System.Drawing.Size(100, 20);
             this.textBoxLastName.TabIndex = 4;
@@ -179,15 +186,15 @@
             // labelLastName
             // 
             this.labelLastName.AutoSize = true;
-            this.labelLastName.Location = new System.Drawing.Point(68, 78);
+            this.labelLastName.Location = new System.Drawing.Point(254, 24);
             this.labelLastName.Name = "labelLastName";
-            this.labelLastName.Size = new System.Drawing.Size(64, 13);
+            this.labelLastName.Size = new System.Drawing.Size(111, 13);
             this.labelLastName.TabIndex = 3;
-            this.labelLastName.Text = "Last Name :";
+            this.labelLastName.Text = "Last Name (required) :";
             // 
             // buttonSearch
             // 
-            this.buttonSearch.Location = new System.Drawing.Point(336, 56);
+            this.buttonSearch.Location = new System.Drawing.Point(509, 19);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(122, 23);
             this.buttonSearch.TabIndex = 5;
@@ -197,7 +204,7 @@
             // 
             // buttonCloseSearch
             // 
-            this.buttonCloseSearch.Location = new System.Drawing.Point(1078, 331);
+            this.buttonCloseSearch.Location = new System.Drawing.Point(883, 237);
             this.buttonCloseSearch.Name = "buttonCloseSearch";
             this.buttonCloseSearch.Size = new System.Drawing.Size(75, 23);
             this.buttonCloseSearch.TabIndex = 6;
@@ -207,7 +214,7 @@
             // 
             // buttonClear
             // 
-            this.buttonClear.Location = new System.Drawing.Point(974, 331);
+            this.buttonClear.Location = new System.Drawing.Point(802, 237);
             this.buttonClear.Name = "buttonClear";
             this.buttonClear.Size = new System.Drawing.Size(75, 23);
             this.buttonClear.TabIndex = 7;
@@ -219,7 +226,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1317, 399);
+            this.ClientSize = new System.Drawing.Size(1026, 272);
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.buttonCloseSearch);
             this.Controls.Add(this.buttonSearch);

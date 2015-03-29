@@ -19,6 +19,7 @@ namespace WindowsFormsApplication.View
 
         private void NwPatientSearch_Load(object sender, System.EventArgs e)
         {
+            listViewPatients.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
             listViewPatients.Enabled = false;
         }
 
@@ -42,7 +43,7 @@ namespace WindowsFormsApplication.View
                     else
                     {
 
-                        patientList = this._controller.GetPatientsByNameAndDOB(textBoxFirstName.Text, textBoxLastName.Text);
+                        patientList = this._controller.GetPatientsByFirstNameAndLastName(textBoxFirstName.Text, textBoxLastName.Text);
 
                         if (patientList.Count > 0)
                         {
@@ -65,11 +66,15 @@ namespace WindowsFormsApplication.View
                                 listViewPatients.Items[i].SubItems.Add(patient.HomePhone.Trim());
                                 listViewPatients.Items[i].SubItems.Add(patient.WorkPhone.Trim());
                                 listViewPatients.Items[i].SubItems.Add(patient.Child.Trim());
-                                
+
+                                listViewPatients.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                                listViewPatients.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+
                                 if (patient.MotherId == -1)
                                 {
                                     listViewPatients.Items[i].SubItems.Add("");
-                                } else
+                                } 
+                                else
                                 {
                                     listViewPatients.Items[i].SubItems.Add(patient.MotherId.ToString());
                                 }
@@ -114,5 +119,6 @@ namespace WindowsFormsApplication.View
             listViewPatients.Items.Clear();
             listViewPatients.Enabled = false;
         }
+
     }
 }

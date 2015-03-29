@@ -33,9 +33,9 @@ namespace WindowsFormsApplication.Controller
             PatientVisitVitalsDal.AddPatientVisitVitals(vitals);
         }
 
-        internal List<Patient> GetPatientsByNameAndDOB(String firstName, String lastName)
+        internal List<Patient> GetPatientsByFirstNameAndLastName(String firstName, String lastName)
         {
-            return PatientDal.getPatientsByNameAndDOB(firstName, lastName);
+            return PatientDal.getPatientsByFirstNameAndLastName(firstName, lastName);
         } 
 
         public static int AddPatientVisitSymptoms(PatientVisitSymptoms symptoms)

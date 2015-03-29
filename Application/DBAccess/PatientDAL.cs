@@ -117,7 +117,7 @@ namespace WindowsFormsApplication.DBAccess
         /// <param name="lastName"></param>
         /// <param name="dateOfBirth"></param>
         /// <returns></returns>
-        public static List<Patient> getPatientsByNameAndDOB(string firstName, string lastName)
+        public static List<Patient> getPatientsByFirstNameAndLastName(string firstName, string lastName)
         {
             List<Patient> patients = new List<Patient>();
 

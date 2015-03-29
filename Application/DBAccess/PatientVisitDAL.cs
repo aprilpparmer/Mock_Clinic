@@ -10,6 +10,7 @@ namespace WindowsFormsApplication.DBAccess
 {
     class PatientVisitDal
     {
+        //Adds a new patient visit
       public static int AddPatientVisit(PatientVisit patientVisit)
         {
           string insertStatement =
@@ -55,6 +56,41 @@ namespace WindowsFormsApplication.DBAccess
           {
               throw ex;
           }
+        }
+        
+        //Updates an existing patient visit
+        public static void UpdatePatientVisit(PatientVisit visit)
+        {
+            string updateStatement =
+                "UPDATE patient_visit SET " +
+                    "doctorID = @doctorID, nurseID = @nurseID, visit_date = @visit_date, " +
+                    "appt_date = @appt_date " +
+                "WHERE visitID = @visitID";
+            try
+            {
+                using (SqlConnection connection = NorthwindDbConnection.GetConnection())
+                {
+                    connection.Open();
+                    using (SqlCommand updateCommand = new SqlCommand(updateStatement, connection))
+                    {
+                        //parameters
+                        updateCommand.Parameters.AddWithValue("@doctorID", visit.DoctorId);
+                        updateCommand.Parameters.AddWithValue("@nurseID", visit.NurseId);
+                        updateCommand.Parameters.AddWithValue("@visit_date", visit.VisitDate);
+                        updateCommand.Parameters.AddWithValue("@appt_date", visit.ApptDate);
+                        updateCommand.Parameters.AddWithValue("@visitID", visit.VisitId);
+                        updateCommand.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

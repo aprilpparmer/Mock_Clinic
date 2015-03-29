@@ -388,7 +388,7 @@
             this.cancelbutton.Location = new System.Drawing.Point(70, 242);
             this.cancelbutton.Name = "cancelbutton";
             this.cancelbutton.Size = new System.Drawing.Size(75, 23);
-            this.cancelbutton.TabIndex = 17;
+            this.cancelbutton.TabIndex = 3;
             this.cancelbutton.Text = "Cancel";
             this.cancelbutton.UseVisualStyleBackColor = true;
             this.cancelbutton.Click += new System.EventHandler(this.cancelbutton_Click);
@@ -398,7 +398,7 @@
             this.saveButton.Location = new System.Drawing.Point(296, 242);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
-            this.saveButton.TabIndex = 16;
+            this.saveButton.TabIndex = 2;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
@@ -412,7 +412,8 @@
             this.doctorsComboBox.Location = new System.Drawing.Point(133, 178);
             this.doctorsComboBox.Name = "doctorsComboBox";
             this.doctorsComboBox.Size = new System.Drawing.Size(200, 21);
-            this.doctorsComboBox.TabIndex = 14;
+            this.doctorsComboBox.TabIndex = 1;
+            this.doctorsComboBox.Tag = "Doctor";
             this.doctorsComboBox.ValueMember = "employeeID";
             this.doctorsComboBox.SelectedIndexChanged += new System.EventHandler(this.doctorsComboBox_SelectedIndexChanged);
             // 
@@ -602,7 +603,8 @@
             this.txtBoxTemperature.Location = new System.Drawing.Point(108, 165);
             this.txtBoxTemperature.Name = "txtBoxTemperature";
             this.txtBoxTemperature.Size = new System.Drawing.Size(56, 20);
-            this.txtBoxTemperature.TabIndex = 31;
+            this.txtBoxTemperature.TabIndex = 6;
+            this.txtBoxTemperature.Tag = "Temperature";
             this.txtBoxTemperature.TextChanged += new System.EventHandler(this.txtBoxTemperature_TextChanged);
             // 
             // txtBoxWeight
@@ -610,7 +612,8 @@
             this.txtBoxWeight.Location = new System.Drawing.Point(329, 165);
             this.txtBoxWeight.Name = "txtBoxWeight";
             this.txtBoxWeight.Size = new System.Drawing.Size(56, 20);
-            this.txtBoxWeight.TabIndex = 30;
+            this.txtBoxWeight.TabIndex = 8;
+            this.txtBoxWeight.Tag = "Weight";
             this.txtBoxWeight.TextChanged += new System.EventHandler(this.txtBoxWeight_TextChanged);
             // 
             // txtBoxHeight
@@ -618,7 +621,8 @@
             this.txtBoxHeight.Location = new System.Drawing.Point(217, 165);
             this.txtBoxHeight.Name = "txtBoxHeight";
             this.txtBoxHeight.Size = new System.Drawing.Size(56, 20);
-            this.txtBoxHeight.TabIndex = 29;
+            this.txtBoxHeight.TabIndex = 7;
+            this.txtBoxHeight.Tag = "Height";
             this.txtBoxHeight.TextChanged += new System.EventHandler(this.txtBoxHeight_TextChanged);
             // 
             // txtBoxBloodPressure
@@ -626,7 +630,8 @@
             this.txtBoxBloodPressure.Location = new System.Drawing.Point(301, 124);
             this.txtBoxBloodPressure.Name = "txtBoxBloodPressure";
             this.txtBoxBloodPressure.Size = new System.Drawing.Size(84, 20);
-            this.txtBoxBloodPressure.TabIndex = 27;
+            this.txtBoxBloodPressure.TabIndex = 5;
+            this.txtBoxBloodPressure.Tag = "Blood Pressure";
             this.txtBoxBloodPressure.TextChanged += new System.EventHandler(this.txtBoxBloodPressure_TextChanged);
             // 
             // txtBoxPulse
@@ -634,7 +639,8 @@
             this.txtBoxPulse.Location = new System.Drawing.Point(74, 124);
             this.txtBoxPulse.Name = "txtBoxPulse";
             this.txtBoxPulse.Size = new System.Drawing.Size(89, 20);
-            this.txtBoxPulse.TabIndex = 26;
+            this.txtBoxPulse.TabIndex = 4;
+            this.txtBoxPulse.Tag = "Pulse";
             this.txtBoxPulse.TextChanged += new System.EventHandler(this.txtBoxPulse_TextChanged);
             // 
             // label40
@@ -688,7 +694,7 @@
             this.saveButton2.Location = new System.Drawing.Point(297, 242);
             this.saveButton2.Name = "saveButton2";
             this.saveButton2.Size = new System.Drawing.Size(75, 23);
-            this.saveButton2.TabIndex = 19;
+            this.saveButton2.TabIndex = 9;
             this.saveButton2.Text = "Save";
             this.saveButton2.UseVisualStyleBackColor = true;
             this.saveButton2.Click += new System.EventHandler(this.saveButton2_Click);
@@ -710,7 +716,7 @@
             this.cancelButton2.Location = new System.Drawing.Point(71, 242);
             this.cancelButton2.Name = "cancelButton2";
             this.cancelButton2.Size = new System.Drawing.Size(75, 23);
-            this.cancelButton2.TabIndex = 18;
+            this.cancelButton2.TabIndex = 10;
             this.cancelButton2.Text = "Cancel";
             this.cancelButton2.UseVisualStyleBackColor = true;
             this.cancelButton2.Click += new System.EventHandler(this.cancelButton2_Click);
@@ -830,7 +836,7 @@
             this.txtBoxNotes.Multiline = true;
             this.txtBoxNotes.Name = "txtBoxNotes";
             this.txtBoxNotes.Size = new System.Drawing.Size(352, 37);
-            this.txtBoxNotes.TabIndex = 23;
+            this.txtBoxNotes.TabIndex = 12;
             this.txtBoxNotes.TextChanged += new System.EventHandler(this.txtBoxNotes_TextChanged);
             // 
             // txtBoxSymptoms
@@ -839,7 +845,8 @@
             this.txtBoxSymptoms.Multiline = true;
             this.txtBoxSymptoms.Name = "txtBoxSymptoms";
             this.txtBoxSymptoms.Size = new System.Drawing.Size(352, 49);
-            this.txtBoxSymptoms.TabIndex = 22;
+            this.txtBoxSymptoms.TabIndex = 11;
+            this.txtBoxSymptoms.Tag = "Symptoms";
             this.txtBoxSymptoms.TextChanged += new System.EventHandler(this.txtBoxSymptoms_TextChanged);
             // 
             // label41
@@ -857,7 +864,7 @@
             this.saveButton3.Location = new System.Drawing.Point(294, 242);
             this.saveButton3.Name = "saveButton3";
             this.saveButton3.Size = new System.Drawing.Size(75, 23);
-            this.saveButton3.TabIndex = 19;
+            this.saveButton3.TabIndex = 13;
             this.saveButton3.Text = "Save";
             this.saveButton3.UseVisualStyleBackColor = true;
             this.saveButton3.Click += new System.EventHandler(this.saveButton3_Click);
@@ -879,7 +886,7 @@
             this.cancelButton3.Location = new System.Drawing.Point(68, 242);
             this.cancelButton3.Name = "cancelButton3";
             this.cancelButton3.Size = new System.Drawing.Size(75, 23);
-            this.cancelButton3.TabIndex = 18;
+            this.cancelButton3.TabIndex = 14;
             this.cancelButton3.Text = "Cancel";
             this.cancelButton3.UseVisualStyleBackColor = true;
             this.cancelButton3.Click += new System.EventHandler(this.cancelButton3_Click);
@@ -998,7 +1005,8 @@
             this.diagnosesComboBox.Location = new System.Drawing.Point(98, 123);
             this.diagnosesComboBox.Name = "diagnosesComboBox";
             this.diagnosesComboBox.Size = new System.Drawing.Size(144, 21);
-            this.diagnosesComboBox.TabIndex = 26;
+            this.diagnosesComboBox.TabIndex = 15;
+            this.diagnosesComboBox.Tag = "Diagnoses";
             this.diagnosesComboBox.ValueMember = "diagnosesID";
             this.diagnosesComboBox.SelectedIndexChanged += new System.EventHandler(this.diagnosesComboBox_SelectedIndexChanged);
             // 
@@ -1018,7 +1026,7 @@
             this.notesBox2.Multiline = true;
             this.notesBox2.Name = "notesBox2";
             this.notesBox2.Size = new System.Drawing.Size(143, 94);
-            this.notesBox2.TabIndex = 25;
+            this.notesBox2.TabIndex = 16;
             this.notesBox2.TextChanged += new System.EventHandler(this.notesBox2_TextChanged);
             // 
             // notes
@@ -1032,7 +1040,7 @@
             // 
             // treatmentLabel
             // 
-            this.treatmentLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.diagnosesBindingSource, "diagnoses_treatment", true));
+            this.treatmentLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.diagnosesBindingSource, "diagnoses_treatment", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.treatmentLabel.Location = new System.Drawing.Point(98, 203);
             this.treatmentLabel.Name = "treatmentLabel";
             this.treatmentLabel.Size = new System.Drawing.Size(151, 23);
@@ -1041,7 +1049,7 @@
             // 
             // descriptionLabel
             // 
-            this.descriptionLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.diagnosesBindingSource, "diagnoses_description", true));
+            this.descriptionLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.diagnosesBindingSource, "diagnoses_description", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.descriptionLabel.Location = new System.Drawing.Point(98, 157);
             this.descriptionLabel.Name = "descriptionLabel";
             this.descriptionLabel.Size = new System.Drawing.Size(149, 23);
@@ -1054,7 +1062,7 @@
             this.saveButton4.Location = new System.Drawing.Point(297, 242);
             this.saveButton4.Name = "saveButton4";
             this.saveButton4.Size = new System.Drawing.Size(75, 23);
-            this.saveButton4.TabIndex = 19;
+            this.saveButton4.TabIndex = 17;
             this.saveButton4.Text = "Save";
             this.saveButton4.UseVisualStyleBackColor = true;
             this.saveButton4.Click += new System.EventHandler(this.saveButton4_Click);
@@ -1193,7 +1201,8 @@
             this.notesBox3.Multiline = true;
             this.notesBox3.Name = "notesBox3";
             this.notesBox3.Size = new System.Drawing.Size(346, 95);
-            this.notesBox3.TabIndex = 25;
+            this.notesBox3.TabIndex = 19;
+            this.notesBox3.Tag = "Notes";
             // 
             // groupBox5
             // 
@@ -1282,7 +1291,7 @@
             this.saveButton5.Location = new System.Drawing.Point(293, 242);
             this.saveButton5.Name = "saveButton5";
             this.saveButton5.Size = new System.Drawing.Size(75, 23);
-            this.saveButton5.TabIndex = 22;
+            this.saveButton5.TabIndex = 20;
             this.saveButton5.Text = "Save";
             this.saveButton5.UseVisualStyleBackColor = true;
             this.saveButton5.Click += new System.EventHandler(this.saveButton5_Click);

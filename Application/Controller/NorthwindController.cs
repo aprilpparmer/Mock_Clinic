@@ -28,9 +28,9 @@ namespace WindowsFormsApplication.Controller
            return PatientVisitDal.AddPatientVisit(patientVisit);
         }
 
-        public static void AddPatientVisitVitals(PatientVisitVitals vitals)
+        public static int AddPatientVisitVitals(PatientVisitVitals vitals)
         {
-            PatientVisitVitalsDal.AddPatientVisitVitals(vitals);
+            return PatientVisitVitalsDal.AddPatientVisitVitals(vitals);
         }
 
         internal List<Patient> GetPatientsByFirstNameAndLastName(String firstName, String lastName)
@@ -51,6 +51,16 @@ namespace WindowsFormsApplication.Controller
         public static void UpdatePatientDiagnoses(PatientVisitSymptoms symptoms)
         {
             PatientVisitSymptomsDal.UpdatePatientDiagnoses(symptoms);
+        }
+
+        public static void UpdatePatientVisit(PatientVisit visit)
+        {
+            PatientVisitDal.UpdatePatientVisit(visit);
+        }
+
+        public static void UpdatePatientVisitVitals(PatientVisitVitals vitals)
+        {
+            PatientVisitVitalsDal.UpdatePatientVisitVitals(vitals);
         }
     }
 }

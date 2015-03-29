@@ -29,18 +29,18 @@ namespace WindowsFormsApplication.View
 
         private void NWNewVisit_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'diagnosesDataSet.diagnoses' table. You can move, or remove it, as needed.
-            this.diagnosesTableAdapter.Fill(this.diagnosesDataSet.diagnoses);
-            this.diagnosesComboBox.SelectedIndex = -1;
             // TODO: This line of code loads data into the 'employeesDataSet1.doctors' table. You can move, or remove it, as needed.
             this.doctorsTableAdapter.FillDoctors(this.employeesDataSet1.doctors);
             this.doctorsComboBox.SelectedIndex = -1;
-            // TODO: This line of code loads data into the 'patientsDataSet.patients' table. You can move, or remove it, as needed.
-            this.patientsTableAdapter.Fill(this.patientsDataSet.patients);
+
         }
 
         private void fillPatientInfoToolStripButton_Click(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'diagnosesDataSet.diagnoses' table. You can move, or remove it, as needed.
+            this.diagnosesTableAdapter.Fill(this.diagnosesDataSet.diagnoses);
+            // TODO: This line of code loads data into the 'patientsDataSet.patients' table. You can move, or remove it, as needed.
+            this.patientsTableAdapter.Fill(this.patientsDataSet.patients);
             try
             {
                 this.patientsTableAdapter.FillPatientInfo(this.patientsDataSet.patients, ((int)(System.Convert.ChangeType(patientIDToolStripTextBox.Text, typeof(int)))));
@@ -53,23 +53,26 @@ namespace WindowsFormsApplication.View
         //Saves patient visit info to database
         private void saveButton_Click(object sender, EventArgs e)
         {
-            patientVisit = new PatientVisit();
-            this.PutPatientVisitData(patientVisit);
-            try
+            if (IsValidDataVisit())
             {
-                patientVisit.VisitId = NorthwindController.AddPatientVisit(patientVisit);
-                saveButton.Visible = false;
-                editButton.Visible = true;
-                editButton.Enabled = false;
-                saveButton2.Enabled = true;
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
+                patientVisit = new PatientVisit();
+                this.PutPatientVisitData(patientVisit);
+                try
+                {
+                    patientVisit.VisitId = NorthwindController.AddPatientVisit(patientVisit);
+                    saveButton.Visible = false;
+                    editButton.Visible = true;
+                    editButton.Enabled = false;
+                    saveButton2.Enabled = true;
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
             }
         }
         //Saves the visit data
@@ -140,23 +143,26 @@ namespace WindowsFormsApplication.View
         //Saves the vitals data to the database
         private void saveButton2_Click(object sender, EventArgs e)
         {
-            vitals = new PatientVisitVitals();
-            this.PutPatientVisitVitalsData(vitals);
-            try
+            if (IsValidDataVitals())
             {
-                NorthwindController.AddPatientVisitVitals(vitals);
-                saveButton2.Visible = false;
-                editButton2.Visible = true;
-                editButton2.Enabled = false;
-                saveButton3.Enabled = true;
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
+                vitals = new PatientVisitVitals();
+                this.PutPatientVisitVitalsData(vitals);
+                try
+                {
+                    vitals.VitalsId = NorthwindController.AddPatientVisitVitals(vitals);
+                    saveButton2.Visible = false;
+                    editButton2.Visible = true;
+                    editButton2.Enabled = false;
+                    saveButton3.Enabled = true;
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
             }
         }
         //Saves the vitals data
@@ -172,28 +178,31 @@ namespace WindowsFormsApplication.View
         //Saves the symptoms data, and notes data (if present)
         private void saveButton3_Click(object sender, EventArgs e)
         {
-            symptoms = new PatientVisitSymptoms();
-            note = new PatientVisitNotes();
-            this.PutPatientVisitSymptomsData(symptoms, note);
-            try
+            if (IsValidDataSymptoms())
             {
-                symptoms.SymptomId = NorthwindController.AddPatientVisitSymptoms(symptoms);
-                if (note.Note != null)
+                symptoms = new PatientVisitSymptoms();
+                note = new PatientVisitNotes();
+                this.PutPatientVisitSymptomsData(symptoms, note);
+                try
                 {
-                    NorthwindController.AddPatientVisitNotes(note);
+                    symptoms.SymptomId = NorthwindController.AddPatientVisitSymptoms(symptoms);
+                    if (note.Note != null)
+                    {
+                        NorthwindController.AddPatientVisitNotes(note);
+                    }
+                    saveButton3.Visible = false;
+                    editButton3.Visible = true;
+                    editButton3.Enabled = false;
+                    saveButton4.Enabled = true;
                 }
-                saveButton3.Visible = false;
-                editButton3.Visible = true;
-                editButton3.Enabled = false;
-                saveButton4.Enabled = true;
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
             }
         }
         //Saves the symptoms/notes data
@@ -208,27 +217,30 @@ namespace WindowsFormsApplication.View
         //Saves info in the symptoms table for the diagnoses
         private void saveButton4_Click(object sender, EventArgs e)
         {
-            dsymptoms = new PatientVisitSymptoms();
-            note = new PatientVisitNotes();
-            this.PutPatientVisitDiagnosesData(dsymptoms, note);
-            try
+            if (IsValidDataDiagnoses())
             {
-                NorthwindController.UpdatePatientDiagnoses(dsymptoms);
-                if (note.Note != null)
+                dsymptoms = new PatientVisitSymptoms();
+                note = new PatientVisitNotes();
+                this.PutPatientVisitDiagnosesData(dsymptoms, note);
+                try
                 {
-                    NorthwindController.AddPatientVisitNotes(note);
+                    NorthwindController.UpdatePatientDiagnoses(dsymptoms);
+                    if (note.Note != null)
+                    {
+                        NorthwindController.AddPatientVisitNotes(note);
+                    }
+                    saveButton4.Visible = false;
+                    editButton4.Visible = true;
+                    editButton4.Enabled = false;
                 }
-                saveButton4.Visible = false;
-                editButton4.Visible = true;
-                editButton4.Enabled = false;
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
             }
         }
         //Saves the diagnoses for the symptoms/notes data
@@ -244,20 +256,23 @@ namespace WindowsFormsApplication.View
 
         private void saveButton5_Click(object sender, EventArgs e)
         {
-            note = new PatientVisitNotes();
-            this.PutPatientVisitNotesData(note);
-            try
+            if (IsValidDataNotes())
             {
-                NorthwindController.AddPatientVisitNotes(note);
-                saveButton5.Enabled = false;
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
+                note = new PatientVisitNotes();
+                this.PutPatientVisitNotesData(note);
+                try
+                {
+                    NorthwindController.AddPatientVisitNotes(note);
+                    saveButton5.Enabled = false;
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
             }
         }
         //Saves the diagnoses for the symptoms/notes data
@@ -268,13 +283,15 @@ namespace WindowsFormsApplication.View
             note.VisitId = patientVisit.VisitId;
         }
 
+        //Updates the visit info
         private void editButton_Click(object sender, EventArgs e)
         {
-            patientVisit = new PatientVisit();
-            this.PutPatientVisitData(patientVisit);
+            PatientVisit updateVisit = new PatientVisit();
+            this.PutPatientVisitData(updateVisit);
+            updateVisit.VisitId = patientVisit.VisitId; 
             try
             {
-                patientVisit.VisitId = NorthwindController.AddPatientVisit(patientVisit);
+                NorthwindController.UpdatePatientVisit(updateVisit);
                 editButton.Enabled = false;
             }
             catch (SqlException ex)
@@ -286,10 +303,25 @@ namespace WindowsFormsApplication.View
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
         }
-        //FIX!!!!!!!!^^^^^^^^^^^^^^^^^^^^^^^^^
+        //
         private void editButton2_Click(object sender, EventArgs e)
         {
-
+            PatientVisitVitals updateVitals = new PatientVisitVitals();
+            this.PutPatientVisitVitalsData(updateVitals);
+            updateVitals.VitalsId = vitals.VitalsId;
+            try
+            {
+                NorthwindController.UpdatePatientVisitVitals(updateVitals);
+                editButton2.Enabled = false;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
         }
 
         private void editButton3_Click(object sender, EventArgs e)
@@ -302,15 +334,64 @@ namespace WindowsFormsApplication.View
 
         }
 
-        private void txtBoxPulse_TextChanged(object sender, EventArgs e){editButton2.Enabled = true;}
-        private void txtBoxBloodPressure_TextChanged(object sender, EventArgs e){editButton2.Enabled = true;}
-        private void txtBoxTemperature_TextChanged(object sender, EventArgs e){editButton2.Enabled = true;}
-        private void txtBoxHeight_TextChanged(object sender, EventArgs e){editButton2.Enabled = true;}
-        private void txtBoxWeight_TextChanged(object sender, EventArgs e){editButton2.Enabled = true;}
+        private void txtBoxPulse_TextChanged(object sender, EventArgs e) { editButton2.Enabled = true; }
+        private void txtBoxBloodPressure_TextChanged(object sender, EventArgs e) { editButton2.Enabled = true; }
+        private void txtBoxTemperature_TextChanged(object sender, EventArgs e) { editButton2.Enabled = true; }
+        private void txtBoxHeight_TextChanged(object sender, EventArgs e) { editButton2.Enabled = true; }
+        private void txtBoxWeight_TextChanged(object sender, EventArgs e) { editButton2.Enabled = true; }
         private void txtBoxSymptoms_TextChanged(object sender, EventArgs e) { editButton3.Enabled = true; }
         private void txtBoxNotes_TextChanged(object sender, EventArgs e) { editButton3.Enabled = true; }
-        private void diagnosesComboBox_SelectedIndexChanged(object sender, EventArgs e){editButton4.Enabled = true;}
-        private void notesBox2_TextChanged(object sender, EventArgs e){editButton4.Enabled = true;}
+        private void diagnosesComboBox_SelectedIndexChanged(object sender, EventArgs e) { editButton4.Enabled = true; }
+        private void notesBox2_TextChanged(object sender, EventArgs e) { editButton4.Enabled = true; }
+
+        //Checks for valid data on the visit info tab
+        private bool IsValidDataVisit()
+        {
+            if (Validator.IsPresent(doctorsComboBox))
+                return true;
+            else
+                return false;
+        }
+        //Checks for valid data on the vitals tab
+        private bool IsValidDataVitals()
+        {
+            if (Validator.IsPresent(txtBoxPulse) &&
+                Validator.IsPresent(txtBoxBloodPressure) &&
+                Validator.IsPresent(txtBoxTemperature) &&
+                Validator.IsPresent(txtBoxHeight) &&
+                Validator.IsPresent(txtBoxWeight))
+                return true;
+            else
+                return false;
+        }
+
+        //Checks for valid data on the symptoms tab
+        private bool IsValidDataSymptoms()
+        {
+            if (Validator.IsPresent(txtBoxSymptoms))
+                return true;
+            else
+                return false;
+        }
+
+        //Checks for valid data on the diagnoses tab
+        private bool IsValidDataDiagnoses()
+        {
+            if (Validator.IsPresent(diagnosesComboBox))
+                return true;
+            else
+                return false;
+        }
+
+        //Checks for valid data on the notes tab
+        private bool IsValidDataNotes()
+        {
+            if (Validator.IsPresent(notesBox3))
+                return true;
+            else
+                return false;
+        }
+
     }
 }
 

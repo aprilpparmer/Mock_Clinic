@@ -49,9 +49,8 @@ namespace WindowsFormsApplication.View
             {
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
-
         }
-
+        //Saves patient visit info to database
         private void saveButton_Click(object sender, EventArgs e)
         {
             patientVisit = new PatientVisit();
@@ -86,11 +85,6 @@ namespace WindowsFormsApplication.View
         private void visitDateBox_ValueChanged(object sender, EventArgs e) { editButton.Enabled = true; }
         private void appointmentDateBox_ValueChanged(object sender, EventArgs e) { editButton.Enabled = true; }
         private void doctorsComboBox_SelectedIndexChanged(object sender, EventArgs e) { editButton.Enabled = true; }
-
-        private void editButton_Click(object sender, EventArgs e)
-        {
-
-        }
         //Visit Info Cancel Button - closes form
         private void cancelbutton_Click(object sender, EventArgs e)
         {
@@ -154,6 +148,7 @@ namespace WindowsFormsApplication.View
                 saveButton2.Visible = false;
                 editButton2.Visible = true;
                 editButton2.Enabled = false;
+                saveButton3.Enabled = true;
             }
             catch (SqlException ex)
             {
@@ -190,6 +185,7 @@ namespace WindowsFormsApplication.View
                 saveButton3.Visible = false;
                 editButton3.Visible = true;
                 editButton3.Enabled = false;
+                saveButton4.Enabled = true;
             }
             catch (SqlException ex)
             {
@@ -253,9 +249,7 @@ namespace WindowsFormsApplication.View
             try
             {
                 NorthwindController.AddPatientVisitNotes(note);
-                saveButton5.Visible = false;
-                editButton5.Visible = true;
-                editButton5.Enabled = false;
+                saveButton5.Enabled = false;
             }
             catch (SqlException ex)
             {
@@ -273,7 +267,51 @@ namespace WindowsFormsApplication.View
             note.EmployeeId = NwLogin.employeeUser.EmployeeId;
             note.VisitId = patientVisit.VisitId;
         }
+
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            patientVisit = new PatientVisit();
+            this.PutPatientVisitData(patientVisit);
+            try
+            {
+                patientVisit.VisitId = NorthwindController.AddPatientVisit(patientVisit);
+                editButton.Enabled = false;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+        }
+        //FIX!!!!!!!!^^^^^^^^^^^^^^^^^^^^^^^^^
+        private void editButton2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void editButton3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void editButton4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtBoxPulse_TextChanged(object sender, EventArgs e){editButton2.Enabled = true;}
+        private void txtBoxBloodPressure_TextChanged(object sender, EventArgs e){editButton2.Enabled = true;}
+        private void txtBoxTemperature_TextChanged(object sender, EventArgs e){editButton2.Enabled = true;}
+        private void txtBoxHeight_TextChanged(object sender, EventArgs e){editButton2.Enabled = true;}
+        private void txtBoxWeight_TextChanged(object sender, EventArgs e){editButton2.Enabled = true;}
+        private void txtBoxSymptoms_TextChanged(object sender, EventArgs e) { editButton3.Enabled = true; }
+        private void txtBoxNotes_TextChanged(object sender, EventArgs e) { editButton3.Enabled = true; }
+        private void diagnosesComboBox_SelectedIndexChanged(object sender, EventArgs e){editButton4.Enabled = true;}
+        private void notesBox2_TextChanged(object sender, EventArgs e){editButton4.Enabled = true;}
     }
-    }
+}
 
 

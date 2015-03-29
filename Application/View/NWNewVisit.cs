@@ -18,6 +18,8 @@ namespace WindowsFormsApplication.View
         private PatientVisit patientVisit;
         private PatientVisitVitals vitals;
         private PatientVisitSymptoms symptoms;
+        //Variable for diagnoses to be added to symptoms
+        private PatientVisitSymptoms dsymptoms;
         private PatientVisitNotes note;
 
         public NWNewVisit()
@@ -210,12 +212,12 @@ namespace WindowsFormsApplication.View
         //Saves info in the symptoms table for the diagnoses
         private void saveButton4_Click(object sender, EventArgs e)
         {
-            symptoms = new PatientVisitSymptoms();
+            dsymptoms = new PatientVisitSymptoms();
             note = new PatientVisitNotes();
-            this.PutPatientVisitSymptomsData(symptoms, note);
+            this.PutPatientVisitDiagnosesData(dsymptoms, note);
             try
             {
-                NorthwindController.UpdatePatientDiagnoses(symptoms);
+                NorthwindController.UpdatePatientDiagnoses(dsymptoms);
                 if (note.Note != null)
                 {
                     NorthwindController.AddPatientVisitNotes(note);
@@ -234,11 +236,12 @@ namespace WindowsFormsApplication.View
             }
         }
         //Saves the diagnoses for the symptoms/notes data
-        private void PutPatientVisitDiagnosesData(PatientVisitSymptoms symptoms, PatientVisitNotes note)
+        private void PutPatientVisitDiagnosesData(PatientVisitSymptoms dsymptoms, PatientVisitNotes note)
         {
-            symptoms.VisitId = patientVisit.VisitId;
-            symptoms.DiagnosesID = (int)diagnosesComboBox.SelectedValue;
-            note.Note = txtBoxNotes.Text;
+            dsymptoms.VisitId = patientVisit.VisitId;
+            dsymptoms.SymptomId = symptoms.SymptomId;
+            dsymptoms.DiagnosesID = (int)diagnosesComboBox.SelectedValue;
+            note.Note = notesBox2.Text;
             note.EmployeeId = NwLogin.employeeUser.EmployeeId;
             note.VisitId = patientVisit.VisitId;
         }
@@ -266,10 +269,9 @@ namespace WindowsFormsApplication.View
         //Saves the diagnoses for the symptoms/notes data
         private void PutPatientVisitNotesData(PatientVisitNotes note)
         {
-            note.Note = txtBoxNotes.Text;
+            note.Note = notesBox3.Text;
             note.EmployeeId = NwLogin.employeeUser.EmployeeId;
             note.VisitId = patientVisit.VisitId;
-        }
         }
     }
 }

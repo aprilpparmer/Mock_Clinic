@@ -143,13 +143,13 @@
             this.diagnosesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.diagnosesTableAdapter = new WindowsFormsApplication.DiagnosesDataSetTableAdapters.diagnosesTableAdapter();
             this.tableAdapterManager1 = new WindowsFormsApplication.DiagnosesDataSetTableAdapters.TableAdapterManager();
-            this.diagnosesComboBox = new System.Windows.Forms.ComboBox();
             this.descriptionLabel = new System.Windows.Forms.Label();
             this.treatmentLabel = new System.Windows.Forms.Label();
             this.notes = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.notesBox2 = new System.Windows.Forms.TextBox();
+            this.notesBox3 = new System.Windows.Forms.TextBox();
             this.label53 = new System.Windows.Forms.Label();
+            this.diagnosesComboBox = new System.Windows.Forms.ComboBox();
             last_nameLabel = new System.Windows.Forms.Label();
             dob = new System.Windows.Forms.Label();
             patientID = new System.Windows.Forms.Label();
@@ -905,14 +905,14 @@
             // diagnosesTab
             // 
             this.diagnosesTab.AutoScroll = true;
-            this.diagnosesTab.Controls.Add(this.textBox1);
+            this.diagnosesTab.Controls.Add(this.diagnosesComboBox);
+            this.diagnosesTab.Controls.Add(this.notesBox2);
             this.diagnosesTab.Controls.Add(this.notes);
             this.diagnosesTab.Controls.Add(diagnoses_treatmentLabel);
             this.diagnosesTab.Controls.Add(this.treatmentLabel);
             this.diagnosesTab.Controls.Add(diagnoses_descriptionLabel);
             this.diagnosesTab.Controls.Add(this.descriptionLabel);
             this.diagnosesTab.Controls.Add(diagnoses_nameLabel);
-            this.diagnosesTab.Controls.Add(this.diagnosesComboBox);
             this.diagnosesTab.Controls.Add(this.saveButton4);
             this.diagnosesTab.Controls.Add(this.editButton4);
             this.diagnosesTab.Controls.Add(this.cancelButton4);
@@ -1086,7 +1086,7 @@
             // notesTab
             // 
             this.notesTab.Controls.Add(this.label53);
-            this.notesTab.Controls.Add(this.textBox2);
+            this.notesTab.Controls.Add(this.notesBox3);
             this.notesTab.Controls.Add(this.groupBox5);
             this.notesTab.Controls.Add(this.saveButton5);
             this.notesTab.Controls.Add(this.editButton5);
@@ -1267,19 +1267,6 @@
             diagnoses_nameLabel.TabIndex = 20;
             diagnoses_nameLabel.Text = "Diagnoses:";
             // 
-            // diagnosesComboBox
-            // 
-            this.diagnosesComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.diagnosesBindingSource, "diagnoses_name", true));
-            this.diagnosesComboBox.DataSource = this.diagnosesBindingSource;
-            this.diagnosesComboBox.DisplayMember = "diagnoses_name";
-            this.diagnosesComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.diagnosesComboBox.FormattingEnabled = true;
-            this.diagnosesComboBox.Location = new System.Drawing.Point(98, 123);
-            this.diagnosesComboBox.Name = "diagnosesComboBox";
-            this.diagnosesComboBox.Size = new System.Drawing.Size(149, 21);
-            this.diagnosesComboBox.TabIndex = 21;
-            this.diagnosesComboBox.ValueMember = "diagnosesID";
-            // 
             // diagnoses_descriptionLabel
             // 
             diagnoses_descriptionLabel.AutoSize = true;
@@ -1325,21 +1312,21 @@
             this.notes.TabIndex = 24;
             this.notes.Text = "Notes:";
             // 
-            // textBox1
+            // notesBox2
             // 
-            this.textBox1.Location = new System.Drawing.Point(255, 142);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(143, 94);
-            this.textBox1.TabIndex = 25;
+            this.notesBox2.Location = new System.Drawing.Point(255, 142);
+            this.notesBox2.Multiline = true;
+            this.notesBox2.Name = "notesBox2";
+            this.notesBox2.Size = new System.Drawing.Size(143, 94);
+            this.notesBox2.TabIndex = 25;
             // 
-            // textBox2
+            // notesBox3
             // 
-            this.textBox2.Location = new System.Drawing.Point(39, 141);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(346, 95);
-            this.textBox2.TabIndex = 25;
+            this.notesBox3.Location = new System.Drawing.Point(39, 141);
+            this.notesBox3.Multiline = true;
+            this.notesBox3.Name = "notesBox3";
+            this.notesBox3.Size = new System.Drawing.Size(346, 95);
+            this.notesBox3.TabIndex = 25;
             // 
             // label53
             // 
@@ -1349,6 +1336,18 @@
             this.label53.Size = new System.Drawing.Size(38, 13);
             this.label53.TabIndex = 26;
             this.label53.Text = "Notes:";
+            // 
+            // diagnosesComboBox
+            // 
+            this.diagnosesComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.diagnosesBindingSource, "diagnoses_name", true));
+            this.diagnosesComboBox.DataSource = this.diagnosesBindingSource;
+            this.diagnosesComboBox.DisplayMember = "diagnoses_name";
+            this.diagnosesComboBox.FormattingEnabled = true;
+            this.diagnosesComboBox.Location = new System.Drawing.Point(98, 123);
+            this.diagnosesComboBox.Name = "diagnosesComboBox";
+            this.diagnosesComboBox.Size = new System.Drawing.Size(144, 21);
+            this.diagnosesComboBox.TabIndex = 26;
+            this.diagnosesComboBox.ValueMember = "diagnosesID";
             // 
             // NWNewVisit
             // 
@@ -1493,12 +1492,12 @@
         private System.Windows.Forms.BindingSource diagnosesBindingSource;
         private DiagnosesDataSetTableAdapters.diagnosesTableAdapter diagnosesTableAdapter;
         private DiagnosesDataSetTableAdapters.TableAdapterManager tableAdapterManager1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox notesBox2;
         private System.Windows.Forms.Label notes;
         private System.Windows.Forms.Label treatmentLabel;
         private System.Windows.Forms.Label descriptionLabel;
-        private System.Windows.Forms.ComboBox diagnosesComboBox;
         private System.Windows.Forms.Label label53;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox notesBox3;
+        private System.Windows.Forms.ComboBox diagnosesComboBox;
         }
 }

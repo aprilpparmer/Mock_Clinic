@@ -33,6 +33,11 @@ namespace WindowsFormsApplication.Controller
             PatientVisitVitalsDal.AddPatientVisitVitals(vitals);
         }
 
+        internal List<Patient> GetPatientsByNameAndDOB(String firstName, String lastName)
+        {
+            return PatientDal.getPatientsByNameAndDOB(firstName, lastName);
+        } 
+
         public static int AddPatientVisitSymptoms(PatientVisitSymptoms symptoms)
         {
             return PatientVisitSymptomsDal.AddPatientVisitSymptoms(symptoms);

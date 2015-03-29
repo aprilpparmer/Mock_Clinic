@@ -83,9 +83,9 @@ namespace WindowsFormsApplication.View
             patientVisit.NurseId = NwLogin.employeeUser.EmployeeId;
         }
 
-        private void visitDateBox_ValueChanged(object sender, EventArgs e){editButton.Enabled = true;}
-        private void appointmentDateBox_ValueChanged(object sender, EventArgs e){editButton.Enabled = true;}
-        private void doctorsComboBox_SelectedIndexChanged(object sender, EventArgs e){editButton.Enabled = true;}
+        private void visitDateBox_ValueChanged(object sender, EventArgs e) { editButton.Enabled = true; }
+        private void appointmentDateBox_ValueChanged(object sender, EventArgs e) { editButton.Enabled = true; }
+        private void doctorsComboBox_SelectedIndexChanged(object sender, EventArgs e) { editButton.Enabled = true; }
 
         private void editButton_Click(object sender, EventArgs e)
         {
@@ -274,4 +274,6 @@ namespace WindowsFormsApplication.View
             note.VisitId = patientVisit.VisitId;
         }
     }
-}
+    }
+
+

@@ -105,5 +105,118 @@ namespace WindowsFormsApplication.DBAccess
                 throw ex;
             }
         }
+
+
+
+
+
+        /// <summary>
+        /// Returns a list of patients that match with first name and last name
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <param name="dateOfBirth"></param>
+        /// <returns></returns>
+        public static List<Patient> getPatientsByNameAndDOB(string firstName, string lastName)
+        {
+            List<Patient> patients = new List<Patient>();
+
+            string selectStatement =
+                "SELECT * " +
+                "FROM patients " +
+                "WHERE last_name = @lastName AND first_name = @firstName";
+
+            try
+            {
+                using (SqlConnection connection = NorthwindDbConnection.GetConnection())
+                {
+                    connection.Open();
+
+                    using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                    {
+                        selectCommand.Parameters.AddWithValue("@lastName", lastName);
+                        selectCommand.Parameters.AddWithValue("@firstName", firstName);
+
+                        using (SqlDataReader dataReader = selectCommand.ExecuteReader())
+                        {
+                            
+                            int patientIDOrdinal = dataReader.GetOrdinal("patientID");
+                            int ssnOrdinal = dataReader.GetOrdinal("ssn");
+                            int last_nameOrdinal = dataReader.GetOrdinal("last_name");
+                            int middle_initialOrdinal = dataReader.GetOrdinal("middle_initial");
+                            int first_nameOrdinal = dataReader.GetOrdinal("first_name");
+                            int dobOrdinal = dataReader.GetOrdinal("dob");
+                            int genderOrdinal = dataReader.GetOrdinal("gender");
+                            int addressOrdinal = dataReader.GetOrdinal("address");
+                            int cityOrdinal = dataReader.GetOrdinal("city");
+                            int stateOrdinal = dataReader.GetOrdinal("state");
+                            int zipOrdinal = dataReader.GetOrdinal("zip");
+                            int home_phoneOrdinal = dataReader.GetOrdinal("home_phone");
+                            int work_phoneOrdinal = dataReader.GetOrdinal("work_phone");
+                            int childOrdinal = dataReader.GetOrdinal("child");
+                            int motherIDOrdinal = dataReader.GetOrdinal("motherID");
+                            int fatherIDOrdinal = dataReader.GetOrdinal("fatherID");
+
+                            while (dataReader.Read())
+                            {
+                                Patient patient = new Patient();
+
+                                patient.PatientId = dataReader.GetInt32(patientIDOrdinal);
+                                patient.Ssn = dataReader.GetInt32(ssnOrdinal);
+                                patient.LastName = dataReader.GetString(last_nameOrdinal);
+                                
+
+                                if (!dataReader.IsDBNull(middle_initialOrdinal))
+                                    patient.MiddleInitial = dataReader.GetString(middle_initialOrdinal);
+                                else
+                                   patient.MiddleInitial = string.Empty;
+
+                                patient.FirstName = dataReader.GetString(first_nameOrdinal);
+                                patient.Dob = dataReader.GetDateTime(dobOrdinal);
+                                patient.Gender = dataReader.GetString(genderOrdinal);
+                                patient.Address = dataReader.GetString(addressOrdinal);
+                                patient.City = dataReader.GetString(cityOrdinal);
+                                patient.State = dataReader.GetString(stateOrdinal);
+                                patient.Zip = dataReader.GetInt32(zipOrdinal);
+                                patient.HomePhone = dataReader.GetString(home_phoneOrdinal);
+
+                                if (!dataReader.IsDBNull(work_phoneOrdinal))
+                                    patient.WorkPhone = dataReader.GetString(work_phoneOrdinal);
+                                else
+                                   patient.WorkPhone = string.Empty;
+
+                                if (!dataReader.IsDBNull(childOrdinal))
+                                    patient.Child = dataReader.GetString(childOrdinal);
+                                else
+                                   patient.Child = string.Empty;
+
+                                if (!dataReader.IsDBNull(motherIDOrdinal))
+                                    patient.MotherId = dataReader.GetInt32(motherIDOrdinal);
+                                else
+                                   patient.MotherId = -1;
+
+                                 if (!dataReader.IsDBNull(fatherIDOrdinal))
+                                    patient.FatherId = dataReader.GetInt32(fatherIDOrdinal);
+                                else
+                                   patient.FatherId = -1;
+
+                                patients.Add(patient);
+
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SqlException sqlException)
+            {
+                throw sqlException;
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+
+            return patients;
+        }
     }
 }

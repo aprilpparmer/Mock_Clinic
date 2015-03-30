@@ -247,8 +247,9 @@
             this.addVisitButton.Name = "addVisitButton";
             this.addVisitButton.Size = new System.Drawing.Size(88, 19);
             this.addVisitButton.TabIndex = 8;
-            this.addVisitButton.Text = "Add Visist";
+            this.addVisitButton.Text = "Add Visit";
             this.addVisitButton.UseVisualStyleBackColor = true;
+            this.addVisitButton.Click += new System.EventHandler(this.addVisitButton_Click);
             // 
             // textBoxFirstName
             // 

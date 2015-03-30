@@ -15,6 +15,7 @@ namespace WindowsFormsApplication.View
 {
     public partial class NWNewVisit : Form
     {
+        private int patientID;
         private PatientVisit patientVisit;
         private PatientVisitVitals vitals;
         private PatientVisitSymptoms symptoms;
@@ -22,9 +23,10 @@ namespace WindowsFormsApplication.View
         private PatientVisitSymptoms dsymptoms;
         private PatientVisitNotes note;
 
-        public NWNewVisit()
+        public NWNewVisit(int patientID)
         {
             InitializeComponent();
+            this.patientID = patientID;
         }
 
         private void NWNewVisit_Load(object sender, EventArgs e)
@@ -32,24 +34,12 @@ namespace WindowsFormsApplication.View
             // TODO: This line of code loads data into the 'employeesDataSet1.doctors' table. You can move, or remove it, as needed.
             this.doctorsTableAdapter.FillDoctors(this.employeesDataSet1.doctors);
             this.doctorsComboBox.SelectedIndex = -1;
-
-        }
-
-        private void fillPatientInfoToolStripButton_Click(object sender, EventArgs e)
-        {
             // TODO: This line of code loads data into the 'diagnosesDataSet.diagnoses' table. You can move, or remove it, as needed.
             this.diagnosesTableAdapter.Fill(this.diagnosesDataSet.diagnoses);
             // TODO: This line of code loads data into the 'patientsDataSet.patients' table. You can move, or remove it, as needed.
             this.patientsTableAdapter.Fill(this.patientsDataSet.patients);
-            try
-            {
-                this.patientsTableAdapter.FillPatientInfo(this.patientsDataSet.patients, ((int)(System.Convert.ChangeType(patientIDToolStripTextBox.Text, typeof(int)))));
-                this.saveButton.Enabled = true;
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
+            this.patientsTableAdapter.FillPatientInfo(this.patientsDataSet.patients, this.patientID);
+            this.saveButton.Enabled = true;
         }
         //Saves patient visit info to database
         private void saveButton_Click(object sender, EventArgs e)

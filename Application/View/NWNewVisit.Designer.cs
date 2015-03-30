@@ -140,6 +140,7 @@
             this.label52 = new System.Windows.Forms.Label();
             this.saveButton5 = new System.Windows.Forms.Button();
             this.cancelButton5 = new System.Windows.Forms.Button();
+            this.editButton5 = new System.Windows.Forms.Button();
             this.fillPatientInfoToolStrip = new System.Windows.Forms.ToolStrip();
             this.patientIDToolStripLabel = new System.Windows.Forms.ToolStripLabel();
             this.patientIDToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
@@ -149,7 +150,6 @@
             this.doctorsTableAdapter = new WindowsFormsApplication.EmployeesDataSetTableAdapters.doctorsTableAdapter();
             this.diagnosesTableAdapter = new WindowsFormsApplication.DiagnosesDataSetTableAdapters.diagnosesTableAdapter();
             this.tableAdapterManager1 = new WindowsFormsApplication.DiagnosesDataSetTableAdapters.TableAdapterManager();
-            this.editButton5 = new System.Windows.Forms.Button();
             last_nameLabel = new System.Windows.Forms.Label();
             dob = new System.Windows.Forms.Label();
             patientID = new System.Windows.Forms.Label();
@@ -1310,6 +1310,18 @@
             this.cancelButton5.Text = "Cancel";
             this.cancelButton5.UseVisualStyleBackColor = true;
             // 
+            // editButton5
+            // 
+            this.editButton5.Enabled = false;
+            this.editButton5.Location = new System.Drawing.Point(288, 242);
+            this.editButton5.Name = "editButton5";
+            this.editButton5.Size = new System.Drawing.Size(87, 23);
+            this.editButton5.TabIndex = 27;
+            this.editButton5.Text = "Save Changes";
+            this.editButton5.UseVisualStyleBackColor = true;
+            this.editButton5.Visible = false;
+            this.editButton5.Click += new System.EventHandler(this.editButton5_Click);
+            // 
             // fillPatientInfoToolStrip
             // 
             this.fillPatientInfoToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1321,6 +1333,7 @@
             this.fillPatientInfoToolStrip.Size = new System.Drawing.Size(444, 25);
             this.fillPatientInfoToolStrip.TabIndex = 2;
             this.fillPatientInfoToolStrip.Text = "fillPatientInfoToolStrip";
+            this.fillPatientInfoToolStrip.Visible = false;
             // 
             // patientIDToolStripLabel
             // 
@@ -1339,7 +1352,6 @@
             this.fillPatientInfoToolStripButton.Name = "fillPatientInfoToolStripButton";
             this.fillPatientInfoToolStripButton.Size = new System.Drawing.Size(84, 22);
             this.fillPatientInfoToolStripButton.Text = "FillPatientInfo";
-            this.fillPatientInfoToolStripButton.Click += new System.EventHandler(this.fillPatientInfoToolStripButton_Click);
             // 
             // patientsTableAdapter
             // 
@@ -1364,18 +1376,6 @@
             this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager1.diagnosesTableAdapter = this.diagnosesTableAdapter;
             this.tableAdapterManager1.UpdateOrder = WindowsFormsApplication.DiagnosesDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // editButton5
-            // 
-            this.editButton5.Enabled = false;
-            this.editButton5.Location = new System.Drawing.Point(288, 242);
-            this.editButton5.Name = "editButton5";
-            this.editButton5.Size = new System.Drawing.Size(87, 23);
-            this.editButton5.TabIndex = 27;
-            this.editButton5.Text = "Save Changes";
-            this.editButton5.UseVisualStyleBackColor = true;
-            this.editButton5.Visible = false;
-            this.editButton5.Click += new System.EventHandler(this.editButton5_Click);
             // 
             // NWNewVisit
             // 

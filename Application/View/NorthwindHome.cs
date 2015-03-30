@@ -83,32 +83,6 @@ namespace WindowsFormsApplication.View
         }
 
         /// <summary>
-        /// Loads the New Visit Form
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void newVisitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (newVisitForm == null)
-                {
-                    newVisitForm = new NWNewVisit();
-                    newVisitForm.MdiParent = this;
-                    newVisitForm.FormClosed += newVisitForm_FormClosed;
-                    newVisitForm.Show();
-                }
-                else
-                    newVisitForm.Activate();
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
-                this.Close();
-            }
-        }
-
-        /// <summary>
         /// Sets the New Visit Form to closed
         /// </summary>
         /// <param name="sender"></param>

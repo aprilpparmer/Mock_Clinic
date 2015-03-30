@@ -33,14 +33,14 @@ namespace WindowsFormsApplication.View
         /// Checks to see if Instance is created, and returns Instance
         /// </summary>
         /// <returns>ClosedTickets Instance</returns>
-        public static NwEditPatient GetChildInstance()
+        public static NwEditPatient GetChildInstance(int thePatientId)
         {
             if (_NwEditPatientform == null) //if not created yet, Create an instance
-                _NwEditPatientform = new NwEditPatient(_patientId);
+                _NwEditPatientform = new NwEditPatient(thePatientId);
             else
             {
                 _NwEditPatientform.Dispose();
-                _NwEditPatientform = new NwEditPatient(_patientId);
+                _NwEditPatientform = new NwEditPatient(thePatientId);
 
             }
             return _NwEditPatientform;  //just created or created earlier.Return it

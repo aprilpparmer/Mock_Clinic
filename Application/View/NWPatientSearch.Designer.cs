@@ -228,6 +228,7 @@
             this.editPatientButton.TabIndex = 6;
             this.editPatientButton.Text = "Edit Patient";
             this.editPatientButton.UseVisualStyleBackColor = true;
+            this.editPatientButton.Click += new System.EventHandler(this.editPatientButton_Click);
             // 
             // viewVisitsButton
             // 

@@ -128,5 +128,22 @@ namespace WindowsFormsApplication.View
             }
         }
 
+        private void editPatientButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ListViewItem item = listViewPatients.SelectedItems[0];
+                int patientId = int.Parse(item.SubItems[0].Text);
+                NwEditPatient NwNWEditPatientForm = NwEditPatient.GetChildInstance(patientId);
+                NwNWEditPatientForm.MdiParent = MdiParent;
+                NwNWEditPatientForm.Show();
+                NwNWEditPatientForm.BringToFront();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(@"Invalid Selection, Please make sure the patient Id is highlighted Blue.");
+            }
+        }
+
     }
 }

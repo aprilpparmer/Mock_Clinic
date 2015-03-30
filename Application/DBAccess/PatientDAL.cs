@@ -321,6 +321,4 @@ namespace WindowsFormsApplication.DBAccess
             return patient;
         }
     }
-    }
-
-}
+  }

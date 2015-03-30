@@ -234,6 +234,7 @@
             this.viewPatientButton.TabIndex = 8;
             this.viewPatientButton.Text = "View Patient";
             this.viewPatientButton.UseVisualStyleBackColor = true;
+            this.viewPatientButton.Click += new System.EventHandler(this.viewPatientButton_Click);
             // 
             // editPatientButton
             // 

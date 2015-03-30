@@ -120,5 +120,14 @@ namespace WindowsFormsApplication.View
             listViewPatients.Enabled = false;
         }
 
+        private void viewPatientButton_Click(object sender, EventArgs e)
+        {
+            int patientId = 5;
+            NWViewPatient NwNWViewPatientForm = NWViewPatient.GetChildInstance(patientId);
+            NwNWViewPatientForm.MdiParent = MdiParent;
+            NwNWViewPatientForm.Show();
+            NwNWViewPatientForm.BringToFront();
+        }
+
     }
 }

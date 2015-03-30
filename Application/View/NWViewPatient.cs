@@ -22,7 +22,15 @@ namespace WindowsFormsApplication.View
             InitializeComponent();
             this._patientId = thePatientId;
             _controller = new NorthwindController();
-            _thepatient = _controller.GetPatientsById(thePatientId);
+            try
+            {
+                _thepatient = _controller.GetPatientsById(thePatientId);
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(@"There was a problem loading this patient, please try again.");
+                this.Close();
+            }
         }
 
         private static NWViewPatient _NwViewPatientform;
@@ -46,18 +54,18 @@ namespace WindowsFormsApplication.View
 
         private void NWViewPatient_Load(object sender, EventArgs e)
         {
-            firstNameTextBox.Text = _thepatient.FirstName;
-            middleInitialTextBox.Text = _thepatient.MiddleInitial;
-            lastNameTextBox.Text = _thepatient.LastName;
-            genderTextBox.Text = _thepatient.Gender;
-            ssnTextBox.Text = _thepatient.Ssn.ToString();
-            zipTextBox.Text = _thepatient.Zip.ToString();
-            homePhoneTextBox.Text = _thepatient.HomePhone;
-            workPhoneTextBox.Text = _thepatient.WorkPhone;
-            dateTextBox.Text = _thepatient.Dob.ToShortDateString();
-            addressTextBox.Text = _thepatient.Address;
-            cityTextBox.Text = _thepatient.City;
-            stateTextBox.Text = _thepatient.State;
+            firstNameTextBox.Text = _thepatient.FirstName.Trim();
+            middleInitialTextBox.Text = _thepatient.MiddleInitial.Trim();
+            lastNameTextBox.Text = _thepatient.LastName.Trim();
+            genderTextBox.Text = _thepatient.Gender.Trim();
+            ssnTextBox.Text = _thepatient.Ssn.ToString().Trim();
+            zipTextBox.Text = _thepatient.Zip.ToString().Trim();
+            homePhoneTextBox.Text = _thepatient.HomePhone.Trim();
+            workPhoneTextBox.Text = _thepatient.WorkPhone.Trim();
+            dateTextBox.Text = _thepatient.Dob.ToShortDateString().Trim();
+            addressTextBox.Text = _thepatient.Address.Trim();
+            cityTextBox.Text = _thepatient.City.Trim();
+            stateTextBox.Text = _thepatient.State.Trim();
         }
 
 

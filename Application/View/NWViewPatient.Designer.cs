@@ -139,6 +139,7 @@
             this.CancelButton.TabIndex = 49;
             this.CancelButton.Text = "Close";
             this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // addressTextBox
             // 
@@ -364,7 +365,7 @@
             this.Controls.Add(this.dobLabel);
             this.Controls.Add(this.firstNameLabel);
             this.Name = "NWViewPatient";
-            this.Text = "NWViewPatient";
+            this.Text = "View Patient";
             this.Load += new System.EventHandler(this.NWViewPatient_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

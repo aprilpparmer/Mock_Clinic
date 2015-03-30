@@ -55,6 +55,7 @@ namespace WindowsFormsApplication.View
 
         private void NWViewPatient_Load(object sender, EventArgs e)
         {
+            this.Text = String.Concat("Viewing Patient - ", _thepatient.FirstName.Trim(), " ", _thepatient.LastName.Trim());
             firstNameTextBox.Text = _thepatient.FirstName.Trim();
             middleInitialTextBox.Text = _thepatient.MiddleInitial.Trim();
             lastNameTextBox.Text = _thepatient.LastName.Trim();
@@ -67,6 +68,11 @@ namespace WindowsFormsApplication.View
             addressTextBox.Text = _thepatient.Address.Trim();
             cityTextBox.Text = _thepatient.City.Trim();
             stateTextBox.Text = _thepatient.State.Trim();
+        }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
 

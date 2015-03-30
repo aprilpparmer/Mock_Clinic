@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 using WindowsFormsApplication.Model;
 
 namespace WindowsFormsApplication.DBAccess
@@ -115,33 +116,27 @@ namespace WindowsFormsApplication.DBAccess
 
         public static int UpdatePatients(Patient oldpatient,Patient newPatient)
         {
+
             const string updateStatement = "Update patients set " +
-                                           " address = @address" +
-                                           " city = @city" +
-                                           " dob = @dob" +
-                                           " first_name = @first_name" +
-                                           " gender = @gender" +
-                                           " last_name = @last_name" +
-                                           " middle_initial = @middle_initial" +
-                                           " home_phone = @home_phone" +
-                                           " work_phone = @work_phone" +
-                                           " ssn = @ssn" +
-                                           " state = @state" +
-                                           " zip = @zip" +
+                                           " address = @address , city = @city, dob = @dob, first_name= @first_name, gender = @gender ," +
+                                           " last_name = @last_name, middle_initial =@middle_initial, home_phone = @home_phone, work_phone=@work_phone, ssn =@ssn, state =@state, zip=@zip " +
                                            " " +
-                                           " where patientID = @patientID_new and " +
-                                           " address = @address_new and " +
-                                           " city = @city_new and " +
-                                           " dob = @dob_new and " +
-                                           " first_name = @first_name_new and " +
-                                           " gender = @gender_new and " +
-                                           " last_name = @last_name_new and " +
-                                           " middle_initial = @middle_initial_new and " +
-                                           " home_phone = @home_phone_new and " +
-                                           " work_phone = @work_phone_new and " +
-                                           " ssn = @ssn_new and " +
-                                           " state = @state_new and " +
-                                           " zip = @zip_new";
+                                           " where patientID = @patientID ";
+/*
+                                           " and " +
+                                           " address = @address_old and " +
+                                           " city = @city_old and " +
+                                           " dob = @dob_old and " +
+                                           " first_name = @first_name_old and " +
+                                           " gender = @gender_old and " +
+                                           " last_name = @last_name_old and " +
+                                           " middle_initial = @middle_initial_old and " +
+                                           " home_phone = @home_phone_old and " +
+                                           " work_phone = @work_phone_old and " +
+                                           " ssn = @ssn_old and " +
+                                           " state = @state_old and " +
+                                           " zip = @zip_old";
+*/
 
             try
             {
@@ -152,7 +147,7 @@ namespace WindowsFormsApplication.DBAccess
                     using (SqlCommand updateCommand = new SqlCommand(updateStatement, connection))
                     {
 
-                        updateCommand.Parameters.AddWithValue("@patientID", newPatient.PatientId);
+                        
                         updateCommand.Parameters.AddWithValue("@address", newPatient.Address);
                         updateCommand.Parameters.AddWithValue("@city", newPatient.City);
                         updateCommand.Parameters.AddWithValue("@dob", newPatient.Dob);
@@ -165,21 +160,23 @@ namespace WindowsFormsApplication.DBAccess
                         updateCommand.Parameters.AddWithValue("@ssn", newPatient.Ssn);
                         updateCommand.Parameters.AddWithValue("@state", newPatient.State);
                         updateCommand.Parameters.AddWithValue("@zip", newPatient.Zip);
+                        updateCommand.Parameters.AddWithValue("@patientID", newPatient.PatientId);
 
-
-                        updateCommand.Parameters.AddWithValue("@patientID_old", newPatient.PatientId);
-                        updateCommand.Parameters.AddWithValue("@address_old", newPatient.Address);
-                        updateCommand.Parameters.AddWithValue("@city_old", newPatient.City);
-                        updateCommand.Parameters.AddWithValue("@dob_old", newPatient.Dob);
-                        updateCommand.Parameters.AddWithValue("@first_name_old", newPatient.FirstName);
-                        updateCommand.Parameters.AddWithValue("@gender_old", newPatient.Gender);
-                        updateCommand.Parameters.AddWithValue("@last_name_old", newPatient.LastName);
-                        updateCommand.Parameters.AddWithValue("@middle_initial_old", newPatient.MiddleInitial);
-                        updateCommand.Parameters.AddWithValue("@home_phone_old", newPatient.HomePhone);
-                        updateCommand.Parameters.AddWithValue("@work_phone_old", newPatient.WorkPhone);
-                        updateCommand.Parameters.AddWithValue("@ssn_old", newPatient.Ssn);
-                        updateCommand.Parameters.AddWithValue("@state_old", newPatient.State);
-                        updateCommand.Parameters.AddWithValue("@zip_old", newPatient.Zip);
+                        MessageBox.Show(@"Old UserId." + oldpatient.PatientId);
+                      /*  updateCommand.Parameters.AddWithValue("@patientID_old", oldpatient.PatientId);
+                        updateCommand.Parameters.AddWithValue("@address_old", oldpatient.Address);
+                        updateCommand.Parameters.AddWithValue("@city_old", oldpatient.City);
+                        updateCommand.Parameters.AddWithValue("@dob_old", oldpatient.Dob);
+                        updateCommand.Parameters.AddWithValue("@first_name_old", oldpatient.FirstName);
+                        updateCommand.Parameters.AddWithValue("@gender_old", oldpatient.Gender);
+                        updateCommand.Parameters.AddWithValue("@last_name_old", oldpatient.LastName);
+                        updateCommand.Parameters.AddWithValue("@middle_initial_old", oldpatient.MiddleInitial);
+                        updateCommand.Parameters.AddWithValue("@home_phone_old", oldpatient.HomePhone);
+                        updateCommand.Parameters.AddWithValue("@work_phone_old", oldpatient.WorkPhone);
+                        updateCommand.Parameters.AddWithValue("@ssn_old", oldpatient.Ssn);
+                        updateCommand.Parameters.AddWithValue("@state_old", oldpatient.State);
+                        updateCommand.Parameters.AddWithValue("@zip_old", oldpatient.Zip);*/
+                        
                         return updateCommand.ExecuteNonQuery();
                     }
                    

@@ -78,6 +78,7 @@ namespace WindowsFormsApplication.View
                             (addressTextBox.Text != "") & (cityTextBox.Text != "") & (stateTextBox.Text != ""))
                         {
                             //Check Details
+                            newPatient.PatientId = _patientId;
                             newPatient.FirstName = firstNameTextBox.Text;
                             newPatient.MiddleInitial = middleInitialTextBox.Text;
                             newPatient.LastName = lastNameTextBox.Text;
@@ -90,7 +91,8 @@ namespace WindowsFormsApplication.View
                             newPatient.Address = addressTextBox.Text;
                             newPatient.City = cityTextBox.Text;
                             newPatient.State = stateTextBox.Text;
-                            int results; 
+                            int results;
+                            MessageBox.Show(@"About to update patient.");
                             try
                             {
                                 results = _controller.UpdatePatients(_thepatient, newPatient);
@@ -171,6 +173,7 @@ namespace WindowsFormsApplication.View
         private void load_Patient(int thePatientId)
         {
             _thepatient = _controller.GetPatientsById(thePatientId);
+            this.Text = String.Concat("Editing Patient - ", _thepatient.FirstName.Trim(), " ", _thepatient.LastName.Trim());
             firstNameTextBox.Text = _thepatient.FirstName.Trim();
             middleInitialTextBox.Text = _thepatient.MiddleInitial.Trim();
             lastNameTextBox.Text = _thepatient.LastName.Trim();

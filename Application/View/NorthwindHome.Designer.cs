@@ -34,12 +34,11 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.patientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RegisterPatient = new System.Windows.Forms.ToolStripMenuItem();
-            this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.orderTestsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newVisitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.UserLabel = new System.Windows.Forms.Label();
             this.updateVisitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.orderTestsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.UserLabel = new System.Windows.Forms.Label();
             this.NWmenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,7 +83,6 @@
             // 
             this.patientToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.RegisterPatient,
-            this.updateToolStripMenuItem,
             this.searchToolStripMenuItem,
             this.newVisitToolStripMenuItem,
             this.updateVisitToolStripMenuItem,
@@ -100,18 +98,6 @@
             this.RegisterPatient.Text = "Register";
             this.RegisterPatient.Click += new System.EventHandler(this.RegisterPatient_Click);
             // 
-            // updateToolStripMenuItem
-            // 
-            this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
-            this.updateToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.updateToolStripMenuItem.Text = "Update";
-            // 
-            // orderTestsToolStripMenuItem
-            // 
-            this.orderTestsToolStripMenuItem.Name = "orderTestsToolStripMenuItem";
-            this.orderTestsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.orderTestsToolStripMenuItem.Text = "Order Tests";
-            // 
             // searchToolStripMenuItem
             // 
             this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
@@ -126,6 +112,18 @@
             this.newVisitToolStripMenuItem.Text = "New Visit";
             this.newVisitToolStripMenuItem.Click += new System.EventHandler(this.newVisitToolStripMenuItem_Click);
             // 
+            // updateVisitToolStripMenuItem
+            // 
+            this.updateVisitToolStripMenuItem.Name = "updateVisitToolStripMenuItem";
+            this.updateVisitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.updateVisitToolStripMenuItem.Text = "Update Visit";
+            // 
+            // orderTestsToolStripMenuItem
+            // 
+            this.orderTestsToolStripMenuItem.Name = "orderTestsToolStripMenuItem";
+            this.orderTestsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.orderTestsToolStripMenuItem.Text = "Order Tests";
+            // 
             // UserLabel
             // 
             this.UserLabel.AutoSize = true;
@@ -135,12 +133,6 @@
             this.UserLabel.Size = new System.Drawing.Size(0, 13);
             this.UserLabel.TabIndex = 2;
             this.UserLabel.Visible = false;
-            // 
-            // updateVisitToolStripMenuItem
-            // 
-            this.updateVisitToolStripMenuItem.Name = "updateVisitToolStripMenuItem";
-            this.updateVisitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.updateVisitToolStripMenuItem.Text = "Update Visit";
             // 
             // NorthwindAdmin
             // 
@@ -171,7 +163,6 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem patientToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem RegisterPatient;
-        private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem;
         private System.Windows.Forms.Label UserLabel;
         private System.Windows.Forms.ToolStripMenuItem orderTestsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;

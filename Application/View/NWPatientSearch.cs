@@ -80,6 +80,8 @@ namespace WindowsFormsApplication.View
                                 }
 
                             }
+                            listViewPatients.Items[0].Checked = true;
+                            listViewPatients.Items[0].Selected = true;
                         }
                         else
                         {

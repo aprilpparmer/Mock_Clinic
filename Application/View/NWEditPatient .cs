@@ -148,12 +148,12 @@ namespace WindowsFormsApplication.View
             firstNameTextBox.Text = _thepatient.FirstName.Trim();
             middleInitialTextBox.Text = _thepatient.MiddleInitial.Trim();
             lastNameTextBox.Text = _thepatient.LastName.Trim();
-            genderTextBox.Text = _thepatient.Gender.Trim();
+            //genderTextBox.Text = _thepatient.Gender.Trim();
             ssnTextBox.Text = _thepatient.Ssn.ToString().Trim();
             zipTextBox.Text = _thepatient.Zip.ToString().Trim();
             homePhoneTextBox.Text = _thepatient.HomePhone.Trim();
             workPhoneTextBox.Text = _thepatient.WorkPhone.Trim();
-            dateTextBox.Text = _thepatient.Dob.ToShortDateString().Trim();
+            //dateTextBox.Text = _thepatient.Dob.ToShortDateString().Trim();
             addressTextBox.Text = _thepatient.Address.Trim();
             cityTextBox.Text = _thepatient.City.Trim();
             stateTextBox.Text = _thepatient.State.Trim();

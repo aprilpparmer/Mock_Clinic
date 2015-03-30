@@ -378,6 +378,7 @@
             this.Controls.Add(this.firstNameLabel);
             this.Name = "NWViewPatient";
             this.Text = "View Patient";
+            this.Activated += new System.EventHandler(this.activatedFom);
             this.Load += new System.EventHandler(this.NWViewPatient_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

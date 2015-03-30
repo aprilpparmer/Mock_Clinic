@@ -55,19 +55,8 @@ namespace WindowsFormsApplication.View
 
         private void NWViewPatient_Load(object sender, EventArgs e)
         {
-            this.Text = String.Concat("Viewing Patient - ", _thepatient.FirstName.Trim(), " ", _thepatient.LastName.Trim());
-            firstNameTextBox.Text = _thepatient.FirstName.Trim();
-            middleInitialTextBox.Text = _thepatient.MiddleInitial.Trim();
-            lastNameTextBox.Text = _thepatient.LastName.Trim();
-            genderTextBox.Text = _thepatient.Gender.Trim();
-            ssnTextBox.Text = _thepatient.Ssn.ToString().Trim();
-            zipTextBox.Text = _thepatient.Zip.ToString().Trim();
-            homePhoneTextBox.Text = _thepatient.HomePhone.Trim();
-            workPhoneTextBox.Text = _thepatient.WorkPhone.Trim();
-            dateTextBox.Text = _thepatient.Dob.ToShortDateString().Trim();
-            addressTextBox.Text = _thepatient.Address.Trim();
-            cityTextBox.Text = _thepatient.City.Trim();
-            stateTextBox.Text = _thepatient.State.Trim();
+            loadPatientDate();
+            loadVisits();
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
@@ -90,6 +79,32 @@ namespace WindowsFormsApplication.View
             }
         }
 
+        private void activatedFom(object sender, EventArgs e)
+        {
+            loadPatientDate();
+        }
+
+        private void loadPatientDate()
+        {
+            this.Text = String.Concat("Viewing Patient - ", _thepatient.FirstName.Trim(), " ", _thepatient.LastName.Trim());
+            firstNameTextBox.Text = _thepatient.FirstName.Trim();
+            middleInitialTextBox.Text = _thepatient.MiddleInitial.Trim();
+            lastNameTextBox.Text = _thepatient.LastName.Trim();
+            genderTextBox.Text = _thepatient.Gender.Trim();
+            ssnTextBox.Text = _thepatient.Ssn.ToString().Trim();
+            zipTextBox.Text = _thepatient.Zip.ToString().Trim();
+            homePhoneTextBox.Text = _thepatient.HomePhone.Trim();
+            workPhoneTextBox.Text = _thepatient.WorkPhone.Trim();
+            dateTextBox.Text = _thepatient.Dob.ToShortDateString().Trim();
+            addressTextBox.Text = _thepatient.Address.Trim();
+            cityTextBox.Text = _thepatient.City.Trim();
+            stateTextBox.Text = _thepatient.State.Trim();
+        }
+
+        private void loadVisits()
+        {
+            // Please populate this April
+        }
 
        
     }

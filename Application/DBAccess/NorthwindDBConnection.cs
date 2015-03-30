@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace WindowsFormsApplication.DBAccess
 {
@@ -25,6 +26,25 @@ namespace WindowsFormsApplication.DBAccess
                 throw ex;
             }
             return connection;
+        }
+
+        /// <summary>
+        /// Helper method to test what the SQL string is being generated
+        /// </summary>
+        /// <param name="commandToView">SqlCommand commandToView</param>
+        public static void ViewString(SqlCommand commandToView)
+        {
+
+
+            string query = commandToView.CommandText;
+
+            foreach (SqlParameter p in commandToView.Parameters)
+                        {
+                            query = query.Replace(p.ParameterName, p.Value.ToString());
+                            
+                        }
+ 
+       MessageBox.Show(@"Query." + query);
         }
     
     }

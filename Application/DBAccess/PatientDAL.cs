@@ -121,28 +121,27 @@ namespace WindowsFormsApplication.DBAccess
                                            " address = @address , city = @city, dob = @dob, first_name= @first_name, gender = @gender ," +
                                            " last_name = @last_name, middle_initial =@middle_initial, home_phone = @home_phone, work_phone=@work_phone, ssn =@ssn, state =@state, zip=@zip " +
                                            " " +
-                                           " where patientID = @patientID ";
-/*
+                                           " where patientID = @patientID " + 
+
                                            " and " +
-                                           " address = @address_old and " +
-                                           " city = @city_old and " +
-                                           " dob = @dob_old and " +
-                                           " first_name = @first_name_old and " +
-                                           " gender = @gender_old and " +
-                                           " last_name = @last_name_old and " +
-                                           " middle_initial = @middle_initial_old and " +
-                                           " home_phone = @home_phone_old and " +
-                                           " work_phone = @work_phone_old and " +
-                                           " ssn = @ssn_old and " +
-                                           " state = @state_old and " +
-                                           " zip = @zip_old";
-*/
+                                           " address = @oldaddress and " +
+                                           " city = @oldcity and " +
+                                           " dob = @olddob and " +
+                                           " first_name = @oldfirst_name and " +
+                                           " gender = @oldgender and " +
+                                           " last_name = @oldlast_name and " +
+                                           " middle_initial = @oldmiddle_initial and " +
+                                           " home_phone = @oldhome_phone and " +
+                                           " work_phone = @oldwork_phone and " +
+                                           " ssn = @oldssn and " +
+                                           " state = @oldstate and " +
+                                           " zip = @oldzip";
 
             try
             {
                 using (SqlConnection connection = NorthwindDbConnection.GetConnection())
                 {
-                    connection.Open();
+                    connection.Open(); 
 
                     using (SqlCommand updateCommand = new SqlCommand(updateStatement, connection))
                     {
@@ -162,20 +161,23 @@ namespace WindowsFormsApplication.DBAccess
                         updateCommand.Parameters.AddWithValue("@zip", newPatient.Zip);
                         updateCommand.Parameters.AddWithValue("@patientID", newPatient.PatientId);
 
-                        MessageBox.Show(@"Old UserId." + oldpatient.PatientId);
-                      /*  updateCommand.Parameters.AddWithValue("@patientID_old", oldpatient.PatientId);
-                        updateCommand.Parameters.AddWithValue("@address_old", oldpatient.Address);
-                        updateCommand.Parameters.AddWithValue("@city_old", oldpatient.City);
-                        updateCommand.Parameters.AddWithValue("@dob_old", oldpatient.Dob);
-                        updateCommand.Parameters.AddWithValue("@first_name_old", oldpatient.FirstName);
-                        updateCommand.Parameters.AddWithValue("@gender_old", oldpatient.Gender);
-                        updateCommand.Parameters.AddWithValue("@last_name_old", oldpatient.LastName);
-                        updateCommand.Parameters.AddWithValue("@middle_initial_old", oldpatient.MiddleInitial);
-                        updateCommand.Parameters.AddWithValue("@home_phone_old", oldpatient.HomePhone);
-                        updateCommand.Parameters.AddWithValue("@work_phone_old", oldpatient.WorkPhone);
-                        updateCommand.Parameters.AddWithValue("@ssn_old", oldpatient.Ssn);
-                        updateCommand.Parameters.AddWithValue("@state_old", oldpatient.State);
-                        updateCommand.Parameters.AddWithValue("@zip_old", oldpatient.Zip);*/
+
+                        updateCommand.Parameters.AddWithValue("@oldpatientID", oldpatient.PatientId);
+                        updateCommand.Parameters.AddWithValue("@oldaddress", oldpatient.Address);
+                        updateCommand.Parameters.AddWithValue("@oldcity", oldpatient.City);
+                        updateCommand.Parameters.AddWithValue("@olddob", oldpatient.Dob);
+                        updateCommand.Parameters.AddWithValue("@oldfirst_name", oldpatient.FirstName);
+                        updateCommand.Parameters.AddWithValue("@oldgender", oldpatient.Gender);
+                        updateCommand.Parameters.AddWithValue("@oldlast_name", oldpatient.LastName);
+                        updateCommand.Parameters.AddWithValue("@oldmiddle_initial", oldpatient.MiddleInitial);
+                        updateCommand.Parameters.AddWithValue("@oldhome_phone", oldpatient.HomePhone);
+                        updateCommand.Parameters.AddWithValue("@oldwork_phone", oldpatient.WorkPhone);
+                        updateCommand.Parameters.AddWithValue("@oldssn", oldpatient.Ssn);
+                        updateCommand.Parameters.AddWithValue("@oldstate", oldpatient.State);
+                        updateCommand.Parameters.AddWithValue("@oldzip", oldpatient.Zip);
+
+                        NorthwindDbConnection.ViewString(updateCommand);
+
                         
                         return updateCommand.ExecuteNonQuery();
                     }

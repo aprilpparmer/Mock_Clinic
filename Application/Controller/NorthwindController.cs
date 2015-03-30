@@ -23,6 +23,11 @@ namespace WindowsFormsApplication.Controller
             PatientDal.AddPatients(patient);
         }
 
+        internal int UpdatePatients(Patient oldpatient, Patient newPatient)
+        {
+            return PatientDal.UpdatePatients(oldpatient, newPatient);
+        }
+
         public static int AddPatientVisit(PatientVisit patientVisit)
         {
            return PatientVisitDal.AddPatientVisit(patientVisit);

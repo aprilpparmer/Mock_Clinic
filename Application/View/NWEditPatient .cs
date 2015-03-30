@@ -19,7 +19,7 @@ namespace WindowsFormsApplication.View
             try
             {
                 _patientId = thePatientId;
-                _thepatient = _controller.GetPatientsById(thePatientId);
+               
             }
             catch (Exception exception)
             {
@@ -90,11 +90,28 @@ namespace WindowsFormsApplication.View
                             newPatient.Address = addressTextBox.Text;
                             newPatient.City = cityTextBox.Text;
                             newPatient.State = stateTextBox.Text;
+                            int results; 
                             try
                             {
-                                _controller.AddPatients(newPatient);
-                                MessageBox.Show(@"The patient has been added.");
-                                this.Close();
+                                results = _controller.UpdatePatients(_thepatient, newPatient);
+                                MessageBox.Show(@"The patient has been Updated.");
+                                if (results == 0)
+                                {
+                                    DialogResult result1 = MessageBox.Show(
+                                              @"This Patient information has changed since you have loaded it. Would you like to update this screen? Your submission will not be submitted unless you update and resubmit.",
+                                              @"Out of sync", MessageBoxButtons.YesNo);
+                                    if (result1 == DialogResult.Yes)
+                                    {
+                                        //is is loading it again because its updating the text. If it was closed, load_incident will make sure you cant update it. 
+                                        load_Patient(_patientId);
+
+                                    }
+
+                                }
+                                else
+                                {
+                                    Close();
+                                }
 
                             }
                             catch (Exception exception)
@@ -103,6 +120,9 @@ namespace WindowsFormsApplication.View
                                     @"There was a problem adding the Patient into the Database, please contact the admin with this message." +
                                     exception);
                             }
+
+                            
+                            
                         }
                         else
                         {
@@ -145,30 +165,42 @@ namespace WindowsFormsApplication.View
 
         private void NWEditPatient_Load(object sender, EventArgs e)
         {
+            load_Patient(_patientId);
+        }
+
+        private void load_Patient(int thePatientId)
+        {
+            _thepatient = _controller.GetPatientsById(thePatientId);
             firstNameTextBox.Text = _thepatient.FirstName.Trim();
             middleInitialTextBox.Text = _thepatient.MiddleInitial.Trim();
             lastNameTextBox.Text = _thepatient.LastName.Trim();
-            //genderTextBox.Text = _thepatient.Gender.Trim();
+            if ((_thepatient.Gender == "F"))
+            {
+
+                femaleRadioButton.Checked = true;
+            }
+            else
+            {
+                maleRadioButton.Checked = true;
+            }
             ssnTextBox.Text = _thepatient.Ssn.ToString().Trim();
             zipTextBox.Text = _thepatient.Zip.ToString().Trim();
             homePhoneTextBox.Text = _thepatient.HomePhone.Trim();
             workPhoneTextBox.Text = _thepatient.WorkPhone.Trim();
-            //dateTextBox.Text = _thepatient.Dob.ToShortDateString().Trim();
+            dateTimePicker.Value = _thepatient.Dob;
             addressTextBox.Text = _thepatient.Address.Trim();
             cityTextBox.Text = _thepatient.City.Trim();
             stateTextBox.Text = _thepatient.State.Trim();
         }
 
-       
 
 
-        
-       
 
-        
 
-       
-      
+
+
+
+
     }
 }
  

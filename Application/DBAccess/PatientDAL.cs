@@ -7,6 +7,10 @@ namespace WindowsFormsApplication.DBAccess
 {
     class PatientDal
     {
+        /// <summary>
+        /// Gets List of all patients
+        /// </summary>
+        /// <returns>List<Patient> of patients</returns>
         public static List<Patient> GetAllPatients()
         {
             List<Patient> patientList = new List<Patient>();
@@ -62,10 +66,13 @@ namespace WindowsFormsApplication.DBAccess
             return patientList;
         }
 
+        /// <summary>
+        /// Add's a patient
+        /// </summary>
+        /// <param name="patient">Patient patient, patient to be added</param>
         public static void AddPatients(Patient patient)
         {
-            //string dateNow = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-
+            
             const string insertStatement = "INSERT into patients " +
                                            " (address, city, dob, first_name, gender, last_name, middle_initial, home_phone, work_phone, ssn, state, zip) " +
                                            " values(@address, @city, @dob, @first_name, @gender, @last_name, @middle_initial, @home_phone, @work_phone, @ssn, @state, @zip)";
@@ -95,6 +102,89 @@ namespace WindowsFormsApplication.DBAccess
                     }
 
                 }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static int UpdatePatients(Patient oldpatient,Patient newPatient)
+        {
+            const string updateStatement = "Update patients set " +
+                                           " address = @address" +
+                                           " city = @city" +
+                                           " dob = @dob" +
+                                           " first_name = @first_name" +
+                                           " gender = @gender" +
+                                           " last_name = @last_name" +
+                                           " middle_initial = @middle_initial" +
+                                           " home_phone = @home_phone" +
+                                           " work_phone = @work_phone" +
+                                           " ssn = @ssn" +
+                                           " state = @state" +
+                                           " zip = @zip" +
+                                           " " +
+                                           " where patientID = @patientID_new and " +
+                                           " address = @address_new and " +
+                                           " city = @city_new and " +
+                                           " dob = @dob_new and " +
+                                           " first_name = @first_name_new and " +
+                                           " gender = @gender_new and " +
+                                           " last_name = @last_name_new and " +
+                                           " middle_initial = @middle_initial_new and " +
+                                           " home_phone = @home_phone_new and " +
+                                           " work_phone = @work_phone_new and " +
+                                           " ssn = @ssn_new and " +
+                                           " state = @state_new and " +
+                                           " zip = @zip_new";
+
+            try
+            {
+                using (SqlConnection connection = NorthwindDbConnection.GetConnection())
+                {
+                    connection.Open();
+
+                    using (SqlCommand updateCommand = new SqlCommand(updateStatement, connection))
+                    {
+
+                        updateCommand.Parameters.AddWithValue("@patientID", newPatient.PatientId);
+                        updateCommand.Parameters.AddWithValue("@address", newPatient.Address);
+                        updateCommand.Parameters.AddWithValue("@city", newPatient.City);
+                        updateCommand.Parameters.AddWithValue("@dob", newPatient.Dob);
+                        updateCommand.Parameters.AddWithValue("@first_name", newPatient.FirstName);
+                        updateCommand.Parameters.AddWithValue("@gender", newPatient.Gender);
+                        updateCommand.Parameters.AddWithValue("@last_name", newPatient.LastName);
+                        updateCommand.Parameters.AddWithValue("@middle_initial", newPatient.MiddleInitial);
+                        updateCommand.Parameters.AddWithValue("@home_phone", newPatient.HomePhone);
+                        updateCommand.Parameters.AddWithValue("@work_phone", newPatient.WorkPhone);
+                        updateCommand.Parameters.AddWithValue("@ssn", newPatient.Ssn);
+                        updateCommand.Parameters.AddWithValue("@state", newPatient.State);
+                        updateCommand.Parameters.AddWithValue("@zip", newPatient.Zip);
+
+
+                        updateCommand.Parameters.AddWithValue("@patientID_old", newPatient.PatientId);
+                        updateCommand.Parameters.AddWithValue("@address_old", newPatient.Address);
+                        updateCommand.Parameters.AddWithValue("@city_old", newPatient.City);
+                        updateCommand.Parameters.AddWithValue("@dob_old", newPatient.Dob);
+                        updateCommand.Parameters.AddWithValue("@first_name_old", newPatient.FirstName);
+                        updateCommand.Parameters.AddWithValue("@gender_old", newPatient.Gender);
+                        updateCommand.Parameters.AddWithValue("@last_name_old", newPatient.LastName);
+                        updateCommand.Parameters.AddWithValue("@middle_initial_old", newPatient.MiddleInitial);
+                        updateCommand.Parameters.AddWithValue("@home_phone_old", newPatient.HomePhone);
+                        updateCommand.Parameters.AddWithValue("@work_phone_old", newPatient.WorkPhone);
+                        updateCommand.Parameters.AddWithValue("@ssn_old", newPatient.Ssn);
+                        updateCommand.Parameters.AddWithValue("@state_old", newPatient.State);
+                        updateCommand.Parameters.AddWithValue("@zip_old", newPatient.Zip);
+                        return updateCommand.ExecuteNonQuery();
+                    }
+                   
+                }
+                
             }
             catch (SqlException ex)
             {
@@ -220,7 +310,11 @@ namespace WindowsFormsApplication.DBAccess
             return patients;
         }
 
-
+        /// <summary>
+        /// Gets Patient by Id
+        /// </summary>
+        /// <param name="patientId">int PatientId the ID of patient to get</param>
+        /// <returns>Patient patient requested</returns>
     public static Patient GetPatientsById(int patientId)
     {
         Patient patient = new Patient();

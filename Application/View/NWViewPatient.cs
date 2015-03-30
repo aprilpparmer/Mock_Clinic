@@ -106,6 +106,21 @@ namespace WindowsFormsApplication.View
             // Please populate this April
         }
 
+        private void newVisitButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                NWNewVisit newVisit = new NWNewVisit(_patientId);
+                newVisit.MdiParent = MdiParent;
+                newVisit.Show();
+                newVisit.BringToFront();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(@"Invalid Selection, Please make sure the patient Id is highlighted Blue.");
+            }
+        }
+
        
     }
 }

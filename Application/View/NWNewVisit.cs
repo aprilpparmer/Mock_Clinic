@@ -55,7 +55,9 @@ namespace WindowsFormsApplication.View
                     editButton.Visible = true;
                     editButton.Enabled = false;
                     saveButton2.Enabled = true;
-                    this.saveButton5.Enabled = true;
+                    saveButton3.Enabled = true;
+                    saveButton5.Enabled = true;
+                    
                 }
                 catch (SqlException ex)
                 {
@@ -145,7 +147,6 @@ namespace WindowsFormsApplication.View
                     saveButton2.Visible = false;
                     editButton2.Visible = true;
                     editButton2.Enabled = false;
-                    saveButton3.Enabled = true;
                 }
                 catch (SqlException ex)
                 {

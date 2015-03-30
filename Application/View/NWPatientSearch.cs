@@ -177,5 +177,22 @@ namespace WindowsFormsApplication.View
             }
         }
 
+        private void viewVisitsButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ListViewItem item = listViewPatients.SelectedItems[0];
+                int patientId = int.Parse(item.SubItems[0].Text);
+                NwViewVisits patientVisits = new NwViewVisits(patientId);
+                patientVisits.MdiParent = MdiParent;
+                patientVisits.Show();
+                patientVisits.BringToFront();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(@"Invalid Selection, Please make sure the patient Id is highlighted Blue.");
+            }
+        }
+
     }
 }

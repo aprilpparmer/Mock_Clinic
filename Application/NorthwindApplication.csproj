@@ -88,6 +88,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PatientsDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="PatientVisitDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PatientVisitDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="View\NWGenerateReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,6 +179,12 @@
     <Compile Include="View\NWViewPatient.Designer.cs">
       <DependentUpon>NWViewPatient.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\NwViewVisits.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\NwViewVisits.Designer.cs">
+      <DependentUpon>NwViewVisits.cs</DependentUpon>
+    </Compile>
     <Compile Include="_CS6232_g7DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -231,6 +242,9 @@
     <EmbeddedResource Include="View\NWViewPatient.resx">
       <DependentUpon>NWViewPatient.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\NwViewVisits.resx">
+      <DependentUpon>NwViewVisits.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="EmployeesDataSet.xsc">
       <DependentUpon>EmployeesDataSet.xsd</DependentUpon>
     </None>
@@ -252,6 +266,17 @@
     </None>
     <None Include="PatientsDataSet.xss">
       <DependentUpon>PatientsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PatientVisitDataSet.xsc">
+      <DependentUpon>PatientVisitDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PatientVisitDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PatientVisitDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PatientVisitDataSet.xss">
+      <DependentUpon>PatientVisitDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

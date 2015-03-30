@@ -239,6 +239,7 @@
             this.viewVisitsButton.TabIndex = 7;
             this.viewVisitsButton.Text = "View Visits";
             this.viewVisitsButton.UseVisualStyleBackColor = true;
+            this.viewVisitsButton.Click += new System.EventHandler(this.viewVisitsButton_Click);
             // 
             // addVisitButton
             // 

@@ -72,5 +72,11 @@ namespace WindowsFormsApplication.Controller
         {
             PatientVisitNotesDal.UpdatePatientNotes(note);
         }
+
+        public static Patient GetPatientsById(int patientId)
+        {
+             
+             return PatientDal.GetPatientsById(patientId);
+        }
     }
 }

@@ -74,6 +74,7 @@
             this.zipTextBox.MaxLength = 5;
             this.zipTextBox.Multiline = true;
             this.zipTextBox.Name = "zipTextBox";
+            this.zipTextBox.ReadOnly = true;
             this.zipTextBox.Size = new System.Drawing.Size(105, 24);
             this.zipTextBox.TabIndex = 47;
             // 
@@ -94,6 +95,7 @@
             this.stateTextBox.MaxLength = 50;
             this.stateTextBox.Multiline = true;
             this.stateTextBox.Name = "stateTextBox";
+            this.stateTextBox.ReadOnly = true;
             this.stateTextBox.Size = new System.Drawing.Size(128, 24);
             this.stateTextBox.TabIndex = 46;
             // 
@@ -114,6 +116,7 @@
             this.cityTextBox.MaxLength = 50;
             this.cityTextBox.Multiline = true;
             this.cityTextBox.Name = "cityTextBox";
+            this.cityTextBox.ReadOnly = true;
             this.cityTextBox.Size = new System.Drawing.Size(105, 24);
             this.cityTextBox.TabIndex = 44;
             // 
@@ -144,6 +147,7 @@
             this.addressTextBox.MaxLength = 200;
             this.addressTextBox.Multiline = true;
             this.addressTextBox.Name = "addressTextBox";
+            this.addressTextBox.ReadOnly = true;
             this.addressTextBox.Size = new System.Drawing.Size(162, 24);
             this.addressTextBox.TabIndex = 42;
             // 
@@ -153,6 +157,7 @@
             this.homePhoneTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.homePhoneTextBox.MaxLength = 15;
             this.homePhoneTextBox.Name = "homePhoneTextBox";
+            this.homePhoneTextBox.ReadOnly = true;
             this.homePhoneTextBox.Size = new System.Drawing.Size(162, 20);
             this.homePhoneTextBox.TabIndex = 36;
             // 
@@ -182,6 +187,7 @@
             this.lastNameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.lastNameTextBox.MaxLength = 50;
             this.lastNameTextBox.Name = "lastNameTextBox";
+            this.lastNameTextBox.ReadOnly = true;
             this.lastNameTextBox.Size = new System.Drawing.Size(128, 20);
             this.lastNameTextBox.TabIndex = 32;
             // 
@@ -191,6 +197,7 @@
             this.ssnTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.ssnTextBox.MaxLength = 9;
             this.ssnTextBox.Name = "ssnTextBox";
+            this.ssnTextBox.ReadOnly = true;
             this.ssnTextBox.Size = new System.Drawing.Size(105, 20);
             this.ssnTextBox.TabIndex = 34;
             // 
@@ -230,6 +237,7 @@
             this.middleInitialTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.middleInitialTextBox.MaxLength = 1;
             this.middleInitialTextBox.Name = "middleInitialTextBox";
+            this.middleInitialTextBox.ReadOnly = true;
             this.middleInitialTextBox.Size = new System.Drawing.Size(24, 20);
             this.middleInitialTextBox.TabIndex = 31;
             // 
@@ -239,6 +247,7 @@
             this.firstNameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.firstNameTextBox.MaxLength = 50;
             this.firstNameTextBox.Name = "firstNameTextBox";
+            this.firstNameTextBox.ReadOnly = true;
             this.firstNameTextBox.Size = new System.Drawing.Size(162, 20);
             this.firstNameTextBox.TabIndex = 29;
             // 
@@ -268,6 +277,7 @@
             this.dateTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.dateTextBox.MaxLength = 9;
             this.dateTextBox.Name = "dateTextBox";
+            this.dateTextBox.ReadOnly = true;
             this.dateTextBox.Size = new System.Drawing.Size(105, 20);
             this.dateTextBox.TabIndex = 57;
             // 
@@ -287,6 +297,7 @@
             this.workPhoneTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.workPhoneTextBox.MaxLength = 15;
             this.workPhoneTextBox.Name = "workPhoneTextBox";
+            this.workPhoneTextBox.ReadOnly = true;
             this.workPhoneTextBox.Size = new System.Drawing.Size(105, 20);
             this.workPhoneTextBox.TabIndex = 37;
             // 
@@ -296,6 +307,7 @@
             this.genderTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.genderTextBox.MaxLength = 9;
             this.genderTextBox.Name = "genderTextBox";
+            this.genderTextBox.ReadOnly = true;
             this.genderTextBox.Size = new System.Drawing.Size(128, 20);
             this.genderTextBox.TabIndex = 58;
             // 

@@ -122,11 +122,19 @@ namespace WindowsFormsApplication.View
 
         private void viewPatientButton_Click(object sender, EventArgs e)
         {
-            int patientId = 5;
-            NWViewPatient NwNWViewPatientForm = NWViewPatient.GetChildInstance(patientId);
-            NwNWViewPatientForm.MdiParent = MdiParent;
-            NwNWViewPatientForm.Show();
-            NwNWViewPatientForm.BringToFront();
+            try
+            {
+                ListViewItem item = listViewPatients.SelectedItems[0];
+                int patientId = int.Parse(item.SubItems[0].Text);
+                NWViewPatient NwNWViewPatientForm = NWViewPatient.GetChildInstance(patientId);
+                NwNWViewPatientForm.MdiParent = MdiParent;
+                NwNWViewPatientForm.Show();
+                NwNWViewPatientForm.BringToFront();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(@"Invalid Selection, Please make sure the patient Id is highlighted Blue.");
+            }
         }
 
     }

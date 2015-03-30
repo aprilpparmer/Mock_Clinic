@@ -94,6 +94,12 @@
     <Compile Include="View\NWGenerateReport.Designer.cs">
       <DependentUpon>NWGenerateReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\NWEditPatient .cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\NWEditPatient .Designer.cs">
+      <DependentUpon>NWEditPatient .cs</DependentUpon>
+    </Compile>
     <Compile Include="View\NWNewVisit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,6 +181,9 @@
     </Compile>
     <EmbeddedResource Include="View\NWGenerateReport.resx">
       <DependentUpon>NWGenerateReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\NWEditPatient .resx">
+      <DependentUpon>NWEditPatient .cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\NWNewVisit.resx">
       <DependentUpon>NWNewVisit.cs</DependentUpon>

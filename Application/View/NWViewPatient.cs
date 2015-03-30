@@ -20,10 +20,11 @@ namespace WindowsFormsApplication.View
         public NWViewPatient(int thePatientId)
         {
             InitializeComponent();
-            this._patientId = thePatientId;
+            
             _controller = new NorthwindController();
             try
             {
+                this._patientId = thePatientId;
                 _thepatient = _controller.GetPatientsById(thePatientId);
             }
             catch (Exception exception)

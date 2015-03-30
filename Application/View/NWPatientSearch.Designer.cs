@@ -52,6 +52,10 @@
             this.buttonSearch = new System.Windows.Forms.Button();
             this.buttonCloseSearch = new System.Windows.Forms.Button();
             this.buttonClear = new System.Windows.Forms.Button();
+            this.viewPatientButton = new System.Windows.Forms.Button();
+            this.editPatientButton = new System.Windows.Forms.Button();
+            this.viewVisitsButton = new System.Windows.Forms.Button();
+            this.addVisitButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listViewPatients
@@ -222,11 +226,51 @@
             this.buttonClear.UseVisualStyleBackColor = true;
             this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
             // 
+            // viewPatientButton
+            // 
+            this.viewPatientButton.Location = new System.Drawing.Point(1042, 58);
+            this.viewPatientButton.Name = "viewPatientButton";
+            this.viewPatientButton.Size = new System.Drawing.Size(75, 23);
+            this.viewPatientButton.TabIndex = 8;
+            this.viewPatientButton.Text = "View Patient";
+            this.viewPatientButton.UseVisualStyleBackColor = true;
+            // 
+            // editPatientButton
+            // 
+            this.editPatientButton.Location = new System.Drawing.Point(1042, 87);
+            this.editPatientButton.Name = "editPatientButton";
+            this.editPatientButton.Size = new System.Drawing.Size(75, 23);
+            this.editPatientButton.TabIndex = 9;
+            this.editPatientButton.Text = "Edit Patient";
+            this.editPatientButton.UseVisualStyleBackColor = true;
+            // 
+            // viewVisitsButton
+            // 
+            this.viewVisitsButton.Location = new System.Drawing.Point(1042, 116);
+            this.viewVisitsButton.Name = "viewVisitsButton";
+            this.viewVisitsButton.Size = new System.Drawing.Size(75, 23);
+            this.viewVisitsButton.TabIndex = 10;
+            this.viewVisitsButton.Text = "View Visits";
+            this.viewVisitsButton.UseVisualStyleBackColor = true;
+            // 
+            // addVisitButton
+            // 
+            this.addVisitButton.Location = new System.Drawing.Point(1042, 145);
+            this.addVisitButton.Name = "addVisitButton";
+            this.addVisitButton.Size = new System.Drawing.Size(75, 23);
+            this.addVisitButton.TabIndex = 11;
+            this.addVisitButton.Text = "Add Visist";
+            this.addVisitButton.UseVisualStyleBackColor = true;
+            // 
             // NwPatientSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1026, 272);
+            this.ClientSize = new System.Drawing.Size(1174, 277);
+            this.Controls.Add(this.addVisitButton);
+            this.Controls.Add(this.viewVisitsButton);
+            this.Controls.Add(this.editPatientButton);
+            this.Controls.Add(this.viewPatientButton);
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.buttonCloseSearch);
             this.Controls.Add(this.buttonSearch);
@@ -270,6 +314,10 @@
         private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.Button buttonCloseSearch;
         private System.Windows.Forms.Button buttonClear;
+        private System.Windows.Forms.Button viewPatientButton;
+        private System.Windows.Forms.Button editPatientButton;
+        private System.Windows.Forms.Button viewVisitsButton;
+        private System.Windows.Forms.Button addVisitButton;
 
     }
 }

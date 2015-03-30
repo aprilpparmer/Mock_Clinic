@@ -20,30 +20,20 @@ namespace WindowsFormsApplication.View
         private void NwPatientSearch_Load(object sender, System.EventArgs e)
         {
             listViewPatients.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
-            listViewPatients.Enabled = false;
+            listViewPatients.Enabled = false;           
+            
         }
 
         private void buttonSearch_Click(object sender, EventArgs e)
         {
             List<Patient> patientList;
             listViewPatients.Items.Clear();
-
+            
             try
-            {
-                if (textBoxFirstName.Text == "")
-                {
-                    MessageBox.Show("First Name is required! Please supply this information!");
-                }
-                else
-                {
-                    if (textBoxLastName.Text == "")
-                    {
-                        MessageBox.Show("Last Name is required! Please supply this information!");
-                    }
-                    else
+            {                                             
                     {
 
-                        patientList = this._controller.GetPatientsByFirstNameAndLastName(textBoxFirstName.Text, textBoxLastName.Text);
+                        patientList = this._controller.GetPatientsByFirstNameAndLastName(textBoxLastName.Text, textBoxFirstName.Text, dateTimeDOB.Text);
 
                         if (patientList.Count > 0)
                         {
@@ -93,13 +83,13 @@ namespace WindowsFormsApplication.View
                         }
                         else
                         {
-                            MessageBox.Show("There are no patients with this name registered at this time!");
+                            MessageBox.Show("There are no patients with this information registered at this time. Please check your search criteria and try again");
                             textBoxFirstName.Text = "";
                             textBoxLastName.Text = "";
+                            dateTimeDOB.ResetText();
                         }
                     }
-                }
-            }
+                }           
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
@@ -116,6 +106,7 @@ namespace WindowsFormsApplication.View
         {
             textBoxFirstName.Text = "";
             textBoxLastName.Text = "";
+            dateTimeDOB.ResetText();
             listViewPatients.Items.Clear();
             listViewPatients.Enabled = false;
         }

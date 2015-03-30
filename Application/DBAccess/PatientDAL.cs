@@ -117,14 +117,14 @@ namespace WindowsFormsApplication.DBAccess
         /// <param name="lastName"></param>
         /// <param name="dateOfBirth"></param>
         /// <returns></returns>
-        public static List<Patient> getPatientsByFirstNameAndLastName(string firstName, string lastName)
+        public static List<Patient> searchPatients(string lastName, string firstName, string dob)
         {
             List<Patient> patients = new List<Patient>();
 
             string selectStatement =
                 "SELECT * " +
                 "FROM patients " +
-                "WHERE last_name = @lastName AND first_name = @firstName";
+                "WHERE (last_name = @lastName AND first_name = @firstName) OR (dob = @dob) OR (dob = @dob AND last_name = @lastName)";
 
             try
             {
@@ -136,6 +136,7 @@ namespace WindowsFormsApplication.DBAccess
                     {
                         selectCommand.Parameters.AddWithValue("@lastName", lastName);
                         selectCommand.Parameters.AddWithValue("@firstName", firstName);
+                        selectCommand.Parameters.AddWithValue("@dob", dob);
 
                         using (SqlDataReader dataReader = selectCommand.ExecuteReader())
                         {

@@ -76,7 +76,7 @@
             this.WorkPhone,
             this.Child});
             this.listViewPatients.Location = new System.Drawing.Point(11, 58);
-            this.listViewPatients.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listViewPatients.Margin = new System.Windows.Forms.Padding(2);
             this.listViewPatients.Name = "listViewPatients";
             this.listViewPatients.Size = new System.Drawing.Size(1003, 166);
             this.listViewPatients.TabIndex = 0;
@@ -211,7 +211,7 @@
             // viewPatientButton
             // 
             this.viewPatientButton.Location = new System.Drawing.Point(1018, 58);
-            this.viewPatientButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.viewPatientButton.Margin = new System.Windows.Forms.Padding(2);
             this.viewPatientButton.Name = "viewPatientButton";
             this.viewPatientButton.Size = new System.Drawing.Size(88, 19);
             this.viewPatientButton.TabIndex = 5;
@@ -222,7 +222,7 @@
             // editPatientButton
             // 
             this.editPatientButton.Location = new System.Drawing.Point(1018, 82);
-            this.editPatientButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.editPatientButton.Margin = new System.Windows.Forms.Padding(2);
             this.editPatientButton.Name = "editPatientButton";
             this.editPatientButton.Size = new System.Drawing.Size(88, 19);
             this.editPatientButton.TabIndex = 6;
@@ -233,7 +233,7 @@
             // viewVisitsButton
             // 
             this.viewVisitsButton.Location = new System.Drawing.Point(1018, 105);
-            this.viewVisitsButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.viewVisitsButton.Margin = new System.Windows.Forms.Padding(2);
             this.viewVisitsButton.Name = "viewVisitsButton";
             this.viewVisitsButton.Size = new System.Drawing.Size(88, 19);
             this.viewVisitsButton.TabIndex = 7;
@@ -243,7 +243,7 @@
             // addVisitButton
             // 
             this.addVisitButton.Location = new System.Drawing.Point(1018, 129);
-            this.addVisitButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.addVisitButton.Margin = new System.Windows.Forms.Padding(2);
             this.addVisitButton.Name = "addVisitButton";
             this.addVisitButton.Size = new System.Drawing.Size(88, 19);
             this.addVisitButton.TabIndex = 8;
@@ -270,7 +270,7 @@
             // 
             this.dateTimeDOB.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimeDOB.Location = new System.Drawing.Point(93, 22);
-            this.dateTimeDOB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimeDOB.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimeDOB.Name = "dateTimeDOB";
             this.dateTimeDOB.Size = new System.Drawing.Size(95, 20);
             this.dateTimeDOB.TabIndex = 1;
@@ -294,9 +294,10 @@
             this.Controls.Add(this.labelLastName);
             this.Controls.Add(this.labelFirstName);
             this.Controls.Add(this.listViewPatients);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "NwPatientSearch";
             this.Text = "Patient Search";
+            this.Activated += new System.EventHandler(this.activatedForum);
             this.Load += new System.EventHandler(this.NwPatientSearch_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

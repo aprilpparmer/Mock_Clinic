@@ -55,6 +55,7 @@
             this.genderTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.editButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // genderLabel
@@ -332,11 +333,22 @@
             this.label3.TabIndex = 61;
             this.label3.Text = "Visit Information";
             // 
+            // editButton
+            // 
+            this.editButton.Location = new System.Drawing.Point(810, 8);
+            this.editButton.Name = "editButton";
+            this.editButton.Size = new System.Drawing.Size(75, 23);
+            this.editButton.TabIndex = 62;
+            this.editButton.Text = "Edit";
+            this.editButton.UseVisualStyleBackColor = true;
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
+            // 
             // NWViewPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(907, 468);
+            this.Controls.Add(this.editButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.genderTextBox);
@@ -401,6 +413,7 @@
         private System.Windows.Forms.TextBox genderTextBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button editButton;
 
     }
 }

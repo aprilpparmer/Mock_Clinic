@@ -176,7 +176,7 @@ namespace WindowsFormsApplication.DBAccess
                         updateCommand.Parameters.AddWithValue("@oldstate", oldpatient.State);
                         updateCommand.Parameters.AddWithValue("@oldzip", oldpatient.Zip);
 
-                        NorthwindDbConnection.ViewString(updateCommand);
+                        //NorthwindDbConnection.ViewString(updateCommand);
 
                         
                         return updateCommand.ExecuteNonQuery();

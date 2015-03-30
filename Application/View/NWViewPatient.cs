@@ -75,6 +75,21 @@ namespace WindowsFormsApplication.View
             this.Close();
         }
 
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                NwEditPatient NwNWEditPatientForm = NwEditPatient.GetChildInstance(_patientId);
+                NwNWEditPatientForm.MdiParent = MdiParent;
+                NwNWEditPatientForm.Show();
+                NwNWEditPatientForm.BringToFront();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(@"Problem editing this Patient.");
+            }
+        }
+
 
        
     }

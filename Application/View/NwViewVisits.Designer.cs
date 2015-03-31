@@ -72,18 +72,20 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(134, 33);
+            this.label1.Location = new System.Drawing.Point(179, 41);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 13);
+            this.label1.Size = new System.Drawing.Size(70, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Visits For:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(381, 33);
+            this.label3.Location = new System.Drawing.Point(508, 41);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(33, 13);
+            this.label3.Size = new System.Drawing.Size(42, 17);
             this.label3.TabIndex = 2;
             this.label3.Text = "DOB:";
             // 
@@ -107,10 +109,11 @@
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn12});
             this.patient_visitDataGridView.DataSource = this.patient_visitBindingSource;
-            this.patient_visitDataGridView.Location = new System.Drawing.Point(6, 62);
+            this.patient_visitDataGridView.Location = new System.Drawing.Point(8, 76);
+            this.patient_visitDataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.patient_visitDataGridView.Name = "patient_visitDataGridView";
             this.patient_visitDataGridView.ReadOnly = true;
-            this.patient_visitDataGridView.Size = new System.Drawing.Size(712, 220);
+            this.patient_visitDataGridView.Size = new System.Drawing.Size(949, 271);
             this.patient_visitDataGridView.TabIndex = 5;
             // 
             // patient_visitBindingSource
@@ -164,39 +167,43 @@
             // first_nameLabel1
             // 
             this.first_nameLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.patientsBindingSource, "first_name", true));
-            this.first_nameLabel1.Location = new System.Drawing.Point(192, 33);
+            this.first_nameLabel1.Location = new System.Drawing.Point(256, 41);
+            this.first_nameLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.first_nameLabel1.Name = "first_nameLabel1";
-            this.first_nameLabel1.Size = new System.Drawing.Size(54, 23);
+            this.first_nameLabel1.Size = new System.Drawing.Size(72, 28);
             this.first_nameLabel1.TabIndex = 6;
             this.first_nameLabel1.Text = "****";
             // 
             // last_nameLabel1
             // 
             this.last_nameLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.patientsBindingSource, "last_name", true));
-            this.last_nameLabel1.Location = new System.Drawing.Point(246, 33);
+            this.last_nameLabel1.Location = new System.Drawing.Point(328, 41);
+            this.last_nameLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.last_nameLabel1.Name = "last_nameLabel1";
-            this.last_nameLabel1.Size = new System.Drawing.Size(43, 23);
+            this.last_nameLabel1.Size = new System.Drawing.Size(57, 28);
             this.last_nameLabel1.TabIndex = 7;
             this.last_nameLabel1.Text = "****";
             // 
             // dobLabel1
             // 
             this.dobLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.patientsBindingSource, "dob", true));
-            this.dobLabel1.Location = new System.Drawing.Point(420, 33);
+            this.dobLabel1.Location = new System.Drawing.Point(560, 41);
+            this.dobLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.dobLabel1.Name = "dobLabel1";
-            this.dobLabel1.Size = new System.Drawing.Size(100, 23);
+            this.dobLabel1.Size = new System.Drawing.Size(133, 28);
             this.dobLabel1.TabIndex = 8;
             this.dobLabel1.Text = "****";
             // 
             // fillByPatientInfoToolStrip
             // 
+            this.fillByPatientInfoToolStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.fillByPatientInfoToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.patientIDToolStripLabel,
             this.patientIDToolStripTextBox,
             this.fillByPatientInfoToolStripButton});
             this.fillByPatientInfoToolStrip.Location = new System.Drawing.Point(0, 0);
             this.fillByPatientInfoToolStrip.Name = "fillByPatientInfoToolStrip";
-            this.fillByPatientInfoToolStrip.Size = new System.Drawing.Size(868, 25);
+            this.fillByPatientInfoToolStrip.Size = new System.Drawing.Size(1157, 31);
             this.fillByPatientInfoToolStrip.TabIndex = 9;
             this.fillByPatientInfoToolStrip.Text = "fillByPatientInfoToolStrip";
             this.fillByPatientInfoToolStrip.Visible = false;
@@ -204,18 +211,18 @@
             // patientIDToolStripLabel
             // 
             this.patientIDToolStripLabel.Name = "patientIDToolStripLabel";
-            this.patientIDToolStripLabel.Size = new System.Drawing.Size(58, 22);
+            this.patientIDToolStripLabel.Size = new System.Drawing.Size(74, 28);
             this.patientIDToolStripLabel.Text = "patientID:";
             // 
             // patientIDToolStripTextBox
             // 
             this.patientIDToolStripTextBox.Name = "patientIDToolStripTextBox";
-            this.patientIDToolStripTextBox.Size = new System.Drawing.Size(100, 25);
+            this.patientIDToolStripTextBox.Size = new System.Drawing.Size(132, 31);
             // 
             // fillByPatientInfoToolStripButton
             // 
             this.fillByPatientInfoToolStripButton.Name = "fillByPatientInfoToolStripButton";
-            this.fillByPatientInfoToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.fillByPatientInfoToolStripButton.Size = new System.Drawing.Size(23, 28);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -239,7 +246,7 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "Visit Date";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 74;
+            this.dataGridViewTextBoxColumn3.Width = 150;
             // 
             // dataGridViewTextBoxColumn4
             // 
@@ -271,7 +278,7 @@
             this.dataGridViewTextBoxColumn7.HeaderText = "Symptoms";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Width = 74;
+            this.dataGridViewTextBoxColumn7.Width = 200;
             // 
             // dataGridViewTextBoxColumn8
             // 
@@ -315,9 +322,9 @@
             // 
             // NwViewVisits
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(723, 366);
+            this.ClientSize = new System.Drawing.Size(964, 450);
             this.Controls.Add(this.fillByPatientInfoToolStrip);
             this.Controls.Add(this.dobLabel1);
             this.Controls.Add(this.last_nameLabel1);
@@ -325,6 +332,7 @@
             this.Controls.Add(this.patient_visitDataGridView);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "NwViewVisits";
             this.Text = "Patient Visits";
             this.Load += new System.EventHandler(this.NwViewVisits_Load);

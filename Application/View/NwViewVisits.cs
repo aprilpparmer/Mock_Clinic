@@ -29,5 +29,24 @@ namespace WindowsFormsApplication.View
             this.patient_visitTableAdapter.Fill(this.patientVisitDataSet.patient_visit, this.patientID);
             this.patientsTableAdapter.FillPatientInfo(this.patientsDataSet.patients, this.patientID);
         }
+
+        private static NwViewVisits _NwViewVisitsform;
+
+        /// <summary>
+        /// Checks to see if Instance is created, and returns Instance
+        /// </summary>
+        /// <returns>ClosedTickets Instance</returns>
+        public static NwViewVisits GetChildInstance(int patientId)
+        {
+            if (_NwViewVisitsform == null) //if not created yet, Create an instance
+                _NwViewVisitsform = new NwViewVisits(patientId);
+            else
+            {
+                _NwViewVisitsform.Dispose();
+                _NwViewVisitsform = new NwViewVisits(patientId);
+
+            }
+            return _NwViewVisitsform;  //just created or created earlier.Return it
+        }
     }
 }

@@ -20,8 +20,8 @@ namespace WindowsFormsApplication.View
         private void NwPatientSearch_Load(object sender, System.EventArgs e)
         {
             listViewPatients.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
-            listViewPatients.Enabled = false;           
-            
+            listViewPatients.Enabled = false;
+           
         }
 
         private void buttonSearch_Click(object sender, EventArgs e)
@@ -43,6 +43,8 @@ namespace WindowsFormsApplication.View
                     if (patientList.Count > 0)
                     {
                         listViewPatients.Enabled = true;
+                     
+
                         Patient patient;
                         for (int i = 0; i < patientList.Count; i++)
                         {
@@ -115,6 +117,7 @@ namespace WindowsFormsApplication.View
             dateTimeDOB.ResetText();
             listViewPatients.Items.Clear();
             listViewPatients.Enabled = false;
+           
         }
 
         private void viewPatientButton_Click(object sender, EventArgs e)
@@ -166,7 +169,7 @@ namespace WindowsFormsApplication.View
             {
                 ListViewItem item = listViewPatients.SelectedItems[0];
                 int patientId = int.Parse(item.SubItems[0].Text);
-                NWNewVisit newVisit = new NWNewVisit(patientId);
+                NWNewVisit newVisit = NWNewVisit.GetChildInstance(patientId);
                 newVisit.MdiParent = MdiParent;
                 newVisit.Show();
                 newVisit.BringToFront();
@@ -183,7 +186,7 @@ namespace WindowsFormsApplication.View
             {
                 ListViewItem item = listViewPatients.SelectedItems[0];
                 int patientId = int.Parse(item.SubItems[0].Text);
-                NwViewVisits patientVisits = new NwViewVisits(patientId);
+                NwViewVisits patientVisits = NwViewVisits.GetChildInstance(patientId);
                 patientVisits.MdiParent = MdiParent;
                 patientVisits.Show();
                 patientVisits.BringToFront();

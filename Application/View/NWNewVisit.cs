@@ -468,6 +468,25 @@ namespace WindowsFormsApplication.View
             }
         }
 
+        private static NWNewVisit _NwNewVisitform;
+
+        /// <summary>
+        /// Checks to see if Instance is created, and returns Instance
+        /// </summary>
+        /// <returns>ClosedTickets Instance</returns>
+        public static NWNewVisit GetChildInstance(int patientId)
+        {
+            if (_NwNewVisitform == null) //if not created yet, Create an instance
+                _NwNewVisitform = new NWNewVisit(patientId);
+            else
+            {
+                _NwNewVisitform.Dispose();
+                _NwNewVisitform = new NWNewVisit(patientId);
+
+            }
+            return _NwNewVisitform;  //just created or created earlier.Return it
+        }
+
     }
 }
 

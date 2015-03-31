@@ -25,10 +25,8 @@ namespace WindowsFormsApplication.View
 
         private void NwViewVisits_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'patientsDataSet.patients' table. You can move, or remove it, as needed.
-            this.patientsTableAdapter.Fill(this.patientsDataSet.patients);
             // TODO: This line of code loads data into the 'patientVisitDataSet.patient_visit' table. You can move, or remove it, as needed.
-            this.patient_visitTableAdapter.Fill(this.patientVisitDataSet.patient_visit);
+            this.patient_visitTableAdapter.Fill(this.patientVisitDataSet.patient_visit, this.patientID);
             this.patientsTableAdapter.FillPatientInfo(this.patientsDataSet.patients, this.patientID);
         }
     }

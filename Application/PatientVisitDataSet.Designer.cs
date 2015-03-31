@@ -2586,17 +2586,19 @@ namespace WindowsFormsApplication.PatientVisitDataSetTableAdapters {
 FROM patient_visit p
     JOIN patient_visit_symptoms s ON s.visitID = p.visitID
     JOIN patient_visit_vitals v ON v.visitID = p.visitID
-WHERE p.patientID = 3
+WHERE p.patientID = @patientID
 ORDER BY p.visit_date DESC;";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@patientID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "patientID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(PatientVisitDataSet.patient_visitDataTable dataTable) {
+        public virtual int Fill(PatientVisitDataSet.patient_visitDataTable dataTable, int patientID) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(patientID));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -2608,8 +2610,9 @@ ORDER BY p.visit_date DESC;";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual PatientVisitDataSet.patient_visitDataTable GetData() {
+        public virtual PatientVisitDataSet.patient_visitDataTable GetData(int patientID) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(patientID));
             PatientVisitDataSet.patient_visitDataTable dataTable = new PatientVisitDataSet.patient_visitDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

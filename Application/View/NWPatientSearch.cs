@@ -21,7 +21,11 @@ namespace WindowsFormsApplication.View
         {
             listViewPatients.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
             listViewPatients.Enabled = false;
-           
+            viewPatientButton.Enabled = false;
+            editPatientButton.Enabled = false;
+            viewVisitsButton.Enabled = false;
+            addVisitButton.Enabled = false;
+            buttonClear.Enabled = false;
         }
 
         private void buttonSearch_Click(object sender, EventArgs e)
@@ -43,7 +47,11 @@ namespace WindowsFormsApplication.View
                     if (patientList.Count > 0)
                     {
                         listViewPatients.Enabled = true;
-                     
+                        viewPatientButton.Enabled = true;
+                        editPatientButton.Enabled = true;
+                        viewVisitsButton.Enabled = true;
+                        addVisitButton.Enabled = true;
+                        buttonClear.Enabled = true;
 
                         Patient patient;
                         for (int i = 0; i < patientList.Count; i++)
@@ -117,7 +125,11 @@ namespace WindowsFormsApplication.View
             dateTimeDOB.ResetText();
             listViewPatients.Items.Clear();
             listViewPatients.Enabled = false;
-           
+            viewPatientButton.Enabled = false;
+            editPatientButton.Enabled = false;
+            viewVisitsButton.Enabled = false;
+            addVisitButton.Enabled = false;
+            buttonClear.Enabled = false;
         }
 
         private void viewPatientButton_Click(object sender, EventArgs e)

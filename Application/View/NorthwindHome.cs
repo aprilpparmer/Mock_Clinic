@@ -136,5 +136,13 @@ namespace WindowsFormsApplication.View
             NWNewDiagForm.BringToFront();
 
         }
+
+        private void listDiagMenuItem_Click(object sender, EventArgs e)
+        {
+            nwListDiag NWListDiagForm = nwListDiag.GetChildInstance();
+            NWListDiagForm.MdiParent = this;
+            NWListDiagForm.Show();
+            NWListDiagForm.BringToFront();
+        }
     }
 }

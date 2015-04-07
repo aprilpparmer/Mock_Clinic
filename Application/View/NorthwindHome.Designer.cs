@@ -155,6 +155,7 @@
             this.listDiagMenuItem.Name = "listDiagMenuItem";
             this.listDiagMenuItem.Size = new System.Drawing.Size(152, 22);
             this.listDiagMenuItem.Text = "List";
+            this.listDiagMenuItem.Click += new System.EventHandler(this.listDiagMenuItem_Click);
             // 
             // allergiesToolStripMenuItem
             // 

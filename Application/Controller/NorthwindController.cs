@@ -13,6 +13,11 @@ namespace WindowsFormsApplication.Controller
             return EmployeeDal.EmployeeLogIn(name, password);
         }
 
+        internal List<Diagnoses> GetAllDiagnoses()
+        {
+            return DiagnosesDal.GetAllDiagnoses();
+        }
+
         internal List<Patient> GetAllPatients()
         {
             return PatientDal.GetAllPatients();
@@ -31,6 +36,11 @@ namespace WindowsFormsApplication.Controller
         public static int AddPatientVisit(PatientVisit patientVisit)
         {
            return PatientVisitDal.AddPatientVisit(patientVisit);
+        }
+
+        public int DeleteDiag(int diagId)
+        {
+            return DiagnosesDal.DeleteDiag(diagId);
         }
 
         public static int AddPatientVisitVitals(PatientVisitVitals vitals)

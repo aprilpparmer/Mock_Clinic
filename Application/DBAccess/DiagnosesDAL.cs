@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using WindowsFormsApplication.Model;
 
 namespace WindowsFormsApplication.DBAccess
@@ -28,12 +29,10 @@ namespace WindowsFormsApplication.DBAccess
                             while (reader.Read())
                             {
                                 Diagnoses diag = new Diagnoses();
-
-                                diag.Description = reader["Description"].ToString().Trim();
-                                diag.DiagnosesId = (Int32)reader["positionID"];
-                                diag.Name = reader["Name"].ToString().Trim();
-                                diag.Treatment = reader["Name"].ToString().Trim();
-
+                                diag.DiagnosesId = (Int32)reader["diagnosesID"];
+                                diag.Name = reader["diagnoses_name"].ToString().Trim();
+                                diag.Treatment = reader["diagnoses_treatment"].ToString().Trim();
+                                diag.Description = reader["diagnoses_description"].ToString().Trim();
                                 diagList.Add(diag);
 
                             }
@@ -92,7 +91,28 @@ namespace WindowsFormsApplication.DBAccess
             }
         }
 
+        public static int DeleteDiag(int diagId)
+        {
 
+            string deleteStatement =
+                " delete diagnoses " +
+                " where ( diagnosesID = @diagnosesID) ";
+            // Need to find a way to delete only if its not in the patient_visit_symptoms tabel.
+                   // "and diagnosesID != (Select diagnoses_diagnosesID from patient_visit_symptoms where diagnoses_diagnosesID = @diagnosesID)";
+                
+                using (SqlConnection connection = NorthwindDbConnection.GetConnection())
+                {
+                    connection.Open();
+
+                    using (SqlCommand deleteCommand = new SqlCommand(deleteStatement, connection))
+                    {
+                        deleteCommand.Parameters.AddWithValue("@diagnosesID", diagId);
+                        return deleteCommand.ExecuteNonQuery();
+                        
+                    }
+
+                }
+        }
 
     }
 }

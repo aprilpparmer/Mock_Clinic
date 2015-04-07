@@ -105,6 +105,12 @@
     <Compile Include="View\NWEditPatient .Designer.cs">
       <DependentUpon>NWEditPatient .cs</DependentUpon>
     </Compile>
+    <Compile Include="View\NWListDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\NWListDiag.Designer.cs">
+      <DependentUpon>NWListDiag.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\NWNewDiag.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,6 +207,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\NWEditPatient .resx">
       <DependentUpon>NWEditPatient .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\NWListDiag.resx">
+      <DependentUpon>NWListDiag.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\NWNewDiag.resx">
       <DependentUpon>NWNewDiag.cs</DependentUpon>

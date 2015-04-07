@@ -19,8 +19,8 @@ namespace WindowsFormsApplication.DBAccess
             Employee employeeReturn = null;
             Employee employee = new Employee();
 
-            String selectStatement = "Select employeeID, enabled, first_name, last_name, last_login, password, positionID, login, password from employees where login = '" + userName
-              + "' and password = '" + password + "'";
+            String selectStatement = "Select employeeID, enabled, first_name, last_name, last_login, password, positionID, login, password from employees " 
+            +"where login = @username and password = @password";
 
             try
             {
@@ -30,7 +30,9 @@ namespace WindowsFormsApplication.DBAccess
                     
                     using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
                     {
-                        
+                        selectCommand.Parameters.AddWithValue("@username", userName);
+                        selectCommand.Parameters.AddWithValue("@password", password);
+
                         using (SqlDataReader reader = selectCommand.ExecuteReader())
                         {
                             while (reader.Read())

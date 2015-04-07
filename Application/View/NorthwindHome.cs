@@ -155,5 +155,17 @@ namespace WindowsFormsApplication.View
             NWListDiagForm.Show();
             NWListDiagForm.BringToFront();
         }
+
+        private void logoutToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            _loginScreen = new NwLogin();
+            _loginScreen.Show();
+        }
+
+        private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }
 }

@@ -53,6 +53,11 @@ namespace WindowsFormsApplication.Controller
             return PatientVisitNotesDal.AddPatientVisitNotes(note);
         }
 
+        internal void AddDiagnoses(Diagnoses diag)
+        {
+            DiagnosesDal.AddDiagnoses(diag);
+        }
+
         public static void UpdatePatientDiagnoses(PatientVisitSymptoms symptoms)
         {
             PatientVisitSymptomsDal.UpdatePatientDiagnoses(symptoms);

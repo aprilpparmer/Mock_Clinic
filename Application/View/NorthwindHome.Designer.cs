@@ -37,6 +37,13 @@
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.orderTestsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UserLabel = new System.Windows.Forms.Label();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.diagnosisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addNewDiagMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listDiagMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.allergiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addNewToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.listToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.NWmenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +53,8 @@
             this.NWmenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.NWmenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.patientToolStripMenuItem});
+            this.patientToolStripMenuItem,
+            this.toolStripMenuItem1});
             this.NWmenuStrip.Location = new System.Drawing.Point(0, 0);
             this.NWmenuStrip.Name = "NWmenuStrip";
             this.NWmenuStrip.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
@@ -66,14 +74,14 @@
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.logOutToolStripMenuItem.Text = "Log Out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -117,6 +125,58 @@
             this.UserLabel.TabIndex = 2;
             this.UserLabel.Visible = false;
             // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.diagnosisToolStripMenuItem,
+            this.allergiesToolStripMenuItem});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(102, 20);
+            this.toolStripMenuItem1.Text = "System Settings";
+            // 
+            // diagnosisToolStripMenuItem
+            // 
+            this.diagnosisToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addNewDiagMenuItem,
+            this.listDiagMenuItem});
+            this.diagnosisToolStripMenuItem.Name = "diagnosisToolStripMenuItem";
+            this.diagnosisToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.diagnosisToolStripMenuItem.Text = "Diagnoses";
+            // 
+            // addNewDiagMenuItem
+            // 
+            this.addNewDiagMenuItem.Name = "addNewDiagMenuItem";
+            this.addNewDiagMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addNewDiagMenuItem.Text = "Add New";
+            this.addNewDiagMenuItem.Click += new System.EventHandler(this.addNewToolStripMenuItem_Click);
+            // 
+            // listDiagMenuItem
+            // 
+            this.listDiagMenuItem.Name = "listDiagMenuItem";
+            this.listDiagMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.listDiagMenuItem.Text = "List";
+            // 
+            // allergiesToolStripMenuItem
+            // 
+            this.allergiesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addNewToolStripMenuItem1,
+            this.listToolStripMenuItem1});
+            this.allergiesToolStripMenuItem.Name = "allergiesToolStripMenuItem";
+            this.allergiesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.allergiesToolStripMenuItem.Text = "Allergies";
+            // 
+            // addNewToolStripMenuItem1
+            // 
+            this.addNewToolStripMenuItem1.Name = "addNewToolStripMenuItem1";
+            this.addNewToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.addNewToolStripMenuItem1.Text = "Add New";
+            // 
+            // listToolStripMenuItem1
+            // 
+            this.listToolStripMenuItem1.Name = "listToolStripMenuItem1";
+            this.listToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.listToolStripMenuItem1.Text = "List";
+            // 
             // NorthwindAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -149,6 +209,13 @@
         private System.Windows.Forms.Label UserLabel;
         private System.Windows.Forms.ToolStripMenuItem orderTestsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem diagnosisToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addNewDiagMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listDiagMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem allergiesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addNewToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem listToolStripMenuItem1;
     }
 }
 

@@ -32,7 +32,7 @@ namespace WindowsFormsApplication.View
         /// <summary>
         /// Checks to see if Instance is created, and returns Instance
         /// </summary>
-        /// <returns>ClosedTickets Instance</returns>
+        /// <returns>Edit Patient Instance</returns>
         public static NwEditPatient GetChildInstance(int thePatientId)
         {
             if (_NwEditPatientform == null) //if not created yet, Create an instance

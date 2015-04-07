@@ -54,6 +54,43 @@ namespace WindowsFormsApplication.DBAccess
             return diagList;
         }
 
+        /// <summary>
+        /// Add's a diagnoses
+        /// </summary>
+        /// <param name="patient">Diagnoses diag, diag to be added</param>
+        public static void AddDiagnoses(Diagnoses diag)
+        {
+
+            const string insertStatement = "INSERT into diagnoses " +
+                                           " (diagnoses_name, diagnoses_description, diagnoses_treatment) " +
+                                           " values(@diagnoses_name, @diagnoses_description, @diagnoses_treatment)";
+
+            try
+            {
+                using (SqlConnection connection = NorthwindDbConnection.GetConnection())
+                {
+                    connection.Open();
+
+                    using (SqlCommand insertCommand = new SqlCommand(insertStatement, connection))
+                    {
+
+                        insertCommand.Parameters.AddWithValue("@diagnoses_name", diag.Name);
+                        insertCommand.Parameters.AddWithValue("@diagnoses_description", diag.Description);
+                        insertCommand.Parameters.AddWithValue("@diagnoses_treatment", diag.Treatment);
+                        insertCommand.ExecuteNonQuery();
+                    }
+
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
 
 

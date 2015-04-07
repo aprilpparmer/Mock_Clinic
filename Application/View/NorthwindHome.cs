@@ -127,5 +127,14 @@ namespace WindowsFormsApplication.View
         {
             newPatientSearchForm = null;
         }
+
+        private void addNewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NWNewDiag NWNewDiagForm = NWNewDiag.GetChildInstance();
+            NWNewDiagForm.MdiParent = this;
+            NWNewDiagForm.Show();
+            NWNewDiagForm.BringToFront();
+
+        }
     }
 }

@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 using WindowsFormsApplication.Model;
 
+
 namespace WindowsFormsApplication.DBAccess
 {
     class EmployeeDal
@@ -18,6 +19,7 @@ namespace WindowsFormsApplication.DBAccess
         {
             Employee employeeReturn = null;
             Employee employee = new Employee();
+            SimpleAES encrypt = new SimpleAES();
 
             String selectStatement = "Select employeeID, enabled, first_name, last_name, last_login, password, positionID, login, password from employees " 
             +"where login = @username and password = @password";
@@ -30,6 +32,7 @@ namespace WindowsFormsApplication.DBAccess
                     
                     using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
                     {
+                        password = encrypt.DecryptString(password);
                         selectCommand.Parameters.AddWithValue("@username", userName);
                         selectCommand.Parameters.AddWithValue("@password", password);
 

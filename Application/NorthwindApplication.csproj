@@ -69,6 +69,7 @@
     </Compile>
     <Compile Include="Model\Diagnoses.cs" />
     <Compile Include="Model\Employee.cs" />
+    <Compile Include="Model\Encryption.cs" />
     <Compile Include="Model\Nurse.cs" />
     <Compile Include="Model\Patient.cs" />
     <Compile Include="Model\PatientAllergies.cs" />

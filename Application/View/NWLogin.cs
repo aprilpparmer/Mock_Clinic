@@ -23,9 +23,10 @@ namespace WindowsFormsApplication.View
         /// <param name="e"></param>
         private void loginButton_Click(object sender, EventArgs e)
         {
-            
+            SimpleAES encrypt = new SimpleAES();
             String name = NameBox.Text;
             String password = PasswordBox.Text;
+            password = encrypt.EncryptToString(password); 
             try
             {
                 Employee employee = _controller.ValidNurseLogIn(name, password);

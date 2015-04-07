@@ -44,6 +44,7 @@ namespace WindowsFormsApplication.View
             }
             else
             {
+                int homePhone;
                 String gender;
                 if ((femaleRadioButton.Checked == true))
                 {
@@ -58,37 +59,46 @@ namespace WindowsFormsApplication.View
                 {
                     if ((int.TryParse(zipTextBox.Text, out zip)) & (zipTextBox.Text.Length == 5))
                     {
-
-                        if ((firstNameTextBox.Text != "") & (lastNameTextBox.Text != "") & (ssn != 0) & (zip != 0) &
-                            (homePhoneTextBox.Text != "") &
-                            (addressTextBox.Text != "") & (cityTextBox.Text != "") & (stateTextBox.Text != ""))
+                        if ((int.TryParse(homePhoneTextBox.Text, out homePhone)) & (homePhoneTextBox.Text.Length >= 10))
                         {
-                            //Check Details
-                            newPatient.FirstName = firstNameTextBox.Text;
-                            newPatient.MiddleInitial = middleInitialTextBox.Text;
-                            newPatient.LastName = lastNameTextBox.Text;
-                            newPatient.Gender = gender;
-                            newPatient.Ssn = ssn;
-                            newPatient.Zip = zip;
-                            newPatient.HomePhone = homePhoneTextBox.Text;
-                            newPatient.WorkPhone = workPhoneTextBox.Text;
-                            newPatient.Dob = dateTimePicker.Value.Date;
-                            newPatient.Address = addressTextBox.Text;
-                            newPatient.City = cityTextBox.Text;
-                            newPatient.State = stateTextBox.Text;
-                            try
-                            {
-                                _controller.AddPatients(newPatient);
-                                MessageBox.Show(@"The patient has been added.");
-                                this.Close();
 
-                            }
-                            catch (Exception exception)
+                            if ((firstNameTextBox.Text != "") & (lastNameTextBox.Text != "") & (ssn != 0) & (zip != 0) &
+                                (homePhoneTextBox.Text != "") &
+                                (addressTextBox.Text != "") & (cityTextBox.Text != "") & (stateTextBox.Text != ""))
                             {
-                                MessageBox.Show(
-                                    @"There was a problem adding the Patient into the Database, please contact the admin with this message." +
-                                    exception);
-                            }
+                                //Check Details
+                                newPatient.FirstName = firstNameTextBox.Text;
+                                newPatient.MiddleInitial = middleInitialTextBox.Text;
+                                newPatient.LastName = lastNameTextBox.Text;
+                                newPatient.Gender = gender;
+                                newPatient.Ssn = ssn;
+                                newPatient.Zip = zip;
+                                newPatient.HomePhone = homePhoneTextBox.Text;
+                                newPatient.WorkPhone = workPhoneTextBox.Text;
+                                newPatient.Dob = dateTimePicker.Value.Date;
+                                newPatient.Address = addressTextBox.Text;
+                                newPatient.City = cityTextBox.Text;
+                                newPatient.State = stateTextBox.Text;
+                                try
+                                {
+                                    _controller.AddPatients(newPatient);
+                                    MessageBox.Show(@"The patient has been added.");
+                                    this.Close();
+
+                                }
+                                catch (Exception exception)
+                                {
+                                    MessageBox.Show(
+                                        @"There was a problem adding the Patient into the Database, please contact the admin with this message." +
+                                        exception);
+                                }
+                        }
+                        else
+                        {
+                            MessageBox.Show(
+                                @"Phone number needs to be numbers only, remove any non digit characters like -'s or ()'s.");
+                        }
+
                         }
                         else
                         {

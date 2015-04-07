@@ -23,9 +23,20 @@ namespace WindowsFormsApplication.View
         public NorthwindAdmin(Employee employee)
         {
             InitializeComponent();
+            int id = employee.PositionId;          
             String username = employee.FirstName + " " + employee.LastName;
             UserLabel.Text = "Welcome " + username;
-            NWmenuStrip.Enabled = true;
+            if (id == 1) {
+            NWNurseMenuStrip.Enabled = true;
+            NWAdminMenuStrip.Enabled = false;
+            NWAdminMenuStrip.Hide();
+            }
+            else if (id == 2)
+            {
+             NWAdminMenuStrip.Enabled = true;
+             NWNurseMenuStrip.Enabled = false;
+             NWNurseMenuStrip.Hide();
+            }
             UserLabel.Visible = true;
         }
 

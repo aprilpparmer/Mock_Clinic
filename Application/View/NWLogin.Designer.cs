@@ -56,16 +56,15 @@
             this.label2.Size = new System.Drawing.Size(69, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "Password";
-            
             // 
             // PasswordBox
             // 
             this.PasswordBox.Location = new System.Drawing.Point(523, 182);
             this.PasswordBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PasswordBox.Name = "PasswordBox";
+            this.PasswordBox.PasswordChar = '*';
             this.PasswordBox.Size = new System.Drawing.Size(153, 22);
             this.PasswordBox.TabIndex = 2;
-            this.PasswordBox.PasswordChar = '*';
             // 
             // NameBox
             // 
@@ -122,6 +121,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "NwLogin";
             this.Text = "Northwind Login";
+            this.Load += new System.EventHandler(this.NwLogin_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

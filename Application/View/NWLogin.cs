@@ -33,16 +33,27 @@ namespace WindowsFormsApplication.View
                 if (employee == null )
                 {
                   MessageBox.Show(@"No valid user found, please try your user name and password again");
-                } else if (employee.PositionId == 1 && employee.Enabled == 1)
+                }
+                else if (employee.PositionId == 1 && employee.Enabled == 1)
                 {
-                    MessageBox.Show(@"Valid login. Welcome " + employee.FirstName + " " + employee.LastName);
+                    MessageBox.Show(@"Valid login. Welcome Nurse " + employee.FirstName + " " + employee.LastName);
                     employeeUser = employee;
-                    NorthwindAdmin home = new NorthwindAdmin(employee);
-                    home.Show();
+                    NorthwindAdmin homeN = new NorthwindAdmin(employee);
+                    homeN.Show();
                     this.Hide();
-                } else
+                }
+                else if (employee.PositionId == 2 && employee.Enabled == 1)
                 {
-                    MessageBox.Show(@"Only Nurses May login at this time.");
+                    MessageBox.Show(@"Valid login. Welcome Admin " + employee.FirstName + " " + employee.LastName);
+                    employeeUser = employee;
+                    NorthwindAdmin homeA = new NorthwindAdmin(employee);
+                    homeA.Show();
+                    this.Hide();
+
+                }
+                else
+                {
+                    MessageBox.Show(@"Only Nurses Or Administrators May login at this time.");
                 }
                 
                 
@@ -79,6 +90,11 @@ namespace WindowsFormsApplication.View
             base.OnClosed(e);
 
             Environment.Exit(0);
+        }
+
+        private void NwLogin_Load_1(object sender, EventArgs e)
+        {
+
         }
 
         

@@ -27,15 +27,20 @@ namespace WindowsFormsApplication.View
             String username = employee.FirstName + " " + employee.LastName;
             UserLabel.Text = "Welcome " + username;
             if (id == 1) {
-            NWNurseMenuStrip.Enabled = true;
-            NWAdminMenuStrip.Enabled = false;
-            NWAdminMenuStrip.Hide();
+            NWMenuStrip.Enabled = true;
+                adminMenuItems.Enabled = false;
+                adminMenuItems.HideDropDown();
+                adminMenuItems.Visible = false;
             }
-            else if (id == 2)
+            else if (id == 3)
             {
-             NWAdminMenuStrip.Enabled = true;
-             NWNurseMenuStrip.Enabled = false;
-             NWNurseMenuStrip.Hide();
+                NWMenuStrip.Enabled = true;
+                adminMenuItems.Enabled = true;
+                patientToolStripMenuItem.Enabled = false;
+                patientToolStripMenuItem.HideDropDown();
+                patientToolStripMenuItem.Visible = false;
+
+
             }
             UserLabel.Visible = true;
         }

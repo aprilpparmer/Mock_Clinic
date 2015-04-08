@@ -172,5 +172,13 @@ namespace WindowsFormsApplication.View
         {
             Environment.Exit(0);
         }
+
+        private void addEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NWUpdateAccount NWaddupdateAccounts = new NWUpdateAccount();
+            NWaddupdateAccounts.MdiParent = this;
+            NWaddupdateAccounts.Show();
+            NWaddupdateAccounts.BringToFront();
+        }
     }
 }

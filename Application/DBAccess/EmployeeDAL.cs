@@ -135,7 +135,109 @@ namespace WindowsFormsApplication.DBAccess
             }
 
             return employeeList;
-        }   
+        }
+
+        /// <summary>
+        /// Adds a new employee
+        /// </summary>
+        /// <param name="employee"></param>
+        public static void AddEmployee(Employee employee)
+        {
+
+            const string insertStatement = "INSERT into employees " +
+                                           " (address, city, dob, first_name, gender, last_name, middle_initial, positionID, home_phone, ssn, state, zip) " +
+                                           " values(@address, @city, @dob, @first_name, @gender, @last_name, @middle_initial, @positionID, @home_phone, @ssn, @state, @zip)";
+
+            try
+            {
+                using (SqlConnection connection = NorthwindDbConnection.GetConnection())
+                {
+                    connection.Open();
+
+                    using (SqlCommand insertCommand = new SqlCommand(insertStatement, connection))
+                    {
+
+                        insertCommand.Parameters.AddWithValue("@address", employee.Address);
+                        insertCommand.Parameters.AddWithValue("@city", employee.City);
+                        insertCommand.Parameters.AddWithValue("@dob", employee.Dob);
+                        insertCommand.Parameters.AddWithValue("@first_name", employee.FirstName);
+                        insertCommand.Parameters.AddWithValue("@gender", employee.Gender);
+                        insertCommand.Parameters.AddWithValue("@last_name", employee.LastName);
+                        insertCommand.Parameters.AddWithValue("@positionID", employee.PositionId);
+                        insertCommand.Parameters.AddWithValue("@middle_initial", employee.MiddleInitial);
+                        insertCommand.Parameters.AddWithValue("@home_phone", employee.Phone);
+                        insertCommand.Parameters.AddWithValue("@ssn", employee.Ssn);
+                        insertCommand.Parameters.AddWithValue("@state", employee.State);
+                        insertCommand.Parameters.AddWithValue("@zip", employee.Zip);
+                        insertCommand.ExecuteNonQuery();
+                    }
+
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Updates and existing employee
+        /// </summary>
+        /// <param name="updatedEmployee"></param>
+        /// <returns></returns>
+        public static void UpdateEmployee(Employee updatedEmployee)
+        {
+
+            const string updateStatement = "Update employees set " +
+                                           " address = @address , city = @city, dob = @dob, first_name= @first_name, gender = @gender ," +
+                                           " last_name = @last_name, middle_initial =@middle_initial, home_phone = @home_phone, work_phone=@work_phone, ssn =@ssn, state =@state, zip=@zip " +
+                                           " " +
+                                           " where employeeID = @employeeID ";
+                                        
+
+            try
+            {
+                using (SqlConnection connection = NorthwindDbConnection.GetConnection())
+                {
+                    connection.Open();
+
+                    using (SqlCommand updateCommand = new SqlCommand(updateStatement, connection))
+                    {
+
+                        updateCommand.Parameters.AddWithValue("@address", updatedEmployee.Address);
+                        updateCommand.Parameters.AddWithValue("@city", updatedEmployee.City);
+                        updateCommand.Parameters.AddWithValue("@dob", updatedEmployee.Dob);
+                        updateCommand.Parameters.AddWithValue("@first_name", updatedEmployee.FirstName);
+                        updateCommand.Parameters.AddWithValue("@gender", updatedEmployee.Gender);
+                        updateCommand.Parameters.AddWithValue("@last_name", updatedEmployee.LastName);
+                        updateCommand.Parameters.AddWithValue("@middle_initial", updatedEmployee.MiddleInitial);
+                        updateCommand.Parameters.AddWithValue("@home_phone", updatedEmployee.Phone);
+                        updateCommand.Parameters.AddWithValue("@ssn", updatedEmployee.Ssn);
+                        updateCommand.Parameters.AddWithValue("@state", updatedEmployee.State);
+                        updateCommand.Parameters.AddWithValue("@zip", updatedEmployee.Zip);
+                        updateCommand.Parameters.AddWithValue("@employeeID", updatedEmployee.EmployeeId);                  
+
+                       updateCommand.ExecuteNonQuery();
+                    }
+
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
 
     }          
  }

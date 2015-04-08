@@ -43,7 +43,7 @@ namespace WindowsFormsApplication.View
                     homeN.Show();
                     this.Hide();
                 }
-                else if (employee.PositionId == 2 && employee.Enabled == 1)
+                else if (employee.PositionId == 3 && employee.Enabled == 1)
                 {
                     MessageBox.Show(@"Valid login. Welcome Admin " + employee.FirstName + " " + employee.LastName);
                     employeeUser = employee;

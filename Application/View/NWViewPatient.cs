@@ -120,5 +120,22 @@ namespace WindowsFormsApplication.View
                 MessageBox.Show(@"Invalid Selection, Please make sure the patient Id is highlighted Blue.");
             }
         }
+
+        private void patient_visitDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 4) //Show visit button is clicked
+            {
+                //Get the ID of the selected visit
+                int i = e.RowIndex;
+                DataGridViewRow row = patient_visitDataGridView.Rows[i];
+                DataGridViewCell cell = row.Cells[0];
+                int visitID = (int)cell.Value;
+
+                //Display the visit info form
+                NwViewVisit viewVisitForm = new NwViewVisit(visitID);
+                viewVisitForm.ShowDialog();
+            }
+        }
+
     }
 }

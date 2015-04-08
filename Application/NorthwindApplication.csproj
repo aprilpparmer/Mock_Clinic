@@ -94,6 +94,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PatientVisitDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="PatientVisitInfoDataSet.cs">
+      <DependentUpon>PatientVisitInfoDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PatientVisitInfoDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PatientVisitInfoDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="View\NWGenerateReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,11 +201,11 @@
     <Compile Include="View\NWViewPatient.Designer.cs">
       <DependentUpon>NWViewPatient.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\NwViewVisits.cs">
+    <Compile Include="View\NwViewVisit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\NwViewVisits.Designer.cs">
-      <DependentUpon>NwViewVisits.cs</DependentUpon>
+    <Compile Include="View\NwViewVisit.Designer.cs">
+      <DependentUpon>NwViewVisit.cs</DependentUpon>
     </Compile>
     <Compile Include="_CS6232_g7DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -261,8 +270,8 @@
     <EmbeddedResource Include="View\NWViewPatient.resx">
       <DependentUpon>NWViewPatient.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\NwViewVisits.resx">
-      <DependentUpon>NwViewVisits.cs</DependentUpon>
+    <EmbeddedResource Include="View\NwViewVisit.resx">
+      <DependentUpon>NwViewVisit.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="EmployeesDataSet.xsc">
       <DependentUpon>EmployeesDataSet.xsd</DependentUpon>
@@ -296,6 +305,17 @@
     </None>
     <None Include="PatientVisitDataSet.xss">
       <DependentUpon>PatientVisitDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PatientVisitInfoDataSet.xsc">
+      <DependentUpon>PatientVisitInfoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PatientVisitInfoDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PatientVisitInfoDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PatientVisitInfoDataSet.xss">
+      <DependentUpon>PatientVisitInfoDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -103,7 +103,7 @@ namespace WindowsFormsApplication.View
 
         private void loadVisits()
         {
-            // Please populate this April
+            this.patient_visitTableAdapter.Fill(this.patientVisitDataSet.patient_visit, this._patientId);
         }
 
         private void newVisitButton_Click(object sender, EventArgs e)
@@ -120,7 +120,5 @@ namespace WindowsFormsApplication.View
                 MessageBox.Show(@"Invalid Selection, Please make sure the patient Id is highlighted Blue.");
             }
         }
-
-       
     }
 }

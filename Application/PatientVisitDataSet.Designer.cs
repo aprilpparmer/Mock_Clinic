@@ -407,27 +407,11 @@ namespace WindowsFormsApplication {
             
             private global::System.Data.DataColumn columnvisitID;
             
-            private global::System.Data.DataColumn columnpatientID;
-            
             private global::System.Data.DataColumn columnvisit_date;
             
-            private global::System.Data.DataColumn columnappt_date;
+            private global::System.Data.DataColumn columndoctorName;
             
-            private global::System.Data.DataColumn columndoctorID;
-            
-            private global::System.Data.DataColumn columnnurseID;
-            
-            private global::System.Data.DataColumn columnsymptom_name;
-            
-            private global::System.Data.DataColumn columnpulse;
-            
-            private global::System.Data.DataColumn columnblood_pressure;
-            
-            private global::System.Data.DataColumn columntemp;
-            
-            private global::System.Data.DataColumn columnheight;
-            
-            private global::System.Data.DataColumn columnweight;
+            private global::System.Data.DataColumn columnnurseName;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -472,14 +456,6 @@ namespace WindowsFormsApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn patientIDColumn {
-                get {
-                    return this.columnpatientID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn visit_dateColumn {
                 get {
                     return this.columnvisit_date;
@@ -488,73 +464,17 @@ namespace WindowsFormsApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn appt_dateColumn {
+            public global::System.Data.DataColumn doctorNameColumn {
                 get {
-                    return this.columnappt_date;
+                    return this.columndoctorName;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn doctorIDColumn {
+            public global::System.Data.DataColumn nurseNameColumn {
                 get {
-                    return this.columndoctorID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn nurseIDColumn {
-                get {
-                    return this.columnnurseID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn symptom_nameColumn {
-                get {
-                    return this.columnsymptom_name;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn pulseColumn {
-                get {
-                    return this.columnpulse;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn blood_pressureColumn {
-                get {
-                    return this.columnblood_pressure;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn tempColumn {
-                get {
-                    return this.columntemp;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn heightColumn {
-                get {
-                    return this.columnheight;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn weightColumn {
-                get {
-                    return this.columnweight;
+                    return this.columnnurseName;
                 }
             }
             
@@ -595,21 +515,13 @@ namespace WindowsFormsApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public patient_visitRow Addpatient_visitRow(int patientID, System.DateTime visit_date, System.DateTime appt_date, int doctorID, int nurseID, string symptom_name, string pulse, string blood_pressure, string temp, int height, int weight) {
+            public patient_visitRow Addpatient_visitRow(System.DateTime visit_date, string doctorName, string nurseName) {
                 patient_visitRow rowpatient_visitRow = ((patient_visitRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        patientID,
                         visit_date,
-                        appt_date,
-                        doctorID,
-                        nurseID,
-                        symptom_name,
-                        pulse,
-                        blood_pressure,
-                        temp,
-                        height,
-                        weight};
+                        doctorName,
+                        nurseName};
                 rowpatient_visitRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowpatient_visitRow);
                 return rowpatient_visitRow;
@@ -640,17 +552,9 @@ namespace WindowsFormsApplication {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
                 this.columnvisitID = base.Columns["visitID"];
-                this.columnpatientID = base.Columns["patientID"];
                 this.columnvisit_date = base.Columns["visit_date"];
-                this.columnappt_date = base.Columns["appt_date"];
-                this.columndoctorID = base.Columns["doctorID"];
-                this.columnnurseID = base.Columns["nurseID"];
-                this.columnsymptom_name = base.Columns["symptom_name"];
-                this.columnpulse = base.Columns["pulse"];
-                this.columnblood_pressure = base.Columns["blood_pressure"];
-                this.columntemp = base.Columns["temp"];
-                this.columnheight = base.Columns["height"];
-                this.columnweight = base.Columns["weight"];
+                this.columndoctorName = base.Columns["doctorName"];
+                this.columnnurseName = base.Columns["nurseName"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -658,28 +562,12 @@ namespace WindowsFormsApplication {
             private void InitClass() {
                 this.columnvisitID = new global::System.Data.DataColumn("visitID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnvisitID);
-                this.columnpatientID = new global::System.Data.DataColumn("patientID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnpatientID);
                 this.columnvisit_date = new global::System.Data.DataColumn("visit_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnvisit_date);
-                this.columnappt_date = new global::System.Data.DataColumn("appt_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnappt_date);
-                this.columndoctorID = new global::System.Data.DataColumn("doctorID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columndoctorID);
-                this.columnnurseID = new global::System.Data.DataColumn("nurseID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnurseID);
-                this.columnsymptom_name = new global::System.Data.DataColumn("symptom_name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnsymptom_name);
-                this.columnpulse = new global::System.Data.DataColumn("pulse", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnpulse);
-                this.columnblood_pressure = new global::System.Data.DataColumn("blood_pressure", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnblood_pressure);
-                this.columntemp = new global::System.Data.DataColumn("temp", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntemp);
-                this.columnheight = new global::System.Data.DataColumn("height", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnheight);
-                this.columnweight = new global::System.Data.DataColumn("weight", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnweight);
+                this.columndoctorName = new global::System.Data.DataColumn("doctorName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndoctorName);
+                this.columnnurseName = new global::System.Data.DataColumn("nurseName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnurseName);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnvisitID}, true));
                 this.columnvisitID.AutoIncrement = true;
@@ -688,20 +576,11 @@ namespace WindowsFormsApplication {
                 this.columnvisitID.AllowDBNull = false;
                 this.columnvisitID.ReadOnly = true;
                 this.columnvisitID.Unique = true;
-                this.columnpatientID.AllowDBNull = false;
                 this.columnvisit_date.AllowDBNull = false;
-                this.columndoctorID.AllowDBNull = false;
-                this.columnnurseID.AllowDBNull = false;
-                this.columnsymptom_name.AllowDBNull = false;
-                this.columnsymptom_name.MaxLength = 300;
-                this.columnpulse.AllowDBNull = false;
-                this.columnpulse.MaxLength = 20;
-                this.columnblood_pressure.AllowDBNull = false;
-                this.columnblood_pressure.MaxLength = 20;
-                this.columntemp.AllowDBNull = false;
-                this.columntemp.MaxLength = 20;
-                this.columnheight.AllowDBNull = false;
-                this.columnweight.AllowDBNull = false;
+                this.columndoctorName.ReadOnly = true;
+                this.columndoctorName.MaxLength = 50;
+                this.columnnurseName.ReadOnly = true;
+                this.columnnurseName.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1850,17 +1729,6 @@ namespace WindowsFormsApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int patientID {
-                get {
-                    return ((int)(this[this.tablepatient_visit.patientIDColumn]));
-                }
-                set {
-                    this[this.tablepatient_visit.patientIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public System.DateTime visit_date {
                 get {
                     return ((global::System.DateTime)(this[this.tablepatient_visit.visit_dateColumn]));
@@ -1872,118 +1740,58 @@ namespace WindowsFormsApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime appt_date {
+            public string doctorName {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tablepatient_visit.appt_dateColumn]));
+                        return ((string)(this[this.tablepatient_visit.doctorNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'appt_date\' in table \'patient_visit\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'doctorName\' in table \'patient_visit\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablepatient_visit.appt_dateColumn] = value;
+                    this[this.tablepatient_visit.doctorNameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int doctorID {
+            public string nurseName {
                 get {
-                    return ((int)(this[this.tablepatient_visit.doctorIDColumn]));
+                    try {
+                        return ((string)(this[this.tablepatient_visit.nurseNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nurseName\' in table \'patient_visit\' is DBNull.", e);
+                    }
                 }
                 set {
-                    this[this.tablepatient_visit.doctorIDColumn] = value;
+                    this[this.tablepatient_visit.nurseNameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int nurseID {
-                get {
-                    return ((int)(this[this.tablepatient_visit.nurseIDColumn]));
-                }
-                set {
-                    this[this.tablepatient_visit.nurseIDColumn] = value;
-                }
+            public bool IsdoctorNameNull() {
+                return this.IsNull(this.tablepatient_visit.doctorNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string symptom_name {
-                get {
-                    return ((string)(this[this.tablepatient_visit.symptom_nameColumn]));
-                }
-                set {
-                    this[this.tablepatient_visit.symptom_nameColumn] = value;
-                }
+            public void SetdoctorNameNull() {
+                this[this.tablepatient_visit.doctorNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string pulse {
-                get {
-                    return ((string)(this[this.tablepatient_visit.pulseColumn]));
-                }
-                set {
-                    this[this.tablepatient_visit.pulseColumn] = value;
-                }
+            public bool IsnurseNameNull() {
+                return this.IsNull(this.tablepatient_visit.nurseNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string blood_pressure {
-                get {
-                    return ((string)(this[this.tablepatient_visit.blood_pressureColumn]));
-                }
-                set {
-                    this[this.tablepatient_visit.blood_pressureColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string temp {
-                get {
-                    return ((string)(this[this.tablepatient_visit.tempColumn]));
-                }
-                set {
-                    this[this.tablepatient_visit.tempColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int height {
-                get {
-                    return ((int)(this[this.tablepatient_visit.heightColumn]));
-                }
-                set {
-                    this[this.tablepatient_visit.heightColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int weight {
-                get {
-                    return ((int)(this[this.tablepatient_visit.weightColumn]));
-                }
-                set {
-                    this[this.tablepatient_visit.weightColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isappt_dateNull() {
-                return this.IsNull(this.tablepatient_visit.appt_dateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setappt_dateNull() {
-                this[this.tablepatient_visit.appt_dateColumn] = global::System.Convert.DBNull;
+            public void SetnurseNameNull() {
+                this[this.tablepatient_visit.nurseNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2554,17 +2362,9 @@ namespace WindowsFormsApplication.PatientVisitDataSetTableAdapters {
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "patient_visit";
             tableMapping.ColumnMappings.Add("visitID", "visitID");
-            tableMapping.ColumnMappings.Add("patientID", "patientID");
             tableMapping.ColumnMappings.Add("visit_date", "visit_date");
-            tableMapping.ColumnMappings.Add("appt_date", "appt_date");
-            tableMapping.ColumnMappings.Add("doctorID", "doctorID");
-            tableMapping.ColumnMappings.Add("nurseID", "nurseID");
-            tableMapping.ColumnMappings.Add("symptom_name", "symptom_name");
-            tableMapping.ColumnMappings.Add("pulse", "pulse");
-            tableMapping.ColumnMappings.Add("blood_pressure", "blood_pressure");
-            tableMapping.ColumnMappings.Add("temp", "temp");
-            tableMapping.ColumnMappings.Add("height", "height");
-            tableMapping.ColumnMappings.Add("weight", "weight");
+            tableMapping.ColumnMappings.Add("doctorName", "doctorName");
+            tableMapping.ColumnMappings.Add("nurseName", "nurseName");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -2581,13 +2381,15 @@ namespace WindowsFormsApplication.PatientVisitDataSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT p.visitID, p.patientID, p.visit_date, p.appt_date, p.doctorID, p.nurseID, 
-    s.symptom_name, v.pulse, v.blood_pressure, v.temp, v.height, v.weight
+            this._commandCollection[0].CommandText = @"SELECT p.visitID, p.visit_date, 
+(SELECT e.last_name FROM employees e
+	JOIN patient_visit v ON e.employeeID = v.doctorID
+ WHERE v.visitID = p.visitID) AS doctorName,
+(SELECT e.last_name FROM employees e
+	JOIN patient_visit v ON e.employeeID = v.nurseID
+ WHERE v.visitID = p.visitID) AS nurseName
 FROM patient_visit p
-    JOIN patient_visit_symptoms s ON s.visitID = p.visitID
-    JOIN patient_visit_vitals v ON v.visitID = p.visitID
-WHERE p.patientID = @patientID
-ORDER BY p.visit_date DESC;";
+WHERE patientID = @patientID;";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@patientID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "patientID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }

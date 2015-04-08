@@ -98,5 +98,15 @@ namespace WindowsFormsApplication.Controller
              
              return PatientDal.GetPatientsById(patientId);
         }
+
+       internal void AddEmployee(Employee employee)
+        {
+            EmployeeDal.AddEmployee(employee);
+        }
+
+       internal void UpdateEmployee(Employee employee)
+       {
+           EmployeeDal.UpdateEmployee(employee);
+       }
     }
 }

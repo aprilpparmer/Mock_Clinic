@@ -157,11 +157,11 @@
     <Compile Include="View\NWUpdateTest.Designer.cs">
       <DependentUpon>NWUpdateTest.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\NWUpdateDoc.cs">
+    <Compile Include="View\NWUpdateAccount.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\NWUpdateDoc.Designer.cs">
-      <DependentUpon>NWUpdateDoc.cs</DependentUpon>
+    <Compile Include="View\NWUpdateAccount.Designer.cs">
+      <DependentUpon>NWUpdateAccount.cs</DependentUpon>
     </Compile>
     <Compile Include="View\NWOrderTest.cs">
       <SubType>Form</SubType>
@@ -251,8 +251,8 @@
     <EmbeddedResource Include="View\NWSearchTest.resx">
       <DependentUpon>NWSearchTest.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\NWUpdateDoc.resx">
-      <DependentUpon>NWUpdateDoc.cs</DependentUpon>
+    <EmbeddedResource Include="View\NWUpdateAccount.resx">
+      <DependentUpon>NWUpdateAccount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\NWUpdateTest.resx">
       <DependentUpon>NWUpdateTest.cs</DependentUpon>

@@ -31,8 +31,7 @@ namespace WindowsFormsApplication.DBAccess
                     connection.Open();
                     
                     using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
-                    {
-                        password = encrypt.DecryptString(password);
+                    {                        
                         selectCommand.Parameters.AddWithValue("@username", userName);
                         selectCommand.Parameters.AddWithValue("@password", password);
 
@@ -49,10 +48,12 @@ namespace WindowsFormsApplication.DBAccess
                                 employee.Login = reader["login"].ToString().Trim();
                                 employee.Password = reader["password"].ToString().Trim();
                                 employee.PositionId = (Int32)reader["positionID"];                              
-                                
+                               
                             }
                         }
-                                selectStatement = " Update employees SET last_login = getdate() where employeeID = " + employee.EmployeeId;
+                        password = encrypt.EncryptToString(password);
+                        selectStatement = " Update employees SET last_login = getdate()"
+                            + " where employeeID = " + employee.EmployeeId;
                                 SqlCommand selectCommand2 = new SqlCommand(selectStatement, connection);
                                 selectCommand2.ExecuteNonQuery();
 

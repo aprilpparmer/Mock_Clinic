@@ -38,6 +38,9 @@
             System.Windows.Forms.Label tempLabel;
             System.Windows.Forms.Label heightLabel;
             System.Windows.Forms.Label weightLabel;
+            System.Windows.Forms.Label symptom_nameLabel;
+            System.Windows.Forms.Label diagnoses_nameLabel;
+            System.Windows.Forms.Label diagnoses_treatmentLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NwViewVisit));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.nurseNameLabel1 = new System.Windows.Forms.Label();
@@ -54,6 +57,10 @@
             this.pulseLabel1 = new System.Windows.Forms.Label();
             this.blood_pressureLabel1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.diagnoses_treatmentLabel1 = new System.Windows.Forms.Label();
+            this.patient_visit_symptomsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.diagnoses_nameLabel1 = new System.Windows.Forms.Label();
+            this.symptom_nameLabel1 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.patient_visitBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
@@ -72,6 +79,11 @@
             this.patient_visitTableAdapter = new WindowsFormsApplication.PatientVisitInfoDataSetTableAdapters.patient_visitTableAdapter();
             this.tableAdapterManager = new WindowsFormsApplication.PatientVisitInfoDataSetTableAdapters.TableAdapterManager();
             this.patient_visit_vitalsTableAdapter = new WindowsFormsApplication.PatientVisitInfoDataSetTableAdapters.patient_visit_vitalsTableAdapter();
+            this.patient_visit_symptomsTableAdapter = new WindowsFormsApplication.PatientVisitInfoDataSetTableAdapters.patient_visit_symptomsTableAdapter();
+            this.fillToolStrip = new System.Windows.Forms.ToolStrip();
+            this.visitIDToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.visitIDToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
+            this.fillToolStripButton = new System.Windows.Forms.ToolStripButton();
             visit_dateLabel = new System.Windows.Forms.Label();
             appt_dateLabel = new System.Windows.Forms.Label();
             doctorNameLabel = new System.Windows.Forms.Label();
@@ -81,13 +93,19 @@
             tempLabel = new System.Windows.Forms.Label();
             heightLabel = new System.Windows.Forms.Label();
             weightLabel = new System.Windows.Forms.Label();
+            symptom_nameLabel = new System.Windows.Forms.Label();
+            diagnoses_nameLabel = new System.Windows.Forms.Label();
+            diagnoses_treatmentLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.patient_visitBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientVisitInfoDataSet)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.patient_visit_vitalsBindingSource)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.patient_visit_symptomsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patient_visitBindingNavigator)).BeginInit();
             this.patient_visitBindingNavigator.SuspendLayout();
+            this.fillToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // visit_dateLabel
@@ -170,6 +188,33 @@
             weightLabel.Size = new System.Drawing.Size(44, 13);
             weightLabel.TabIndex = 8;
             weightLabel.Text = "Weight:";
+            // 
+            // symptom_nameLabel
+            // 
+            symptom_nameLabel.AutoSize = true;
+            symptom_nameLabel.Location = new System.Drawing.Point(21, 25);
+            symptom_nameLabel.Name = "symptom_nameLabel";
+            symptom_nameLabel.Size = new System.Drawing.Size(58, 13);
+            symptom_nameLabel.TabIndex = 0;
+            symptom_nameLabel.Text = "Symptoms:";
+            // 
+            // diagnoses_nameLabel
+            // 
+            diagnoses_nameLabel.AutoSize = true;
+            diagnoses_nameLabel.Location = new System.Drawing.Point(21, 48);
+            diagnoses_nameLabel.Name = "diagnoses_nameLabel";
+            diagnoses_nameLabel.Size = new System.Drawing.Size(60, 13);
+            diagnoses_nameLabel.TabIndex = 2;
+            diagnoses_nameLabel.Text = "Diagnoses:";
+            // 
+            // diagnoses_treatmentLabel
+            // 
+            diagnoses_treatmentLabel.AutoSize = true;
+            diagnoses_treatmentLabel.Location = new System.Drawing.Point(21, 72);
+            diagnoses_treatmentLabel.Name = "diagnoses_treatmentLabel";
+            diagnoses_treatmentLabel.Size = new System.Drawing.Size(58, 13);
+            diagnoses_treatmentLabel.TabIndex = 6;
+            diagnoses_treatmentLabel.Text = "Treatment:";
             // 
             // groupBox1
             // 
@@ -305,16 +350,54 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(diagnoses_treatmentLabel);
+            this.groupBox3.Controls.Add(this.diagnoses_treatmentLabel1);
+            this.groupBox3.Controls.Add(diagnoses_nameLabel);
+            this.groupBox3.Controls.Add(this.diagnoses_nameLabel1);
+            this.groupBox3.Controls.Add(symptom_nameLabel);
+            this.groupBox3.Controls.Add(this.symptom_nameLabel1);
             this.groupBox3.Location = new System.Drawing.Point(41, 203);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(440, 50);
+            this.groupBox3.Size = new System.Drawing.Size(462, 101);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Symptoms/Diagnoses";
             // 
+            // diagnoses_treatmentLabel1
+            // 
+            this.diagnoses_treatmentLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.patient_visit_symptomsBindingSource, "diagnoses_treatment", true));
+            this.diagnoses_treatmentLabel1.Location = new System.Drawing.Point(85, 72);
+            this.diagnoses_treatmentLabel1.Name = "diagnoses_treatmentLabel1";
+            this.diagnoses_treatmentLabel1.Size = new System.Drawing.Size(371, 23);
+            this.diagnoses_treatmentLabel1.TabIndex = 7;
+            this.diagnoses_treatmentLabel1.Text = "****";
+            // 
+            // patient_visit_symptomsBindingSource
+            // 
+            this.patient_visit_symptomsBindingSource.DataMember = "patient_visit_symptoms";
+            this.patient_visit_symptomsBindingSource.DataSource = this.patientVisitInfoDataSet;
+            // 
+            // diagnoses_nameLabel1
+            // 
+            this.diagnoses_nameLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.patient_visit_symptomsBindingSource, "diagnoses_name", true));
+            this.diagnoses_nameLabel1.Location = new System.Drawing.Point(85, 48);
+            this.diagnoses_nameLabel1.Name = "diagnoses_nameLabel1";
+            this.diagnoses_nameLabel1.Size = new System.Drawing.Size(371, 23);
+            this.diagnoses_nameLabel1.TabIndex = 3;
+            this.diagnoses_nameLabel1.Text = "****";
+            // 
+            // symptom_nameLabel1
+            // 
+            this.symptom_nameLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.patient_visit_symptomsBindingSource, "symptom_name", true));
+            this.symptom_nameLabel1.Location = new System.Drawing.Point(85, 25);
+            this.symptom_nameLabel1.Name = "symptom_nameLabel1";
+            this.symptom_nameLabel1.Size = new System.Drawing.Size(371, 23);
+            this.symptom_nameLabel1.TabIndex = 1;
+            this.symptom_nameLabel1.Text = "****";
+            // 
             // groupBox4
             // 
-            this.groupBox4.Location = new System.Drawing.Point(41, 259);
+            this.groupBox4.Location = new System.Drawing.Point(41, 319);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(440, 85);
             this.groupBox4.TabIndex = 1;
@@ -445,6 +528,11 @@
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
+            // patient_visitBindingNavigatorSaveItem
+            // 
+            this.patient_visitBindingNavigatorSaveItem.Name = "patient_visitBindingNavigatorSaveItem";
+            this.patient_visitBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
+            // 
             // patient_visitTableAdapter
             // 
             this.patient_visitTableAdapter.ClearBeforeFill = true;
@@ -454,7 +542,6 @@
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.patient_testsTableAdapter = null;
             this.tableAdapterManager.patient_visit_notesTableAdapter = null;
-            this.tableAdapterManager.patient_visit_symptomsTableAdapter = null;
             this.tableAdapterManager.patient_visit_vitalsTableAdapter = null;
             this.tableAdapterManager.patient_visitTableAdapter = this.patient_visitTableAdapter;
             this.tableAdapterManager.UpdateOrder = WindowsFormsApplication.PatientVisitInfoDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
@@ -463,11 +550,44 @@
             // 
             this.patient_visit_vitalsTableAdapter.ClearBeforeFill = true;
             // 
+            // patient_visit_symptomsTableAdapter
+            // 
+            this.patient_visit_symptomsTableAdapter.ClearBeforeFill = true;
+            // 
+            // fillToolStrip
+            // 
+            this.fillToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.visitIDToolStripLabel,
+            this.visitIDToolStripTextBox,
+            this.fillToolStripButton});
+            this.fillToolStrip.Location = new System.Drawing.Point(0, 25);
+            this.fillToolStrip.Name = "fillToolStrip";
+            this.fillToolStrip.Size = new System.Drawing.Size(572, 25);
+            this.fillToolStrip.TabIndex = 3;
+            this.fillToolStrip.Text = "fillToolStrip";
+            // 
+            // visitIDToolStripLabel
+            // 
+            this.visitIDToolStripLabel.Name = "visitIDToolStripLabel";
+            this.visitIDToolStripLabel.Size = new System.Drawing.Size(42, 22);
+            this.visitIDToolStripLabel.Text = "visitID:";
+            // 
+            // visitIDToolStripTextBox
+            // 
+            this.visitIDToolStripTextBox.Name = "visitIDToolStripTextBox";
+            this.visitIDToolStripTextBox.Size = new System.Drawing.Size(100, 25);
+            // 
+            // fillToolStripButton
+            // 
+            this.fillToolStripButton.Name = "fillToolStripButton";
+            this.fillToolStripButton.Size = new System.Drawing.Size(23, 22);
+            // 
             // NwViewVisit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(572, 452);
+            this.Controls.Add(this.fillToolStrip);
             this.Controls.Add(this.patient_visitBindingNavigator);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
@@ -483,9 +603,14 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.patient_visit_vitalsBindingSource)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.patient_visit_symptomsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.patient_visitBindingNavigator)).EndInit();
             this.patient_visitBindingNavigator.ResumeLayout(false);
             this.patient_visitBindingNavigator.PerformLayout();
+            this.fillToolStrip.ResumeLayout(false);
+            this.fillToolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -526,6 +651,15 @@
         private System.Windows.Forms.Label tempLabel1;
         private System.Windows.Forms.Label pulseLabel1;
         private System.Windows.Forms.Label blood_pressureLabel1;
+        private System.Windows.Forms.BindingSource patient_visit_symptomsBindingSource;
+        private PatientVisitInfoDataSetTableAdapters.patient_visit_symptomsTableAdapter patient_visit_symptomsTableAdapter;
+        private System.Windows.Forms.ToolStrip fillToolStrip;
+        private System.Windows.Forms.ToolStripLabel visitIDToolStripLabel;
+        private System.Windows.Forms.ToolStripTextBox visitIDToolStripTextBox;
+        private System.Windows.Forms.ToolStripButton fillToolStripButton;
+        private System.Windows.Forms.Label diagnoses_treatmentLabel1;
+        private System.Windows.Forms.Label diagnoses_nameLabel1;
+        private System.Windows.Forms.Label symptom_nameLabel1;
 
     }
 }

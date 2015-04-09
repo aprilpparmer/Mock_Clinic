@@ -103,6 +103,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PatientVisitInfoDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="View\NWViewEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\NWViewEmployee.Designer.cs">
+      <DependentUpon>NWViewEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\NWGenerateReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,6 +218,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_CS6232_g7DataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\NWViewEmployee.resx">
+      <DependentUpon>NWViewEmployee.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\NWGenerateReport.resx">
       <DependentUpon>NWGenerateReport.cs</DependentUpon>
     </EmbeddedResource>

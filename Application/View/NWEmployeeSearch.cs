@@ -102,6 +102,24 @@ namespace WindowsFormsApplication.View
             addEmployeeButton.Enabled = false;
             buttonClear.Enabled = false;
         }
+
+        private void viewEmployeeButton_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                ListViewItem item = listViewEmployee.SelectedItems[0];
+                int employeeId = int.Parse(item.SubItems[0].Text);
+                NWViewEmployee NwNWViewEmployeeForm = NWViewEmployee.GetChildInstance(employeeId);
+                NwNWViewEmployeeForm.MdiParent = MdiParent;
+                NwNWViewEmployeeForm.Show();
+                NwNWViewEmployeeForm.BringToFront();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(@"Invalid Selection, Please make sure the patient Id is highlighted Blue.");
+            }
+        }
         
     }
 }

@@ -391,6 +391,56 @@ namespace WindowsFormsApplication.DBAccess
             return employee;
         }
 
+        /// <summary>
+        /// Deletes an employee
+        /// </summary>
+        /// <param name="deleteEmployee"></param>
+        /// <returns></returns>
+        public static void deleteEmployee(Employee deleteEmployee)
+        {
+
+            const string deleteStatement = "Delete from employees where address = @address AND city = @city AND dob = @dob AND first_name= @first_name AND gender = @gender "
+            + "AND last_name = @last_name AND middle_initial =@middle_initial AND phone = @phone AND ssn =@ssn AND state =@state AND zip=@zip " 
+            + "AND employeeID = @employeeID";
+
+            try
+            {
+                using (SqlConnection connection = NorthwindDbConnection.GetConnection())
+                {
+                    connection.Open();
+
+                    using (SqlCommand updateCommand = new SqlCommand(deleteStatement, connection))
+                    {
+
+                        updateCommand.Parameters.AddWithValue("@address", deleteEmployee.Address);
+                        updateCommand.Parameters.AddWithValue("@city", deleteEmployee.City);
+                        updateCommand.Parameters.AddWithValue("@dob", deleteEmployee.Dob);
+                        updateCommand.Parameters.AddWithValue("@first_name", deleteEmployee.FirstName);
+                        updateCommand.Parameters.AddWithValue("@gender", deleteEmployee.Gender);
+                        updateCommand.Parameters.AddWithValue("@last_name", deleteEmployee.LastName);
+                        updateCommand.Parameters.AddWithValue("@middle_initial", deleteEmployee.MiddleInitial);
+                        updateCommand.Parameters.AddWithValue("@phone", deleteEmployee.Phone);
+                        updateCommand.Parameters.AddWithValue("@ssn", deleteEmployee.Ssn);
+                        updateCommand.Parameters.AddWithValue("@state", deleteEmployee.State);
+                        updateCommand.Parameters.AddWithValue("@zip", deleteEmployee.Zip);
+                        updateCommand.Parameters.AddWithValue("@employeeID", deleteEmployee.EmployeeId);
+
+                        updateCommand.ExecuteNonQuery();
+                    }
+
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
 
 
     }          

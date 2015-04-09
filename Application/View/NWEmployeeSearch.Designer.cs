@@ -44,14 +44,16 @@
             this.FirstName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.LastName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.PositionID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.DeleteButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // addEmployeeButton
             // 
-            this.addEmployeeButton.Location = new System.Drawing.Point(699, 170);
+            this.addEmployeeButton.AutoSize = true;
+            this.addEmployeeButton.Location = new System.Drawing.Point(699, 175);
             this.addEmployeeButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.addEmployeeButton.Name = "addEmployeeButton";
-            this.addEmployeeButton.Size = new System.Drawing.Size(117, 23);
+            this.addEmployeeButton.Size = new System.Drawing.Size(125, 27);
             this.addEmployeeButton.TabIndex = 21;
             this.addEmployeeButton.Text = "Add Employee";
             this.addEmployeeButton.UseVisualStyleBackColor = true;
@@ -59,10 +61,11 @@
             // 
             // updateEmployeeButton
             // 
-            this.updateEmployeeButton.Location = new System.Drawing.Point(699, 143);
+            this.updateEmployeeButton.AutoSize = true;
+            this.updateEmployeeButton.Location = new System.Drawing.Point(699, 144);
             this.updateEmployeeButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.updateEmployeeButton.Name = "updateEmployeeButton";
-            this.updateEmployeeButton.Size = new System.Drawing.Size(117, 23);
+            this.updateEmployeeButton.Size = new System.Drawing.Size(125, 27);
             this.updateEmployeeButton.TabIndex = 19;
             this.updateEmployeeButton.Text = "Edit Employee";
             this.updateEmployeeButton.UseVisualStyleBackColor = true;
@@ -70,10 +73,11 @@
             // 
             // viewEmployeeButton
             // 
+            this.viewEmployeeButton.AutoSize = true;
             this.viewEmployeeButton.Location = new System.Drawing.Point(699, 113);
             this.viewEmployeeButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.viewEmployeeButton.Name = "viewEmployeeButton";
-            this.viewEmployeeButton.Size = new System.Drawing.Size(117, 23);
+            this.viewEmployeeButton.Size = new System.Drawing.Size(128, 27);
             this.viewEmployeeButton.TabIndex = 18;
             this.viewEmployeeButton.Text = "View Employee";
             this.viewEmployeeButton.UseVisualStyleBackColor = true;
@@ -192,11 +196,24 @@
             this.PositionID.Text = "Position ID";
             this.PositionID.Width = 111;
             // 
+            // DeleteButton
+            // 
+            this.DeleteButton.AutoSize = true;
+            this.DeleteButton.Location = new System.Drawing.Point(699, 206);
+            this.DeleteButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(125, 27);
+            this.DeleteButton.TabIndex = 26;
+            this.DeleteButton.Text = "Delete Employee";
+            this.DeleteButton.UseVisualStyleBackColor = true;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
+            // 
             // NwDocSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(839, 391);
+            this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.listViewEmployee);
             this.Controls.Add(this.addEmployeeButton);
             this.Controls.Add(this.updateEmployeeButton);
@@ -235,6 +252,7 @@
         private System.Windows.Forms.ColumnHeader FirstName;
         private System.Windows.Forms.ColumnHeader LastName;
         private System.Windows.Forms.ColumnHeader PositionID;
+        private System.Windows.Forms.Button DeleteButton;
 
     }
 }

@@ -118,5 +118,10 @@ namespace WindowsFormsApplication.Controller
        {
            return EmployeeDal.GetEmployeeById(employeeID);
        }
+
+       internal void DeleteEmployee(Employee deleteEmployee)
+       {
+           EmployeeDal.deleteEmployee(deleteEmployee);
+       }
     }
 }

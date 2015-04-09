@@ -25,6 +25,7 @@ namespace WindowsFormsApplication.View
             updateEmployeeButton.Enabled = false;
             addEmployeeButton.Enabled = false;
             buttonClear.Enabled = false;
+            DeleteButton.Enabled = false;
 
         }
 
@@ -51,6 +52,7 @@ namespace WindowsFormsApplication.View
                         updateEmployeeButton.Enabled = true;
                         addEmployeeButton.Enabled = true;
                         buttonClear.Enabled = true;
+                        DeleteButton.Enabled = true;
 
                         Employee employee;
                         for (int i = 0; i < employeeList.Count; i++)
@@ -101,6 +103,7 @@ namespace WindowsFormsApplication.View
             updateEmployeeButton.Enabled = false;
             addEmployeeButton.Enabled = false;
             buttonClear.Enabled = false;
+            DeleteButton.Enabled = false;
         }
 
         private void viewEmployeeButton_Click(object sender, EventArgs e)
@@ -146,6 +149,46 @@ namespace WindowsFormsApplication.View
             NwNWViewEmployeeForm.MdiParent = MdiParent;
             NwNWViewEmployeeForm.Show();
             NwNWViewEmployeeForm.BringToFront();
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+
+            ListViewItem item = listViewEmployee.SelectedItems[0];
+            int employeeId = int.Parse(item.SubItems[0].Text);
+            Employee deleteEmployee = _controller.GetEmployeeByID(employeeId);
+            NWViewEmployee NwNWViewEmployeeForm = NWViewEmployee.GetChildInstance(employeeId);
+            NwNWViewEmployeeForm.MdiParent = MdiParent;
+            NwNWViewEmployeeForm.Show();
+            NwNWViewEmployeeForm.BringToFront();
+            DialogResult dialogResult = MessageBox.Show(@"Are you sure you wish to delete this employee?", "Confirmation", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                try
+                {
+                    _controller.DeleteEmployee(deleteEmployee);
+                    NwNWViewEmployeeForm.Close();
+                    textBoxFirstName.Text = "";
+                    textBoxLastName.Text = "";
+                    listViewEmployee.Items.Clear();
+                    listViewEmployee.Enabled = false;
+                    viewEmployeeButton.Enabled = false;
+                    updateEmployeeButton.Enabled = false;
+                    addEmployeeButton.Enabled = false;
+                    buttonClear.Enabled = false;
+                    DeleteButton.Enabled = false;
+                    MessageBox.Show(@"Employee Deleted");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An exception has occured with your request" + ex);
+                }
+
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                MessageBox.Show(@"Employee was not removed");
+            }
         }
     }
 }

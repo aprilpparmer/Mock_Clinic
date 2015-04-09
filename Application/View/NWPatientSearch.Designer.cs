@@ -230,17 +230,6 @@
             this.editPatientButton.UseVisualStyleBackColor = true;
             this.editPatientButton.Click += new System.EventHandler(this.editPatientButton_Click);
             // 
-            // viewVisitsButton
-            // 
-            this.viewVisitsButton.Location = new System.Drawing.Point(1018, 105);
-            this.viewVisitsButton.Margin = new System.Windows.Forms.Padding(2);
-            this.viewVisitsButton.Name = "viewVisitsButton";
-            this.viewVisitsButton.Size = new System.Drawing.Size(88, 19);
-            this.viewVisitsButton.TabIndex = 7;
-            this.viewVisitsButton.Text = "View Visits";
-            this.viewVisitsButton.UseVisualStyleBackColor = true;
-            this.viewVisitsButton.Click += new System.EventHandler(this.viewVisitsButton_Click);
-            // 
             // addVisitButton
             // 
             this.addVisitButton.Location = new System.Drawing.Point(1018, 129);

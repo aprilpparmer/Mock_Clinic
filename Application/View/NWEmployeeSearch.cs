@@ -57,11 +57,12 @@ namespace WindowsFormsApplication.View
                         Employee employee;
                         for (int i = 0; i < employeeList.Count; i++)
                         {
+                           
                             employee = employeeList[i];
                             listViewEmployee.Items.Add(employee.EmployeeId.ToString());
                             listViewEmployee.Items[i].SubItems.Add(employee.LastName.Trim());
                             listViewEmployee.Items[i].SubItems.Add(employee.FirstName.Trim());
-                            listViewEmployee.Items[i].SubItems.Add(employee.PositionId.ToString());
+                            listViewEmployee.Items[i].SubItems.Add(this.getEmployeeRole(employee.PositionId));
 
 
                             listViewEmployee.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
@@ -189,6 +190,45 @@ namespace WindowsFormsApplication.View
             {
                 MessageBox.Show(@"Employee was not removed");
             }
+
+        }
+
+        private string getEmployeeRole(int positionID)
+        {
+            string role = "";
+            if (positionID == 1)
+            {
+                role = "nurse";
+            }
+            if (positionID == 2)
+            {
+                role = "doctor";
+            }
+            if (positionID == 3)
+            {
+                role = "administrator";
+            }
+            if (positionID == 4)
+            {
+                role = "physician";
+            }
+            if (positionID == 5)
+            {
+                role = "pharmacist";
+            }
+            if (positionID == 6)
+            {
+                role = "general manager";
+            }
+            if (positionID == 7)
+            {
+                role = "lab technician";
+            }
+            if (positionID == 8)
+            {
+                role = "driver";
+            }                   
+            return role;
         }
     }
 }

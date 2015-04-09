@@ -193,7 +193,7 @@
             // 
             // PositionID
             // 
-            this.PositionID.Text = "Position ID";
+            this.PositionID.Text = "Position";
             this.PositionID.Width = 111;
             // 
             // DeleteButton

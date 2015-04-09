@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.CancelButton = new System.Windows.Forms.Button();
             this.AddNewButton = new System.Windows.Forms.Button();
             this.femaleRadioButton = new System.Windows.Forms.RadioButton();
@@ -55,9 +56,18 @@
             this.firstNameLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.JobBox = new System.Windows.Forms.ComboBox();
+            this.positionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this._CS6232_g7DataSet = new WindowsFormsApplication._CS6232_g7DataSet();
             this.label3 = new System.Windows.Forms.Label();
             this.UpdateButton = new System.Windows.Forms.Button();
             this.StateComboBox = new System.Windows.Forms.ComboBox();
+            this.positionsTableAdapter = new WindowsFormsApplication._CS6232_g7DataSetTableAdapters.positionsTableAdapter();
+            this.cS6232g7DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.positionsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.positionsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._CS6232_g7DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cS6232g7DataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.positionsBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // CancelButton
@@ -314,16 +324,26 @@
             // 
             // JobBox
             // 
+            this.JobBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.positionsBindingSource, "positionID", true));
+            this.JobBox.DataSource = this.positionsBindingSource1;
+            this.JobBox.DisplayMember = "position_name";
+            this.JobBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.JobBox.FormattingEnabled = true;
-            this.JobBox.Items.AddRange(new object[] {
-            "Doctor",
-            "Nurse",
-            "Administrator"});
             this.JobBox.Location = new System.Drawing.Point(445, 158);
             this.JobBox.Name = "JobBox";
             this.JobBox.Size = new System.Drawing.Size(121, 24);
             this.JobBox.TabIndex = 77;
-            this.JobBox.SelectedIndexChanged += new System.EventHandler(this.JobBox_SelectedIndexChanged);
+            this.JobBox.ValueMember = "positionID";
+            // 
+            // positionsBindingSource
+            // 
+            this.positionsBindingSource.DataMember = "positions";
+            this.positionsBindingSource.DataSource = this._CS6232_g7DataSet;
+            // 
+            // _CS6232_g7DataSet
+            // 
+            this._CS6232_g7DataSet.DataSetName = "_CS6232_g7DataSet";
+            this._CS6232_g7DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label3
             // 
@@ -347,6 +367,7 @@
             // 
             // StateComboBox
             // 
+            this.StateComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.StateComboBox.FormattingEnabled = true;
             this.StateComboBox.Items.AddRange(new object[] {
             "Alabama",
@@ -405,6 +426,20 @@
             this.StateComboBox.Size = new System.Drawing.Size(215, 24);
             this.StateComboBox.TabIndex = 80;
             // 
+            // positionsTableAdapter
+            // 
+            this.positionsTableAdapter.ClearBeforeFill = true;
+            // 
+            // cS6232g7DataSetBindingSource
+            // 
+            this.cS6232g7DataSetBindingSource.DataSource = this._CS6232_g7DataSet;
+            this.cS6232g7DataSetBindingSource.Position = 0;
+            // 
+            // positionsBindingSource1
+            // 
+            this.positionsBindingSource1.DataMember = "positions";
+            this.positionsBindingSource1.DataSource = this.cS6232g7DataSetBindingSource;
+            // 
             // NWUpdateAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -443,6 +478,10 @@
             this.Name = "NWUpdateAccount";
             this.Text = "Update Account";
             this.Load += new System.EventHandler(this.NWUpdateAccount_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.positionsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._CS6232_g7DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cS6232g7DataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.positionsBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -480,5 +519,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button UpdateButton;
         private System.Windows.Forms.ComboBox StateComboBox;
+        private _CS6232_g7DataSet _CS6232_g7DataSet;
+        private System.Windows.Forms.BindingSource positionsBindingSource;
+        private _CS6232_g7DataSetTableAdapters.positionsTableAdapter positionsTableAdapter;
+        private System.Windows.Forms.BindingSource positionsBindingSource1;
+        private System.Windows.Forms.BindingSource cS6232g7DataSetBindingSource;
     }
 }

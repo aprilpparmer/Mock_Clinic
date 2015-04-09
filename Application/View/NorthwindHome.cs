@@ -175,7 +175,8 @@ namespace WindowsFormsApplication.View
 
         private void addEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            NWUpdateAccount NWaddupdateAccounts = new NWUpdateAccount();
+            int employeeID = 0;
+            NWUpdateAccount NWaddupdateAccounts = new NWUpdateAccount(employeeID);
             NWaddupdateAccounts.MdiParent = this;
             NWaddupdateAccounts.Show();
             NWaddupdateAccounts.BringToFront();

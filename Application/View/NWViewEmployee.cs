@@ -51,6 +51,21 @@ namespace WindowsFormsApplication.View
             }
             return _NwViewPEmployeeform;  //just created or created earlier.Return it
         }
+
+        private static NWUpdateAccount _updateEmployeeForm;
+
+        public static NWUpdateAccount GetChildInstanceAccount(int employeeId)
+        {
+            if (_updateEmployeeForm == null) //if not created yet, Create an instance
+                _updateEmployeeForm = new NWUpdateAccount(employeeId);
+            else
+            {
+                _updateEmployeeForm.Dispose();
+                _updateEmployeeForm = new NWUpdateAccount(employeeId);
+
+            }
+            return _updateEmployeeForm;  //just created or created earlier.Return it
+        }
         
         private void NWViewEmployee_Load(object sender, EventArgs e)
         {

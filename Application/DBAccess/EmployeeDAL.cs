@@ -145,8 +145,8 @@ namespace WindowsFormsApplication.DBAccess
         {
 
             const string insertStatement = "INSERT into employees " +
-                                           " (address, city, dob, first_name, gender, last_name, middle_initial, positionID, home_phone, ssn, state, zip) " +
-                                           " values(@address, @city, @dob, @first_name, @gender, @last_name, @middle_initial, @positionID, @home_phone, @ssn, @state, @zip)";
+                                           " (address, city, dob, first_name, gender, last_name, middle_initial, positionID, phone, ssn, state, zip) " +
+                                           " values(@address, @city, @dob, @first_name, @gender, @last_name, @middle_initial, @positionID, @phone, @ssn, @state, @zip)";
 
             try
             {
@@ -165,7 +165,7 @@ namespace WindowsFormsApplication.DBAccess
                         insertCommand.Parameters.AddWithValue("@last_name", employee.LastName);
                         insertCommand.Parameters.AddWithValue("@positionID", employee.PositionId);
                         insertCommand.Parameters.AddWithValue("@middle_initial", employee.MiddleInitial);
-                        insertCommand.Parameters.AddWithValue("@home_phone", employee.Phone);
+                        insertCommand.Parameters.AddWithValue("@phone", employee.Phone);
                         insertCommand.Parameters.AddWithValue("@ssn", employee.Ssn);
                         insertCommand.Parameters.AddWithValue("@state", employee.State);
                         insertCommand.Parameters.AddWithValue("@zip", employee.Zip);
@@ -194,9 +194,9 @@ namespace WindowsFormsApplication.DBAccess
 
             const string updateStatement = "Update employees set " +
                                            " address = @address , city = @city, dob = @dob, first_name= @first_name, gender = @gender ," +
-                                           " last_name = @last_name, middle_initial =@middle_initial, home_phone = @home_phone, work_phone=@work_phone, ssn =@ssn, state =@state, zip=@zip " +
-                                           " " +
-                                           " where employeeID = @employeeID ";
+                                           " last_name = @last_name, middle_initial =@middle_initial, phone = @phone, ssn =@ssn, state =@state, zip=@zip "
+                                          + " where employeeID = @employeeID ";
+                                           
                                         
 
             try
@@ -215,7 +215,7 @@ namespace WindowsFormsApplication.DBAccess
                         updateCommand.Parameters.AddWithValue("@gender", updatedEmployee.Gender);
                         updateCommand.Parameters.AddWithValue("@last_name", updatedEmployee.LastName);
                         updateCommand.Parameters.AddWithValue("@middle_initial", updatedEmployee.MiddleInitial);
-                        updateCommand.Parameters.AddWithValue("@home_phone", updatedEmployee.Phone);
+                        updateCommand.Parameters.AddWithValue("@phone", updatedEmployee.Phone);
                         updateCommand.Parameters.AddWithValue("@ssn", updatedEmployee.Ssn);
                         updateCommand.Parameters.AddWithValue("@state", updatedEmployee.State);
                         updateCommand.Parameters.AddWithValue("@zip", updatedEmployee.Zip);
@@ -235,6 +235,76 @@ namespace WindowsFormsApplication.DBAccess
             {
                 throw ex;
             }
+        }
+
+        /// <summary>
+        /// Returns a list employees that match with first name and last name
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <returns></returns>
+        public static List<Employee> searchEmployees(string lastName, string firstName)
+        {
+            List<Employee> employeeList = new List<Employee>();
+
+            string selectStatement =
+                "SELECT * " +
+                "FROM employees " +
+                "WHERE (last_name = @lastName AND first_name = @firstName)";
+
+            try
+            {
+                using (SqlConnection connection = NorthwindDbConnection.GetConnection())
+                {
+                    connection.Open();
+
+                    using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                    {
+                        selectCommand.Parameters.AddWithValue("@lastName", lastName);
+                        selectCommand.Parameters.AddWithValue("@firstName", firstName);
+
+
+                        using (SqlDataReader reader = selectCommand.ExecuteReader())
+                        {
+                                while (reader.Read())
+                            {
+
+                            Employee employee = new Employee();
+
+                            employee.Address = reader["address"].ToString().Trim();
+                            employee.City = reader["city"].ToString().Trim();
+                            employee.Dob = (DateTime)reader["dob"];
+                            employee.EmployeeId = (Int32)reader["employeeID"];
+                            employee.Enabled = (Byte)reader["enabled"];
+                            employee.FirstName = reader["first_name"].ToString().Trim();
+                            employee.Gender = reader["gender"].ToString().Trim();
+                            employee.LastLogin = reader["last_login"].ToString().Trim();
+                            employee.LastName = reader["last_name"].ToString().Trim();
+                            employee.Login = reader["login"].ToString().Trim();
+                            employee.MiddleInitial = reader["middle_initial"].ToString().Trim();
+                            employee.Password = reader["password"].ToString().Trim();
+                            employee.Phone = reader["phone"].ToString().Trim();
+                            employee.PositionId = (Int32)reader["positionID"];
+                            employee.Ssn = (Int32)reader["ssn"];
+                            employee.State = reader["state"].ToString().Trim();
+                            employee.Zip = (Int32)reader["zip"];
+                            employeeList.Add(employee);
+                                                           
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SqlException sqlException)
+            {
+                throw sqlException;
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+
+            return employeeList;
         }
 
 

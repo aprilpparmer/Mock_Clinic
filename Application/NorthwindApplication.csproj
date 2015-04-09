@@ -145,11 +145,11 @@
     <Compile Include="View\NWNurseSearch.Designer.cs">
       <DependentUpon>NWNurseSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\NWDocSearch.cs">
+    <Compile Include="View\NWEmployeeSearch.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\NWDocSearch.Designer.cs">
-      <DependentUpon>NWDocSearch.cs</DependentUpon>
+    <Compile Include="View\NWEmployeeSearch.Designer.cs">
+      <DependentUpon>NWEmployeeSearch.cs</DependentUpon>
     </Compile>
     <Compile Include="View\NWUpdateTest.cs">
       <SubType>Form</SubType>
@@ -230,8 +230,8 @@
     <EmbeddedResource Include="View\NWNurseSearch.resx">
       <DependentUpon>NWNurseSearch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\NWDocSearch.resx">
-      <DependentUpon>NWDocSearch.cs</DependentUpon>
+    <EmbeddedResource Include="View\NWEmployeeSearch.resx">
+      <DependentUpon>NWEmployeeSearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\NWOrderTest.resx">
       <DependentUpon>NWOrderTest.cs</DependentUpon>

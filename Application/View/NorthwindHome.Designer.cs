@@ -191,6 +191,7 @@
             this.listEmployeesToolStripMenuItem.Name = "listEmployeesToolStripMenuItem";
             this.listEmployeesToolStripMenuItem.Size = new System.Drawing.Size(231, 24);
             this.listEmployeesToolStripMenuItem.Text = "List Employees";
+            this.listEmployeesToolStripMenuItem.Click += new System.EventHandler(this.listEmployeesToolStripMenuItem_Click);
             // 
             // reportsToolStripMenuItem
             // 

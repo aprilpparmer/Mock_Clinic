@@ -108,5 +108,10 @@ namespace WindowsFormsApplication.Controller
        {
            EmployeeDal.UpdateEmployee(employee);
        }
+
+       internal List<Employee> SearchEmployees(String LastName, String FirstName)
+       {
+          return EmployeeDal.searchEmployees(LastName, FirstName);
+       }
     }
 }

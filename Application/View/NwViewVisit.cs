@@ -22,9 +22,9 @@ namespace WindowsFormsApplication.View
                 InitializeComponent();
                 //Get the visitID
                 this.visitID = _visitID;
-                //Fill the table
+                //Fill the data
                 this.patient_visitTableAdapter.Fill(this.patientVisitInfoDataSet.patient_visit, this.visitID);
-               
+                this.patient_visit_vitalsTableAdapter.Fill(this.patientVisitInfoDataSet.patient_visit_vitals, this.visitID);
             }
             catch (InvalidCastException)
             {
@@ -37,30 +37,7 @@ namespace WindowsFormsApplication.View
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
-            }
-
-            
-        }
-
-        private void patient_visitBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.patient_visitBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.patientVisitInfoDataSet);
-
-        }
-
-        private void fillToolStripButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
+            }   
         }
     }
 }

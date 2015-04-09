@@ -4516,16 +4516,18 @@ SELECT vitalsID, visitID, blood_pressure, temp, pulse, height, weight FROM patie
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT vitalsID, visitID, blood_pressure, temp, pulse, height, weight FROM dbo.pa" +
-                "tient_visit_vitals";
+                "tient_visit_vitals\r\nWHERE visitID = @visitID";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@visitID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "visitID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(PatientVisitInfoDataSet.patient_visit_vitalsDataTable dataTable) {
+        public virtual int Fill(PatientVisitInfoDataSet.patient_visit_vitalsDataTable dataTable, int visitID) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(visitID));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -4537,8 +4539,9 @@ SELECT vitalsID, visitID, blood_pressure, temp, pulse, height, weight FROM patie
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual PatientVisitInfoDataSet.patient_visit_vitalsDataTable GetData() {
+        public virtual PatientVisitInfoDataSet.patient_visit_vitalsDataTable GetData(int visitID) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(visitID));
             PatientVisitInfoDataSet.patient_visit_vitalsDataTable dataTable = new PatientVisitInfoDataSet.patient_visit_vitalsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

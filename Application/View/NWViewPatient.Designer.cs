@@ -61,6 +61,8 @@
             this.newVisitButton = new System.Windows.Forms.Button();
             this.patient_visitBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.patient_visitBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.patientVisitDataSet = new WindowsFormsApplication.PatientVisitDataSet();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -73,8 +75,6 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.patient_visitBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.patient_visitDataGridView = new System.Windows.Forms.DataGridView();
-            this.patient_visitBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.patientVisitDataSet = new WindowsFormsApplication.PatientVisitDataSet();
             this.patient_visitTableAdapter = new WindowsFormsApplication.PatientVisitDataSetTableAdapters.patient_visitTableAdapter();
             this.tableAdapterManager = new WindowsFormsApplication.PatientVisitDataSetTableAdapters.TableAdapterManager();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -84,9 +84,9 @@
             this.visitInfoButton = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.patient_visitBindingNavigator)).BeginInit();
             this.patient_visitBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.patient_visitDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patient_visitBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientVisitDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patient_visitDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // genderLabel
@@ -413,6 +413,7 @@
             this.patient_visitBindingNavigator.Size = new System.Drawing.Size(907, 25);
             this.patient_visitBindingNavigator.TabIndex = 64;
             this.patient_visitBindingNavigator.Text = "bindingNavigator1";
+            this.patient_visitBindingNavigator.Visible = false;
             // 
             // bindingNavigatorAddNewItem
             // 
@@ -422,6 +423,16 @@
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Add new";
+            // 
+            // patient_visitBindingSource
+            // 
+            this.patient_visitBindingSource.DataMember = "patient_visit";
+            this.patient_visitBindingSource.DataSource = this.patientVisitDataSet;
+            // 
+            // patientVisitDataSet
+            // 
+            this.patientVisitDataSet.DataSetName = "PatientVisitDataSet";
+            this.patientVisitDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // bindingNavigatorCountItem
             // 
@@ -528,16 +539,6 @@
             this.patient_visitDataGridView.TabIndex = 65;
             this.patient_visitDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.patient_visitDataGridView_CellContentClick);
             // 
-            // patient_visitBindingSource
-            // 
-            this.patient_visitBindingSource.DataMember = "patient_visit";
-            this.patient_visitBindingSource.DataSource = this.patientVisitDataSet;
-            // 
-            // patientVisitDataSet
-            // 
-            this.patientVisitDataSet.DataSetName = "PatientVisitDataSet";
-            this.patientVisitDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // patient_visitTableAdapter
             // 
             this.patient_visitTableAdapter.ClearBeforeFill = true;
@@ -586,7 +587,7 @@
             this.visitInfoButton.Name = "visitInfoButton";
             this.visitInfoButton.ReadOnly = true;
             this.visitInfoButton.Text = "";
-            this.visitInfoButton.UseColumnTextForButtonValue = true;
+            this.visitInfoButton.ToolTipText = "Show";
             // 
             // NWViewPatient
             // 
@@ -631,9 +632,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.patient_visitBindingNavigator)).EndInit();
             this.patient_visitBindingNavigator.ResumeLayout(false);
             this.patient_visitBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.patient_visitDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.patient_visitBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientVisitDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patient_visitDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

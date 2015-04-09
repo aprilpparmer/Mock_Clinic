@@ -182,15 +182,15 @@
             // addEmployeeToolStripMenuItem
             // 
             this.addEmployeeToolStripMenuItem.Name = "addEmployeeToolStripMenuItem";
-            this.addEmployeeToolStripMenuItem.Size = new System.Drawing.Size(176, 24);
+            this.addEmployeeToolStripMenuItem.Size = new System.Drawing.Size(198, 24);
             this.addEmployeeToolStripMenuItem.Text = "Add Employee";
             this.addEmployeeToolStripMenuItem.Click += new System.EventHandler(this.addEmployeeToolStripMenuItem_Click);
             // 
             // listEmployeesToolStripMenuItem
             // 
             this.listEmployeesToolStripMenuItem.Name = "listEmployeesToolStripMenuItem";
-            this.listEmployeesToolStripMenuItem.Size = new System.Drawing.Size(176, 24);
-            this.listEmployeesToolStripMenuItem.Text = "List Employees";
+            this.listEmployeesToolStripMenuItem.Size = new System.Drawing.Size(198, 24);
+            this.listEmployeesToolStripMenuItem.Text = "Search Employees";
             this.listEmployeesToolStripMenuItem.Click += new System.EventHandler(this.listEmployeesToolStripMenuItem_Click);
             // 
             // reportsToolStripMenuItem

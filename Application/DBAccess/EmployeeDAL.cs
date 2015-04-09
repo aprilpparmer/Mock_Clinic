@@ -346,7 +346,8 @@ namespace WindowsFormsApplication.DBAccess
                             int cityOrdinal = dataReader.GetOrdinal("city");
                             int stateOrdinal = dataReader.GetOrdinal("state");
                             int zipOrdinal = dataReader.GetOrdinal("zip");
-                            int phoneOrdinal = dataReader.GetOrdinal("phone");  
+                            int phoneOrdinal = dataReader.GetOrdinal("phone");
+                            int positionOrdinal = dataReader.GetOrdinal("positionID");
 
                             while (dataReader.Read())
                             {
@@ -365,6 +366,7 @@ namespace WindowsFormsApplication.DBAccess
                                 employee.FirstName = dataReader.GetString(first_nameOrdinal);
                                 employee.Dob = dataReader.GetDateTime(dobOrdinal);
                                 employee.Gender = dataReader.GetString(genderOrdinal);
+                                employee.PositionId = dataReader.GetInt32(positionOrdinal);
                                 employee.Address = dataReader.GetString(addressOrdinal);
                                 employee.City = dataReader.GetString(cityOrdinal);
                                 employee.State = dataReader.GetString(stateOrdinal);

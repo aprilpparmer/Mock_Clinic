@@ -58,16 +58,16 @@
             this.JobBox = new System.Windows.Forms.ComboBox();
             this.positionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._CS6232_g7DataSet = new WindowsFormsApplication._CS6232_g7DataSet();
+            this.positionsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.cS6232g7DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.UpdateButton = new System.Windows.Forms.Button();
             this.StateComboBox = new System.Windows.Forms.ComboBox();
             this.positionsTableAdapter = new WindowsFormsApplication._CS6232_g7DataSetTableAdapters.positionsTableAdapter();
-            this.cS6232g7DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.positionsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.positionsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._CS6232_g7DataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cS6232g7DataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.positionsBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cS6232g7DataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // CancelButton
@@ -345,6 +345,16 @@
             this._CS6232_g7DataSet.DataSetName = "_CS6232_g7DataSet";
             this._CS6232_g7DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // positionsBindingSource1
+            // 
+            this.positionsBindingSource1.DataMember = "positions";
+            this.positionsBindingSource1.DataSource = this.cS6232g7DataSetBindingSource;
+            // 
+            // cS6232g7DataSetBindingSource
+            // 
+            this.cS6232g7DataSetBindingSource.DataSource = this._CS6232_g7DataSet;
+            this.cS6232g7DataSetBindingSource.Position = 0;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -370,57 +380,57 @@
             this.StateComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.StateComboBox.FormattingEnabled = true;
             this.StateComboBox.Items.AddRange(new object[] {
-            "Alabama",
-            "Alaska",
-            "Arizona",
-            "Arkansas",
-            "California",
-            "Colorado",
-            "Connecticut",
-            "Delaware",
-            "District Of Columbia",
-            "Florida",
-            "Georgia",
-            "Hawaii",
-            "Idaho",
-            "Illinois",
-            "Indiana",
-            "Iowa",
-            "Kansas",
-            "Kentucky",
-            "Louisiana",
-            "Maine",
-            "Maryland",
-            "Massachusetts",
-            "Michigan",
-            "Minnesota",
-            "Mississippi",
-            "Missouri",
-            "Montana",
-            "Nebraska",
-            "Nevada",
-            "New Hampshire",
-            "New Jersey",
-            "New Mexico",
-            "New York",
-            "North Carolina",
-            "North Dakota",
-            "Ohio",
-            "Oklahoma",
-            "Oregon",
-            "Pennsylvania",
-            "Rhode Island",
-            "South Carolina",
-            "South Dakota",
-            "Tennessee",
-            "Texas",
-            "Utah",
-            "Vermont",
-            "Virginia",
-            "Washington",
-            "West Virginia",
-            "Wisconsin",
-            "Wyoming"});
+            "AL",
+            "AK",
+            "AZ",
+            "AR",
+            "CA",
+            "CO",
+            "CT",
+            "DE",
+            "DC",
+            "FL",
+            "GA",
+            "HI",
+            "ID",
+            "IL",
+            "IN",
+            "IA",
+            "KS",
+            "KY",
+            "LA",
+            "ME",
+            "MT",
+            "NE",
+            "NV",
+            "NH",
+            "NJ",
+            "NM",
+            "NY",
+            "NC",
+            "ND",
+            "OH",
+            "OK",
+            "OR",
+            "MD",
+            "MA",
+            "MI",
+            "MN",
+            "MS",
+            "MO",
+            "PA",
+            "RI",
+            "SC",
+            "SD",
+            "TN",
+            "TX",
+            "UT",
+            "VT",
+            "VA",
+            "WA",
+            "WV",
+            "WI",
+            "WY"});
             this.StateComboBox.Location = new System.Drawing.Point(107, 257);
             this.StateComboBox.Name = "StateComboBox";
             this.StateComboBox.Size = new System.Drawing.Size(215, 24);
@@ -429,16 +439,6 @@
             // positionsTableAdapter
             // 
             this.positionsTableAdapter.ClearBeforeFill = true;
-            // 
-            // cS6232g7DataSetBindingSource
-            // 
-            this.cS6232g7DataSetBindingSource.DataSource = this._CS6232_g7DataSet;
-            this.cS6232g7DataSetBindingSource.Position = 0;
-            // 
-            // positionsBindingSource1
-            // 
-            this.positionsBindingSource1.DataMember = "positions";
-            this.positionsBindingSource1.DataSource = this.cS6232g7DataSetBindingSource;
             // 
             // NWUpdateAccount
             // 
@@ -480,8 +480,8 @@
             this.Load += new System.EventHandler(this.NWUpdateAccount_Load);
             ((System.ComponentModel.ISupportInitialize)(this.positionsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._CS6232_g7DataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cS6232g7DataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.positionsBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cS6232g7DataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

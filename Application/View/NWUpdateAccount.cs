@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Windows.Forms;
 using WindowsFormsApplication.Controller;
@@ -22,6 +23,8 @@ namespace WindowsFormsApplication.View
             {
                 this.employeeId = theEmployeeID;
                 employee = _controller.GetEmployeeByID(theEmployeeID);
+                int positionID = employee.PositionId;
+                UpdateButton.Enabled = false;
             }
             catch (Exception exception)
             {
@@ -31,15 +34,15 @@ namespace WindowsFormsApplication.View
         }
         
         private void NWUpdateAccount_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the '_CS6232_g7DataSet.positions' table. You can move, or remove it, as needed.
+        {                                
             this.positionsTableAdapter.Fill(this._CS6232_g7DataSet.positions);
-            loadEmployeeData();
+            loadEmployeeData();           
         }
      
         private void activatedFom(object sender, EventArgs e)
         {
             loadEmployeeData();
+           
         }
                   
 
@@ -146,9 +149,7 @@ namespace WindowsFormsApplication.View
             maleRadioButton.Checked = false;
 
         }
-
-
-        
+      
 
         private void UpdateButton_Click(object sender, EventArgs e)
         {            
@@ -183,7 +184,6 @@ namespace WindowsFormsApplication.View
                                 (addressTextBox.Text != "") & (cityTextBox.Text != "") & (StateComboBox.Text != ""))
                             {
                               
-
                                 //Check Details
                                 employee.FirstName = firstNameTextBox.Text;
                                 employee.MiddleInitial = middleInitialTextBox.Text;
@@ -244,13 +244,26 @@ namespace WindowsFormsApplication.View
             firstNameTextBox.Text = employee.FirstName.Trim();
             middleInitialTextBox.Text = employee.MiddleInitial.Trim();
             lastNameTextBox.Text = employee.LastName.Trim();
+            if ((employee.Gender == "F"))
+            {
+
+                femaleRadioButton.Checked = true;
+            }
+            else
+            {
+                maleRadioButton.Checked = true;
+            }
+            int position = employee.PositionId;
             ssnTextBox.Text = employee.Ssn.ToString().Trim();
             zipTextBox.Text = employee.Zip.ToString().Trim();
             PhoneTextBox.Text = employee.Phone.Trim();
+            JobBox.SelectedIndex = employee.PositionId-1;
             dateTimePicker.Text = employee.Dob.ToShortDateString().Trim();
             addressTextBox.Text = employee.Address.Trim();
             cityTextBox.Text = employee.City.Trim();
-            StateComboBox.Text = employee.State.Trim();
+            StateComboBox.Text = employee.State;
+            AddNewButton.Enabled = false;
+            UpdateButton.Enabled = true;
         }
 
         private static NWUpdateAccount _updateEmployeeForm;
@@ -266,9 +279,7 @@ namespace WindowsFormsApplication.View
 
             }
             return _updateEmployeeForm;  //just created or created earlier.Return it
-        }
-
-      
+        }       
 
         }
     }

@@ -9,20 +9,43 @@ namespace WindowsFormsApplication.View
     public partial class NWUpdateAccount : Form
     {
         NorthwindController _controller = new NorthwindController();
-        public NWUpdateAccount(int EmployeeID)
+        private int employeeId = 0;
+        int roleID;
+        int ssn, zip;
+        string gender;
+        Employee employee = new Employee();
+       
+        public NWUpdateAccount(int theEmployeeID)
         {
             InitializeComponent();
+            try
+            {
+                this.employeeId = theEmployeeID;
+                employee = _controller.GetEmployeeByID(theEmployeeID);
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(@"There was a problem loading this patient, please try again.");
+                this.Close();
+            }
         }
-       
-            int roleID;
-            int ssn, zip;
-            string gender;
-            Employee employee = new Employee();
+        
+        private void NWUpdateAccount_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the '_CS6232_g7DataSet.positions' table. You can move, or remove it, as needed.
+            this.positionsTableAdapter.Fill(this._CS6232_g7DataSet.positions);
+            loadEmployeeData();
+        }
+     
+        private void activatedFom(object sender, EventArgs e)
+        {
+            loadEmployeeData();
+        }
+                  
 
         private void button1_Click(object sender, System.EventArgs e)
         {
                      
-
             if ((femaleRadioButton.Checked == false) & (maleRadioButton.Checked == false))
             {
                 MessageBox.Show
@@ -125,16 +148,10 @@ namespace WindowsFormsApplication.View
         }
 
 
-        private void NWUpdateAccount_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the '_CS6232_g7DataSet.positions' table. You can move, or remove it, as needed.
-            this.positionsTableAdapter.Fill(this._CS6232_g7DataSet.positions);
-            loadEmployeeData();
-        }
+        
 
         private void UpdateButton_Click(object sender, EventArgs e)
-        {
-            roleID = Int32.Parse(JobBox.ValueMember);
+        {            
 
             if ((femaleRadioButton.Checked == false) & (maleRadioButton.Checked == false))
             {
@@ -174,7 +191,7 @@ namespace WindowsFormsApplication.View
                                 employee.Gender = gender;
                                 employee.Ssn = ssn;
                                 employee.Zip = zip;
-                                employee.PositionId = roleID;
+                                employee.PositionId = JobBox.SelectedIndex +1;
                                 employee.Phone = PhoneTextBox.Text;
                                 employee.Dob = dateTimePicker.Value.Date;
                                 employee.Address = addressTextBox.Text;
@@ -234,6 +251,21 @@ namespace WindowsFormsApplication.View
             addressTextBox.Text = employee.Address.Trim();
             cityTextBox.Text = employee.City.Trim();
             StateComboBox.Text = employee.State.Trim();
+        }
+
+        private static NWUpdateAccount _updateEmployeeForm;
+
+        public static NWUpdateAccount GetChildInstance(int employeeId)
+        {
+            if (_updateEmployeeForm == null) //if not created yet, Create an instance
+                _updateEmployeeForm = new NWUpdateAccount(employeeId);
+            else
+            {
+                _updateEmployeeForm.Dispose();
+                _updateEmployeeForm = new NWUpdateAccount(employeeId);
+
+            }
+            return _updateEmployeeForm;  //just created or created earlier.Return it
         }
 
       

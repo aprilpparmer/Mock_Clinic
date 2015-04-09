@@ -55,6 +55,7 @@
             this.addEmployeeButton.TabIndex = 21;
             this.addEmployeeButton.Text = "Add Employee";
             this.addEmployeeButton.UseVisualStyleBackColor = true;
+            this.addEmployeeButton.Click += new System.EventHandler(this.addEmployeeButton_Click);
             // 
             // updateEmployeeButton
             // 
@@ -65,6 +66,7 @@
             this.updateEmployeeButton.TabIndex = 19;
             this.updateEmployeeButton.Text = "Edit Employee";
             this.updateEmployeeButton.UseVisualStyleBackColor = true;
+            this.updateEmployeeButton.Click += new System.EventHandler(this.updateEmployeeButton_Click);
             // 
             // viewEmployeeButton
             // 

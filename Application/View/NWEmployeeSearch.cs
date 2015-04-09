@@ -15,7 +15,7 @@ namespace WindowsFormsApplication.View
             InitializeComponent();
             _controller = new NorthwindController();
         }
-    
+
 
         private void NwDocSearch_Load(object sender, System.EventArgs e)
         {
@@ -56,15 +56,15 @@ namespace WindowsFormsApplication.View
                         for (int i = 0; i < employeeList.Count; i++)
                         {
                             employee = employeeList[i];
-                            listViewEmployee.Items.Add(employee.EmployeeId.ToString());              
+                            listViewEmployee.Items.Add(employee.EmployeeId.ToString());
                             listViewEmployee.Items[i].SubItems.Add(employee.LastName.Trim());
-                            listViewEmployee.Items[i].SubItems.Add(employee.FirstName.Trim());                           
+                            listViewEmployee.Items[i].SubItems.Add(employee.FirstName.Trim());
                             listViewEmployee.Items[i].SubItems.Add(employee.PositionId.ToString());
 
 
                             listViewEmployee.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
                             listViewEmployee.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
-                           
+
 
                         }
                         listViewEmployee.Items[0].Checked = true;
@@ -75,7 +75,7 @@ namespace WindowsFormsApplication.View
                         MessageBox.Show("There are no patients with this information registered at this time. Please check your search criteria and try again");
                         textBoxFirstName.Text = "";
                         textBoxLastName.Text = "";
-                        
+
                     }
                 }
             }
@@ -94,7 +94,7 @@ namespace WindowsFormsApplication.View
         private void buttonClear_Click(object sender, System.EventArgs e)
         {
             textBoxFirstName.Text = "";
-            textBoxLastName.Text = "";  
+            textBoxLastName.Text = "";
             listViewEmployee.Items.Clear();
             listViewEmployee.Enabled = false;
             viewEmployeeButton.Enabled = false;
@@ -120,6 +120,32 @@ namespace WindowsFormsApplication.View
                 MessageBox.Show(@"Invalid Selection, Please make sure the patient Id is highlighted Blue.");
             }
         }
-        
+
+        private void updateEmployeeButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ListViewItem item = listViewEmployee.SelectedItems[0];
+                int employeeId = int.Parse(item.SubItems[0].Text);
+                NWUpdateAccount NwNWViewEmployeeForm = NWUpdateAccount.GetChildInstance(employeeId);
+                NwNWViewEmployeeForm.MdiParent = MdiParent;
+                NwNWViewEmployeeForm.Show();
+                NwNWViewEmployeeForm.BringToFront();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(@"Invalid Selection, Please make sure the patient Id is highlighted Blue.");
+            }
+
+        }
+
+        private void addEmployeeButton_Click(object sender, EventArgs e)
+        {
+            int employeeId = 0;
+            NWUpdateAccount NwNWViewEmployeeForm = NWUpdateAccount.GetChildInstance(employeeId);
+            NwNWViewEmployeeForm.MdiParent = MdiParent;
+            NwNWViewEmployeeForm.Show();
+            NwNWViewEmployeeForm.BringToFront();
+        }
     }
 }

@@ -52,20 +52,6 @@ namespace WindowsFormsApplication.View
             return _NwViewPEmployeeform;  //just created or created earlier.Return it
         }
 
-        private static NWUpdateAccount _updateEmployeeForm;
-
-        public static NWUpdateAccount GetChildInstanceAccount(int employeeId)
-        {
-            if (_updateEmployeeForm == null) //if not created yet, Create an instance
-                _updateEmployeeForm = new NWUpdateAccount(employeeId);
-            else
-            {
-                _updateEmployeeForm.Dispose();
-                _updateEmployeeForm = new NWUpdateAccount(employeeId);
-
-            }
-            return _updateEmployeeForm;  //just created or created earlier.Return it
-        }
         
         private void NWViewEmployee_Load(object sender, EventArgs e)
         {
@@ -91,6 +77,21 @@ namespace WindowsFormsApplication.View
             addressTextBox.Text = employee.Address.Trim();
             cityTextBox.Text = employee.City.Trim();
             stateTextBox.Text = employee.State.Trim();
+        }
+
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                NWUpdateAccount NwNWViewEmployeeForm = NWUpdateAccount.GetChildInstance(employeeId);
+                NwNWViewEmployeeForm.MdiParent = MdiParent;
+                NwNWViewEmployeeForm.Show();
+                NwNWViewEmployeeForm.BringToFront();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(@"Invalid Selection, Please make sure the patient Id is highlighted Blue.");
+            }
         }
 
     }

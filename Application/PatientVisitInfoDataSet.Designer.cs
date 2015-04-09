@@ -1156,13 +1156,13 @@ namespace WindowsFormsApplication {
             
             private global::System.Data.DataColumn columnnotesID;
             
-            private global::System.Data.DataColumn columnemployeeID;
-            
             private global::System.Data.DataColumn columnvisitID;
             
             private global::System.Data.DataColumn columnnote;
             
             private global::System.Data.DataColumn columndate;
+            
+            private global::System.Data.DataColumn columnlast_name;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -1207,14 +1207,6 @@ namespace WindowsFormsApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn employeeIDColumn {
-                get {
-                    return this.columnemployeeID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn visitIDColumn {
                 get {
                     return this.columnvisitID;
@@ -1234,6 +1226,14 @@ namespace WindowsFormsApplication {
             public global::System.Data.DataColumn dateColumn {
                 get {
                     return this.columndate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn last_nameColumn {
+                get {
+                    return this.columnlast_name;
                 }
             }
             
@@ -1274,16 +1274,16 @@ namespace WindowsFormsApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public patient_visit_notesRow Addpatient_visit_notesRow(int employeeID, patient_visitRow parentpatient_visitRowByFK_patient_visit_notes_patient_visit, string note, System.DateTime date) {
+            public patient_visit_notesRow Addpatient_visit_notesRow(patient_visitRow parentpatient_visitRowByFK_patient_visit_notes_patient_visit, string note, System.DateTime date, string last_name) {
                 patient_visit_notesRow rowpatient_visit_notesRow = ((patient_visit_notesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        employeeID,
                         null,
                         note,
-                        date};
+                        date,
+                        last_name};
                 if ((parentpatient_visitRowByFK_patient_visit_notes_patient_visit != null)) {
-                    columnValuesArray[2] = parentpatient_visitRowByFK_patient_visit_notes_patient_visit[0];
+                    columnValuesArray[1] = parentpatient_visitRowByFK_patient_visit_notes_patient_visit[0];
                 }
                 rowpatient_visit_notesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowpatient_visit_notesRow);
@@ -1315,10 +1315,10 @@ namespace WindowsFormsApplication {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
                 this.columnnotesID = base.Columns["notesID"];
-                this.columnemployeeID = base.Columns["employeeID"];
                 this.columnvisitID = base.Columns["visitID"];
                 this.columnnote = base.Columns["note"];
                 this.columndate = base.Columns["date"];
+                this.columnlast_name = base.Columns["last_name"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1326,14 +1326,14 @@ namespace WindowsFormsApplication {
             private void InitClass() {
                 this.columnnotesID = new global::System.Data.DataColumn("notesID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnotesID);
-                this.columnemployeeID = new global::System.Data.DataColumn("employeeID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnemployeeID);
                 this.columnvisitID = new global::System.Data.DataColumn("visitID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnvisitID);
                 this.columnnote = new global::System.Data.DataColumn("note", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnote);
                 this.columndate = new global::System.Data.DataColumn("date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndate);
+                this.columnlast_name = new global::System.Data.DataColumn("last_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlast_name);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnotesID}, true));
                 this.columnnotesID.AutoIncrement = true;
@@ -1342,11 +1342,12 @@ namespace WindowsFormsApplication {
                 this.columnnotesID.AllowDBNull = false;
                 this.columnnotesID.ReadOnly = true;
                 this.columnnotesID.Unique = true;
-                this.columnemployeeID.AllowDBNull = false;
                 this.columnvisitID.AllowDBNull = false;
                 this.columnnote.AllowDBNull = false;
                 this.columnnote.MaxLength = 2147483647;
                 this.columndate.AllowDBNull = false;
+                this.columnlast_name.AllowDBNull = false;
+                this.columnlast_name.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2558,17 +2559,6 @@ namespace WindowsFormsApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int employeeID {
-                get {
-                    return ((int)(this[this.tablepatient_visit_notes.employeeIDColumn]));
-                }
-                set {
-                    this[this.tablepatient_visit_notes.employeeIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int visitID {
                 get {
                     return ((int)(this[this.tablepatient_visit_notes.visitIDColumn]));
@@ -2597,6 +2587,17 @@ namespace WindowsFormsApplication {
                 }
                 set {
                     this[this.tablepatient_visit_notes.dateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string last_name {
+                get {
+                    return ((string)(this[this.tablepatient_visit_notes.last_nameColumn]));
+                }
+                set {
+                    this[this.tablepatient_visit_notes.last_nameColumn] = value;
                 }
             }
             
@@ -3626,45 +3627,11 @@ WHERE v.visitID = @visitID";
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "patient_visit_notes";
             tableMapping.ColumnMappings.Add("notesID", "notesID");
-            tableMapping.ColumnMappings.Add("employeeID", "employeeID");
             tableMapping.ColumnMappings.Add("visitID", "visitID");
             tableMapping.ColumnMappings.Add("note", "note");
             tableMapping.ColumnMappings.Add("date", "date");
+            tableMapping.ColumnMappings.Add("last_name", "last_name");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[patient_visit_notes] WHERE (([notesID] = @Original_notesID) AN" +
-                "D ([employeeID] = @Original_employeeID) AND ([visitID] = @Original_visitID) AND " +
-                "([date] = @Original_date))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_notesID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "notesID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_employeeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "employeeID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_visitID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "visitID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_date", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[patient_visit_notes] ([employeeID], [visitID], [note], [date])" +
-                " VALUES (@employeeID, @visitID, @note, @date);\r\nSELECT notesID, employeeID, visi" +
-                "tID, note, date FROM patient_visit_notes WHERE (notesID = SCOPE_IDENTITY())";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@employeeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "employeeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@visitID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "visitID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@note", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "note", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@date", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[patient_visit_notes] SET [employeeID] = @employeeID, [visitID] = @visitID, [note] = @note, [date] = @date WHERE (([notesID] = @Original_notesID) AND ([employeeID] = @Original_employeeID) AND ([visitID] = @Original_visitID) AND ([date] = @Original_date));
-SELECT notesID, employeeID, visitID, note, date FROM patient_visit_notes WHERE (notesID = @notesID)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@employeeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "employeeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@visitID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "visitID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@note", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "note", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@date", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_notesID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "notesID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_employeeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "employeeID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_visitID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "visitID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_date", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@notesID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "notesID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3680,16 +3647,20 @@ SELECT notesID, employeeID, visitID, note, date FROM patient_visit_notes WHERE (
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT notesID, employeeID, visitID, note, date FROM dbo.patient_visit_notes";
+            this._commandCollection[0].CommandText = "SELECT n.notesID, n.visitID, n.note, n.date, e.last_name \r\nFROM dbo.patient_visit" +
+                "_notes n\r\n    JOIN employees e ON e.employeeID = n.employeeID\r\nWHERE visitID = @" +
+                "visitID";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@visitID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "visitID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(PatientVisitInfoDataSet.patient_visit_notesDataTable dataTable) {
+        public virtual int Fill(PatientVisitInfoDataSet.patient_visit_notesDataTable dataTable, int visitID) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(visitID));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -3701,138 +3672,12 @@ SELECT notesID, employeeID, visitID, note, date FROM patient_visit_notes WHERE (
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual PatientVisitInfoDataSet.patient_visit_notesDataTable GetData() {
+        public virtual PatientVisitInfoDataSet.patient_visit_notesDataTable GetData(int visitID) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(visitID));
             PatientVisitInfoDataSet.patient_visit_notesDataTable dataTable = new PatientVisitInfoDataSet.patient_visit_notesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(PatientVisitInfoDataSet.patient_visit_notesDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(PatientVisitInfoDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "patient_visit_notes");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_notesID, int Original_employeeID, int Original_visitID, System.DateTime Original_date) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_notesID));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_employeeID));
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_visitID));
-            this.Adapter.DeleteCommand.Parameters[3].Value = ((System.DateTime)(Original_date));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int employeeID, int visitID, string note, System.DateTime date) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(employeeID));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(visitID));
-            if ((note == null)) {
-                throw new global::System.ArgumentNullException("note");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(note));
-            }
-            this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(date));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int employeeID, int visitID, string note, System.DateTime date, int Original_notesID, int Original_employeeID, int Original_visitID, System.DateTime Original_date, int notesID) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(employeeID));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(visitID));
-            if ((note == null)) {
-                throw new global::System.ArgumentNullException("note");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(note));
-            }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(date));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_notesID));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_employeeID));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_visitID));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((System.DateTime)(Original_date));
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(notesID));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int employeeID, int visitID, string note, System.DateTime date, int Original_notesID, int Original_employeeID, int Original_visitID, System.DateTime Original_date) {
-            return this.Update(employeeID, visitID, note, date, Original_notesID, Original_employeeID, Original_visitID, Original_date, Original_notesID);
         }
     }
     
@@ -4434,8 +4279,6 @@ SELECT vitalsID, visitID, blood_pressure, temp, pulse, height, weight FROM patie
         
         private patient_visitTableAdapter _patient_visitTableAdapter;
         
-        private patient_visit_notesTableAdapter _patient_visit_notesTableAdapter;
-        
         private patient_visit_vitalsTableAdapter _patient_visit_vitalsTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
@@ -4464,20 +4307,6 @@ SELECT vitalsID, visitID, blood_pressure, temp, pulse, height, weight FROM patie
             }
             set {
                 this._patient_visitTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public patient_visit_notesTableAdapter patient_visit_notesTableAdapter {
-            get {
-                return this._patient_visit_notesTableAdapter;
-            }
-            set {
-                this._patient_visit_notesTableAdapter = value;
             }
         }
         
@@ -4518,10 +4347,6 @@ SELECT vitalsID, visitID, blood_pressure, temp, pulse, height, weight FROM patie
                             && (this._patient_visitTableAdapter.Connection != null))) {
                     return this._patient_visitTableAdapter.Connection;
                 }
-                if (((this._patient_visit_notesTableAdapter != null) 
-                            && (this._patient_visit_notesTableAdapter.Connection != null))) {
-                    return this._patient_visit_notesTableAdapter.Connection;
-                }
                 if (((this._patient_visit_vitalsTableAdapter != null) 
                             && (this._patient_visit_vitalsTableAdapter.Connection != null))) {
                     return this._patient_visit_vitalsTableAdapter.Connection;
@@ -4540,9 +4365,6 @@ SELECT vitalsID, visitID, blood_pressure, temp, pulse, height, weight FROM patie
             get {
                 int count = 0;
                 if ((this._patient_visitTableAdapter != null)) {
-                    count = (count + 1);
-                }
-                if ((this._patient_visit_notesTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._patient_visit_vitalsTableAdapter != null)) {
@@ -4565,15 +4387,6 @@ SELECT vitalsID, visitID, blood_pressure, temp, pulse, height, weight FROM patie
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._patient_visitTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._patient_visit_notesTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.patient_visit_notes.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._patient_visit_notesTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -4604,14 +4417,6 @@ SELECT vitalsID, visitID, blood_pressure, temp, pulse, height, weight FROM patie
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._patient_visit_notesTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.patient_visit_notes.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._patient_visit_notesTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._patient_visit_vitalsTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.patient_visit_vitals.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -4635,14 +4440,6 @@ SELECT vitalsID, visitID, blood_pressure, temp, pulse, height, weight FROM patie
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._patient_visit_vitalsTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._patient_visit_notesTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.patient_visit_notes.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._patient_visit_notesTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -4698,11 +4495,6 @@ SELECT vitalsID, visitID, blood_pressure, temp, pulse, height, weight FROM patie
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._patient_visit_notesTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._patient_visit_notesTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
-            }
             if (((this._patient_visit_vitalsTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._patient_visit_vitalsTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
@@ -4747,15 +4539,6 @@ SELECT vitalsID, visitID, blood_pressure, temp, pulse, height, weight FROM patie
                     if (this._patient_visitTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._patient_visitTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._patient_visitTableAdapter.Adapter);
-                    }
-                }
-                if ((this._patient_visit_notesTableAdapter != null)) {
-                    revertConnections.Add(this._patient_visit_notesTableAdapter, this._patient_visit_notesTableAdapter.Connection);
-                    this._patient_visit_notesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._patient_visit_notesTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._patient_visit_notesTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._patient_visit_notesTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._patient_visit_notesTableAdapter.Adapter);
                     }
                 }
                 if ((this._patient_visit_vitalsTableAdapter != null)) {
@@ -4828,10 +4611,6 @@ SELECT vitalsID, visitID, blood_pressure, temp, pulse, height, weight FROM patie
                 if ((this._patient_visitTableAdapter != null)) {
                     this._patient_visitTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._patient_visitTableAdapter]));
                     this._patient_visitTableAdapter.Transaction = null;
-                }
-                if ((this._patient_visit_notesTableAdapter != null)) {
-                    this._patient_visit_notesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._patient_visit_notesTableAdapter]));
-                    this._patient_visit_notesTableAdapter.Transaction = null;
                 }
                 if ((this._patient_visit_vitalsTableAdapter != null)) {
                     this._patient_visit_vitalsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._patient_visit_vitalsTableAdapter]));

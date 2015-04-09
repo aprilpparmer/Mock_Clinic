@@ -27,6 +27,7 @@ namespace WindowsFormsApplication.View
                 this.patient_visit_vitalsTableAdapter.Fill(this.patientVisitInfoDataSet.patient_visit_vitals, this.visitID);
                 this.patient_visit_symptomsTableAdapter.Fill(this.patientVisitInfoDataSet.patient_visit_symptoms, this.visitID);
                 this.patient_testsTableAdapter.Fill(this.patientVisitInfoDataSet.patient_tests, this.visitID);
+                this.patient_visit_notesTableAdapter.Fill(this.patientVisitInfoDataSet.patient_visit_notes, this.visitID);
             }
             catch (InvalidCastException)
             {
@@ -41,6 +42,5 @@ namespace WindowsFormsApplication.View
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
             }   
         }
-
     }
 }

@@ -113,5 +113,10 @@ namespace WindowsFormsApplication.Controller
        {
           return EmployeeDal.searchEmployees(LastName, FirstName);
        }
+
+       internal Employee GetEmployeeByID(int employeeID)
+       {
+           return EmployeeDal.GetEmployeeById(employeeID);
+       }
     }
 }

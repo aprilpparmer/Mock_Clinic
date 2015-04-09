@@ -308,6 +308,88 @@ namespace WindowsFormsApplication.DBAccess
         }
 
 
+        /// <summary>
+        /// Gets Patient by Id
+        /// </summary>
+        /// <param name="patientId">int PatientId the ID of patient to get</param>
+        /// <returns>Patient patient requested</returns>
+        public static Employee GetEmployeeById(int employeeId)
+        {
+            Employee employee = new Employee();
+
+            string selectStatement =
+                "SELECT * " +
+                "FROM employees " +
+                "WHERE employeeID = @employeeID";
+
+            try
+            {
+                using (SqlConnection connection = NorthwindDbConnection.GetConnection())
+                {
+                    connection.Open();
+
+                    using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                    {
+                        selectCommand.Parameters.AddWithValue("@employeeID", employeeId);
+
+                        using (SqlDataReader dataReader = selectCommand.ExecuteReader())
+                        {
+
+                            int patientIDOrdinal = dataReader.GetOrdinal("employeeID");
+                            int ssnOrdinal = dataReader.GetOrdinal("ssn");
+                            int last_nameOrdinal = dataReader.GetOrdinal("last_name");
+                            int middle_initialOrdinal = dataReader.GetOrdinal("middle_initial");
+                            int first_nameOrdinal = dataReader.GetOrdinal("first_name");
+                            int dobOrdinal = dataReader.GetOrdinal("dob");
+                            int genderOrdinal = dataReader.GetOrdinal("gender");
+                            int addressOrdinal = dataReader.GetOrdinal("address");
+                            int cityOrdinal = dataReader.GetOrdinal("city");
+                            int stateOrdinal = dataReader.GetOrdinal("state");
+                            int zipOrdinal = dataReader.GetOrdinal("zip");
+                            int phoneOrdinal = dataReader.GetOrdinal("phone");  
+
+                            while (dataReader.Read())
+                            {
+
+
+                                employee.EmployeeId = dataReader.GetInt32(patientIDOrdinal);
+                                employee.Ssn = dataReader.GetInt32(ssnOrdinal);
+                                employee.LastName = dataReader.GetString(last_nameOrdinal);
+
+
+                                if (!dataReader.IsDBNull(middle_initialOrdinal))
+                                    employee.MiddleInitial = dataReader.GetString(middle_initialOrdinal);
+                                else
+                                    employee.MiddleInitial = string.Empty;
+
+                                employee.FirstName = dataReader.GetString(first_nameOrdinal);
+                                employee.Dob = dataReader.GetDateTime(dobOrdinal);
+                                employee.Gender = dataReader.GetString(genderOrdinal);
+                                employee.Address = dataReader.GetString(addressOrdinal);
+                                employee.City = dataReader.GetString(cityOrdinal);
+                                employee.State = dataReader.GetString(stateOrdinal);
+                                employee.Zip = dataReader.GetInt32(zipOrdinal);
+                                employee.Phone = dataReader.GetString(phoneOrdinal);                              
+
+
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SqlException sqlException)
+            {
+                throw sqlException;
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+
+            return employee;
+        }
+
+
 
     }          
  }

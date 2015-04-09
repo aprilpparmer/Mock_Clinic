@@ -75,6 +75,7 @@
             this.viewEmployeeButton.TabIndex = 18;
             this.viewEmployeeButton.Text = "View Employee";
             this.viewEmployeeButton.UseVisualStyleBackColor = true;
+            this.viewEmployeeButton.Click += new System.EventHandler(this.viewEmployeeButton_Click);
             // 
             // label1
             // 

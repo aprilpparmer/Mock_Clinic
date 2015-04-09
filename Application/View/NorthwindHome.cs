@@ -179,6 +179,15 @@ namespace WindowsFormsApplication.View
             NWaddupdateAccounts.MdiParent = this;
             NWaddupdateAccounts.Show();
             NWaddupdateAccounts.BringToFront();
+           
+        }
+
+        private void listEmployeesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NwDocSearch NWemployeeSearch = new NwDocSearch();
+            NWemployeeSearch.MdiParent = this;
+            NWemployeeSearch.Show();
+            NWemployeeSearch.BringToFront();
         }
     }
 }

@@ -32,8 +32,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -103,17 +106,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PatientVisitInfoDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="PatientVisitSummaryReport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PatientVisitSummaryReport.xsd</DependentUpon>
+    </Compile>
     <Compile Include="View\NWViewEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\NWViewEmployee.Designer.cs">
       <DependentUpon>NWViewEmployee.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\NWGenerateReport.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\NWGenerateReport.Designer.cs">
-      <DependentUpon>NWGenerateReport.cs</DependentUpon>
     </Compile>
     <Compile Include="View\NWEditPatient .cs">
       <SubType>Form</SubType>
@@ -213,6 +215,18 @@
     <Compile Include="View\NwViewVisit.Designer.cs">
       <DependentUpon>NwViewVisit.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\NwPatientsReportGenerator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\NwPatientsReportGenerator.Designer.cs">
+      <DependentUpon>NwPatientsReportGenerator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\NwPatientVisitSummaryReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\NwPatientVisitSummaryReport.Designer.cs">
+      <DependentUpon>NwPatientVisitSummaryReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="_CS6232_g7DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -223,11 +237,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_CS6232_g7DataSet1.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\NwPatientsReportGenerator.resx">
+      <DependentUpon>NwPatientsReportGenerator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\NwPatientVisitSummary.rdlc" />
     <EmbeddedResource Include="View\NWViewEmployee.resx">
       <DependentUpon>NWViewEmployee.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\NWGenerateReport.resx">
-      <DependentUpon>NWGenerateReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\NWEditPatient .resx">
       <DependentUpon>NWEditPatient .cs</DependentUpon>
@@ -287,6 +302,9 @@
     <EmbeddedResource Include="View\NwViewVisit.resx">
       <DependentUpon>NwViewVisit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\NwPatientVisitSummaryReport.resx">
+      <DependentUpon>NwPatientVisitSummaryReport.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="EmployeesDataSet.xsc">
       <DependentUpon>EmployeesDataSet.xsd</DependentUpon>
     </None>
@@ -330,6 +348,17 @@
     </None>
     <None Include="PatientVisitInfoDataSet.xss">
       <DependentUpon>PatientVisitInfoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PatientVisitSummaryReport.xsc">
+      <DependentUpon>PatientVisitSummaryReport.xsd</DependentUpon>
+    </None>
+    <None Include="PatientVisitSummaryReport.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PatientVisitSummaryReport.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PatientVisitSummaryReport.xss">
+      <DependentUpon>PatientVisitSummaryReport.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

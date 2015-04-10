@@ -190,5 +190,13 @@ namespace WindowsFormsApplication.View
             NWemployeeSearch.Show();
             NWemployeeSearch.BringToFront();
         }
+
+        private void patientVisitSummaryByDateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NwPatientsReportGenerator report = new NwPatientsReportGenerator();
+            report.MdiParent = this;
+            report.Show();
+            report.BringToFront();
+        }
     }
 }

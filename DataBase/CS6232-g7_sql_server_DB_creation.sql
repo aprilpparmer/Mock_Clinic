@@ -516,3 +516,8 @@ REFERENCES [dbo].[tests] ([testID])
 GO
 ALTER TABLE [dbo].[patient_tests] CHECK CONSTRAINT [FK_patient_tests_tests]
 GO
+
+/****** Change to encrypted passwords ******/
+update employees set password = '029221038231213239247084149013207149222140232099' where employeeID = 4;
+update employees set password = '207168175253114192077158076072101068245187231207' where employeeID = 8;
+update employees set password = '238173117193055220096111020011087231218085091014', login= 'admin' where employeeID = 10;

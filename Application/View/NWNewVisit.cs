@@ -407,7 +407,9 @@ namespace WindowsFormsApplication.View
                 Validator.IsPresent(txtBoxBloodPressure) &&
                 Validator.IsPresent(txtBoxTemperature) &&
                 Validator.IsPresent(txtBoxHeight) &&
-                Validator.IsPresent(txtBoxWeight))
+                Validator.IsInt32(txtBoxHeight) &&
+                Validator.IsPresent(txtBoxWeight) &&
+                Validator.IsInt32(txtBoxWeight))
                 return true;
             else
                 return false;

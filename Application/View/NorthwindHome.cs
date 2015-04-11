@@ -193,7 +193,7 @@ namespace WindowsFormsApplication.View
 
         private void patientVisitSummaryByDateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            NwPatientsReportGenerator report = new NwPatientsReportGenerator();
+            NwPatientVisitSummaryReport report = new NwPatientVisitSummaryReport();
             report.MdiParent = this;
             report.Show();
             report.BringToFront();

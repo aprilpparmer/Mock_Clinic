@@ -17,12 +17,13 @@ namespace WindowsFormsApplication.View
             InitializeComponent();
         }
 
-        private void PatientVisitSummaryReport_Load(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'patientVisitSummaryReport.patients' table. You can move, or remove it, as needed.
-            this.patientsTableAdapter.Fill(this.patientVisitSummaryReport.patients);
-
+            DateTime dt1 = this.date1.Value;
+            DateTime dt2 = this.date2.Value;
+            this.patient_visitTableAdapter.Fill(this.patientVisitSummaryReport.patient_visit, dt1, dt2);
             this.reportViewer1.RefreshReport();
+
         }
     }
 }

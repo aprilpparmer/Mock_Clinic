@@ -230,6 +230,7 @@
             this.listTestsToolStripMenuItem.Name = "listTestsToolStripMenuItem";
             this.listTestsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.listTestsToolStripMenuItem.Text = "List Tests";
+            this.listTestsToolStripMenuItem.Click += new System.EventHandler(this.listTestsToolStripMenuItem_Click);
             // 
             // UserLabel
             // 

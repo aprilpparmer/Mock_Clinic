@@ -219,6 +219,12 @@
     <Compile Include="View\NWViewPatient.Designer.cs">
       <DependentUpon>NWViewPatient.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\NWViewTests.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\NWViewTests.Designer.cs">
+      <DependentUpon>NWViewTests.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\NwViewVisit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -302,6 +308,9 @@
     </Compile>
     <EmbeddedResource Include="View\NWViewPatient.resx">
       <DependentUpon>NWViewPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\NWViewTests.resx">
+      <DependentUpon>NWViewTests.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\NwViewVisit.resx">
       <DependentUpon>NwViewVisit.cs</DependentUpon>

@@ -195,5 +195,13 @@ namespace WindowsFormsApplication.View
             NWNewTestForm.Show();
             NWNewTestForm.BringToFront();
         }
+
+        private void listTestsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NWViewTests NWViewTestsForm = NWViewTests.GetChildInstance();
+            NWViewTestsForm.MdiParent = this;
+            NWViewTestsForm.Show();
+            NWViewTestsForm.BringToFront();
+        }
     }
 }

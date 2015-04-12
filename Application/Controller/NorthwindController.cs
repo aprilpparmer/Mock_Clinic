@@ -128,5 +128,12 @@ namespace WindowsFormsApplication.Controller
        {
            TestDal.AddTest(test);
        }
+
+       internal List<Test> GetAllTests()
+       {
+           return TestDal.GetAllTests();
+       }
+
+
     }
 }

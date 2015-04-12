@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listViewTests = new System.Windows.Forms.ListView();
             this.buttonAddTest = new System.Windows.Forms.Button();
             this.buttonDeleteTest = new System.Windows.Forms.Button();
             this.buttonUpdateTest = new System.Windows.Forms.Button();
@@ -37,17 +37,17 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
-            // listView1
+            // listViewTests
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listViewTests.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2});
-            this.listView1.Location = new System.Drawing.Point(36, 35);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(286, 252);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listViewTests.Location = new System.Drawing.Point(36, 35);
+            this.listViewTests.Name = "listViewTests";
+            this.listViewTests.Size = new System.Drawing.Size(286, 252);
+            this.listViewTests.TabIndex = 0;
+            this.listViewTests.UseCompatibleStateImageBehavior = false;
+            this.listViewTests.View = System.Windows.Forms.View.Details;
             // 
             // buttonAddTest
             // 
@@ -57,6 +57,7 @@
             this.buttonAddTest.TabIndex = 1;
             this.buttonAddTest.Text = "Add Test";
             this.buttonAddTest.UseVisualStyleBackColor = true;
+            this.buttonAddTest.Click += new System.EventHandler(this.buttonAddTest_Click);
             // 
             // buttonDeleteTest
             // 
@@ -105,16 +106,18 @@
             this.Controls.Add(this.buttonUpdateTest);
             this.Controls.Add(this.buttonDeleteTest);
             this.Controls.Add(this.buttonAddTest);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.listViewTests);
             this.Name = "NWViewTests";
             this.Text = "View Tests";
+            this.Activated += new System.EventHandler(this.loadTests);
+            this.Load += new System.EventHandler(this.loadTests);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listViewTests;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.Button buttonAddTest;

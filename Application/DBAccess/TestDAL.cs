@@ -46,5 +46,51 @@ namespace WindowsFormsApplication.DBAccess
                 throw ex;
             }
         }
+
+        /// <summary>
+        /// Returns all tests from the database
+        /// </summary>
+        /// <returns></returns>
+        public static List<Test> GetAllTests()
+        {
+            List<Test> testList = new List<Test>();
+            const string selectStatement = "Select * from tests";
+
+            try
+            {
+                using (SqlConnection connection = NorthwindDbConnection.GetConnection())
+                {
+                    connection.Open();
+
+                    using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                    {
+                        using (SqlDataReader reader = selectCommand.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                Test test = new Test();
+                                test.TestId = (Int32)reader["testID"];
+                                test.TestName = reader["test_name"].ToString().Trim();
+                                testList.Add(test);
+
+                            }
+                        }
+
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return testList;
+        }
+
+
     }
 }

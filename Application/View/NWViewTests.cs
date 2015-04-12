@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApplication.Controller;
+using WindowsFormsApplication.Model;
 
 namespace WindowsFormsApplication.View
 {
@@ -44,6 +45,47 @@ namespace WindowsFormsApplication.View
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void buttonAddTest_Click(object sender, EventArgs e)
+        {
+            NWNewTest NWNewTestForm = NWNewTest.GetChildInstance();
+            NWNewTestForm.MdiParent = MdiParent;
+            NWNewTestForm.Show();
+            NWNewTestForm.BringToFront();
+        }
+
+        private void loadTests(object sender, EventArgs e)
+        {
+            loadTestData();
+        }
+
+        private void loadTestData()
+        {
+            buttonDeleteTest.Enabled = false;
+            buttonUpdateTest.Enabled = false;
+
+            List<Test> testList;
+            listViewTests.Items.Clear();
+            try
+            {
+                testList = _controller.GetAllTests();
+                if (testList.Count > 0)
+                {
+                    Test test;
+                    for (int i = 0; i < testList.Count; i++)
+                    {
+                        test = testList[i];
+                        listViewTests.Items.Add(test.TestId.ToString());
+                        listViewTests.Items[i].SubItems.Add(test.TestName);
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show(@"There are no tests at this time!");
+            }
+
         }
 
     }

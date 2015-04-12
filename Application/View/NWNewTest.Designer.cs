@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.labelTestName = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxName = new System.Windows.Forms.TextBox();
             this.buttonAddTest = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -43,12 +43,12 @@
             this.labelTestName.TabIndex = 0;
             this.labelTestName.Text = "Test Name:";
             // 
-            // textBox1
+            // textBoxName
             // 
-            this.textBox1.Location = new System.Drawing.Point(92, 55);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(299, 20);
-            this.textBox1.TabIndex = 1;
+            this.textBoxName.Location = new System.Drawing.Point(92, 55);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(299, 20);
+            this.textBoxName.TabIndex = 1;
             // 
             // buttonAddTest
             // 
@@ -58,6 +58,7 @@
             this.buttonAddTest.TabIndex = 2;
             this.buttonAddTest.Text = "Add Test";
             this.buttonAddTest.UseVisualStyleBackColor = true;
+            this.buttonAddTest.Click += new System.EventHandler(this.buttonAddTest_Click);
             // 
             // buttonCancel
             // 
@@ -67,6 +68,7 @@
             this.buttonCancel.TabIndex = 3;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // NWNewTest
             // 
@@ -75,7 +77,7 @@
             this.ClientSize = new System.Drawing.Size(438, 183);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonAddTest);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.labelTestName);
             this.Name = "NWNewTest";
             this.Text = "New Test";
@@ -87,7 +89,7 @@
         #endregion
 
         private System.Windows.Forms.Label labelTestName;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.Button buttonAddTest;
         private System.Windows.Forms.Button buttonCancel;
     }

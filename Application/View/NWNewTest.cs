@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApplication.Controller;
+using WindowsFormsApplication.Model;
 
 namespace WindowsFormsApplication.View
 {
@@ -38,6 +39,42 @@ namespace WindowsFormsApplication.View
 
             }
             return _NWNewTestForm;  //just created or created earlier.Return it
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void buttonAddTest_Click(object sender, EventArgs e)
+        {
+            Test test = new Test();
+            
+            textBoxName.Text = textBoxName.Text.Trim();
+        
+            if ((textBoxName.Text.Length > 1))
+            {
+                test.TestName = textBoxName.Text;
+                
+                try
+                {
+                    _controller.AddTest(test);
+                    MessageBox.Show(@"Test Added.");
+                    Close();
+
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show(@"There was a problem adding the test." + exception);
+
+                }
+            }
+            else
+            {
+                MessageBox.Show(@"Test Name is required field!. Please provide the information and try again!");
+   
+            }
+
         }
 
 

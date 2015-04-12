@@ -123,5 +123,10 @@ namespace WindowsFormsApplication.Controller
        {
            EmployeeDal.deleteEmployee(deleteEmployee);
        }
+
+       internal void AddTest(Test test)
+       {
+           TestDal.AddTest(test);
+       }
     }
 }

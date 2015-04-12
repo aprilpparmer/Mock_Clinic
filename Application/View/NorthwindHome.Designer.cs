@@ -46,11 +46,11 @@
             this.addEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listEmployeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.patientVisitSummaryByDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listTestsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UserLabel = new System.Windows.Forms.Label();
-            this.patientVisitSummaryByDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.NWMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -139,14 +139,14 @@
             // addNewDiagMenuItem
             // 
             this.addNewDiagMenuItem.Name = "addNewDiagMenuItem";
-            this.addNewDiagMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.addNewDiagMenuItem.Size = new System.Drawing.Size(152, 22);
             this.addNewDiagMenuItem.Text = "Add New";
             this.addNewDiagMenuItem.Click += new System.EventHandler(this.addNewToolStripMenuItem_Click);
             // 
             // listDiagMenuItem
             // 
             this.listDiagMenuItem.Name = "listDiagMenuItem";
-            this.listDiagMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.listDiagMenuItem.Size = new System.Drawing.Size(152, 22);
             this.listDiagMenuItem.Text = "List";
             this.listDiagMenuItem.Click += new System.EventHandler(this.listDiagMenuItem_Click);
             // 
@@ -202,6 +202,13 @@
             this.reportsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.reportsToolStripMenuItem.Text = "Reports";
             // 
+            // patientVisitSummaryByDateToolStripMenuItem
+            // 
+            this.patientVisitSummaryByDateToolStripMenuItem.Name = "patientVisitSummaryByDateToolStripMenuItem";
+            this.patientVisitSummaryByDateToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.patientVisitSummaryByDateToolStripMenuItem.Text = "Patient Visit Summary By Date";
+            this.patientVisitSummaryByDateToolStripMenuItem.Click += new System.EventHandler(this.patientVisitSummaryByDateToolStripMenuItem_Click);
+            // 
             // testsToolStripMenuItem
             // 
             this.testsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -214,13 +221,14 @@
             // addTestToolStripMenuItem
             // 
             this.addTestToolStripMenuItem.Name = "addTestToolStripMenuItem";
-            this.addTestToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.addTestToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.addTestToolStripMenuItem.Text = "Add Test";
+            this.addTestToolStripMenuItem.Click += new System.EventHandler(this.addTestToolStripMenuItem_Click);
             // 
             // listTestsToolStripMenuItem
             // 
             this.listTestsToolStripMenuItem.Name = "listTestsToolStripMenuItem";
-            this.listTestsToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.listTestsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.listTestsToolStripMenuItem.Text = "List Tests";
             // 
             // UserLabel
@@ -232,13 +240,6 @@
             this.UserLabel.Size = new System.Drawing.Size(0, 13);
             this.UserLabel.TabIndex = 2;
             this.UserLabel.Visible = false;
-            // 
-            // patientVisitSummaryByDateToolStripMenuItem
-            // 
-            this.patientVisitSummaryByDateToolStripMenuItem.Name = "patientVisitSummaryByDateToolStripMenuItem";
-            this.patientVisitSummaryByDateToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.patientVisitSummaryByDateToolStripMenuItem.Text = "Patient Visit Summary By Date";
-            this.patientVisitSummaryByDateToolStripMenuItem.Click += new System.EventHandler(this.patientVisitSummaryByDateToolStripMenuItem_Click);
             // 
             // NorthwindAdmin
             // 

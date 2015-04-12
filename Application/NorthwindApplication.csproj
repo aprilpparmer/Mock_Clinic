@@ -115,6 +115,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PatientVisitSummaryReport.xsd</DependentUpon>
     </Compile>
+    <Compile Include="View\NWNewTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\NWNewTest.Designer.cs">
+      <DependentUpon>NWNewTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\NWViewEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -235,6 +241,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_CS6232_g7DataSet1.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\NWNewTest.resx">
+      <DependentUpon>NWNewTest.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\NwPatientVisitSummaryReport.rdlc" />
     <EmbeddedResource Include="View\NWViewEmployee.resx">
       <DependentUpon>NWViewEmployee.cs</DependentUpon>

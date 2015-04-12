@@ -62,7 +62,7 @@ namespace WindowsFormsApplication.View
 
         private void loadTestData()
         {
-            buttonDeleteTest.Enabled = false;
+            //buttonDeleteTest.Enabled = false;
             buttonUpdateTest.Enabled = false;
 
             List<Test> testList;
@@ -86,6 +86,40 @@ namespace WindowsFormsApplication.View
                 MessageBox.Show(@"There are no tests at this time!");
             }
 
+        }
+
+        private void buttonDeleteTest_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ListViewItem item = listViewTests.SelectedItems[0];
+                int testId = int.Parse(item.SubItems[0].Text); 
+                string testName = item.SubItems[1].Text;
+                DialogResult confirmDeleteReturn = MessageBox.Show(@"To avoid errors, please delete only tests that are not referenced." +
+                    Environment.NewLine + Environment.NewLine + " Are you sure you want to Delete: " + testName, @"Confirm Delete", MessageBoxButtons.YesNo);
+                if (confirmDeleteReturn == DialogResult.Yes)
+                {
+                    int deleteSuccess = _controller.DeleteTest(testId);
+                    if (deleteSuccess == 1)
+                    {
+                        MessageBox.Show(testName + @" was deleted from database!");
+                    }
+                    else
+                    {
+                        MessageBox.Show(testName + @" was not deleted from database!");
+                    }
+                    loadTestData();
+                }
+
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(@"There was a problem deleting the test. " 
+                    + Environment.NewLine + Environment.NewLine + "Please check if: " 
+                    + Environment.NewLine + "  - you highlighted in blue the test ID that you want to delete!"
+                    + Environment.NewLine + "  - the test that you want to delete is not referenced in another table "); 
+                    
+            }
         }
 
     }

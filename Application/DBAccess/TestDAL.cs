@@ -92,5 +92,27 @@ namespace WindowsFormsApplication.DBAccess
         }
 
 
+
+
+        public static int DeleteTest(int testId)
+        {
+
+            string deleteStatement =
+                " DELETE FROM tests " +
+                " where ( testID = @testID) ";
+
+            using (SqlConnection connection = NorthwindDbConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand deleteCommand = new SqlCommand(deleteStatement, connection))
+                {
+                    deleteCommand.Parameters.AddWithValue("@testID", testId);
+                    return deleteCommand.ExecuteNonQuery();
+                }
+
+            }
+        }
+
     }
 }

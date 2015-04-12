@@ -67,6 +67,7 @@
             this.buttonDeleteTest.TabIndex = 2;
             this.buttonDeleteTest.Text = "Delete Test";
             this.buttonDeleteTest.UseVisualStyleBackColor = true;
+            this.buttonDeleteTest.Click += new System.EventHandler(this.buttonDeleteTest_Click);
             // 
             // buttonUpdateTest
             // 

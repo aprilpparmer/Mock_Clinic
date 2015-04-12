@@ -134,6 +134,9 @@ namespace WindowsFormsApplication.Controller
            return TestDal.GetAllTests();
        }
 
-
+       public int DeleteTest(int testId)
+       {
+           return TestDal.DeleteTest(testId);
+       }
     }
 }

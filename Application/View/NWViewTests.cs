@@ -62,8 +62,6 @@ namespace WindowsFormsApplication.View
 
         private void loadTestData()
         {
-            //buttonDeleteTest.Enabled = false;
-            buttonUpdateTest.Enabled = false;
 
             List<Test> testList;
             listViewTests.Items.Clear();
@@ -120,6 +118,14 @@ namespace WindowsFormsApplication.View
                     + Environment.NewLine + "  - the test that you want to delete is not referenced in another table "); 
                     
             }
+        }
+
+        private void buttonUpdateTest_Click(object sender, EventArgs e)
+        {
+            NwUpdateTest NWUpdateTestForm = NwUpdateTest.GetChildInstance();
+            NWUpdateTestForm.MdiParent = MdiParent;
+            NWUpdateTestForm.Show();
+            NWUpdateTestForm.BringToFront();
         }
 
     }

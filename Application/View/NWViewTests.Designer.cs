@@ -77,6 +77,7 @@
             this.buttonUpdateTest.TabIndex = 3;
             this.buttonUpdateTest.Text = "Update Test";
             this.buttonUpdateTest.UseVisualStyleBackColor = true;
+            this.buttonUpdateTest.Click += new System.EventHandler(this.buttonUpdateTest_Click);
             // 
             // buttonCancel
             // 

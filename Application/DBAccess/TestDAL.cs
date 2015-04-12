@@ -91,9 +91,6 @@ namespace WindowsFormsApplication.DBAccess
             return testList;
         }
 
-
-
-
         public static int DeleteTest(int testId)
         {
 
@@ -111,6 +108,47 @@ namespace WindowsFormsApplication.DBAccess
                     return deleteCommand.ExecuteNonQuery();
                 }
 
+            }
+        }
+
+
+        /// <summary>
+        /// Updates a test
+        /// </summary>
+        /// <returns></returns>
+        public static bool updateTest(int oldTestId, String newTestName)
+        {
+            string updateStatement =
+                "UPDATE Tests SET " +
+                  "test_name = @newTestName " +
+                "WHERE testID = @oldTestID ";
+
+            try
+            {
+                using (SqlConnection connection = NorthwindDbConnection .GetConnection())
+                {
+                    connection.Open();
+
+                    using (SqlCommand updateCommand = new SqlCommand(updateStatement, connection))
+                    {
+                        updateCommand.Parameters.AddWithValue("@NewTestName", newTestName);
+                        updateCommand.Parameters.AddWithValue("@oldTestID", oldTestId);
+
+                        int count = updateCommand.ExecuteNonQuery();
+                        if (count > 0)
+                            return true;
+                        else
+                            return false;
+                    }
+                }
+            }
+            catch (SqlException sqlException)
+            {
+                throw sqlException;
+            }
+            catch (Exception exception)
+            {
+                throw exception;
             }
         }
 

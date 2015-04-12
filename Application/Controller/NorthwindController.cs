@@ -138,5 +138,10 @@ namespace WindowsFormsApplication.Controller
        {
            return TestDal.DeleteTest(testId);
        }
+
+       public bool UpdateTest(int oldTestId, String newTestName)
+       {
+           return TestDal.updateTest(oldTestId, newTestName);
+       }
     }
 }

@@ -47,6 +47,7 @@
             this.buttonCancel.TabIndex = 35;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // buttonUpdateTest
             // 
@@ -57,6 +58,7 @@
             this.buttonUpdateTest.TabIndex = 34;
             this.buttonUpdateTest.Text = "Update";
             this.buttonUpdateTest.UseVisualStyleBackColor = true;
+            this.buttonUpdateTest.Click += new System.EventHandler(this.buttonUpdateTest_Click);
             // 
             // label1
             // 
@@ -129,6 +131,7 @@
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "NwUpdateTest";
             this.Text = "Update Test";
+            this.Load += new System.EventHandler(this.NwUpdateTest_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

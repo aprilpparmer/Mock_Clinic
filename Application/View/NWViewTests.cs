@@ -16,6 +16,8 @@ namespace WindowsFormsApplication.View
     {
         
         NorthwindController _controller;
+        int testId;
+        string testName;
         
         public NWViewTests()
         {
@@ -91,8 +93,8 @@ namespace WindowsFormsApplication.View
             try
             {
                 ListViewItem item = listViewTests.SelectedItems[0];
-                int testId = int.Parse(item.SubItems[0].Text); 
-                string testName = item.SubItems[1].Text;
+                testId = int.Parse(item.SubItems[0].Text); 
+                testName = item.SubItems[1].Text;
                 DialogResult confirmDeleteReturn = MessageBox.Show(@"To avoid errors, please delete only tests that are not referenced." +
                     Environment.NewLine + Environment.NewLine + " Are you sure you want to Delete: " + testName, @"Confirm Delete", MessageBoxButtons.YesNo);
                 if (confirmDeleteReturn == DialogResult.Yes)
@@ -122,10 +124,21 @@ namespace WindowsFormsApplication.View
 
         private void buttonUpdateTest_Click(object sender, EventArgs e)
         {
-            NwUpdateTest NWUpdateTestForm = NwUpdateTest.GetChildInstance();
-            NWUpdateTestForm.MdiParent = MdiParent;
-            NWUpdateTestForm.Show();
-            NWUpdateTestForm.BringToFront();
+            try
+            {
+                ListViewItem item = listViewTests.SelectedItems[0];
+                testId = int.Parse(item.SubItems[0].Text);
+                testName = item.SubItems[1].Text;
+                NwUpdateTest NWUpdateTestForm = NwUpdateTest.GetChildInstance(testId, testName);
+                NWUpdateTestForm.MdiParent = MdiParent;
+                NWUpdateTestForm.Show();
+                NWUpdateTestForm.BringToFront();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("There was a problem with this update." + Environment.NewLine 
+                    + Environment.NewLine + " Please make sure the test you want to update is highlited in blue!");
+            }
         }
 
     }

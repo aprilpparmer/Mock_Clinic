@@ -29,45 +29,33 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.patientVisitSummaryReport = new WindowsFormsApplication.PatientVisitSummaryReport();
-            this.patientvisitBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.patient_visitTableAdapter = new WindowsFormsApplication.PatientVisitSummaryReportTableAdapters.patient_visitTableAdapter();
             this.label1 = new System.Windows.Forms.Label();
             this.date1 = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.date2 = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.patientVisitSummaryReport)).BeginInit();
+            this.patientvisitBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.patientVisitSummaryReport = new WindowsFormsApplication.PatientVisitSummaryReport();
+            this.patient_visitTableAdapter = new WindowsFormsApplication.PatientVisitSummaryReportTableAdapters.patient_visitTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.patientvisitBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patientVisitSummaryReport)).BeginInit();
             this.SuspendLayout();
             // 
             // reportViewer1
             // 
-            this.reportViewer1.AutoSize = true;
-            reportDataSource2.Name = "VisitDataSet";
-            reportDataSource2.Value = this.patientvisitBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
+            this.reportViewer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            reportDataSource1.Name = "VisitDataSet";
+            reportDataSource1.Value = this.patientvisitBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "WindowsFormsApplication.View.NwPatientVisitSummaryReport.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(0, 36);
+            this.reportViewer1.Location = new System.Drawing.Point(0, 33);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(832, 340);
+            this.reportViewer1.Size = new System.Drawing.Size(832, 343);
             this.reportViewer1.TabIndex = 0;
-            // 
-            // patientVisitSummaryReport
-            // 
-            this.patientVisitSummaryReport.DataSetName = "PatientVisitSummaryReport";
-            this.patientVisitSummaryReport.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // patientvisitBindingSource
-            // 
-            this.patientvisitBindingSource.DataMember = "patient_visit";
-            this.patientvisitBindingSource.DataSource = this.patientVisitSummaryReport;
-            // 
-            // patient_visitTableAdapter
-            // 
-            this.patient_visitTableAdapter.ClearBeforeFill = true;
             // 
             // label1
             // 
@@ -111,6 +99,20 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // patientvisitBindingSource
+            // 
+            this.patientvisitBindingSource.DataMember = "patient_visit";
+            this.patientvisitBindingSource.DataSource = this.patientVisitSummaryReport;
+            // 
+            // patientVisitSummaryReport
+            // 
+            this.patientVisitSummaryReport.DataSetName = "PatientVisitSummaryReport";
+            this.patientVisitSummaryReport.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // patient_visitTableAdapter
+            // 
+            this.patient_visitTableAdapter.ClearBeforeFill = true;
+            // 
             // NwPatientVisitSummaryReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -123,10 +125,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.reportViewer1);
             this.Name = "NwPatientVisitSummaryReport";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Summary";
-            this.Load += new System.EventHandler(this.PatientVisitSummaryReport_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.patientVisitSummaryReport)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientvisitBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patientVisitSummaryReport)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

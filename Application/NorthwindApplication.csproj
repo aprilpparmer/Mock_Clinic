@@ -106,6 +106,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PatientVisitInfoDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="PatientVisitSummaryReport.cs">
+      <DependentUpon>PatientVisitSummaryReport.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="PatientVisitSummaryReport.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

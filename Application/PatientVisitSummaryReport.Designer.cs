@@ -1443,6 +1443,8 @@ namespace WindowsFormsApplication {
             
             private global::System.Data.DataColumn columndiagnoses_treatment;
             
+            private global::System.Data.DataColumn columnpatientID;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public patient_visitDataTable() {
@@ -1646,6 +1648,14 @@ namespace WindowsFormsApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn patientIDColumn {
+                get {
+                    return this.columnpatientID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1701,7 +1711,8 @@ namespace WindowsFormsApplication {
                         int weight, 
                         string symptom_name, 
                         string diagnoses_name, 
-                        string diagnoses_treatment) {
+                        string diagnoses_treatment, 
+                        int patientID) {
                 patient_visitRow rowpatient_visitRow = ((patient_visitRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1724,7 +1735,8 @@ namespace WindowsFormsApplication {
                         weight,
                         symptom_name,
                         diagnoses_name,
-                        diagnoses_treatment};
+                        diagnoses_treatment,
+                        patientID};
                 rowpatient_visitRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowpatient_visitRow);
                 return rowpatient_visitRow;
@@ -1775,6 +1787,7 @@ namespace WindowsFormsApplication {
                 this.columnsymptom_name = base.Columns["symptom_name"];
                 this.columndiagnoses_name = base.Columns["diagnoses_name"];
                 this.columndiagnoses_treatment = base.Columns["diagnoses_treatment"];
+                this.columnpatientID = base.Columns["patientID"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1822,6 +1835,8 @@ namespace WindowsFormsApplication {
                 base.Columns.Add(this.columndiagnoses_name);
                 this.columndiagnoses_treatment = new global::System.Data.DataColumn("diagnoses_treatment", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndiagnoses_treatment);
+                this.columnpatientID = new global::System.Data.DataColumn("patientID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpatientID);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnvisitID}, true));
                 this.columnvisitID.AutoIncrement = true;
@@ -1865,6 +1880,7 @@ namespace WindowsFormsApplication {
                 this.columndiagnoses_name.MaxLength = 200;
                 this.columndiagnoses_treatment.AllowDBNull = false;
                 this.columndiagnoses_treatment.MaxLength = 2147483647;
+                this.columnpatientID.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3497,6 +3513,17 @@ namespace WindowsFormsApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int patientID {
+                get {
+                    return ((int)(this[this.tablepatient_visit.patientIDColumn]));
+                }
+                set {
+                    this[this.tablepatient_visit.patientIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsdoctorNameNull() {
                 return this.IsNull(this.tablepatient_visit.doctorNameColumn);
             }
@@ -5056,6 +5083,7 @@ SELECT diagnosesID, diagnoses_name, diagnoses_treatment FROM diagnoses WHERE (di
             tableMapping.ColumnMappings.Add("symptom_name", "symptom_name");
             tableMapping.ColumnMappings.Add("diagnoses_name", "diagnoses_name");
             tableMapping.ColumnMappings.Add("diagnoses_treatment", "diagnoses_treatment");
+            tableMapping.ColumnMappings.Add("patientID", "patientID");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -5072,7 +5100,7 @@ SELECT diagnosesID, diagnoses_name, diagnoses_treatment FROM diagnoses WHERE (di
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT v.visitID, v.visit_date, (SELECT e.last_name FROM employees e JOIN patient_visit pv ON pv.doctorID = e.employeeID WHERE pv.visitID = v.visitID) AS doctorName,
+            this._commandCollection[0].CommandText = @"SELECT v.visitID, v.visit_date, (SELECT e.last_name FROM employees e JOIN patient_visit pv ON pv.doctorID = e.employeeID WHERE pv.visitID = v.visitID) AS doctorName, v.patientID,
 	(SELECT e.last_name FROM employees e JOIN patient_visit pv ON pv.nurseID = e.employeeID WHERE pv.visitID = v.visitID) AS nurseName, p.last_name, p.first_name,
 	p.dob, p.gender, p.address, p.city, p.state, p.zip, p.home_phone, vi.blood_pressure, vi.pulse, vi.temp, vi.height, vi.weight, s.symptom_name, d.diagnoses_name, d.diagnoses_treatment	
 FROM patient_visit v

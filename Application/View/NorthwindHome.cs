@@ -8,7 +8,6 @@ namespace WindowsFormsApplication.View
     public partial class NorthwindAdmin : Form
     {
         NwLogin _loginScreen;
-        NWNewVisit newVisitForm;
         NwPatientSearch newPatientSearchForm;
 
         public NorthwindAdmin()
@@ -96,16 +95,6 @@ namespace WindowsFormsApplication.View
             NwNewPatientViewForm.MdiParent = this;
             NwNewPatientViewForm.Show();
             NwNewPatientViewForm.BringToFront();
-        }
-
-        /// <summary>
-        /// Sets the New Visit Form to closed
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void newVisitForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            newVisitForm = null;
         }
 
         /// <summary>

@@ -119,10 +119,10 @@ SELECT employeeID, last_name FROM employees WHERE (employeeID = @employeeID)</Co
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="patient_visitTableAdapter" GeneratorDataComponentClassName="patient_visitTableAdapter" Name="patient_visit" UserDataComponentName="patient_visitTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="CS6232_g7ConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="CS6232_g7ConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT v.visitID, v.visit_date, (SELECT e.last_name FROM employees e JOIN patient_visit pv ON pv.doctorID = e.employeeID WHERE pv.visitID = v.visitID) AS doctorName,
+                    <CommandText>SELECT v.visitID, v.visit_date, (SELECT e.last_name FROM employees e JOIN patient_visit pv ON pv.doctorID = e.employeeID WHERE pv.visitID = v.visitID) AS doctorName, v.patientID,
 	(SELECT e.last_name FROM employees e JOIN patient_visit pv ON pv.nurseID = e.employeeID WHERE pv.visitID = v.visitID) AS nurseName, p.last_name, p.first_name,
 	p.dob, p.gender, p.address, p.city, p.state, p.zip, p.home_phone, vi.blood_pressure, vi.pulse, vi.temp, vi.height, vi.weight, s.symptom_name, d.diagnoses_name, d.diagnoses_treatment	
 FROM patient_visit v
@@ -161,6 +161,7 @@ WHERE v.visit_date between @date1 AND DATEADD(s,-1,DATEADD(d,1,@date2))	</Comman
               <Mapping SourceColumn="symptom_name" DataSetColumn="symptom_name" />
               <Mapping SourceColumn="diagnoses_name" DataSetColumn="diagnoses_name" />
               <Mapping SourceColumn="diagnoses_treatment" DataSetColumn="diagnoses_treatment" />
+              <Mapping SourceColumn="patientID" DataSetColumn="patientID" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -520,6 +521,7 @@ SELECT testID, test_name FROM tests WHERE (testID = @testID)</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="patientID" msprop:Generator_ColumnVarNameInTable="columnpatientID" msprop:Generator_ColumnPropNameInRow="patientID" msprop:Generator_ColumnPropNameInTable="patientIDColumn" msprop:Generator_UserColumnName="patientID" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

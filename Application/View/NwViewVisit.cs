@@ -52,5 +52,21 @@ namespace WindowsFormsApplication.View
             
             
         }
+
+        private void patient_testsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 7) //Update patient test button is clicked
+            {
+                //Get the ID of the selected visit
+                int i = e.RowIndex;
+                DataGridViewRow row = patient_testsDataGridView.Rows[i];
+                DataGridViewCell cell = row.Cells[0];
+                int patientTestID = (int)cell.Value;
+
+                //Display the visit info form
+                NwUpdatePatientTest testForm = new NwUpdatePatientTest(this.visitID, patientTestID);
+                testForm.ShowDialog();
+            }
+        }
     }
 }

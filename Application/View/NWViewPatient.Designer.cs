@@ -595,7 +595,7 @@
             this.visitInfoButton.Name = "visitInfoButton";
             this.visitInfoButton.ReadOnly = true;
             this.visitInfoButton.Text = "View";
-            this.visitInfoButton.ToolTipText = "Show the Vist";
+            this.visitInfoButton.ToolTipText = "Show the Visit";
             this.visitInfoButton.UseColumnTextForButtonValue = true;
             this.visitInfoButton.Width = 75;
             // 

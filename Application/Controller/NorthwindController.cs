@@ -153,5 +153,10 @@ namespace WindowsFormsApplication.Controller
        {
            PatientTestsDal.OrderTest(patientTest);
        }
+
+       public static bool UpdatePatientTest(PatientTests patientTest)
+       {
+           return PatientTestsDal.UpdatePatientTest(patientTest);
+       }
     }
 }

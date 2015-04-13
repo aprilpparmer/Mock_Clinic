@@ -12,8 +12,8 @@ namespace WindowsFormsApplication.Model
         public int VisitId { get; set; }
         public int TestId { get; set; }
         public DateTime TestOrdered{ get; set; }
-        public DateTime TestTaken { get; set; }
-        public DateTime TestCompleted { get; set; }
+        public DateTime? TestTaken { get; set; }
+        public DateTime? TestCompleted { get; set; }
         public string Results { get; set; }
     }
 }

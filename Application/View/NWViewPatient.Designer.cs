@@ -535,7 +535,7 @@
             this.patient_visitDataGridView.Location = new System.Drawing.Point(36, 186);
             this.patient_visitDataGridView.Name = "patient_visitDataGridView";
             this.patient_visitDataGridView.ReadOnly = true;
-            this.patient_visitDataGridView.Size = new System.Drawing.Size(571, 220);
+            this.patient_visitDataGridView.Size = new System.Drawing.Size(671, 220);
             this.patient_visitDataGridView.TabIndex = 65;
             this.patient_visitDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.patient_visitDataGridView_CellContentClick);
             // 
@@ -559,6 +559,7 @@
             this.dataGridViewTextBoxColumn1.HeaderText = "Visit ID";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -566,6 +567,8 @@
             this.dataGridViewTextBoxColumn2.HeaderText = "Visit Date";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTextBoxColumn2.Width = 150;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -573,6 +576,8 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "Doctor";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTextBoxColumn3.Width = 150;
             // 
             // dataGridViewTextBoxColumn4
             // 
@@ -580,14 +585,19 @@
             this.dataGridViewTextBoxColumn4.HeaderText = "Nurse";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTextBoxColumn4.Width = 150;
             // 
             // visitInfoButton
             // 
-            this.visitInfoButton.HeaderText = "Visit Info";
+            this.visitInfoButton.FillWeight = 75F;
+            this.visitInfoButton.HeaderText = "View Visit";
             this.visitInfoButton.Name = "visitInfoButton";
             this.visitInfoButton.ReadOnly = true;
-            this.visitInfoButton.Text = "Show";
-            this.visitInfoButton.Width = 200;
+            this.visitInfoButton.Text = "View";
+            this.visitInfoButton.ToolTipText = "Show the Vist";
+            this.visitInfoButton.UseColumnTextForButtonValue = true;
+            this.visitInfoButton.Width = 75;
             // 
             // NWViewPatient
             // 

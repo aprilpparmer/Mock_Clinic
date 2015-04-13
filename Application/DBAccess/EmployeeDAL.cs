@@ -79,6 +79,49 @@ namespace WindowsFormsApplication.DBAccess
         }
 
         /// <summary>
+        /// Verifies that the requested login is not in use.
+        /// </summary>
+        /// <returns> true if unique, false if in use.</returns>
+        public static Boolean VerifyUniqueLogin(string login)
+        {
+            const string selectStatement = "Select employeeID from employees WHERE (login= @Login)";
+
+            try
+            {
+                using (SqlConnection connection = NorthwindDbConnection.GetConnection())
+                {
+                    connection.Open();
+                    
+                    using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                    {
+                        selectCommand.Parameters.AddWithValue("@login", login);
+                        using (SqlDataReader reader = selectCommand.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                return false;
+                            }
+                        }
+
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return true;
+        }
+
+
+
+
+        /// <summary>
         /// Gets all employees
         /// </summary>
         /// <returns> a list of all employees</returns>
@@ -144,10 +187,19 @@ namespace WindowsFormsApplication.DBAccess
         /// <param name="employee"></param>
         public static void AddEmployee(Employee employee)
         {
-
-            const string insertStatement = "INSERT into employees " +
-                                           " (address, city, dob, first_name, gender, last_name, middle_initial, positionID, phone, ssn, state, zip) " +
-                                           " values(@address, @city, @dob, @first_name, @gender, @last_name, @middle_initial, @positionID, @phone, @ssn, @state, @zip)";
+            string insertStatement;
+            if ((employee.Login != "") || (employee.Login != null))
+            {
+                insertStatement = "INSERT into employees " +
+                                  " (address, city, dob, first_name, gender, last_name, middle_initial, positionID, phone, ssn, state, zip, login, password, enabled) " +
+                                  " values(@address, @city, @dob, @first_name, @gender, @last_name, @middle_initial, @positionID, @phone, @ssn, @state, @zip, @login, @password, 1)";
+            }
+            else
+            {
+                insertStatement = "INSERT into employees " +
+                                  " (address, city, dob, first_name, gender, last_name, middle_initial, positionID, phone, ssn, state, zip) " +
+                                  " values(@address, @city, @dob, @first_name, @gender, @last_name, @middle_initial, @positionID, @phone, @ssn, @state, @zip)";
+            }
 
             try
             {
@@ -170,6 +222,12 @@ namespace WindowsFormsApplication.DBAccess
                         insertCommand.Parameters.AddWithValue("@ssn", employee.Ssn);
                         insertCommand.Parameters.AddWithValue("@state", employee.State);
                         insertCommand.Parameters.AddWithValue("@zip", employee.Zip);
+                        if ((employee.Login != "") || (employee.Login != null))
+                        {
+                            insertCommand.Parameters.AddWithValue("@login", employee.Login);
+                            insertCommand.Parameters.AddWithValue("@password", employee.Password);
+                        }
+
                         insertCommand.ExecuteNonQuery();
                     }
 

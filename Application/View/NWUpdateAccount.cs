@@ -22,9 +22,15 @@ namespace WindowsFormsApplication.View
             try
             {
                 this.employeeId = theEmployeeID;
-                employee = _controller.GetEmployeeByID(theEmployeeID);
-                int positionID = employee.PositionId;
+                if (employeeId != 0)
+                {
+                    employee = _controller.GetEmployeeByID(theEmployeeID);
+                    int positionID = employee.PositionId;
+                    UpdateButton.Enabled = true;
+                }
+
                 UpdateButton.Enabled = false;
+                
             }
             catch (Exception exception)
             {
@@ -36,7 +42,10 @@ namespace WindowsFormsApplication.View
         private void NWUpdateAccount_Load(object sender, EventArgs e)
         {                                
             this.positionsTableAdapter.Fill(this._CS6232_g7DataSet.positions);
-            loadEmployeeData();           
+            if (employeeId != 0)
+            {
+                loadEmployeeData();
+            }
         }
      
         private void activatedFom(object sender, EventArgs e)
@@ -46,18 +55,18 @@ namespace WindowsFormsApplication.View
         }
                   
 
-        private void button1_Click(object sender, System.EventArgs e)
+        private void AddNewEmployee_Click(object sender, System.EventArgs e)
         {
-                     
+
             if ((femaleRadioButton.Checked == false) & (maleRadioButton.Checked == false))
             {
                 MessageBox.Show
-        (
-                            @"Please select gender.");
+                    (
+                        @"Please select gender.");
             }
             else
             {
-                
+
                 if ((femaleRadioButton.Checked == true))
                 {
                     gender = "F";
@@ -66,27 +75,54 @@ namespace WindowsFormsApplication.View
                 {
                     gender = "M";
                 }
+                // This is going to check if anything needs to be fixed
+                Boolean loginInfoSet = false;
 
+                if ((loginTextBox.Text.Trim().Length > 0) & (passwordTextBox.Text.Trim().Length > 0))
+                {
+                    Boolean UniqueLogin = _controller.VerifyUniqueLogin(loginTextBox.Text);
+                    if (UniqueLogin)
+                    {
+                        loginInfoSet = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show(@"That Login is already in use.");
+                    }
+                }
+
+                else if (loginTextBox.Text.Length == 0)
+                {
+                    loginInfoSet = true;
+                }
+
+                if ( loginInfoSet){
                 if ((int.TryParse(ssnTextBox.Text, out ssn)) & (ssnTextBox.Text.Length == 9))
                 {
                     if ((int.TryParse(zipTextBox.Text, out zip)) & (zipTextBox.Text.Length == 5))
                     {
-                        if (PhoneTextBox.Text.Length >= 10)
+                        int phone;
+                        if ((int.TryParse(PhoneTextBox.Text.Trim(), out phone)) & (PhoneTextBox.Text.Trim().Length >= 10))
                         {
 
                             if ((firstNameTextBox.Text != "") & (lastNameTextBox.Text != "") & (ssn != 0) & (zip != 0) &
-                                (PhoneTextBox.Text != "") &
                                 (addressTextBox.Text != "") & (cityTextBox.Text != "") & (StateComboBox.Text != ""))
                             {
                                 //Check Details
                                 employee.FirstName = firstNameTextBox.Text;
                                 employee.MiddleInitial = middleInitialTextBox.Text;
                                 employee.LastName = lastNameTextBox.Text;
+                                if (loginTextBox.Text != "")
+                                {
+                                    employee.Login = loginTextBox.Text;
+                                    SimpleAES encrypt = new SimpleAES();
+                                    employee.Password = encrypt.EncryptToString(passwordTextBox.Text);
+                                }
                                 employee.Gender = gender;
                                 employee.Ssn = ssn;
                                 employee.Zip = zip;
                                 employee.PositionId = JobBox.SelectedIndex + 1;
-                                employee.Phone = PhoneTextBox.Text;
+                                employee.Phone = phone.ToString();
                                 employee.Dob = dateTimePicker.Value.Date;
                                 employee.Address = addressTextBox.Text;
                                 employee.City = cityTextBox.Text;
@@ -107,15 +143,14 @@ namespace WindowsFormsApplication.View
                             }
                             else
                             {
-                                MessageBox.Show(
-                                    @"Phone number needs to be numbers only, remove any non digit characters like -'s or ()'s.");
+                                MessageBox.Show( @"Please check all the required fields and make sure you entered the proper information.");
                             }
 
                         }
                         else
                         {
                             MessageBox.Show(
-                                @"Please check all the required fields and make sure you entered the proper information.");
+                               @"Phone number needs to be numbers only, remove any non digit characters like -'s or ()'s and is at least 10 numbers.");
                         }
                     }
                     else
@@ -129,7 +164,11 @@ namespace WindowsFormsApplication.View
                     MessageBox.Show(
                         @"Please enter Social as a number with no dashes, or you may not have entered the right amount of numbers. Please check.");
                 }
+            } else
+            {
+                    MessageBox.Show(@"You need to have a password when setting a login.");
             }
+        }
         }
          
 

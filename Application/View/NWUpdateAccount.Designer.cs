@@ -64,6 +64,10 @@
             this.UpdateButton = new System.Windows.Forms.Button();
             this.StateComboBox = new System.Windows.Forms.ComboBox();
             this.positionsTableAdapter = new WindowsFormsApplication._CS6232_g7DataSetTableAdapters.positionsTableAdapter();
+            this.passwordTextBox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.loginTextBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.positionsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._CS6232_g7DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.positionsBindingSource1)).BeginInit();
@@ -73,10 +77,11 @@
             // CancelButton
             // 
             this.CancelButton.AutoSize = true;
-            this.CancelButton.Location = new System.Drawing.Point(418, 326);
+            this.CancelButton.Location = new System.Drawing.Point(311, 313);
+            this.CancelButton.Margin = new System.Windows.Forms.Padding(2);
             this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(75, 27);
-            this.CancelButton.TabIndex = 41;
+            this.CancelButton.Size = new System.Drawing.Size(56, 23);
+            this.CancelButton.TabIndex = 18;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
@@ -84,22 +89,22 @@
             // AddNewButton
             // 
             this.AddNewButton.AutoSize = true;
-            this.AddNewButton.Location = new System.Drawing.Point(256, 326);
+            this.AddNewButton.Location = new System.Drawing.Point(189, 313);
+            this.AddNewButton.Margin = new System.Windows.Forms.Padding(2);
             this.AddNewButton.Name = "AddNewButton";
-            this.AddNewButton.Size = new System.Drawing.Size(140, 27);
-            this.AddNewButton.TabIndex = 40;
+            this.AddNewButton.Size = new System.Drawing.Size(110, 23);
+            this.AddNewButton.TabIndex = 17;
             this.AddNewButton.Text = "Add New Employee";
             this.AddNewButton.UseVisualStyleBackColor = true;
-            this.AddNewButton.Click += new System.EventHandler(this.button1_Click);
+            this.AddNewButton.Click += new System.EventHandler(this.AddNewEmployee_Click);
             // 
             // femaleRadioButton
             // 
             this.femaleRadioButton.AutoSize = true;
-            this.femaleRadioButton.Location = new System.Drawing.Point(521, 112);
-            this.femaleRadioButton.Margin = new System.Windows.Forms.Padding(4);
+            this.femaleRadioButton.Location = new System.Drawing.Point(391, 91);
             this.femaleRadioButton.Name = "femaleRadioButton";
-            this.femaleRadioButton.Size = new System.Drawing.Size(75, 21);
-            this.femaleRadioButton.TabIndex = 61;
+            this.femaleRadioButton.Size = new System.Drawing.Size(59, 17);
+            this.femaleRadioButton.TabIndex = 7;
             this.femaleRadioButton.TabStop = true;
             this.femaleRadioButton.Text = "Female";
             this.femaleRadioButton.UseVisualStyleBackColor = true;
@@ -108,11 +113,10 @@
             // maleRadioButton
             // 
             this.maleRadioButton.AutoSize = true;
-            this.maleRadioButton.Location = new System.Drawing.Point(445, 112);
-            this.maleRadioButton.Margin = new System.Windows.Forms.Padding(4);
+            this.maleRadioButton.Location = new System.Drawing.Point(334, 91);
             this.maleRadioButton.Name = "maleRadioButton";
-            this.maleRadioButton.Size = new System.Drawing.Size(59, 21);
-            this.maleRadioButton.TabIndex = 60;
+            this.maleRadioButton.Size = new System.Drawing.Size(48, 17);
+            this.maleRadioButton.TabIndex = 6;
             this.maleRadioButton.TabStop = true;
             this.maleRadioButton.Text = "Male";
             this.maleRadioButton.UseVisualStyleBackColor = true;
@@ -121,9 +125,10 @@
             // genderLabel
             // 
             this.genderLabel.AutoSize = true;
-            this.genderLabel.Location = new System.Drawing.Point(368, 111);
+            this.genderLabel.Location = new System.Drawing.Point(254, 90);
+            this.genderLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.genderLabel.Name = "genderLabel";
-            this.genderLabel.Size = new System.Drawing.Size(56, 17);
+            this.genderLabel.Size = new System.Drawing.Size(42, 13);
             this.genderLabel.TabIndex = 74;
             this.genderLabel.Text = "Gender";
             // 
@@ -131,196 +136,205 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(339, 40);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(254, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 15);
+            this.label1.Size = new System.Drawing.Size(50, 13);
             this.label1.TabIndex = 71;
             this.label1.Text = "(optional)";
             // 
             // zipTextBox
             // 
-            this.zipTextBox.Location = new System.Drawing.Point(445, 254);
-            this.zipTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.zipTextBox.Location = new System.Drawing.Point(334, 206);
+            this.zipTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.zipTextBox.MaxLength = 5;
             this.zipTextBox.Multiline = true;
             this.zipTextBox.Name = "zipTextBox";
-            this.zipTextBox.Size = new System.Drawing.Size(139, 29);
-            this.zipTextBox.TabIndex = 67;
+            this.zipTextBox.Size = new System.Drawing.Size(105, 24);
+            this.zipTextBox.TabIndex = 13;
             // 
             // zipLabel
             // 
             this.zipLabel.AutoSize = true;
-            this.zipLabel.Location = new System.Drawing.Point(382, 254);
+            this.zipLabel.Location = new System.Drawing.Point(254, 206);
+            this.zipLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.zipLabel.Name = "zipLabel";
-            this.zipLabel.Size = new System.Drawing.Size(28, 17);
+            this.zipLabel.Size = new System.Drawing.Size(22, 13);
             this.zipLabel.TabIndex = 70;
             this.zipLabel.Text = "Zip";
             // 
             // stateLabel
             // 
             this.stateLabel.AutoSize = true;
-            this.stateLabel.Location = new System.Drawing.Point(-62, 372);
+            this.stateLabel.Location = new System.Drawing.Point(-46, 302);
+            this.stateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.stateLabel.Name = "stateLabel";
-            this.stateLabel.Size = new System.Drawing.Size(41, 17);
+            this.stateLabel.Size = new System.Drawing.Size(32, 13);
             this.stateLabel.TabIndex = 69;
             this.stateLabel.Text = "State";
             // 
             // cityTextBox
             // 
-            this.cityTextBox.Location = new System.Drawing.Point(445, 207);
-            this.cityTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cityTextBox.Location = new System.Drawing.Point(334, 168);
+            this.cityTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.cityTextBox.MaxLength = 50;
             this.cityTextBox.Multiline = true;
             this.cityTextBox.Name = "cityTextBox";
-            this.cityTextBox.Size = new System.Drawing.Size(139, 29);
-            this.cityTextBox.TabIndex = 65;
+            this.cityTextBox.Size = new System.Drawing.Size(105, 24);
+            this.cityTextBox.TabIndex = 11;
             // 
             // cityLabel
             // 
             this.cityLabel.AutoSize = true;
-            this.cityLabel.Location = new System.Drawing.Point(382, 210);
+            this.cityLabel.Location = new System.Drawing.Point(254, 168);
+            this.cityLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.cityLabel.Name = "cityLabel";
-            this.cityLabel.Size = new System.Drawing.Size(31, 17);
+            this.cityLabel.Size = new System.Drawing.Size(24, 13);
             this.cityLabel.TabIndex = 68;
             this.cityLabel.Text = "City";
             // 
             // dateTimePicker
             // 
             this.dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker.Location = new System.Drawing.Point(109, 156);
-            this.dateTimePicker.Margin = new System.Windows.Forms.Padding(4);
+            this.dateTimePicker.Location = new System.Drawing.Point(82, 127);
             this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(128, 22);
-            this.dateTimePicker.TabIndex = 59;
+            this.dateTimePicker.Size = new System.Drawing.Size(97, 20);
+            this.dateTimePicker.TabIndex = 8;
             this.dateTimePicker.Value = new System.DateTime(2015, 3, 24, 18, 35, 27, 0);
             // 
             // addressTextBox
             // 
-            this.addressTextBox.Location = new System.Drawing.Point(107, 207);
-            this.addressTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.addressTextBox.Location = new System.Drawing.Point(80, 168);
+            this.addressTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.addressTextBox.MaxLength = 200;
             this.addressTextBox.Multiline = true;
             this.addressTextBox.Name = "addressTextBox";
-            this.addressTextBox.Size = new System.Drawing.Size(215, 29);
-            this.addressTextBox.TabIndex = 62;
+            this.addressTextBox.Size = new System.Drawing.Size(162, 24);
+            this.addressTextBox.TabIndex = 10;
             // 
             // PhoneTextBox
             // 
-            this.PhoneTextBox.Location = new System.Drawing.Point(107, 111);
-            this.PhoneTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.PhoneTextBox.Location = new System.Drawing.Point(80, 90);
+            this.PhoneTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.PhoneTextBox.MaxLength = 15;
             this.PhoneTextBox.Name = "PhoneTextBox";
-            this.PhoneTextBox.Size = new System.Drawing.Size(215, 22);
-            this.PhoneTextBox.TabIndex = 56;
+            this.PhoneTextBox.Size = new System.Drawing.Size(162, 20);
+            this.PhoneTextBox.TabIndex = 5;
             // 
             // addressLabel
             // 
             this.addressLabel.AutoSize = true;
-            this.addressLabel.Location = new System.Drawing.Point(27, 211);
+            this.addressLabel.Location = new System.Drawing.Point(8, 168);
+            this.addressLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.addressLabel.Name = "addressLabel";
-            this.addressLabel.Size = new System.Drawing.Size(60, 17);
+            this.addressLabel.Size = new System.Drawing.Size(45, 13);
             this.addressLabel.TabIndex = 64;
             this.addressLabel.Text = "Address";
             // 
             // phoneLabel
             // 
             this.phoneLabel.AutoSize = true;
-            this.phoneLabel.Location = new System.Drawing.Point(11, 111);
+            this.phoneLabel.Location = new System.Drawing.Point(8, 90);
+            this.phoneLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.phoneLabel.Name = "phoneLabel";
-            this.phoneLabel.Size = new System.Drawing.Size(90, 17);
+            this.phoneLabel.Size = new System.Drawing.Size(69, 13);
             this.phoneLabel.TabIndex = 63;
             this.phoneLabel.Text = "Home Phone";
             // 
             // lastNameTextBox
             // 
-            this.lastNameTextBox.Location = new System.Drawing.Point(107, 68);
-            this.lastNameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lastNameTextBox.Location = new System.Drawing.Point(80, 55);
+            this.lastNameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.lastNameTextBox.MaxLength = 50;
             this.lastNameTextBox.Name = "lastNameTextBox";
-            this.lastNameTextBox.Size = new System.Drawing.Size(215, 22);
-            this.lastNameTextBox.TabIndex = 52;
+            this.lastNameTextBox.Size = new System.Drawing.Size(162, 20);
+            this.lastNameTextBox.TabIndex = 3;
             // 
             // ssnTextBox
             // 
-            this.ssnTextBox.Location = new System.Drawing.Point(445, 68);
-            this.ssnTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ssnTextBox.Location = new System.Drawing.Point(334, 55);
+            this.ssnTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.ssnTextBox.MaxLength = 9;
             this.ssnTextBox.Name = "ssnTextBox";
-            this.ssnTextBox.Size = new System.Drawing.Size(139, 22);
-            this.ssnTextBox.TabIndex = 54;
+            this.ssnTextBox.Size = new System.Drawing.Size(105, 20);
+            this.ssnTextBox.TabIndex = 4;
             // 
             // middleNameLabel
             // 
             this.middleNameLabel.AutoSize = true;
-            this.middleNameLabel.Location = new System.Drawing.Point(339, 23);
+            this.middleNameLabel.Location = new System.Drawing.Point(254, 19);
+            this.middleNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.middleNameLabel.Name = "middleNameLabel";
-            this.middleNameLabel.Size = new System.Drawing.Size(85, 17);
+            this.middleNameLabel.Size = new System.Drawing.Size(65, 13);
             this.middleNameLabel.TabIndex = 58;
             this.middleNameLabel.Text = "Middle Initial";
             // 
             // lastNameLabel
             // 
             this.lastNameLabel.AutoSize = true;
-            this.lastNameLabel.Location = new System.Drawing.Point(11, 68);
+            this.lastNameLabel.Location = new System.Drawing.Point(8, 55);
+            this.lastNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lastNameLabel.Name = "lastNameLabel";
-            this.lastNameLabel.Size = new System.Drawing.Size(76, 17);
+            this.lastNameLabel.Size = new System.Drawing.Size(58, 13);
             this.lastNameLabel.TabIndex = 55;
             this.lastNameLabel.Text = "Last Name";
             // 
             // ssnLabel
             // 
             this.ssnLabel.AutoSize = true;
-            this.ssnLabel.Location = new System.Drawing.Point(382, 68);
+            this.ssnLabel.Location = new System.Drawing.Point(254, 55);
+            this.ssnLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ssnLabel.Name = "ssnLabel";
-            this.ssnLabel.Size = new System.Drawing.Size(36, 17);
+            this.ssnLabel.Size = new System.Drawing.Size(29, 13);
             this.ssnLabel.TabIndex = 53;
             this.ssnLabel.Text = "SSN";
             // 
             // middleInitialTextBox
             // 
-            this.middleInitialTextBox.Location = new System.Drawing.Point(445, 24);
-            this.middleInitialTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.middleInitialTextBox.Location = new System.Drawing.Point(334, 20);
+            this.middleInitialTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.middleInitialTextBox.MaxLength = 1;
             this.middleInitialTextBox.Name = "middleInitialTextBox";
-            this.middleInitialTextBox.Size = new System.Drawing.Size(31, 22);
-            this.middleInitialTextBox.TabIndex = 51;
+            this.middleInitialTextBox.Size = new System.Drawing.Size(24, 20);
+            this.middleInitialTextBox.TabIndex = 2;
             // 
             // firstNameTextBox
             // 
-            this.firstNameTextBox.Location = new System.Drawing.Point(107, 24);
-            this.firstNameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.firstNameTextBox.Location = new System.Drawing.Point(80, 20);
+            this.firstNameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.firstNameTextBox.MaxLength = 50;
             this.firstNameTextBox.Name = "firstNameTextBox";
-            this.firstNameTextBox.Size = new System.Drawing.Size(215, 22);
-            this.firstNameTextBox.TabIndex = 49;
+            this.firstNameTextBox.Size = new System.Drawing.Size(162, 20);
+            this.firstNameTextBox.TabIndex = 1;
             // 
             // dobLabel
             // 
             this.dobLabel.AutoSize = true;
-            this.dobLabel.Location = new System.Drawing.Point(11, 164);
+            this.dobLabel.Location = new System.Drawing.Point(8, 133);
+            this.dobLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.dobLabel.Name = "dobLabel";
-            this.dobLabel.Size = new System.Drawing.Size(90, 17);
+            this.dobLabel.Size = new System.Drawing.Size(68, 13);
             this.dobLabel.TabIndex = 50;
             this.dobLabel.Text = "Date Of Birth";
             // 
             // firstNameLabel
             // 
             this.firstNameLabel.AutoSize = true;
-            this.firstNameLabel.Location = new System.Drawing.Point(11, 24);
+            this.firstNameLabel.Location = new System.Drawing.Point(8, 20);
+            this.firstNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.firstNameLabel.Name = "firstNameLabel";
-            this.firstNameLabel.Size = new System.Drawing.Size(76, 17);
+            this.firstNameLabel.Size = new System.Drawing.Size(57, 13);
             this.firstNameLabel.TabIndex = 48;
             this.firstNameLabel.Text = "First Name";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(318, 161);
+            this.label2.Location = new System.Drawing.Point(254, 131);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(106, 17);
+            this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 75;
-            this.label2.Text = "Employee Type";
+            this.label2.Text = "Position";
             // 
             // JobBox
             // 
@@ -329,10 +343,11 @@
             this.JobBox.DisplayMember = "position_name";
             this.JobBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.JobBox.FormattingEnabled = true;
-            this.JobBox.Location = new System.Drawing.Point(445, 158);
+            this.JobBox.Location = new System.Drawing.Point(334, 128);
+            this.JobBox.Margin = new System.Windows.Forms.Padding(2);
             this.JobBox.Name = "JobBox";
-            this.JobBox.Size = new System.Drawing.Size(121, 24);
-            this.JobBox.TabIndex = 77;
+            this.JobBox.Size = new System.Drawing.Size(105, 21);
+            this.JobBox.TabIndex = 9;
             this.JobBox.ValueMember = "positionID";
             // 
             // positionsBindingSource
@@ -358,19 +373,21 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(46, 260);
+            this.label3.Location = new System.Drawing.Point(8, 206);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 17);
+            this.label3.Size = new System.Drawing.Size(32, 13);
             this.label3.TabIndex = 78;
             this.label3.Text = "State";
             // 
             // UpdateButton
             // 
             this.UpdateButton.AutoSize = true;
-            this.UpdateButton.Location = new System.Drawing.Point(97, 326);
+            this.UpdateButton.Location = new System.Drawing.Point(70, 313);
+            this.UpdateButton.Margin = new System.Windows.Forms.Padding(2);
             this.UpdateButton.Name = "UpdateButton";
-            this.UpdateButton.Size = new System.Drawing.Size(140, 27);
-            this.UpdateButton.TabIndex = 79;
+            this.UpdateButton.Size = new System.Drawing.Size(105, 23);
+            this.UpdateButton.TabIndex = 16;
             this.UpdateButton.Text = "Update Employee";
             this.UpdateButton.UseVisualStyleBackColor = true;
             this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
@@ -399,6 +416,7 @@
             "KS",
             "KY",
             "LA",
+            "MD",
             "ME",
             "MT",
             "NE",
@@ -431,20 +449,65 @@
             "WV",
             "WI",
             "WY"});
-            this.StateComboBox.Location = new System.Drawing.Point(107, 257);
+            this.StateComboBox.Location = new System.Drawing.Point(80, 209);
+            this.StateComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.StateComboBox.Name = "StateComboBox";
-            this.StateComboBox.Size = new System.Drawing.Size(215, 24);
-            this.StateComboBox.TabIndex = 80;
+            this.StateComboBox.Size = new System.Drawing.Size(162, 21);
+            this.StateComboBox.TabIndex = 12;
             // 
             // positionsTableAdapter
             // 
             this.positionsTableAdapter.ClearBeforeFill = true;
             // 
+            // passwordTextBox
+            // 
+            this.passwordTextBox.Location = new System.Drawing.Point(334, 251);
+            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.passwordTextBox.MaxLength = 50;
+            this.passwordTextBox.Multiline = true;
+            this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.Size = new System.Drawing.Size(105, 24);
+            this.passwordTextBox.TabIndex = 15;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(254, 254);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(53, 13);
+            this.label4.TabIndex = 84;
+            this.label4.Text = "Password";
+            // 
+            // loginTextBox
+            // 
+            this.loginTextBox.Location = new System.Drawing.Point(80, 251);
+            this.loginTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.loginTextBox.MaxLength = 200;
+            this.loginTextBox.Multiline = true;
+            this.loginTextBox.Name = "loginTextBox";
+            this.loginTextBox.Size = new System.Drawing.Size(162, 24);
+            this.loginTextBox.TabIndex = 14;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(8, 254);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(33, 13);
+            this.label5.TabIndex = 82;
+            this.label5.Text = "Login";
+            // 
             // NWUpdateAccount
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(626, 382);
+            this.ClientSize = new System.Drawing.Size(528, 375);
+            this.Controls.Add(this.passwordTextBox);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.loginTextBox);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.StateComboBox);
             this.Controls.Add(this.UpdateButton);
             this.Controls.Add(this.label3);
@@ -475,6 +538,7 @@
             this.Controls.Add(this.firstNameLabel);
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.AddNewButton);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "NWUpdateAccount";
             this.Text = "Update Account";
             this.Load += new System.EventHandler(this.NWUpdateAccount_Load);
@@ -524,5 +588,9 @@
         private _CS6232_g7DataSetTableAdapters.positionsTableAdapter positionsTableAdapter;
         private System.Windows.Forms.BindingSource positionsBindingSource1;
         private System.Windows.Forms.BindingSource cS6232g7DataSetBindingSource;
+        private System.Windows.Forms.TextBox passwordTextBox;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox loginTextBox;
+        private System.Windows.Forms.Label label5;
     }
 }

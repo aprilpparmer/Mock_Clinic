@@ -13,6 +13,11 @@ namespace WindowsFormsApplication.Controller
             return EmployeeDal.EmployeeLogIn(name, password);
         }
 
+        public Boolean VerifyUniqueLogin(string login)
+        {
+            return EmployeeDal.VerifyUniqueLogin(login);
+        }
+
         internal List<Diagnoses> GetAllDiagnoses()
         {
             return DiagnosesDal.GetAllDiagnoses();

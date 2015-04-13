@@ -42,5 +42,13 @@ namespace WindowsFormsApplication.View
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
             }   
         }
+
+        private void buttonOrderTest_Click(object sender, EventArgs e)
+        {
+            NwOrderTest NWOrderTestForm = NwOrderTest.GetChildInstance(this.visitID);
+            NWOrderTestForm.MdiParent = MdiParent;
+            NWOrderTestForm.Show();
+            NWOrderTestForm.BringToFront();
+        }
     }
 }

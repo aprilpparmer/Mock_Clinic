@@ -51,11 +51,11 @@
             this.buttonClear = new System.Windows.Forms.Button();
             this.viewPatientButton = new System.Windows.Forms.Button();
             this.editPatientButton = new System.Windows.Forms.Button();
-            this.viewVisitsButton = new System.Windows.Forms.Button();
             this.addVisitButton = new System.Windows.Forms.Button();
             this.textBoxFirstName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimeDOB = new System.Windows.Forms.DateTimePicker();
+            this.viewVisitsButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listViewPatients
@@ -266,6 +266,13 @@
             this.dateTimeDOB.Size = new System.Drawing.Size(95, 20);
             this.dateTimeDOB.TabIndex = 1;
             // 
+            // viewVisitsButton
+            // 
+            this.viewVisitsButton.Location = new System.Drawing.Point(0, 0);
+            this.viewVisitsButton.Name = "viewVisitsButton";
+            this.viewVisitsButton.Size = new System.Drawing.Size(75, 23);
+            this.viewVisitsButton.TabIndex = 9;
+            // 
             // NwPatientSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -321,12 +328,12 @@
 
         private System.Windows.Forms.Button viewPatientButton;
         private System.Windows.Forms.Button editPatientButton;
-        private System.Windows.Forms.Button viewVisitsButton;
         private System.Windows.Forms.Button addVisitButton;
 
         private System.Windows.Forms.TextBox textBoxFirstName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dateTimeDOB;
+        private System.Windows.Forms.Button viewVisitsButton;
 
 
     }

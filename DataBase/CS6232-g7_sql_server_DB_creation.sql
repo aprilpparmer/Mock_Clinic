@@ -175,6 +175,7 @@ CREATE TABLE [dbo].[diagnoses](
 	[diagnoses_name] [varchar](200) NOT NULL,
 	[diagnoses_description] [text] NOT NULL,
 	[diagnoses_treatment] [text] NOT NULL,
+	[enabled] [tinyint] NULL,
  CONSTRAINT [PK_diagnoses] PRIMARY KEY CLUSTERED 
 (
 	[diagnosesID] ASC
@@ -182,10 +183,10 @@ CREATE TABLE [dbo].[diagnoses](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
 SET IDENTITY_INSERT [dbo].[diagnoses] ON
-INSERT [dbo].[diagnoses] ([diagnosesID], [diagnoses_name], [diagnoses_description], [diagnoses_treatment]) VALUES (1, N'broken toe                                                                                                                                                                                              ', N'broken toe diagnoses description', N'painkillers')
-INSERT [dbo].[diagnoses] ([diagnosesID], [diagnoses_name], [diagnoses_description], [diagnoses_treatment]) VALUES (2, N'strep throat                                                                                                                                                                                            ', N'strep throat diagnoses description', N'antibiotics')
-INSERT [dbo].[diagnoses] ([diagnosesID], [diagnoses_name], [diagnoses_description], [diagnoses_treatment]) VALUES (3, N'flu                                                                                                                                                                                                     ', N'flu diagnois description', N'decongestant and antihistamine')
-INSERT [dbo].[diagnoses] ([diagnosesID], [diagnoses_name], [diagnoses_description], [diagnoses_treatment]) VALUES (4, N'ulcer                                                                                                                                                                                                   ', N'ulcer diagnoses', N'Famotidine')
+INSERT [dbo].[diagnoses] ([diagnosesID], [diagnoses_name], [diagnoses_description], [diagnoses_treatment]) VALUES (1, N'broken toe                                                                                                                                                                                              ', N'broken toe diagnoses description', N'painkillers', 1)
+INSERT [dbo].[diagnoses] ([diagnosesID], [diagnoses_name], [diagnoses_description], [diagnoses_treatment]) VALUES (2, N'strep throat                                                                                                                                                                                            ', N'strep throat diagnoses description', N'antibiotics', 1)
+INSERT [dbo].[diagnoses] ([diagnosesID], [diagnoses_name], [diagnoses_description], [diagnoses_treatment]) VALUES (3, N'flu                                                                                                                                                                                                     ', N'flu diagnois description', N'decongestant and antihistamine', 1)
+INSERT [dbo].[diagnoses] ([diagnosesID], [diagnoses_name], [diagnoses_description], [diagnoses_treatment]) VALUES (4, N'ulcer                                                                                                                                                                                                   ', N'ulcer diagnoses', N'Famotidine', 1)
 SET IDENTITY_INSERT [dbo].[diagnoses] OFF
 /****** Object:  Table [dbo].[allergies]    Script Date: 03/22/2015 11:00:33 ******/
 SET ANSI_NULLS ON
@@ -195,6 +196,7 @@ GO
 CREATE TABLE [dbo].[allergies](
 	[allergyID] [int] IDENTITY(1,1) NOT NULL,
 	[allergy_name] [varchar](200) NOT NULL,
+	[enabled] [tinyint] NULL,
  CONSTRAINT [PK_allergies] PRIMARY KEY CLUSTERED 
 (
 	[allergyID] ASC
@@ -202,13 +204,13 @@ CREATE TABLE [dbo].[allergies](
 ) ON [PRIMARY]
 GO
 SET IDENTITY_INSERT [dbo].[allergies] ON
-INSERT [dbo].[allergies] ([allergyID], [allergy_name]) VALUES (1, N'penicillin                                                                                                                                                                                              ')
-INSERT [dbo].[allergies] ([allergyID], [allergy_name]) VALUES (2, N'pollen                                                                                                                                                                                                  ')
-INSERT [dbo].[allergies] ([allergyID], [allergy_name]) VALUES (3, N'tree nuts                                                                                                                                                                                               ')
-INSERT [dbo].[allergies] ([allergyID], [allergy_name]) VALUES (4, N'fish                                                                                                                                                                                                    ')
-INSERT [dbo].[allergies] ([allergyID], [allergy_name]) VALUES (5, N'mold                                                                                                                                                                                                    ')
-INSERT [dbo].[allergies] ([allergyID], [allergy_name]) VALUES (6, N'dog                                                                                                                                                                                                     ')
-INSERT [dbo].[allergies] ([allergyID], [allergy_name]) VALUES (7, N'cat                                                                                                                                                                                                     ')
+INSERT [dbo].[allergies] ([allergyID], [allergy_name]) VALUES (1, N'penicillin                                                                                                                                                                                              ', 1)
+INSERT [dbo].[allergies] ([allergyID], [allergy_name]) VALUES (2, N'pollen                                                                                                                                                                                                  ', 1)
+INSERT [dbo].[allergies] ([allergyID], [allergy_name]) VALUES (3, N'tree nuts                                                                                                                                                                                               ', 1)
+INSERT [dbo].[allergies] ([allergyID], [allergy_name]) VALUES (4, N'fish                                                                                                                                                                                                    ', 1)
+INSERT [dbo].[allergies] ([allergyID], [allergy_name]) VALUES (5, N'mold                                                                                                                                                                                                    ', 1)
+INSERT [dbo].[allergies] ([allergyID], [allergy_name]) VALUES (6, N'dog                                                                                                                                                                                                     ', 1)
+INSERT [dbo].[allergies] ([allergyID], [allergy_name]) VALUES (7, N'cat                                                                                                                                                                                                     ', 1)
 SET IDENTITY_INSERT [dbo].[allergies] OFF
 /****** Object:  Table [dbo].[patient_allergies]    Script Date: 03/22/2015 11:00:33 ******/
 SET ANSI_NULLS ON

@@ -64,6 +64,15 @@ namespace WindowsFormsApplication.View
                         diagListView.Items[i].SubItems.Add(diag.Name);
                         diagListView.Items[i].SubItems.Add(diag.Description.Trim());
                         diagListView.Items[i].SubItems.Add(diag.Treatment.Trim());
+                        diagListView.Items[i].SubItems.Add(this.getDiagActive(diag.Enabled));
+                        if (diag.Enabled == 0)
+                        {
+                            diagListView.Items[i].BackColor = Color.LightPink;
+                        }
+                        else
+                        {
+                            diagListView.Items[i].BackColor = Color.White;
+                        }
                     }
                 }
             }
@@ -89,31 +98,42 @@ namespace WindowsFormsApplication.View
                 ListViewItem item = diagListView.SelectedItems[0];
                 int diagId = int.Parse(item.SubItems[0].Text);
                 string diagName = item.SubItems[1].Text;
-                DialogResult result1 = MessageBox.Show(@"Are you sure you want to Delete: " + diagName + @". Anything referencing this will error. Only Delete Unreferenced Items", @"Confirm Delete", MessageBoxButtons.YesNo);
+                DialogResult result1 = MessageBox.Show(@"Are you sure you want to Delete: " + diagName + @"?", @"Confirm Delete", MessageBoxButtons.YesNo);
                 if (result1 == DialogResult.Yes)
-                {
+                {               
                     int result2 = _controller.DeleteDiag(diagId);
-                    if (result2 == 1)
-                    {
-                        MessageBox.Show(@"Result = 1.");
-                    }
-                    else
-                    {
-                        MessageBox.Show(@"Result = 0.");
-                    }
                     loadData();
                 }
 
             }
             catch (Exception exception)
             {
-                MessageBox.Show(@"There was a problem erasing the diag.");
+                MessageBox.Show(@"There was a problem erasing the diag." + exception);
             }
         }
 
         private void enableButton(object sender, EventArgs e)
         {
             deleteButton.Enabled = true;
+        }
+
+        private void nwListDiag_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private string getDiagActive(int enabledNum)
+        {
+            string activity = "";
+            if (enabledNum == 0)
+            {
+                activity = "Inactive";
+            }
+            if (enabledNum == 1)
+            {
+                activity = "Active";
+            }
+            return activity;
         }
 
 

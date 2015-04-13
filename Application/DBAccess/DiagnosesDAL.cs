@@ -33,6 +33,7 @@ namespace WindowsFormsApplication.DBAccess
                                 diag.Name = reader["diagnoses_name"].ToString().Trim();
                                 diag.Treatment = reader["diagnoses_treatment"].ToString().Trim();
                                 diag.Description = reader["diagnoses_description"].ToString().Trim();
+                                diag.Enabled = (Byte)reader["enabled"];
                                 diagList.Add(diag);
 
                             }
@@ -61,8 +62,8 @@ namespace WindowsFormsApplication.DBAccess
         {
 
             const string insertStatement = "INSERT into diagnoses " +
-                                           " (diagnoses_name, diagnoses_description, diagnoses_treatment) " +
-                                           " values(@diagnoses_name, @diagnoses_description, @diagnoses_treatment)";
+                                           " (diagnoses_name, diagnoses_description, diagnoses_treatment, enabled) " +
+                                           " values(@diagnoses_name, @diagnoses_description, @diagnoses_treatment, 1)";
 
             try
             {
@@ -76,7 +77,7 @@ namespace WindowsFormsApplication.DBAccess
                         insertCommand.Parameters.AddWithValue("@diagnoses_name", diag.Name);
                         insertCommand.Parameters.AddWithValue("@diagnoses_description", diag.Description);
                         insertCommand.Parameters.AddWithValue("@diagnoses_treatment", diag.Treatment);
-                        insertCommand.ExecuteNonQuery();
+                       int rows= insertCommand.ExecuteNonQuery();
                     }
 
                 }
@@ -94,25 +95,98 @@ namespace WindowsFormsApplication.DBAccess
         public static int DeleteDiag(int diagId)
         {
 
-            string deleteStatement =
+            string updateStatement =
                 " update diagnoses " +
                 " set enabled = 0 where ( diagnosesID = @diagnosesID) ";
-            // Need to find a way to delete only if its not in the patient_visit_symptoms tabel.
-                   // "and diagnosesID != (Select diagnoses_diagnosesID from patient_visit_symptoms where diagnoses_diagnosesID = @diagnosesID)";
-                
+            string deleteStatement =
+                "delete from diagnoses where diagnosesID = @diagnosesID ";
+
+            Boolean presence = checkDiagnosisPresence(diagId);
+               
+            try
+            {
+                if (presence == false) {
+                    using (SqlConnection connection = NorthwindDbConnection.GetConnection())
+                    {
+                        connection.Open();
+
+
+                        using (SqlCommand deleteCommand = new SqlCommand(deleteStatement, connection))
+                        {
+                            deleteCommand.Parameters.AddWithValue("@diagnosesID", diagId);
+                            return deleteCommand.ExecuteNonQuery();
+
+                        }
+                    }
+                }
+                else
+                {
+                     using (SqlConnection connection = NorthwindDbConnection.GetConnection())
+                    {
+                        connection.Open();
+
+
+                        using (SqlCommand updateCommand = new SqlCommand(updateStatement, connection))
+                        {
+                            updateCommand.Parameters.AddWithValue("@diagnosesID", diagId);
+                            return updateCommand.ExecuteNonQuery();                           
+
+                        }
+                    }
+                } 
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        private static Boolean checkDiagnosisPresence(int diagId)
+        {
+            Boolean presence = false;
+            Diagnoses check = new Diagnoses();
+            String checkStatement = "Select diagnosesID from diagnoses d join patient_visit_symptoms p on diagnoses_diagnosesID = diagnosesID where diagnosesID = @diagnosesID";
+
+            try
+            {
                 using (SqlConnection connection = NorthwindDbConnection.GetConnection())
                 {
                     connection.Open();
 
-                    using (SqlCommand deleteCommand = new SqlCommand(deleteStatement, connection))
-                    {
-                        deleteCommand.Parameters.AddWithValue("@diagnosesID", diagId);
-                        return deleteCommand.ExecuteNonQuery();
-                        
-                    }
 
+                    using (SqlCommand selectCommand = new SqlCommand(checkStatement, connection))
+                    {
+                        selectCommand.Parameters.AddWithValue("@diagnosesID", diagId);
+
+                        using (SqlDataReader reader = selectCommand.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                check.DiagnosesId = (Int32)reader["diagnosesID"];
+                            }
+                        }
+                        if (check.DiagnosesId != 0)
+                        {
+                            presence = true;
+                        }
+                    }
                 }
-        }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+                return presence;
+            }
 
     }
 }

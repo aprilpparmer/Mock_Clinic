@@ -19,6 +19,7 @@ namespace WindowsFormsApplication.View
         public NWUpdateAccount(int theEmployeeID)
         {
             InitializeComponent();
+            UpdateButton.Enabled = false;
             try
             {
                 this.employeeId = theEmployeeID;
@@ -27,10 +28,8 @@ namespace WindowsFormsApplication.View
                     employee = _controller.GetEmployeeByID(theEmployeeID);
                     int positionID = employee.PositionId;
                     UpdateButton.Enabled = true;
-                }
-               
-
-                UpdateButton.Enabled = false;
+                    AddNewButton.Enabled = false;
+                }                           
                 
             }
             catch (Exception exception)
@@ -154,7 +153,6 @@ namespace WindowsFormsApplication.View
                         {
                             long phone;
                             PhoneTextBox.Text = PhoneTextBox.Text.Trim();
-                            MessageBox.Show(@"Is numbers? " + long.TryParse(PhoneTextBox.Text, out phone));
                             if ((long.TryParse(PhoneTextBox.Text, out phone)) & (PhoneTextBox.Text.Length >= 10))
                             {
 

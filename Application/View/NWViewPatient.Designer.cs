@@ -535,7 +535,7 @@
             this.patient_visitDataGridView.Location = new System.Drawing.Point(36, 186);
             this.patient_visitDataGridView.Name = "patient_visitDataGridView";
             this.patient_visitDataGridView.ReadOnly = true;
-            this.patient_visitDataGridView.Size = new System.Drawing.Size(546, 220);
+            this.patient_visitDataGridView.Size = new System.Drawing.Size(571, 220);
             this.patient_visitDataGridView.TabIndex = 65;
             this.patient_visitDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.patient_visitDataGridView_CellContentClick);
             // 
@@ -586,8 +586,8 @@
             this.visitInfoButton.HeaderText = "Visit Info";
             this.visitInfoButton.Name = "visitInfoButton";
             this.visitInfoButton.ReadOnly = true;
-            this.visitInfoButton.Text = "";
-            this.visitInfoButton.ToolTipText = "Show";
+            this.visitInfoButton.Text = "Show";
+            this.visitInfoButton.Width = 200;
             // 
             // NWViewPatient
             // 

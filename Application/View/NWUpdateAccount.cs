@@ -167,7 +167,7 @@ namespace WindowsFormsApplication.View
                                         employee.Login = loginTextBox.Text;
                                         SimpleAES encrypt = new SimpleAES();
                                         employee.Password = encrypt.EncryptToString(passwordTextBox.Text);
-                                        if (enabledCheckBox.Checked)
+                                        if ((enabledCheckBox.Checked) & (loginTextBox.Text.Trim().Length > 0) & (passwordTextBox.Text.Trim().Length > 0))
                                         {
                                             employee.Enabled = 1;
                                         }
@@ -185,6 +185,7 @@ namespace WindowsFormsApplication.View
                                     employee.Address = addressTextBox.Text;
                                     employee.City = cityTextBox.Text;
                                     employee.State = StateComboBox.Text;
+
                                     return employee;
                                 }
                                 else

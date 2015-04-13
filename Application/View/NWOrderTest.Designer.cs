@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.buttonSubmit = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxTest = new System.Windows.Forms.ComboBox();
             this.labelTest = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxVisitID = new System.Windows.Forms.TextBox();
@@ -59,6 +59,7 @@
             this.buttonSubmit.TabIndex = 13;
             this.buttonSubmit.Text = "Submit";
             this.buttonSubmit.UseVisualStyleBackColor = true;
+            this.buttonSubmit.Click += new System.EventHandler(this.buttonSubmit_Click);
             // 
             // buttonCancel
             // 
@@ -72,18 +73,18 @@
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
-            // comboBox1
+            // comboBoxTest
             // 
-            this.comboBox1.DataSource = this.testsBindingSource;
-            this.comboBox1.DisplayMember = "test_name";
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(68, 94);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(148, 21);
-            this.comboBox1.TabIndex = 15;
-            this.comboBox1.ValueMember = "testID";
+            this.comboBoxTest.DataSource = this.testsBindingSource;
+            this.comboBoxTest.DisplayMember = "test_name";
+            this.comboBoxTest.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxTest.FormattingEnabled = true;
+            this.comboBoxTest.Location = new System.Drawing.Point(68, 94);
+            this.comboBoxTest.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxTest.Name = "comboBoxTest";
+            this.comboBoxTest.Size = new System.Drawing.Size(148, 21);
+            this.comboBoxTest.TabIndex = 15;
+            this.comboBoxTest.ValueMember = "testID";
             // 
             // labelTest
             // 
@@ -153,7 +154,7 @@
             this.Controls.Add(this.textBoxVisitID);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.labelTest);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxTest);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonSubmit);
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
@@ -174,7 +175,7 @@
 
         private System.Windows.Forms.Button buttonSubmit;
         private System.Windows.Forms.Button buttonCancel;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxTest;
         private System.Windows.Forms.Label labelTest;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxVisitID;

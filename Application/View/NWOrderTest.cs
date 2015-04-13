@@ -1,5 +1,7 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 using WindowsFormsApplication.Controller;
+using WindowsFormsApplication.Model;
 
 namespace WindowsFormsApplication.View
 {
@@ -45,6 +47,27 @@ namespace WindowsFormsApplication.View
         private void buttonCancel_Click(object sender, System.EventArgs e)
         {
             Close();
+        }
+
+        private void buttonSubmit_Click(object sender, System.EventArgs e)
+        {
+            PatientTests patientTest = new PatientTests();
+
+            patientTest.VisitId = Int32.Parse(textBoxVisitID.Text);
+            patientTest.TestId = Int32.Parse(comboBoxTest.SelectedValue.ToString());
+            patientTest.TestOrdered = DateTime.Now;
+            try
+            {
+                _controller.OrderTest(patientTest);
+                MessageBox.Show(@"Test Added.");
+                Close();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(@"There was a problem adding the test." + exception);
+
+            }
+
         }
     }
 }

@@ -49,6 +49,8 @@ namespace WindowsFormsApplication.View
             NWOrderTestForm.MdiParent = MdiParent;
             NWOrderTestForm.Show();
             NWOrderTestForm.BringToFront();
+            
+            
         }
     }
 }

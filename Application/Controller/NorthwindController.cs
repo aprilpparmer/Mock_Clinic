@@ -143,5 +143,10 @@ namespace WindowsFormsApplication.Controller
        {
            return TestDal.updateTest(oldTestId, newTestName);
        }
+
+       internal void OrderTest(PatientTests patientTest)
+       {
+           PatientTestsDal.OrderTest(patientTest);
+       }
     }
 }

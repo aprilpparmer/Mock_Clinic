@@ -59,7 +59,7 @@ namespace WindowsFormsApplication.View
             else
             {
                 String gender;
-                int homePhone;
+                long homePhone;
                 if ((femaleRadioButton.Checked == true))
                 {
                     gender = "F";
@@ -73,12 +73,12 @@ namespace WindowsFormsApplication.View
                 {
                     if ((int.TryParse(zipTextBox.Text, out zip)) & (zipTextBox.Text.Length == 5))
                     {
-                        if ((int.TryParse(homePhoneTextBox.Text, out homePhone)) & (homePhoneTextBox.Text.Length >= 10))
+                        if ((long.TryParse(homePhoneTextBox.Text, out homePhone)) & (homePhoneTextBox.Text.Length >= 10))
                         {
 
                             if ((firstNameTextBox.Text != "") & (lastNameTextBox.Text != "") & (ssn != 0) & (zip != 0) &
                                 (homePhoneTextBox.Text != "") &
-                                (addressTextBox.Text != "") & (cityTextBox.Text != "") & (stateTextBox.Text != ""))
+                                (addressTextBox.Text != "") & (cityTextBox.Text != "") & (StateComboBox.Text != ""))
                             {
                                 //Check Details
                                 newPatient.PatientId = _patientId;
@@ -93,7 +93,7 @@ namespace WindowsFormsApplication.View
                                 newPatient.Dob = dateTimePicker.Value.Date;
                                 newPatient.Address = addressTextBox.Text;
                                 newPatient.City = cityTextBox.Text;
-                                newPatient.State = stateTextBox.Text;
+                                newPatient.State = StateComboBox.Text;
                                 int results;
                                 try
                                 {
@@ -196,7 +196,7 @@ namespace WindowsFormsApplication.View
             dateTimePicker.Value = _thepatient.Dob;
             addressTextBox.Text = _thepatient.Address.Trim();
             cityTextBox.Text = _thepatient.City.Trim();
-            stateTextBox.Text = _thepatient.State.Trim();
+            StateComboBox.Text = _thepatient.State.Trim();
         }
 
 

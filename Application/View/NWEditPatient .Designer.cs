@@ -46,7 +46,6 @@
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.cityTextBox = new System.Windows.Forms.TextBox();
             this.cityLabel = new System.Windows.Forms.Label();
-            this.stateTextBox = new System.Windows.Forms.TextBox();
             this.stateLabel = new System.Windows.Forms.Label();
             this.zipTextBox = new System.Windows.Forms.TextBox();
             this.zipLabel = new System.Windows.Forms.Label();
@@ -57,6 +56,7 @@
             this.genderLabel = new System.Windows.Forms.Label();
             this.maleRadioButton = new System.Windows.Forms.RadioButton();
             this.femaleRadioButton = new System.Windows.Forms.RadioButton();
+            this.StateComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // firstNameLabel
@@ -235,16 +235,6 @@
             this.cityLabel.TabIndex = 17;
             this.cityLabel.Text = "City";
             // 
-            // stateTextBox
-            // 
-            this.stateTextBox.Location = new System.Drawing.Point(92, 214);
-            this.stateTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.stateTextBox.MaxLength = 50;
-            this.stateTextBox.Multiline = true;
-            this.stateTextBox.Name = "stateTextBox";
-            this.stateTextBox.Size = new System.Drawing.Size(162, 24);
-            this.stateTextBox.TabIndex = 12;
-            // 
             // stateLabel
             // 
             this.stateLabel.AutoSize = true;
@@ -348,11 +338,75 @@
             this.femaleRadioButton.UseVisualStyleBackColor = true;
             this.femaleRadioButton.Click += new System.EventHandler(this.femaleRadioButton_Clicked);
             // 
+            // StateComboBox
+            // 
+            this.StateComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.StateComboBox.FormattingEnabled = true;
+            this.StateComboBox.Items.AddRange(new object[] {
+            "AL",
+            "AK",
+            "AZ",
+            "AR",
+            "CA",
+            "CO",
+            "CT",
+            "DE",
+            "DC",
+            "FL",
+            "GA",
+            "HI",
+            "ID",
+            "IL",
+            "IN",
+            "IA",
+            "KS",
+            "KY",
+            "LA",
+            "MD",
+            "ME",
+            "MT",
+            "NE",
+            "NV",
+            "NH",
+            "NJ",
+            "NM",
+            "NY",
+            "NC",
+            "ND",
+            "OH",
+            "OK",
+            "OR",
+            "MD",
+            "MA",
+            "MI",
+            "MN",
+            "MS",
+            "MO",
+            "PA",
+            "RI",
+            "SC",
+            "SD",
+            "TN",
+            "TX",
+            "UT",
+            "VT",
+            "VA",
+            "WA",
+            "WV",
+            "WI",
+            "WY"});
+            this.StateComboBox.Location = new System.Drawing.Point(92, 214);
+            this.StateComboBox.Margin = new System.Windows.Forms.Padding(2);
+            this.StateComboBox.Name = "StateComboBox";
+            this.StateComboBox.Size = new System.Drawing.Size(162, 21);
+            this.StateComboBox.TabIndex = 29;
+            // 
             // NwEditPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(495, 293);
+            this.Controls.Add(this.StateComboBox);
             this.Controls.Add(this.femaleRadioButton);
             this.Controls.Add(this.maleRadioButton);
             this.Controls.Add(this.genderLabel);
@@ -362,7 +416,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.zipTextBox);
             this.Controls.Add(this.zipLabel);
-            this.Controls.Add(this.stateTextBox);
             this.Controls.Add(this.stateLabel);
             this.Controls.Add(this.cityTextBox);
             this.Controls.Add(this.cityLabel);
@@ -412,7 +465,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.TextBox cityTextBox;
         private System.Windows.Forms.Label cityLabel;
-        private System.Windows.Forms.TextBox stateTextBox;
         private System.Windows.Forms.Label stateLabel;
         private System.Windows.Forms.TextBox zipTextBox;
         private System.Windows.Forms.Label zipLabel;
@@ -423,5 +475,6 @@
         private System.Windows.Forms.Label genderLabel;
         private System.Windows.Forms.RadioButton maleRadioButton;
         private System.Windows.Forms.RadioButton femaleRadioButton;
+        private System.Windows.Forms.ComboBox StateComboBox;
     }
 }

@@ -82,7 +82,7 @@
             this.CancelButton.Margin = new System.Windows.Forms.Padding(2);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(56, 23);
-            this.CancelButton.TabIndex = 18;
+            this.CancelButton.TabIndex = 19;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
@@ -94,7 +94,7 @@
             this.AddNewButton.Margin = new System.Windows.Forms.Padding(2);
             this.AddNewButton.Name = "AddNewButton";
             this.AddNewButton.Size = new System.Drawing.Size(110, 23);
-            this.AddNewButton.TabIndex = 17;
+            this.AddNewButton.TabIndex = 18;
             this.AddNewButton.Text = "Add New Employee";
             this.AddNewButton.UseVisualStyleBackColor = true;
             this.AddNewButton.Click += new System.EventHandler(this.AddNewEmployee_Click);
@@ -388,7 +388,7 @@
             this.UpdateButton.Margin = new System.Windows.Forms.Padding(2);
             this.UpdateButton.Name = "UpdateButton";
             this.UpdateButton.Size = new System.Drawing.Size(105, 23);
-            this.UpdateButton.TabIndex = 16;
+            this.UpdateButton.TabIndex = 17;
             this.UpdateButton.Text = "Update Employee";
             this.UpdateButton.UseVisualStyleBackColor = true;
             this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
@@ -469,7 +469,7 @@
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(105, 24);
             this.passwordTextBox.TabIndex = 15;
-            this.passwordTextBox.TextChanged += new System.EventHandler(this.enableAccount);
+            this.passwordTextBox.TextChanged += new System.EventHandler(this.EnableAccount);
             // 
             // label4
             // 
@@ -507,7 +507,7 @@
             this.enabledCheckBox.Location = new System.Drawing.Point(12, 291);
             this.enabledCheckBox.Name = "enabledCheckBox";
             this.enabledCheckBox.Size = new System.Drawing.Size(65, 17);
-            this.enabledCheckBox.TabIndex = 86;
+            this.enabledCheckBox.TabIndex = 16;
             this.enabledCheckBox.Text = "Enabled";
             this.enabledCheckBox.UseVisualStyleBackColor = true;
             // 

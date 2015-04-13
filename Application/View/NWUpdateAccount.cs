@@ -28,6 +28,7 @@ namespace WindowsFormsApplication.View
                     int positionID = employee.PositionId;
                     UpdateButton.Enabled = true;
                 }
+               
 
                 UpdateButton.Enabled = false;
                 
@@ -126,7 +127,7 @@ namespace WindowsFormsApplication.View
                 if ((loginTextBox.Text.Trim().Length > 0) & (passwordTextBox.Text.Trim().Length > 0))
                 {
                     Boolean uniqueLogin = true;
-                    if (employee.Login.Trim() != loginTextBox.Text.Trim())
+                    if ((employeeId != 0) && (employee.Login.Trim() != loginTextBox.Text.Trim()))
                     {
                         uniqueLogin = _controller.VerifyUniqueLogin(loginTextBox.Text);
                     }
@@ -151,8 +152,10 @@ namespace WindowsFormsApplication.View
                     {
                         if ((int.TryParse(zipTextBox.Text, out zip)) & (zipTextBox.Text.Length == 5))
                         {
-                            int phone;
-                            if ((int.TryParse(PhoneTextBox.Text.Trim(), out phone)) & (PhoneTextBox.Text.Trim().Length >= 10))
+                            long phone;
+                            PhoneTextBox.Text = PhoneTextBox.Text.Trim();
+                            MessageBox.Show(@"Is numbers? " + long.TryParse(PhoneTextBox.Text, out phone));
+                            if ((long.TryParse(PhoneTextBox.Text, out phone)) & (PhoneTextBox.Text.Length >= 10))
                             {
 
                                 if ((firstNameTextBox.Text != "") & (lastNameTextBox.Text != "") & (ssn != 0) & (zip != 0) &
@@ -290,9 +293,9 @@ namespace WindowsFormsApplication.View
             return _updateEmployeeForm;  //just created or created earlier.Return it
         }
 
-        private void enableAccount(object sender, EventArgs e)
+        private void EnableAccount(object sender, EventArgs e)
         {
-            enabledCheckBox.Enabled = true;
+            enabledCheckBox.Checked = true;
         }       
 
         }

@@ -443,8 +443,6 @@ namespace WindowsFormsApplication.DBAccess
                                     employee.Password = dataReader.GetString(passwordOrdinal);
                                 }
                                
-                                MessageBox.Show("enabled = " + dataReader.GetByte(enabledOrdinal));
-                                
                                 if (dataReader.GetByte(enabledOrdinal) == 1)
                                 {
                                  employee.Enabled = 1;

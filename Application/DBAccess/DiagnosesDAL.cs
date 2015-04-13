@@ -95,8 +95,8 @@ namespace WindowsFormsApplication.DBAccess
         {
 
             string deleteStatement =
-                " delete diagnoses " +
-                " where ( diagnosesID = @diagnosesID) ";
+                " update diagnoses " +
+                " set enabled = 0 where ( diagnosesID = @diagnosesID) ";
             // Need to find a way to delete only if its not in the patient_visit_symptoms tabel.
                    // "and diagnosesID != (Select diagnoses_diagnosesID from patient_visit_symptoms where diagnoses_diagnosesID = @diagnosesID)";
                 

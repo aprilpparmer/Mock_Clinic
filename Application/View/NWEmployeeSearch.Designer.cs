@@ -45,6 +45,7 @@
             this.LastName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.PositionID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.DeleteButton = new System.Windows.Forms.Button();
+            this.Active = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // addEmployeeButton
@@ -168,7 +169,8 @@
             this.employeeID,
             this.FirstName,
             this.LastName,
-            this.PositionID});
+            this.PositionID,
+            this.Active});
             this.listViewEmployee.Location = new System.Drawing.Point(14, 61);
             this.listViewEmployee.Name = "listViewEmployee";
             this.listViewEmployee.Size = new System.Drawing.Size(679, 271);
@@ -207,6 +209,11 @@
             this.DeleteButton.Text = "Delete Employee";
             this.DeleteButton.UseVisualStyleBackColor = true;
             this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
+            // 
+            // Active
+            // 
+            this.Active.Text = "Status";
+            this.Active.Width = 96;
             // 
             // NwDocSearch
             // 
@@ -253,6 +260,7 @@
         private System.Windows.Forms.ColumnHeader LastName;
         private System.Windows.Forms.ColumnHeader PositionID;
         private System.Windows.Forms.Button DeleteButton;
+        private System.Windows.Forms.ColumnHeader Active;
 
     }
 }

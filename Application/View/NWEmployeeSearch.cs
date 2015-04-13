@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 using WindowsFormsApplication.Controller;
 using WindowsFormsApplication.Model;
@@ -63,7 +64,14 @@ namespace WindowsFormsApplication.View
                             listViewEmployee.Items[i].SubItems.Add(employee.LastName.Trim());
                             listViewEmployee.Items[i].SubItems.Add(employee.FirstName.Trim());
                             listViewEmployee.Items[i].SubItems.Add(this.getEmployeeRole(employee.PositionId));
-
+                            listViewEmployee.Items[i].SubItems.Add(this.getEmployeeActive(employee.Enabled));
+                            if (employee.Enabled == 0)
+                            {
+                                listViewEmployee.Items[i].BackColor = Color.LightPink;
+                            } else
+                            {
+                                listViewEmployee.Items[i].BackColor = Color.White;
+                            }
 
                             listViewEmployee.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
                             listViewEmployee.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
@@ -229,6 +237,21 @@ namespace WindowsFormsApplication.View
                 role = "driver";
             }                   
             return role;
+        }
+
+
+        private string getEmployeeActive(int enabledNum)
+        {
+            string activity = "";
+            if (enabledNum == 0)
+            {
+                activity = "Inactive";
+            }
+            if (enabledNum == 1)
+            {
+                activity = "Active";
+            }
+            return activity;
         }
     }
 }

@@ -204,13 +204,13 @@ CREATE TABLE [dbo].[allergies](
 ) ON [PRIMARY]
 GO
 SET IDENTITY_INSERT [dbo].[allergies] ON
-INSERT [dbo].[allergies] ([allergyID], [allergy_name]) VALUES (1, N'penicillin                                                                                                                                                                                              ', 1)
-INSERT [dbo].[allergies] ([allergyID], [allergy_name]) VALUES (2, N'pollen                                                                                                                                                                                                  ', 1)
-INSERT [dbo].[allergies] ([allergyID], [allergy_name]) VALUES (3, N'tree nuts                                                                                                                                                                                               ', 1)
-INSERT [dbo].[allergies] ([allergyID], [allergy_name]) VALUES (4, N'fish                                                                                                                                                                                                    ', 1)
-INSERT [dbo].[allergies] ([allergyID], [allergy_name]) VALUES (5, N'mold                                                                                                                                                                                                    ', 1)
-INSERT [dbo].[allergies] ([allergyID], [allergy_name]) VALUES (6, N'dog                                                                                                                                                                                                     ', 1)
-INSERT [dbo].[allergies] ([allergyID], [allergy_name]) VALUES (7, N'cat                                                                                                                                                                                                     ', 1)
+INSERT [dbo].[allergies] ([allergyID], [allergy_name], [enabled]) VALUES (1, N'penicillin                                                                                                                                                                                              ', 1)
+INSERT [dbo].[allergies] ([allergyID], [allergy_name], [enabled]) VALUES (2, N'pollen                                                                                                                                                                                                  ', 1)
+INSERT [dbo].[allergies] ([allergyID], [allergy_name], [enabled]) VALUES (3, N'tree nuts                                                                                                                                                                                               ', 1)
+INSERT [dbo].[allergies] ([allergyID], [allergy_name], [enabled]) VALUES (4, N'fish                                                                                                                                                                                                    ', 1)
+INSERT [dbo].[allergies] ([allergyID], [allergy_name], [enabled]) VALUES (5, N'mold                                                                                                                                                                                                    ', 1)
+INSERT [dbo].[allergies] ([allergyID], [allergy_name], [enabled]) VALUES (6, N'dog                                                                                                                                                                                                     ', 1)
+INSERT [dbo].[allergies] ([allergyID], [allergy_name], [enabled]) VALUES (7, N'cat                                                                                                                                                                                                     ', 1)
 SET IDENTITY_INSERT [dbo].[allergies] OFF
 /****** Object:  Table [dbo].[patient_allergies]    Script Date: 03/22/2015 11:00:33 ******/
 SET ANSI_NULLS ON

@@ -123,5 +123,30 @@ namespace WindowsFormsApplication.Controller
        {
            EmployeeDal.deleteEmployee(deleteEmployee);
        }
+
+       internal void AddTest(Test test)
+       {
+           TestDal.AddTest(test);
+       }
+
+       internal List<Test> GetAllTests()
+       {
+           return TestDal.GetAllTests();
+       }
+
+       public int DeleteTest(int testId)
+       {
+           return TestDal.DeleteTest(testId);
+       }
+
+       public bool UpdateTest(int oldTestId, String newTestName)
+       {
+           return TestDal.updateTest(oldTestId, newTestName);
+       }
+
+       internal void OrderTest(PatientTests patientTest)
+       {
+           PatientTestsDal.OrderTest(patientTest);
+       }
     }
 }

@@ -99,6 +99,7 @@
             this.patient_visit_symptomsTableAdapter = new WindowsFormsApplication.PatientVisitInfoDataSetTableAdapters.patient_visit_symptomsTableAdapter();
             this.patient_testsTableAdapter = new WindowsFormsApplication.PatientVisitInfoDataSetTableAdapters.patient_testsTableAdapter();
             this.patient_visit_notesTableAdapter = new WindowsFormsApplication.PatientVisitInfoDataSetTableAdapters.patient_visit_notesTableAdapter();
+            this.buttonOrderTest = new System.Windows.Forms.Button();
             visit_dateLabel = new System.Windows.Forms.Label();
             appt_dateLabel = new System.Windows.Forms.Label();
             doctorNameLabel = new System.Windows.Forms.Label();
@@ -732,11 +733,22 @@
             // 
             this.patient_visit_notesTableAdapter.ClearBeforeFill = true;
             // 
+            // buttonOrderTest
+            // 
+            this.buttonOrderTest.Location = new System.Drawing.Point(534, 345);
+            this.buttonOrderTest.Name = "buttonOrderTest";
+            this.buttonOrderTest.Size = new System.Drawing.Size(75, 23);
+            this.buttonOrderTest.TabIndex = 3;
+            this.buttonOrderTest.Text = "Order Test";
+            this.buttonOrderTest.UseVisualStyleBackColor = true;
+            this.buttonOrderTest.Click += new System.EventHandler(this.buttonOrderTest_Click);
+            // 
             // NwViewVisit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(536, 557);
+            this.ClientSize = new System.Drawing.Size(645, 557);
+            this.Controls.Add(this.buttonOrderTest);
             this.Controls.Add(this.patient_visitBindingNavigator);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
@@ -828,6 +840,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.Button buttonOrderTest;
 
     }
 }

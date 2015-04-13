@@ -115,6 +115,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PatientVisitSummaryReport.xsd</DependentUpon>
     </Compile>
+    <Compile Include="View\NWNewTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\NWNewTest.Designer.cs">
+      <DependentUpon>NWNewTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\NWViewEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,6 +219,12 @@
     <Compile Include="View\NWViewPatient.Designer.cs">
       <DependentUpon>NWViewPatient.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\NWViewTests.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\NWViewTests.Designer.cs">
+      <DependentUpon>NWViewTests.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\NwViewVisit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -235,6 +247,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_CS6232_g7DataSet1.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\NWNewTest.resx">
+      <DependentUpon>NWNewTest.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\NwPatientVisitSummaryReport.rdlc" />
     <EmbeddedResource Include="View\NWViewEmployee.resx">
       <DependentUpon>NWViewEmployee.cs</DependentUpon>
@@ -293,6 +308,9 @@
     </Compile>
     <EmbeddedResource Include="View\NWViewPatient.resx">
       <DependentUpon>NWViewPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\NWViewTests.resx">
+      <DependentUpon>NWViewTests.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\NwViewVisit.resx">
       <DependentUpon>NwViewVisit.cs</DependentUpon>

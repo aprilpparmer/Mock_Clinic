@@ -187,5 +187,21 @@ namespace WindowsFormsApplication.View
             report.Show();
             report.BringToFront();
         }
+
+        private void addTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NWNewTest NWNewTestForm = NWNewTest.GetChildInstance();
+            NWNewTestForm.MdiParent = this;
+            NWNewTestForm.Show();
+            NWNewTestForm.BringToFront();
+        }
+
+        private void listTestsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NWViewTests NWViewTestsForm = NWViewTests.GetChildInstance();
+            NWViewTestsForm.MdiParent = this;
+            NWViewTestsForm.Show();
+            NWViewTestsForm.BringToFront();
+        }
     }
 }

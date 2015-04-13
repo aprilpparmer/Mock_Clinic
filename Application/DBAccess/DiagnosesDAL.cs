@@ -11,6 +11,10 @@ namespace WindowsFormsApplication.DBAccess
 {
     class DiagnosesDal
     {
+        /// <summary>
+        /// Gets a list of all diagnoses
+        /// </summary>
+        /// <returns></returns>
         public static List<Diagnoses> GetAllDiagnoses()
         {
             List<Diagnoses> diagList = new List<Diagnoses>();
@@ -92,6 +96,11 @@ namespace WindowsFormsApplication.DBAccess
             }
         }
 
+        /// <summary>
+        /// Either deletes or sets a diagnosis that is not needed inactive based on if it's ever been used or not
+        /// </summary>
+        /// <param name="diagId"></param>
+        /// <returns></returns>
         public static int DeleteDiag(int diagId)
         {
 
@@ -145,7 +154,11 @@ namespace WindowsFormsApplication.DBAccess
             }
         }
 
-
+        /// <summary>
+        /// Checks for the presence of a diagnosis ID to see if it's ever been used.
+        /// </summary>
+        /// <param name="diagId"></param>
+        /// <returns></returns>
         private static Boolean checkDiagnosisPresence(int diagId)
         {
             Boolean presence = false;

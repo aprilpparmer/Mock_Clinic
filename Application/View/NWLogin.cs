@@ -29,7 +29,7 @@ namespace WindowsFormsApplication.View
             password = encrypt.EncryptToString(password); 
             try
             {
-                Employee employee = _controller.ValidNurseLogIn(name, password);
+                Employee employee = _controller.EmployeeLogIn(name, password);
                
                 if (employee == null )
                 {
@@ -51,13 +51,18 @@ namespace WindowsFormsApplication.View
                     homeA.Show();
                     this.Hide();
 
+                } 
+                else if ((employee.PositionId == 3 || employee.PositionId == 1) & employee.Enabled == 0)
+                { 
+                    MessageBox.Show(@"Your account is currently disabled, please contact an admin.");
+
                 }
                 else
                 {
-                    MessageBox.Show(@"Only Nurses Or Administrators May login at this time.");
+                     MessageBox.Show(@"Only Nurses Or Administrators May login at this time.");
                 }
-                
-                
+
+
             }
             catch (Exception ex)
             {

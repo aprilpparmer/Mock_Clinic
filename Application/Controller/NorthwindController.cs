@@ -8,7 +8,7 @@ namespace WindowsFormsApplication.Controller
     public class NorthwindController
     {
 
-        internal Employee ValidNurseLogIn(String name, String password)
+        internal Employee EmployeeLogIn(String name, String password)
         {
             return EmployeeDal.EmployeeLogIn(name, password);
         }

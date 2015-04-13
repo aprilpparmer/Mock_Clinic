@@ -68,6 +68,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.loginTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.enabledCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.positionsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._CS6232_g7DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.positionsBindingSource1)).BeginInit();
@@ -468,6 +469,7 @@
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(105, 24);
             this.passwordTextBox.TabIndex = 15;
+            this.passwordTextBox.TextChanged += new System.EventHandler(this.enableAccount);
             // 
             // label4
             // 
@@ -499,11 +501,22 @@
             this.label5.TabIndex = 82;
             this.label5.Text = "Login";
             // 
+            // enabledCheckBox
+            // 
+            this.enabledCheckBox.AutoSize = true;
+            this.enabledCheckBox.Location = new System.Drawing.Point(12, 291);
+            this.enabledCheckBox.Name = "enabledCheckBox";
+            this.enabledCheckBox.Size = new System.Drawing.Size(65, 17);
+            this.enabledCheckBox.TabIndex = 86;
+            this.enabledCheckBox.Text = "Enabled";
+            this.enabledCheckBox.UseVisualStyleBackColor = true;
+            // 
             // NWUpdateAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(528, 375);
+            this.Controls.Add(this.enabledCheckBox);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.loginTextBox);
@@ -592,5 +605,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox loginTextBox;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.CheckBox enabledCheckBox;
     }
 }

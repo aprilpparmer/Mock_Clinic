@@ -192,7 +192,7 @@ namespace WindowsFormsApplication.DBAccess
             {
                 insertStatement = "INSERT into employees " +
                                   " (address, city, dob, first_name, gender, last_name, middle_initial, positionID, phone, ssn, state, zip, login, password, enabled) " +
-                                  " values(@address, @city, @dob, @first_name, @gender, @last_name, @middle_initial, @positionID, @phone, @ssn, @state, @zip, @login, @password, 1)";
+                                  " values(@address, @city, @dob, @first_name, @gender, @last_name, @middle_initial, @positionID, @phone, @ssn, @state, @zip, @login, @password, @enabled)";
             }
             else
             {
@@ -222,10 +222,12 @@ namespace WindowsFormsApplication.DBAccess
                         insertCommand.Parameters.AddWithValue("@ssn", employee.Ssn);
                         insertCommand.Parameters.AddWithValue("@state", employee.State);
                         insertCommand.Parameters.AddWithValue("@zip", employee.Zip);
+                        
                         if ((employee.Login != "") || (employee.Login != null))
                         {
                             insertCommand.Parameters.AddWithValue("@login", employee.Login);
                             insertCommand.Parameters.AddWithValue("@password", employee.Password);
+                            insertCommand.Parameters.AddWithValue("@enabled", employee.Enabled);
                         }
 
                         insertCommand.ExecuteNonQuery();
@@ -253,7 +255,7 @@ namespace WindowsFormsApplication.DBAccess
 
             const string updateStatement = "Update employees set " +
                                            " address = @address , city = @city, dob = @dob, first_name= @first_name, gender = @gender ," +
-                                           " last_name = @last_name, middle_initial =@middle_initial, phone = @phone, ssn =@ssn, state =@state, zip=@zip "
+                                           " last_name = @last_name, middle_initial =@middle_initial, phone = @phone, ssn =@ssn, state =@state, zip=@zip, enabled=@enabled "
                                           + " where employeeID = @employeeID ";
                                            
                                         
@@ -278,6 +280,7 @@ namespace WindowsFormsApplication.DBAccess
                         updateCommand.Parameters.AddWithValue("@ssn", updatedEmployee.Ssn);
                         updateCommand.Parameters.AddWithValue("@state", updatedEmployee.State);
                         updateCommand.Parameters.AddWithValue("@zip", updatedEmployee.Zip);
+                        updateCommand.Parameters.AddWithValue("@enabled", updatedEmployee.Enabled);
                         updateCommand.Parameters.AddWithValue("@employeeID", updatedEmployee.EmployeeId);                  
 
                        updateCommand.ExecuteNonQuery();
@@ -407,7 +410,9 @@ namespace WindowsFormsApplication.DBAccess
                             int zipOrdinal = dataReader.GetOrdinal("zip");
                             int phoneOrdinal = dataReader.GetOrdinal("phone");
                             int positionOrdinal = dataReader.GetOrdinal("positionID");
-
+                            int loginOrdinal = dataReader.GetOrdinal("login");
+                            int passwordOrdinal = dataReader.GetOrdinal("password");
+                            int enabledOrdinal = dataReader.GetOrdinal("enabled");
                             while (dataReader.Read())
                             {
 
@@ -430,7 +435,26 @@ namespace WindowsFormsApplication.DBAccess
                                 employee.City = dataReader.GetString(cityOrdinal);
                                 employee.State = dataReader.GetString(stateOrdinal);
                                 employee.Zip = dataReader.GetInt32(zipOrdinal);
-                                employee.Phone = dataReader.GetString(phoneOrdinal);                              
+                                employee.Phone = dataReader.GetString(phoneOrdinal);
+
+                                if (!dataReader.IsDBNull(loginOrdinal))
+                                {
+                                    employee.Login = dataReader.GetString(loginOrdinal);
+                                    employee.Password = dataReader.GetString(passwordOrdinal);
+                                }
+                               
+                                MessageBox.Show("enabled = " + dataReader.GetByte(enabledOrdinal));
+                                
+                                if (dataReader.GetByte(enabledOrdinal) == 1)
+                                {
+                                 employee.Enabled = 1;
+                                }
+                                else
+                                {
+                                  employee.Enabled = 0;
+                               }
+
+                                
 
 
                             }

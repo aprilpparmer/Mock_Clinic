@@ -10,7 +10,7 @@ namespace WindowsFormsApplication.View
     public partial class NWUpdateAccount : Form
     {
         NorthwindController _controller = new NorthwindController();
-        private int employeeId = 0;
+        private int employeeId;
         int roleID;
         int ssn, zip;
         string gender;
@@ -58,6 +58,51 @@ namespace WindowsFormsApplication.View
         private void AddNewEmployee_Click(object sender, System.EventArgs e)
         {
 
+            Employee tmpemployee = CreateEmployee();
+            if (tmpemployee != null)
+            {
+                try
+                {
+                    _controller.AddEmployee(CreateEmployee());
+                    MessageBox.Show(@"The employee has been added.");
+                    this.Close();
+
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show(
+                        @"There was a problem adding the Employee into the Database, please contact the admin with this message." +
+                        exception);
+                }
+            }
+
+
+        }
+
+        private void UpdateButton_Click(object sender, EventArgs e)
+        {
+            Employee tmpemployee = CreateEmployee();
+            if (tmpemployee != null)
+            {
+                try
+                {
+                    _controller.UpdateEmployee(CreateEmployee());
+                    MessageBox.Show(@"The employee has been updated.");
+                    this.Close();
+
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show(
+                        @"There was a problem updating the Employee into the Database, please contact the admin with this message." +
+                        exception);
+                }
+            }
+
+        }
+
+        private Employee CreateEmployee()
+        {
             if ((femaleRadioButton.Checked == false) & (maleRadioButton.Checked == false))
             {
                 MessageBox.Show
@@ -80,8 +125,12 @@ namespace WindowsFormsApplication.View
 
                 if ((loginTextBox.Text.Trim().Length > 0) & (passwordTextBox.Text.Trim().Length > 0))
                 {
-                    Boolean UniqueLogin = _controller.VerifyUniqueLogin(loginTextBox.Text);
-                    if (UniqueLogin)
+                    Boolean uniqueLogin = true;
+                    if (employee.Login.Trim() != loginTextBox.Text.Trim())
+                    {
+                        uniqueLogin = _controller.VerifyUniqueLogin(loginTextBox.Text);
+                    }
+                    if (uniqueLogin)
                     {
                         loginInfoSet = true;
                     }
@@ -96,82 +145,80 @@ namespace WindowsFormsApplication.View
                     loginInfoSet = true;
                 }
 
-                if ( loginInfoSet){
-                if ((int.TryParse(ssnTextBox.Text, out ssn)) & (ssnTextBox.Text.Length == 9))
+                if (loginInfoSet)
                 {
-                    if ((int.TryParse(zipTextBox.Text, out zip)) & (zipTextBox.Text.Length == 5))
+                    if ((int.TryParse(ssnTextBox.Text, out ssn)) & (ssnTextBox.Text.Length == 9))
                     {
-                        int phone;
-                        if ((int.TryParse(PhoneTextBox.Text.Trim(), out phone)) & (PhoneTextBox.Text.Trim().Length >= 10))
+                        if ((int.TryParse(zipTextBox.Text, out zip)) & (zipTextBox.Text.Length == 5))
                         {
-
-                            if ((firstNameTextBox.Text != "") & (lastNameTextBox.Text != "") & (ssn != 0) & (zip != 0) &
-                                (addressTextBox.Text != "") & (cityTextBox.Text != "") & (StateComboBox.Text != ""))
+                            int phone;
+                            if ((int.TryParse(PhoneTextBox.Text.Trim(), out phone)) & (PhoneTextBox.Text.Trim().Length >= 10))
                             {
-                                //Check Details
-                                employee.FirstName = firstNameTextBox.Text;
-                                employee.MiddleInitial = middleInitialTextBox.Text;
-                                employee.LastName = lastNameTextBox.Text;
-                                if (loginTextBox.Text != "")
+
+                                if ((firstNameTextBox.Text != "") & (lastNameTextBox.Text != "") & (ssn != 0) & (zip != 0) &
+                                    (addressTextBox.Text != "") & (cityTextBox.Text != "") & (StateComboBox.Text != ""))
                                 {
-                                    employee.Login = loginTextBox.Text;
-                                    SimpleAES encrypt = new SimpleAES();
-                                    employee.Password = encrypt.EncryptToString(passwordTextBox.Text);
+                                    //Check Details
+                                    employee.FirstName = firstNameTextBox.Text;
+                                    employee.MiddleInitial = middleInitialTextBox.Text;
+                                    employee.LastName = lastNameTextBox.Text;
+                                    if (loginTextBox.Text != "")
+                                    {
+                                        employee.Login = loginTextBox.Text;
+                                        SimpleAES encrypt = new SimpleAES();
+                                        employee.Password = encrypt.EncryptToString(passwordTextBox.Text);
+                                        if (enabledCheckBox.Checked)
+                                        {
+                                            employee.Enabled = 1;
+                                        }
+                                        else
+                                        {
+                                            employee.Enabled = 0;
+                                        }
+                                    }
+                                    employee.Gender = gender;
+                                    employee.Ssn = ssn;
+                                    employee.Zip = zip;
+                                    employee.PositionId = JobBox.SelectedIndex + 1;
+                                    employee.Phone = phone.ToString();
+                                    employee.Dob = dateTimePicker.Value.Date;
+                                    employee.Address = addressTextBox.Text;
+                                    employee.City = cityTextBox.Text;
+                                    employee.State = StateComboBox.Text;
+                                    return employee;
                                 }
-                                employee.Gender = gender;
-                                employee.Ssn = ssn;
-                                employee.Zip = zip;
-                                employee.PositionId = JobBox.SelectedIndex + 1;
-                                employee.Phone = phone.ToString();
-                                employee.Dob = dateTimePicker.Value.Date;
-                                employee.Address = addressTextBox.Text;
-                                employee.City = cityTextBox.Text;
-                                employee.State = StateComboBox.Text;
-                                try
+                                else
                                 {
-                                    _controller.AddEmployee(employee);
-                                    MessageBox.Show(@"The employee has been added.");
-                                    this.Close();
+                                    MessageBox.Show(@"Please check all the required fields and make sure you entered the proper information.");
 
                                 }
-                                catch (Exception exception)
-                                {
-                                    MessageBox.Show(
-                                        @"There was a problem adding the Employee into the Database, please contact the admin with this message." +
-                                        exception);
-                                }
+
                             }
                             else
                             {
-                                MessageBox.Show( @"Please check all the required fields and make sure you entered the proper information.");
+                                MessageBox.Show(
+                                   @"Phone number needs to be numbers only, remove any non digit characters like -'s or ()'s and is at least 10 numbers.");
                             }
-
                         }
                         else
                         {
                             MessageBox.Show(
-                               @"Phone number needs to be numbers only, remove any non digit characters like -'s or ()'s and is at least 10 numbers.");
+                                @"Please enter Zip as a number and that you have entered the right amount of numbers. Please check.");
                         }
                     }
                     else
                     {
                         MessageBox.Show(
-                            @"Please enter Zip as a number and that you have entered the right amount of numbers. Please check.");
+                            @"Please enter Social as a number with no dashes, or you may not have entered the right amount of numbers. Please check.");
                     }
                 }
                 else
                 {
-                    MessageBox.Show(
-                        @"Please enter Social as a number with no dashes, or you may not have entered the right amount of numbers. Please check.");
-                }
-            } else
-            {
                     MessageBox.Show(@"You need to have a password when setting a login.");
+                }
             }
+            return null;
         }
-        }
-         
-
         private void CancelButton_Click(object sender, System.EventArgs e)
         {
             this.Close();
@@ -187,94 +234,6 @@ namespace WindowsFormsApplication.View
         {
             maleRadioButton.Checked = false;
 
-        }
-      
-
-        private void UpdateButton_Click(object sender, EventArgs e)
-        {            
-
-            if ((femaleRadioButton.Checked == false) & (maleRadioButton.Checked == false))
-            {
-                MessageBox.Show
-        (
-                            @"Please select gender.");
-            }
-            else
-            {
-
-                if ((femaleRadioButton.Checked == true))
-                {
-                    gender = "F";
-                }
-                else
-                {
-                    gender = "M";
-                }
-  
-                if ((int.TryParse(ssnTextBox.Text, out ssn)) & (ssnTextBox.Text.Length == 9))
-                {
-                    if ((int.TryParse(zipTextBox.Text, out zip)) & (zipTextBox.Text.Length == 5))
-                    {
-                        if(PhoneTextBox.Text.Length >= 10)
-                        {
-
-                            if ((firstNameTextBox.Text != "") & (lastNameTextBox.Text != "") & (ssn != 0) & (zip != 0) &
-                                (PhoneTextBox.Text != "") &
-                                (addressTextBox.Text != "") & (cityTextBox.Text != "") & (StateComboBox.Text != ""))
-                            {
-                              
-                                //Check Details
-                                employee.FirstName = firstNameTextBox.Text;
-                                employee.MiddleInitial = middleInitialTextBox.Text;
-                                employee.LastName = lastNameTextBox.Text;
-                                employee.Gender = gender;
-                                employee.Ssn = ssn;
-                                employee.Zip = zip;
-                                employee.PositionId = JobBox.SelectedIndex +1;
-                                employee.Phone = PhoneTextBox.Text;
-                                employee.Dob = dateTimePicker.Value.Date;
-                                employee.Address = addressTextBox.Text;
-                                employee.City = cityTextBox.Text;
-                                employee.State = StateComboBox.Text;
-                                try
-                                {
-                                    _controller.UpdateEmployee(employee);
-                                    MessageBox.Show(@"The employee has been added.");
-                                    this.Close();
-
-                                }
-                                catch (Exception exception)
-                                {
-                                    MessageBox.Show(
-                                        @"There was a problem adding the Employee into the Database, please contact the admin with this message." +
-                                        exception);
-                                }
-                            }
-                            else
-                            {
-                                MessageBox.Show(
-                                    @"Phone number needs to be numbers only, remove any non digit characters like -'s or ()'s.");
-                            }
-
-                        }
-                        else
-                        {
-                            MessageBox.Show(
-                                @"Please check all the required fields and make sure you entered the proper information.");
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show(
-                            @"Please enter Zip as a number and that you have entered the right amount of numbers. Please check.");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show(
-                        @"Please enter Social as a number with no dashes, or you may not have entered the right amount of numbers. Please check.");
-                }
-            }
         }
 
         private void loadEmployeeData()
@@ -301,6 +260,16 @@ namespace WindowsFormsApplication.View
             addressTextBox.Text = employee.Address.Trim();
             cityTextBox.Text = employee.City.Trim();
             StateComboBox.Text = employee.State;
+            loginTextBox.Text = employee.Login;
+            if (employee.Enabled == 1)
+            {
+                enabledCheckBox.Checked = true;
+            } 
+            SimpleAES encrypt = new SimpleAES();
+            if (employee.Password != null)
+            {
+                passwordTextBox.Text = encrypt.DecryptString(employee.Password.Trim());
+            }
             AddNewButton.Enabled = false;
             UpdateButton.Enabled = true;
         }
@@ -318,6 +287,11 @@ namespace WindowsFormsApplication.View
 
             }
             return _updateEmployeeForm;  //just created or created earlier.Return it
+        }
+
+        private void enableAccount(object sender, EventArgs e)
+        {
+            enabledCheckBox.Enabled = true;
         }       
 
         }

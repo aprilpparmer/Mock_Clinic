@@ -83,7 +83,7 @@ namespace WindowsFormsApplication.View
                     }
                     else
                     {
-                        MessageBox.Show("There are no patients with this information registered at this time. Please check your search criteria and try again");
+                        MessageBox.Show("There are no employees with this information registered at this time. Please check your search criteria and try again");
                         textBoxFirstName.Text = "";
                         textBoxLastName.Text = "";
 
@@ -201,6 +201,11 @@ namespace WindowsFormsApplication.View
 
         }
 
+        /// <summary>
+        /// Provides the text for employee positionID
+        /// </summary>
+        /// <param name="positionID"></param>
+        /// <returns></returns>
         private string getEmployeeRole(int positionID)
         {
             string role = "";
@@ -239,7 +244,11 @@ namespace WindowsFormsApplication.View
             return role;
         }
 
-
+        /// <summary>
+        /// provides text for employee activity
+        /// </summary>
+        /// <param name="enabledNum"></param>
+        /// <returns></returns>
         private string getEmployeeActive(int enabledNum)
         {
             string activity = "";

@@ -259,6 +259,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_CS6232_g7DataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="_CS6232_g7DataSet11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_CS6232_g7DataSet11.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="View\NWNewTest.resx">
       <DependentUpon>NWNewTest.cs</DependentUpon>
     </EmbeddedResource>
@@ -421,6 +426,17 @@
     </None>
     <None Include="_CS6232_g7DataSet1.xss">
       <DependentUpon>_CS6232_g7DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="_CS6232_g7DataSet11.xsc">
+      <DependentUpon>_CS6232_g7DataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="_CS6232_g7DataSet11.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_CS6232_g7DataSet11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_CS6232_g7DataSet11.xss">
+      <DependentUpon>_CS6232_g7DataSet11.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

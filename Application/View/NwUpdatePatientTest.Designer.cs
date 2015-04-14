@@ -58,10 +58,14 @@
             this.patient_testsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.patient_testsTableAdapter = new WindowsFormsApplication.PatientVisitInfoDataSetTableAdapters.patient_testsTableAdapter();
             this.tableAdapterManager1 = new WindowsFormsApplication.PatientVisitInfoDataSetTableAdapters.TableAdapterManager();
-            this.test_nameTextBox = new System.Windows.Forms.TextBox();
-            this.testCompletedBox = new System.Windows.Forms.TextBox();
-            this.testResultsBox = new System.Windows.Forms.TextBox();
-            this.testTakenBox = new System.Windows.Forms.TextBox();
+            this.testTextBox = new System.Windows.Forms.TextBox();
+            this.resultTextBox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dateTimePickerCompleted = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerTaken = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerOrdered = new System.Windows.Forms.DateTimePicker();
+            this.takenCheckBox = new System.Windows.Forms.CheckBox();
+            this.completedCheckBox = new System.Windows.Forms.CheckBox();
             test_nameLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.patientVisitSummaryReport)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.testsBindingSource)).BeginInit();
@@ -83,7 +87,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(132, 123);
+            this.saveButton.Location = new System.Drawing.Point(390, 277);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
             this.saveButton.TabIndex = 0;
@@ -94,7 +98,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 48);
+            this.label1.Location = new System.Drawing.Point(12, 74);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(97, 13);
             this.label1.TabIndex = 4;
@@ -103,7 +107,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 74);
+            this.label2.Location = new System.Drawing.Point(12, 100);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(116, 13);
             this.label2.TabIndex = 5;
@@ -112,7 +116,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 100);
+            this.label3.Location = new System.Drawing.Point(12, 126);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 13);
             this.label3.TabIndex = 6;
@@ -299,48 +303,90 @@
             this.tableAdapterManager1.patient_visitTableAdapter = null;
             this.tableAdapterManager1.UpdateOrder = WindowsFormsApplication.PatientVisitInfoDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // test_nameTextBox
+            // testTextBox
             // 
-            this.test_nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.patient_testsBindingSource, "test_name", true));
-            this.test_nameTextBox.Enabled = false;
-            this.test_nameTextBox.Location = new System.Drawing.Point(132, 19);
-            this.test_nameTextBox.Name = "test_nameTextBox";
-            this.test_nameTextBox.Size = new System.Drawing.Size(100, 20);
-            this.test_nameTextBox.TabIndex = 10;
+            this.testTextBox.Location = new System.Drawing.Point(132, 22);
+            this.testTextBox.Name = "testTextBox";
+            this.testTextBox.Size = new System.Drawing.Size(100, 20);
+            this.testTextBox.TabIndex = 9;
             // 
-            // testCompletedBox
+            // resultTextBox
             // 
-            this.testCompletedBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.patient_testsBindingSource, "test_completed", true));
-            this.testCompletedBox.Location = new System.Drawing.Point(132, 71);
-            this.testCompletedBox.Name = "testCompletedBox";
-            this.testCompletedBox.Size = new System.Drawing.Size(100, 20);
-            this.testCompletedBox.TabIndex = 12;
+            this.resultTextBox.Location = new System.Drawing.Point(132, 123);
+            this.resultTextBox.Multiline = true;
+            this.resultTextBox.Name = "resultTextBox";
+            this.resultTextBox.Size = new System.Drawing.Size(333, 148);
+            this.resultTextBox.TabIndex = 12;
             // 
-            // testResultsBox
+            // label4
             // 
-            this.testResultsBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.patient_testsBindingSource, "results", true));
-            this.testResultsBox.Location = new System.Drawing.Point(132, 97);
-            this.testResultsBox.Name = "testResultsBox";
-            this.testResultsBox.Size = new System.Drawing.Size(100, 20);
-            this.testResultsBox.TabIndex = 13;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 48);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(104, 13);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "Test Ordered (Date):";
             // 
-            // testTakenBox
+            // dateTimePickerCompleted
             // 
-            this.testTakenBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.patient_testsBindingSource, "test_taken", true));
-            this.testTakenBox.Location = new System.Drawing.Point(132, 45);
-            this.testTakenBox.Name = "testTakenBox";
-            this.testTakenBox.Size = new System.Drawing.Size(100, 20);
-            this.testTakenBox.TabIndex = 11;
+            this.dateTimePickerCompleted.Checked = false;
+            this.dateTimePickerCompleted.Location = new System.Drawing.Point(132, 100);
+            this.dateTimePickerCompleted.Name = "dateTimePickerCompleted";
+            this.dateTimePickerCompleted.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerCompleted.TabIndex = 14;
+            this.dateTimePickerCompleted.Value = new System.DateTime(2015, 4, 14, 0, 0, 0, 0);
+            this.dateTimePickerCompleted.ValueChanged += new System.EventHandler(this.setCompletedTrue);
+            // 
+            // dateTimePickerTaken
+            // 
+            this.dateTimePickerTaken.Location = new System.Drawing.Point(132, 74);
+            this.dateTimePickerTaken.Name = "dateTimePickerTaken";
+            this.dateTimePickerTaken.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerTaken.TabIndex = 13;
+            this.dateTimePickerTaken.Value = new System.DateTime(2015, 4, 14, 0, 0, 0, 0);
+            this.dateTimePickerTaken.ValueChanged += new System.EventHandler(this.setTakenTrue);
+            // 
+            // dateTimePickerOrdered
+            // 
+            this.dateTimePickerOrdered.Location = new System.Drawing.Point(132, 48);
+            this.dateTimePickerOrdered.Name = "dateTimePickerOrdered";
+            this.dateTimePickerOrdered.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerOrdered.TabIndex = 16;
+            this.dateTimePickerOrdered.Value = new System.DateTime(2015, 4, 14, 0, 0, 0, 0);
+            // 
+            // takenCheckBox
+            // 
+            this.takenCheckBox.AutoSize = true;
+            this.takenCheckBox.Location = new System.Drawing.Point(339, 76);
+            this.takenCheckBox.Name = "takenCheckBox";
+            this.takenCheckBox.Size = new System.Drawing.Size(57, 17);
+            this.takenCheckBox.TabIndex = 17;
+            this.takenCheckBox.Text = "Taken";
+            this.takenCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // completedCheckBox
+            // 
+            this.completedCheckBox.AutoSize = true;
+            this.completedCheckBox.Location = new System.Drawing.Point(339, 103);
+            this.completedCheckBox.Name = "completedCheckBox";
+            this.completedCheckBox.Size = new System.Drawing.Size(76, 17);
+            this.completedCheckBox.TabIndex = 18;
+            this.completedCheckBox.Text = "Completed";
+            this.completedCheckBox.UseVisualStyleBackColor = true;
             // 
             // NwUpdatePatientTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(268, 161);
-            this.Controls.Add(this.testResultsBox);
-            this.Controls.Add(this.testCompletedBox);
-            this.Controls.Add(this.testTakenBox);
-            this.Controls.Add(this.test_nameTextBox);
+            this.ClientSize = new System.Drawing.Size(478, 393);
+            this.Controls.Add(this.completedCheckBox);
+            this.Controls.Add(this.takenCheckBox);
+            this.Controls.Add(this.dateTimePickerOrdered);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.dateTimePickerCompleted);
+            this.Controls.Add(this.dateTimePickerTaken);
+            this.Controls.Add(this.resultTextBox);
+            this.Controls.Add(this.testTextBox);
             this.Controls.Add(test_nameLabel);
             this.Controls.Add(this.testsBindingNavigator);
             this.Controls.Add(this.label3);
@@ -392,9 +438,13 @@
         private System.Windows.Forms.BindingSource patient_testsBindingSource;
         private PatientVisitInfoDataSetTableAdapters.patient_testsTableAdapter patient_testsTableAdapter;
         private PatientVisitInfoDataSetTableAdapters.TableAdapterManager tableAdapterManager1;
-        private System.Windows.Forms.TextBox test_nameTextBox;
-        private System.Windows.Forms.TextBox testCompletedBox;
-        private System.Windows.Forms.TextBox testResultsBox;
-        private System.Windows.Forms.TextBox testTakenBox;
+        private System.Windows.Forms.TextBox testTextBox;
+        private System.Windows.Forms.TextBox resultTextBox;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DateTimePicker dateTimePickerCompleted;
+        private System.Windows.Forms.DateTimePicker dateTimePickerTaken;
+        private System.Windows.Forms.DateTimePicker dateTimePickerOrdered;
+        private System.Windows.Forms.CheckBox takenCheckBox;
+        private System.Windows.Forms.CheckBox completedCheckBox;
     }
 }

@@ -43,6 +43,13 @@ namespace WindowsFormsApplication.Controller
            return PatientVisitDal.AddPatientVisit(patientVisit);
         }
 
+        public PatientTests GetPatientTest(int patientTestId)
+        {
+            return PatientTestsDal.getTest(patientTestId);
+        }
+
+        
+
         public int DeleteDiag(int diagId)
         {
             return DiagnosesDal.DeleteDiag(diagId);
@@ -137,6 +144,11 @@ namespace WindowsFormsApplication.Controller
        internal List<Test> GetAllTests()
        {
            return TestDal.GetAllTests();
+       }
+
+       internal static Test GetTest(int testId)
+       {
+           return TestDal.GetTest(testId);
        }
 
        public int DeleteTest(int testId)

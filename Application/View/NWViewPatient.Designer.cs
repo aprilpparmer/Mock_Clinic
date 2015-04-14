@@ -75,13 +75,13 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.patient_visitBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.patient_visitDataGridView = new System.Windows.Forms.DataGridView();
-            this.patient_visitTableAdapter = new WindowsFormsApplication.PatientVisitDataSetTableAdapters.patient_visitTableAdapter();
-            this.tableAdapterManager = new WindowsFormsApplication.PatientVisitDataSetTableAdapters.TableAdapterManager();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.visitInfoButton = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.patient_visitTableAdapter = new WindowsFormsApplication.PatientVisitDataSetTableAdapters.patient_visitTableAdapter();
+            this.tableAdapterManager = new WindowsFormsApplication.PatientVisitDataSetTableAdapters.TableAdapterManager();
             ((System.ComponentModel.ISupportInitialize)(this.patient_visitBindingNavigator)).BeginInit();
             this.patient_visitBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.patient_visitBindingSource)).BeginInit();
@@ -539,20 +539,6 @@
             this.patient_visitDataGridView.TabIndex = 65;
             this.patient_visitDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.patient_visitDataGridView_CellContentClick);
             // 
-            // patient_visitTableAdapter
-            // 
-            this.patient_visitTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.Connection = null;
-            this.tableAdapterManager.patient_testsTableAdapter = null;
-            this.tableAdapterManager.patient_visit_notesTableAdapter = null;
-            this.tableAdapterManager.patient_visit_symptomsTableAdapter = null;
-            this.tableAdapterManager.patient_visit_vitalsTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = WindowsFormsApplication.PatientVisitDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "visitID";
@@ -599,6 +585,20 @@
             this.visitInfoButton.UseColumnTextForButtonValue = true;
             this.visitInfoButton.Width = 75;
             // 
+            // patient_visitTableAdapter
+            // 
+            this.patient_visitTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.patient_testsTableAdapter = null;
+            this.tableAdapterManager.patient_visit_notesTableAdapter = null;
+            this.tableAdapterManager.patient_visit_symptomsTableAdapter = null;
+            this.tableAdapterManager.patient_visit_vitalsTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = WindowsFormsApplication.PatientVisitDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
             // NWViewPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -636,6 +636,7 @@
             this.Controls.Add(this.dobLabel);
             this.Controls.Add(this.firstNameLabel);
             this.Name = "NWViewPatient";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "View Patient";
             this.Activated += new System.EventHandler(this.activatedFom);
             this.Load += new System.EventHandler(this.NWViewPatient_Load);

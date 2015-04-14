@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApplication.Controller;
 using WindowsFormsApplication.Model;
 
 namespace WindowsFormsApplication.View
@@ -15,14 +9,20 @@ namespace WindowsFormsApplication.View
     public partial class NwViewVisit : Form
     {
         private int visitID;
-
+        NorthwindController _controller;
         public NwViewVisit(int _visitID)
         {
+            _controller = new NorthwindController();
+            InitializeComponent();
+            this.visitID = _visitID;
+            getTestData();
+        }
+
+        private void getTestData(object sender, EventArgs e)
+        {
             try
-            { 
-                InitializeComponent();
+            {
                 //Get the visitID
-                this.visitID = _visitID;
                 //Fill the data
                 this.patient_visitTableAdapter.Fill(this.patientVisitInfoDataSet.patient_visit, this.visitID);
                 this.patient_visit_vitalsTableAdapter.Fill(this.patientVisitInfoDataSet.patient_visit_vitals, this.visitID);
@@ -37,13 +37,12 @@ namespace WindowsFormsApplication.View
             catch (SqlException ex)
             {
                 MessageBox.Show("SQL Server error # " + ex.Number + ": " + ex.Message, ex.GetType().ToString());
-            }            
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
             }   
         }
-
         private void buttonOrderTest_Click(object sender, EventArgs e)
         {
             NwOrderTest NWOrderTestForm = NwOrderTest.GetChildInstance(this.visitID);
@@ -63,55 +62,20 @@ namespace WindowsFormsApplication.View
                 DataGridViewRow row = patient_testsDataGridView.Rows[i];
                 DataGridViewCell cell = row.Cells[1];
                 int patientTestID = (int)cell.Value;
-                cell = row.Cells[4];
-                String dateString = cell.Value.ToString();
-                DateTime? taken;
-                DateTime? completed;
-                DateTime dateTime;
-
-                if (DateTime.TryParse(dateString, out dateTime))
-                {
-                    taken = dateTime;
-                }
-                else
-                {
-                    taken = null;
-                }
-
-                cell = row.Cells[5];
-                dateString = cell.Value.ToString();
-                if (DateTime.TryParse(dateString, out dateTime))
-                {
-                    completed = dateTime;
-                }
-                else
-                {
-                    completed = null;
-                }
-
-                cell = row.Cells[6];
-                String results;
-                if (cell.Value == null)
-                {
-                    results = null;
-                }
-                else
-                {
-                    results = cell.Value.ToString();
-                }
-
+        
                 PatientTests test = new PatientTests();
-                test.PatientTestsId = patientTestID;
-                test.TestCompleted = completed;
-                test.TestTaken = taken;
-                test.Results = results;
-                test.VisitId = this.visitID;
+                test = _controller.GetPatientTest(patientTestID);
 
                 //Display the visit info form
 
                 NwUpdatePatientTest testForm = new NwUpdatePatientTest(test);
                 testForm.ShowDialog();
             }
+        }
+
+        private void getTestData()
+        {
+
         }
     }
 }

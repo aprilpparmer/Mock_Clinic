@@ -18,9 +18,9 @@ namespace WindowsFormsApplication.View
     {
         private PatientTests newPatientTests;
         private PatientTests oldPatientTests;
-        
 
-        
+
+
         public NwUpdatePatientTest(PatientTests patientTestParam)
         {
             this.oldPatientTests = patientTestParam;
@@ -39,15 +39,38 @@ namespace WindowsFormsApplication.View
 
         private void NwUpdatePatientTest_Load(object sender, EventArgs e)
         {
-
-            this.patient_testsTableAdapter.Fill(this.patientVisitInfoDataSet.patient_tests, this.oldPatientTests.VisitId);
-
+            MessageBox.Show(@"Trying to load" + this.oldPatientTests.PatientTestsId);
+            Test tempTest = NorthwindController.GetTest(this.oldPatientTests.TestId);
+            testTextBox.Text = tempTest.TestName;
+            dateTimePickerOrdered.Value = this.oldPatientTests.TestOrdered.GetValueOrDefault();
+            if (this.oldPatientTests.Results != null)
+            {
+                resultTextBox.Text = this.oldPatientTests.Results;
+            }
+            if (this.oldPatientTests.TestTaken != null)
+            {
+                takenCheckBox.Checked = true;
+                dateTimePickerTaken.Value = this.oldPatientTests.TestTaken.GetValueOrDefault();
+            }
+            else
+            {
+                takenCheckBox.Checked = false;
+            }
+            if (this.oldPatientTests.TestCompleted != null)
+            {
+                completedCheckBox.Checked = true;
+                dateTimePickerCompleted.Value = this.oldPatientTests.TestCompleted.GetValueOrDefault();
+            }
+            else
+            {
+                completedCheckBox.Checked = false;
+            } 
         }
 
         private void saveButton_Click(object sender, EventArgs e)
         {
             this.newPatientTests = new PatientTests();
-            this.PutTestData(this.newPatientTests);
+            
             try
             {
                 if (NorthwindController.UpdatePatientTest(this.oldPatientTests, this.newPatientTests))
@@ -70,32 +93,17 @@ namespace WindowsFormsApplication.View
             }
         }
 
-        private void PutTestData(PatientTests patientTests)
-        {
-            //Check if date entered is a date
-            string dateString = this.testTakenBox.Text;
-	        DateTime dateTime;
-	        if (DateTime.TryParse(dateString, out dateTime))
-            {
-                patientTests.TestTaken = dateTime;
-            }
-            else
-            {
-                patientTests.TestTaken = null;
-            }
 
-            //Check if date entered is a date
-            dateString = this.testCompletedBox.Text;
-            if (DateTime.TryParse(dateString, out dateTime))
-            {
-                patientTests.TestCompleted = dateTime;
-            }
-            else
-            {
-                patientTests.TestCompleted = null;
-            }
-            patientTests.Results = this.testResultsBox.Text;
-            patientTests.PatientTestsId = this.oldPatientTests.PatientTestsId;
+        private void setCompletedTrue(object sender, EventArgs e)
+        {
+            completedCheckBox.Checked = true;
         }
+
+        private void setTakenTrue(object sender, EventArgs e)
+        {
+            takenCheckBox.Checked = true;
+        }
+
+        
     }
 }

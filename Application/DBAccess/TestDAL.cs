@@ -91,6 +91,55 @@ namespace WindowsFormsApplication.DBAccess
             return testList;
         }
 
+
+        
+        /// <summary>
+        /// Returns test based on ID
+        /// </summary>
+        /// <returns></returns>
+        public static Test GetTest(int testId)
+        {
+            const string selectStatement = "Select * from tests where testID = @testId";
+
+            try
+            {
+                using (SqlConnection connection = NorthwindDbConnection.GetConnection())
+                {
+                    connection.Open();
+
+                    using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                    {
+                        selectCommand.Parameters.AddWithValue("@testId", testId);
+                        using (SqlDataReader reader = selectCommand.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                Test test = new Test();
+                                test.TestId = (Int32)reader["testID"];
+                                test.TestName = reader["test_name"].ToString().Trim();
+                                return test;
+
+                            }
+                        }
+
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return null;
+        }
+
+
+
+
         public static int DeleteTest(int testId)
         {
 

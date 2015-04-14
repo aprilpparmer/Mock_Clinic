@@ -46,6 +46,11 @@ namespace WindowsFormsApplication.DBAccess
                 throw ex;
             }
         }
+        /// <summary>
+        /// Updates a Diag for a patient
+        /// 
+        /// </summary>
+        /// <param name="symptoms">PatientVisitSymptoms symtpoms</param>
         public static void UpdatePatientDiagnoses(PatientVisitSymptoms symptoms)
         {
             string updateStatement =
@@ -76,6 +81,53 @@ namespace WindowsFormsApplication.DBAccess
                 throw ex;
             }
         }
+
+        public static PatientVisitSymptoms GetAllPatientSymtomsByVisitId(int visitId)
+        {
+            PatientVisitSymptoms patientVisitSymptoms = new PatientVisitSymptoms();
+            const string selectStatement = "Select * from patient_visit_symptoms WHERE visitID = @visitID";
+
+            try
+            {
+                using (SqlConnection connection = NorthwindDbConnection.GetConnection())
+                {
+                    connection.Open();
+
+                    using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                    {
+                        selectCommand.Parameters.AddWithValue("@visitID", visitId);
+
+                        using (SqlDataReader reader = selectCommand.ExecuteReader())
+                        {
+
+                            while (reader.Read())
+                            {
+
+                                patientVisitSymptoms.SymptomId = (Int32)reader["symptomID"];
+                                patientVisitSymptoms.VisitId = (Int32)reader["visitID"];
+                                patientVisitSymptoms.SymptomName = reader["symptom_name"].ToString().Trim();
+                                if (reader["diagnoses_diagnosesID"] != DBNull.Value)
+                                {
+                                    patientVisitSymptoms.DiagnosesID = (Int32)reader["diagnoses_diagnosesID"];
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return patientVisitSymptoms;   
+        }
+
 
         public static void UpdatePatientSymptoms(PatientVisitSymptoms symptoms)
         {
@@ -109,7 +161,7 @@ namespace WindowsFormsApplication.DBAccess
         }
 
 
-        internal static bool UpdateDiagnoses(int visitID, int diag, string symptom)
+        internal static bool UpdateDiagnoses(int visitID, int? diag, string symptom)
         {
             string updateStatement =
                "UPDATE patient_visit_symptoms SET " +

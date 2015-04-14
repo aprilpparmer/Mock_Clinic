@@ -38,10 +38,10 @@
             System.Windows.Forms.Label tempLabel;
             System.Windows.Forms.Label heightLabel;
             System.Windows.Forms.Label weightLabel;
-            System.Windows.Forms.Label symptom_nameLabel;
-            System.Windows.Forms.Label diagnoses_nameLabel;
-            System.Windows.Forms.Label diagnoses_treatmentLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NwViewVisit));
+            this.symptom_nameLabel = new System.Windows.Forms.Label();
+            this.diagnoses_nameLabel = new System.Windows.Forms.Label();
+            this.diagnoses_treatmentLabel = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.nurseNameLabel1 = new System.Windows.Forms.Label();
             this.patient_visitBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -57,10 +57,7 @@
             this.pulseLabel1 = new System.Windows.Forms.Label();
             this.blood_pressureLabel1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.diagnoses_treatmentLabel1 = new System.Windows.Forms.Label();
             this.patient_visit_symptomsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.diagnoses_nameLabel1 = new System.Windows.Forms.Label();
-            this.symptom_nameLabel1 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.patient_testsDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -101,6 +98,9 @@
             this.patient_visit_notesTableAdapter = new WindowsFormsApplication.PatientVisitInfoDataSetTableAdapters.patient_visit_notesTableAdapter();
             this.buttonOrderTest = new System.Windows.Forms.Button();
             this.ButtonUpdateDiagnoses = new System.Windows.Forms.Button();
+            this.symptomtextBox = new System.Windows.Forms.TextBox();
+            this.diagtextBox = new System.Windows.Forms.TextBox();
+            this.treatmenttextBox = new System.Windows.Forms.TextBox();
             visit_dateLabel = new System.Windows.Forms.Label();
             appt_dateLabel = new System.Windows.Forms.Label();
             doctorNameLabel = new System.Windows.Forms.Label();
@@ -110,9 +110,6 @@
             tempLabel = new System.Windows.Forms.Label();
             heightLabel = new System.Windows.Forms.Label();
             weightLabel = new System.Windows.Forms.Label();
-            symptom_nameLabel = new System.Windows.Forms.Label();
-            diagnoses_nameLabel = new System.Windows.Forms.Label();
-            diagnoses_treatmentLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.patient_visitBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientVisitInfoDataSet)).BeginInit();
@@ -213,30 +210,30 @@
             // 
             // symptom_nameLabel
             // 
-            symptom_nameLabel.AutoSize = true;
-            symptom_nameLabel.Location = new System.Drawing.Point(21, 25);
-            symptom_nameLabel.Name = "symptom_nameLabel";
-            symptom_nameLabel.Size = new System.Drawing.Size(58, 13);
-            symptom_nameLabel.TabIndex = 0;
-            symptom_nameLabel.Text = "Symptoms:";
+            this.symptom_nameLabel.AutoSize = true;
+            this.symptom_nameLabel.Location = new System.Drawing.Point(21, 25);
+            this.symptom_nameLabel.Name = "symptom_nameLabel";
+            this.symptom_nameLabel.Size = new System.Drawing.Size(58, 13);
+            this.symptom_nameLabel.TabIndex = 0;
+            this.symptom_nameLabel.Text = "Symptoms:";
             // 
             // diagnoses_nameLabel
             // 
-            diagnoses_nameLabel.AutoSize = true;
-            diagnoses_nameLabel.Location = new System.Drawing.Point(21, 48);
-            diagnoses_nameLabel.Name = "diagnoses_nameLabel";
-            diagnoses_nameLabel.Size = new System.Drawing.Size(60, 13);
-            diagnoses_nameLabel.TabIndex = 2;
-            diagnoses_nameLabel.Text = "Diagnoses:";
+            this.diagnoses_nameLabel.AutoSize = true;
+            this.diagnoses_nameLabel.Location = new System.Drawing.Point(21, 48);
+            this.diagnoses_nameLabel.Name = "diagnoses_nameLabel";
+            this.diagnoses_nameLabel.Size = new System.Drawing.Size(60, 13);
+            this.diagnoses_nameLabel.TabIndex = 2;
+            this.diagnoses_nameLabel.Text = "Diagnoses:";
             // 
             // diagnoses_treatmentLabel
             // 
-            diagnoses_treatmentLabel.AutoSize = true;
-            diagnoses_treatmentLabel.Location = new System.Drawing.Point(21, 72);
-            diagnoses_treatmentLabel.Name = "diagnoses_treatmentLabel";
-            diagnoses_treatmentLabel.Size = new System.Drawing.Size(58, 13);
-            diagnoses_treatmentLabel.TabIndex = 6;
-            diagnoses_treatmentLabel.Text = "Treatment:";
+            this.diagnoses_treatmentLabel.AutoSize = true;
+            this.diagnoses_treatmentLabel.Location = new System.Drawing.Point(21, 72);
+            this.diagnoses_treatmentLabel.Name = "diagnoses_treatmentLabel";
+            this.diagnoses_treatmentLabel.Size = new System.Drawing.Size(58, 13);
+            this.diagnoses_treatmentLabel.TabIndex = 6;
+            this.diagnoses_treatmentLabel.Text = "Treatment:";
             // 
             // groupBox1
             // 
@@ -372,50 +369,23 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(diagnoses_treatmentLabel);
-            this.groupBox3.Controls.Add(this.diagnoses_treatmentLabel1);
-            this.groupBox3.Controls.Add(diagnoses_nameLabel);
-            this.groupBox3.Controls.Add(this.diagnoses_nameLabel1);
-            this.groupBox3.Controls.Add(symptom_nameLabel);
-            this.groupBox3.Controls.Add(this.symptom_nameLabel1);
+            this.groupBox3.Controls.Add(this.treatmenttextBox);
+            this.groupBox3.Controls.Add(this.diagtextBox);
+            this.groupBox3.Controls.Add(this.symptomtextBox);
+            this.groupBox3.Controls.Add(this.diagnoses_treatmentLabel);
+            this.groupBox3.Controls.Add(this.diagnoses_nameLabel);
+            this.groupBox3.Controls.Add(this.symptom_nameLabel);
             this.groupBox3.Location = new System.Drawing.Point(41, 198);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(666, 101);
+            this.groupBox3.Size = new System.Drawing.Size(666, 128);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Symptoms/Diagnoses";
-            // 
-            // diagnoses_treatmentLabel1
-            // 
-            this.diagnoses_treatmentLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.patient_visit_symptomsBindingSource, "diagnoses_treatment", true));
-            this.diagnoses_treatmentLabel1.Location = new System.Drawing.Point(85, 72);
-            this.diagnoses_treatmentLabel1.Name = "diagnoses_treatmentLabel1";
-            this.diagnoses_treatmentLabel1.Size = new System.Drawing.Size(371, 23);
-            this.diagnoses_treatmentLabel1.TabIndex = 7;
-            this.diagnoses_treatmentLabel1.Text = "****";
             // 
             // patient_visit_symptomsBindingSource
             // 
             this.patient_visit_symptomsBindingSource.DataMember = "patient_visit_symptoms";
             this.patient_visit_symptomsBindingSource.DataSource = this.patientVisitInfoDataSet;
-            // 
-            // diagnoses_nameLabel1
-            // 
-            this.diagnoses_nameLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.patient_visit_symptomsBindingSource, "diagnoses_name", true));
-            this.diagnoses_nameLabel1.Location = new System.Drawing.Point(85, 48);
-            this.diagnoses_nameLabel1.Name = "diagnoses_nameLabel1";
-            this.diagnoses_nameLabel1.Size = new System.Drawing.Size(371, 23);
-            this.diagnoses_nameLabel1.TabIndex = 3;
-            this.diagnoses_nameLabel1.Text = "****";
-            // 
-            // symptom_nameLabel1
-            // 
-            this.symptom_nameLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.patient_visit_symptomsBindingSource, "symptom_name", true));
-            this.symptom_nameLabel1.Location = new System.Drawing.Point(85, 25);
-            this.symptom_nameLabel1.Name = "symptom_nameLabel1";
-            this.symptom_nameLabel1.Size = new System.Drawing.Size(371, 23);
-            this.symptom_nameLabel1.TabIndex = 1;
-            this.symptom_nameLabel1.Text = "****";
             // 
             // groupBox4
             // 
@@ -757,6 +727,32 @@
             this.ButtonUpdateDiagnoses.UseVisualStyleBackColor = true;
             this.ButtonUpdateDiagnoses.Click += new System.EventHandler(this.ButtonUpdateDiagnoses_Click);
             // 
+            // symptomtextBox
+            // 
+            this.symptomtextBox.Location = new System.Drawing.Point(87, 25);
+            this.symptomtextBox.Name = "symptomtextBox";
+            this.symptomtextBox.ReadOnly = true;
+            this.symptomtextBox.Size = new System.Drawing.Size(535, 20);
+            this.symptomtextBox.TabIndex = 7;
+            // 
+            // diagtextBox
+            // 
+            this.diagtextBox.Location = new System.Drawing.Point(87, 51);
+            this.diagtextBox.Name = "diagtextBox";
+            this.diagtextBox.ReadOnly = true;
+            this.diagtextBox.Size = new System.Drawing.Size(535, 20);
+            this.diagtextBox.TabIndex = 8;
+            // 
+            // treatmenttextBox
+            // 
+            this.treatmenttextBox.Location = new System.Drawing.Point(87, 75);
+            this.treatmenttextBox.Multiline = true;
+            this.treatmenttextBox.Name = "treatmenttextBox";
+            this.treatmenttextBox.ReadOnly = true;
+            this.treatmenttextBox.Size = new System.Drawing.Size(535, 47);
+            this.treatmenttextBox.TabIndex = 9;
+            // 
+            // NwViewVisit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -834,9 +830,6 @@
         private System.Windows.Forms.Label blood_pressureLabel1;
         private System.Windows.Forms.BindingSource patient_visit_symptomsBindingSource;
         private PatientVisitInfoDataSetTableAdapters.patient_visit_symptomsTableAdapter patient_visit_symptomsTableAdapter;
-        private System.Windows.Forms.Label diagnoses_treatmentLabel1;
-        private System.Windows.Forms.Label diagnoses_nameLabel1;
-        private System.Windows.Forms.Label symptom_nameLabel1;
         private System.Windows.Forms.BindingSource patient_testsBindingSource;
         private PatientVisitInfoDataSetTableAdapters.patient_testsTableAdapter patient_testsTableAdapter;
         private System.Windows.Forms.DataGridView patient_testsDataGridView;
@@ -858,6 +851,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewButtonColumn Update;
         private System.Windows.Forms.Button ButtonUpdateDiagnoses;
+        private System.Windows.Forms.Label symptom_nameLabel;
+        private System.Windows.Forms.Label diagnoses_nameLabel;
+        private System.Windows.Forms.Label diagnoses_treatmentLabel;
+        private System.Windows.Forms.TextBox treatmenttextBox;
+        private System.Windows.Forms.TextBox diagtextBox;
+        private System.Windows.Forms.TextBox symptomtextBox;
 
     }
 }

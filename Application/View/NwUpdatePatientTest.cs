@@ -23,8 +23,9 @@ namespace WindowsFormsApplication.View
         
         public NwUpdatePatientTest(PatientTests patientTestParam)
         {
-            InitializeComponent();
             this.oldPatientTests = patientTestParam;
+            InitializeComponent();
+            
         }
 
 

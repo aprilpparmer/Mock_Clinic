@@ -63,7 +63,7 @@ namespace WindowsFormsApplication.View
                 DataGridViewRow row = patient_testsDataGridView.Rows[i];
                 DataGridViewCell cell = row.Cells[0];
                 int patientTestID = (int)cell.Value;
-                cell = row.Cells[3];
+                cell = row.Cells[4];
                 String dateString = cell.Value.ToString();
                 DateTime? taken;
                 DateTime? completed;
@@ -78,7 +78,7 @@ namespace WindowsFormsApplication.View
                     taken = null;
                 }
 
-                cell = row.Cells[4];
+                cell = row.Cells[5];
                 dateString = cell.Value.ToString();
                 if (DateTime.TryParse(dateString, out dateTime))
                 {
@@ -89,7 +89,7 @@ namespace WindowsFormsApplication.View
                     completed = null;
                 }
 
-                cell = row.Cells[5];
+                cell = row.Cells[6];
                 String results = cell.Value.ToString();
 
                 PatientTests test = new PatientTests();

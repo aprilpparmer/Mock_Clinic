@@ -100,10 +100,7 @@
             this.patient_testsTableAdapter = new WindowsFormsApplication.PatientVisitInfoDataSetTableAdapters.patient_testsTableAdapter();
             this.patient_visit_notesTableAdapter = new WindowsFormsApplication.PatientVisitInfoDataSetTableAdapters.patient_visit_notesTableAdapter();
             this.buttonOrderTest = new System.Windows.Forms.Button();
-<<<<<<< HEAD
             this.ButtonUpdateDiagnoses = new System.Windows.Forms.Button();
-=======
->>>>>>> 6bd585c7f0e0cd70e29dd1e9cc52f642e05a4edd
             visit_dateLabel = new System.Windows.Forms.Label();
             appt_dateLabel = new System.Windows.Forms.Label();
             doctorNameLabel = new System.Windows.Forms.Label();
@@ -450,13 +447,9 @@
             this.patient_testsDataGridView.Location = new System.Drawing.Point(20, 19);
             this.patient_testsDataGridView.Name = "patient_testsDataGridView";
             this.patient_testsDataGridView.ReadOnly = true;
-<<<<<<< HEAD
-            this.patient_testsDataGridView.Size = new System.Drawing.Size(761, 94);
-=======
             this.patient_testsDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.patient_testsDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.patient_testsDataGridView.Size = new System.Drawing.Size(778, 94);
->>>>>>> 6bd585c7f0e0cd70e29dd1e9cc52f642e05a4edd
             this.patient_testsDataGridView.TabIndex = 0;
             this.patient_testsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.patient_testsDataGridView_CellContentClick);
             // 
@@ -754,7 +747,6 @@
             this.buttonOrderTest.UseVisualStyleBackColor = true;
             this.buttonOrderTest.Click += new System.EventHandler(this.buttonOrderTest_Click);
             // 
-<<<<<<< HEAD
             // ButtonUpdateDiagnoses
             // 
             this.ButtonUpdateDiagnoses.Location = new System.Drawing.Point(599, 169);
@@ -765,9 +757,6 @@
             this.ButtonUpdateDiagnoses.UseVisualStyleBackColor = true;
             this.ButtonUpdateDiagnoses.Click += new System.EventHandler(this.ButtonUpdateDiagnoses_Click);
             // 
-=======
->>>>>>> 6bd585c7f0e0cd70e29dd1e9cc52f642e05a4edd
-            // NwViewVisit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;

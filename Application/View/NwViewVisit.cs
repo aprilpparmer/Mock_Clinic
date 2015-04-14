@@ -9,13 +9,13 @@ namespace WindowsFormsApplication.View
     public partial class NwViewVisit : Form
     {
         private int visitID;
-        NorthwindController _controller;
+        private NorthwindController _controller;
+
         public NwViewVisit(int _visitID)
         {
             _controller = new NorthwindController();
             InitializeComponent();
             this.visitID = _visitID;
-            getTestData();
         }
 
         private void getTestData(object sender, EventArgs e)
@@ -25,8 +25,10 @@ namespace WindowsFormsApplication.View
                 //Get the visitID
                 //Fill the data
                 this.patient_visitTableAdapter.Fill(this.patientVisitInfoDataSet.patient_visit, this.visitID);
-                this.patient_visit_vitalsTableAdapter.Fill(this.patientVisitInfoDataSet.patient_visit_vitals, this.visitID);
-                this.patient_visit_symptomsTableAdapter.Fill(this.patientVisitInfoDataSet.patient_visit_symptoms, this.visitID);
+                this.patient_visit_vitalsTableAdapter.Fill(this.patientVisitInfoDataSet.patient_visit_vitals,
+                    this.visitID);
+                this.patient_visit_symptomsTableAdapter.Fill(this.patientVisitInfoDataSet.patient_visit_symptoms,
+                    this.visitID);
                 this.patient_testsTableAdapter.Fill(this.patientVisitInfoDataSet.patient_tests, this.visitID);
                 this.patient_visit_notesTableAdapter.Fill(this.patientVisitInfoDataSet.patient_visit_notes, this.visitID);
             }
@@ -41,16 +43,17 @@ namespace WindowsFormsApplication.View
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
-            }   
+            }
         }
+
         private void buttonOrderTest_Click(object sender, EventArgs e)
         {
             NwOrderTest NWOrderTestForm = NwOrderTest.GetChildInstance(this.visitID);
             NWOrderTestForm.MdiParent = MdiParent;
             NWOrderTestForm.Show();
             NWOrderTestForm.BringToFront();
-            
-            
+
+
         }
 
         private void patient_testsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -61,8 +64,8 @@ namespace WindowsFormsApplication.View
                 int i = e.RowIndex;
                 DataGridViewRow row = patient_testsDataGridView.Rows[i];
                 DataGridViewCell cell = row.Cells[1];
-                int patientTestID = (int)cell.Value;
-        
+                int patientTestID = (int) cell.Value;
+
                 PatientTests test = new PatientTests();
                 test = _controller.GetPatientTest(patientTestID);
 
@@ -73,18 +76,12 @@ namespace WindowsFormsApplication.View
             }
         }
 
-<<<<<<< HEAD
         private void ButtonUpdateDiagnoses_Click(object sender, EventArgs e)
         {
             NwUpdateDiagnoses NWNewTestForm = NwUpdateDiagnoses.GetChildInstance(diagnoses_nameLabel1.Text);
             NWNewTestForm.MdiParent = MdiParent;
             NWNewTestForm.Show();
             NWNewTestForm.BringToFront();
-=======
-        private void getTestData()
-        {
-
->>>>>>> 6bd585c7f0e0cd70e29dd1e9cc52f642e05a4edd
         }
     }
 }

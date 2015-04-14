@@ -363,6 +363,7 @@
             this.takenCheckBox.TabIndex = 17;
             this.takenCheckBox.Text = "Taken";
             this.takenCheckBox.UseVisualStyleBackColor = true;
+            this.takenCheckBox.CheckedChanged += new System.EventHandler(this.setTakenTrue);
             // 
             // completedCheckBox
             // 
@@ -373,6 +374,7 @@
             this.completedCheckBox.TabIndex = 18;
             this.completedCheckBox.Text = "Completed";
             this.completedCheckBox.UseVisualStyleBackColor = true;
+            this.completedCheckBox.CheckedChanged += new System.EventHandler(this.setCompletedTrue);
             // 
             // NwUpdatePatientTest
             // 

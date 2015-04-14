@@ -122,13 +122,30 @@ namespace WindowsFormsApplication.View
 
         private void setCompletedTrue(object sender, EventArgs e)
         {
-            completedCheckBox.Checked = true;
-            takenCheckBox.Checked = true;
+            if (completedCheckBox.Checked)
+            {
+                completedCheckBox.Checked = true;
+                takenCheckBox.Checked = true;
+            }
+            else
+            {
+                completedCheckBox.Checked = false;
+                takenCheckBox.Checked = false;
+                
+            }
         }
 
         private void setTakenTrue(object sender, EventArgs e)
         {
-            takenCheckBox.Checked = true;
+            if (takenCheckBox.Checked)
+            {
+                takenCheckBox.Checked = true;
+            }
+            else
+            {
+                takenCheckBox.Checked = false;
+
+            }
         }
 
         

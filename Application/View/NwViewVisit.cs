@@ -61,7 +61,7 @@ namespace WindowsFormsApplication.View
                 //Get the ID of the selected visit
                 int i = e.RowIndex;
                 DataGridViewRow row = patient_testsDataGridView.Rows[i];
-                DataGridViewCell cell = row.Cells[0];
+                DataGridViewCell cell = row.Cells[1];
                 int patientTestID = (int)cell.Value;
                 cell = row.Cells[4];
                 String dateString = cell.Value.ToString();
@@ -90,7 +90,15 @@ namespace WindowsFormsApplication.View
                 }
 
                 cell = row.Cells[6];
-                String results = cell.Value.ToString();
+                String results;
+                if (cell.Value == null)
+                {
+                    results = null;
+                }
+                else
+                {
+                    results = cell.Value.ToString();
+                }
 
                 PatientTests test = new PatientTests();
                 test.PatientTestsId = patientTestID;

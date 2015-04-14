@@ -78,7 +78,7 @@ namespace WindowsFormsApplication.View
 
         private void ButtonUpdateDiagnoses_Click(object sender, EventArgs e)
         {
-            NwUpdateDiagnoses NWNewTestForm = NwUpdateDiagnoses.GetChildInstance(diagnoses_nameLabel1.Text);
+            NwUpdateDiagnoses NWNewTestForm = NwUpdateDiagnoses.GetChildInstance(visitID, diagnoses_nameLabel1.Text, symptom_nameLabel1.Text);
             NWNewTestForm.MdiParent = MdiParent;
             NWNewTestForm.Show();
             NWNewTestForm.BringToFront();

@@ -32,14 +32,16 @@
             this.labelCurrrentDiagnoses = new System.Windows.Forms.Label();
             this.labelUPdatedDiadnoses = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.diagnosesDataSet = new WindowsFormsApplication.DiagnosesDataSet();
             this.diagnosesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.diagnosesDataSet = new WindowsFormsApplication.DiagnosesDataSet();
             this.diagnosesTableAdapter = new WindowsFormsApplication.DiagnosesDataSetTableAdapters.diagnosesTableAdapter();
             this.buttonUpdateDiagnoses = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.textBoxCurrentDiagnoses = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.diagnosesDataSet)).BeginInit();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxSymptom = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.diagnosesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.diagnosesDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // labelCurrrentDiagnoses
@@ -72,15 +74,15 @@
             this.comboBox1.TabIndex = 3;
             this.comboBox1.ValueMember = "diagnosesID";
             // 
-            // diagnosesDataSet
-            // 
-            this.diagnosesDataSet.DataSetName = "DiagnosesDataSet";
-            this.diagnosesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // diagnosesBindingSource
             // 
             this.diagnosesBindingSource.DataMember = "diagnoses";
             this.diagnosesBindingSource.DataSource = this.diagnosesDataSet;
+            // 
+            // diagnosesDataSet
+            // 
+            this.diagnosesDataSet.DataSetName = "DiagnosesDataSet";
+            this.diagnosesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // diagnosesTableAdapter
             // 
@@ -110,14 +112,34 @@
             // 
             this.textBoxCurrentDiagnoses.Location = new System.Drawing.Point(153, 50);
             this.textBoxCurrentDiagnoses.Name = "textBoxCurrentDiagnoses";
+            this.textBoxCurrentDiagnoses.ReadOnly = true;
             this.textBoxCurrentDiagnoses.Size = new System.Drawing.Size(100, 20);
             this.textBoxCurrentDiagnoses.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(47, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Symptom:";
+            // 
+            // textBoxSymptom
+            // 
+            this.textBoxSymptom.Location = new System.Drawing.Point(153, 9);
+            this.textBoxSymptom.Name = "textBoxSymptom";
+            this.textBoxSymptom.ReadOnly = true;
+            this.textBoxSymptom.Size = new System.Drawing.Size(100, 20);
+            this.textBoxSymptom.TabIndex = 8;
             // 
             // NwUpdateDiagnoses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(372, 255);
+            this.Controls.Add(this.textBoxSymptom);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxCurrentDiagnoses);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonUpdateDiagnoses);
@@ -127,8 +149,8 @@
             this.Name = "NwUpdateDiagnoses";
             this.Text = "Update Diagnoses";
             this.Load += new System.EventHandler(this.NwUpdateDiagnoses_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.diagnosesDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.diagnosesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.diagnosesDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -145,5 +167,7 @@
         private System.Windows.Forms.Button buttonUpdateDiagnoses;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.TextBox textBoxCurrentDiagnoses;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxSymptom;
     }
 }

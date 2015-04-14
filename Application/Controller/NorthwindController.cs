@@ -170,5 +170,10 @@ namespace WindowsFormsApplication.Controller
        {
            return PatientTestsDal.UpdatePatientTest(oldPatientTest, newPatientTest);
        }
+
+       internal bool UpdateDiagnoses(int visitID, int diag, string symptom)
+       {
+           return PatientVisitSymptomsDal.UpdateDiagnoses(visitID, diag, symptom);
+       }
     }
 }

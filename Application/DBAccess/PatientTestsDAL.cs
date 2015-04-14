@@ -121,13 +121,29 @@ namespace WindowsFormsApplication.DBAccess
         /// <param name="patientTest">Test to be updated</param>
         public static bool UpdatePatientTest(PatientTests oldPatientTest, PatientTests newPatientTest)
         {
-            string updateStatement =
-                "UPDATE patient_tests SET " +
-                    "test_taken = @test_taken, test_completed = @test_completed, results = @results " +
-                "WHERE patient_testID = @patient_testID " + 
-                    "AND test_taken = @oldTestTaken " +
-                    "AND test_completed = @oldTestCompleted " +
-                    "AND results = @oldResults";
+            string updateTemp =
+                "UPDATE patient_tests SET ";
+            string whereTemp = " WHERE patient_testID = @patient_testID ";
+            MessageBox.Show(@"step 1");
+            if ((newPatientTest.TestTaken != null) && (oldPatientTest.TestTaken == null))
+            {
+                updateTemp = updateTemp + " test_taken = @test_taken ";
+                whereTemp = whereTemp + "AND test_taken is NULL  ";
+            }
+            MessageBox.Show(@"step 2");
+            if ((newPatientTest.TestTaken != null) && (newPatientTest.TestCompleted != null))
+            {
+                updateTemp = updateTemp + ", ";
+                whereTemp = whereTemp + " AND ";
+            }
+            MessageBox.Show(@"step 3");
+            if ((newPatientTest.TestCompleted != null) && (oldPatientTest.TestCompleted == null))
+            {
+                updateTemp = updateTemp + " test_completed = @test_completed, results = @results";
+                whereTemp = whereTemp + " AND test_completed is NULL AND  results is NULL";
+            }
+            MessageBox.Show(@"step 4");
+            string updateStatement = updateTemp + whereTemp;
             try
             {
                 using (SqlConnection connection = NorthwindDbConnection.GetConnection())
@@ -135,55 +151,23 @@ namespace WindowsFormsApplication.DBAccess
                     connection.Open();
                     using (SqlCommand updateCommand = new SqlCommand(updateStatement, connection))
                     {
-                        if (oldPatientTest.TestTaken == null) 
-                        {
-                            updateCommand.Parameters.AddWithValue("@oldTestTaken", DBNull.Value);
-                        }
-                        else
-                        {
-                            updateCommand.Parameters.AddWithValue("@oldTestTaken", oldPatientTest.TestTaken);
-                        }
-                        if (oldPatientTest.TestCompleted == null)
-                        {
-                            updateCommand.Parameters.AddWithValue("@oldTestCompleted", DBNull.Value);
-                        }
-                        else
-                        {
-                            updateCommand.Parameters.AddWithValue("@oldTestCompleted", oldPatientTest.TestCompleted);
-                        }
-                        if (oldPatientTest.Results == null)
-                        {
-                            updateCommand.Parameters.AddWithValue("@oldResults", DBNull.Value);
-                        }
-                        else
-                        {
-                            updateCommand.Parameters.AddWithValue("@oldResults", oldPatientTest.Results);
-                        }
-                        //parameters
-                        if (newPatientTest.TestTaken == null) {
-                            updateCommand.Parameters.AddWithValue("@test_taken", DBNull.Value);
-                        }
-                        else 
+                        MessageBox.Show(@"step 5");
+                        if ((newPatientTest.TestTaken != null) && (oldPatientTest.TestTaken == null))
                         {
                             updateCommand.Parameters.AddWithValue("@test_taken", newPatientTest.TestTaken);
                         }
-                        if (newPatientTest.TestCompleted == null) 
-                        {
-                            updateCommand.Parameters.AddWithValue("@test_completed", DBNull.Value);
-                        }
-                        else 
+                        MessageBox.Show(@"step 6");
+
+                        if ((newPatientTest.TestCompleted != null) && (oldPatientTest.TestCompleted == null))
                         {
                             updateCommand.Parameters.AddWithValue("@test_completed", newPatientTest.TestCompleted);
-                        }
-                        if (newPatientTest.Results == "") 
-                        {
-                            updateCommand.Parameters.AddWithValue("@results", DBNull.Value);
-                        }
-                        else 
-                        {
                             updateCommand.Parameters.AddWithValue("@results", newPatientTest.Results);
                         }
+                        MessageBox.Show(@"step 7");
+
                         updateCommand.Parameters.AddWithValue("@patient_testID", newPatientTest.PatientTestsId);
+                        NorthwindDbConnection.ViewString(updateCommand);
+                        
                         int count = updateCommand.ExecuteNonQuery();
                         if (count > 0)
                         {

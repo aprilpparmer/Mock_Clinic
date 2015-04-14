@@ -39,7 +39,6 @@ namespace WindowsFormsApplication.View
 
         private void NwUpdatePatientTest_Load(object sender, EventArgs e)
         {
-            MessageBox.Show(@"Trying to load" + this.oldPatientTests.PatientTestsId);
             Test tempTest = NorthwindController.GetTest(this.oldPatientTests.TestId);
             testTextBox.Text = tempTest.TestName;
             dateTimePickerOrdered.Value = this.oldPatientTests.TestOrdered.GetValueOrDefault();
@@ -69,11 +68,37 @@ namespace WindowsFormsApplication.View
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            this.newPatientTests = new PatientTests();
-            
+            PatientTests patientTests =  new PatientTests();
+            patientTests.PatientTestsId = oldPatientTests.PatientTestsId;
+            patientTests.TestId = oldPatientTests.TestId;
+            patientTests.VisitId = oldPatientTests.VisitId;
+            Boolean saveTest = false;
+            if (takenCheckBox.Checked)
+            {
+                patientTests.TestTaken = dateTimePickerTaken.Value;
+                saveTest = true;
+            }
+            else if (resultTextBox.Text.Trim() != "")
+            {
+                MessageBox.Show(@"You need set the date test was taken before entering results..");
+            }
+
+
+            if ((completedCheckBox.Checked) & (resultTextBox.Text.Trim() != ""))
+            {
+                patientTests.TestCompleted = dateTimePickerCompleted.Value;
+                patientTests.Results = resultTextBox.Text.Trim();
+                saveTest = true;
+            }
+            else if ((completedCheckBox.Checked == false) & (resultTextBox.Text.Trim() != ""))
+            {
+                MessageBox.Show("You need to Set Completion date if your setting results.");
+                saveTest = false;
+            }
+            if (saveTest){
             try
             {
-                if (NorthwindController.UpdatePatientTest(this.oldPatientTests, this.newPatientTests))
+                if (NorthwindController.UpdatePatientTest(this.oldPatientTests, patientTests))
                 {
                     MessageBox.Show("The test has been updated.");
                     this.Close();
@@ -91,12 +116,14 @@ namespace WindowsFormsApplication.View
             {
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
+           }
         }
 
 
         private void setCompletedTrue(object sender, EventArgs e)
         {
             completedCheckBox.Checked = true;
+            takenCheckBox.Checked = true;
         }
 
         private void setTakenTrue(object sender, EventArgs e)

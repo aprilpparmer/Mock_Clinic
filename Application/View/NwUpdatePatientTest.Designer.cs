@@ -335,7 +335,7 @@
             this.dateTimePickerCompleted.Size = new System.Drawing.Size(200, 20);
             this.dateTimePickerCompleted.TabIndex = 14;
             this.dateTimePickerCompleted.Value = new System.DateTime(2015, 4, 14, 0, 0, 0, 0);
-            this.dateTimePickerCompleted.ValueChanged += new System.EventHandler(this.setCompletedTrue);
+            this.dateTimePickerCompleted.MouseDown += new System.Windows.Forms.MouseEventHandler(this.setCompletedTrueMouse);
             // 
             // dateTimePickerTaken
             // 
@@ -344,7 +344,7 @@
             this.dateTimePickerTaken.Size = new System.Drawing.Size(200, 20);
             this.dateTimePickerTaken.TabIndex = 13;
             this.dateTimePickerTaken.Value = new System.DateTime(2015, 4, 14, 0, 0, 0, 0);
-            this.dateTimePickerTaken.ValueChanged += new System.EventHandler(this.setTakenTrue);
+            this.dateTimePickerTaken.MouseDown += new System.Windows.Forms.MouseEventHandler(this.setTakenTrueMouse);
             // 
             // dateTimePickerOrdered
             // 
@@ -363,7 +363,6 @@
             this.takenCheckBox.TabIndex = 17;
             this.takenCheckBox.Text = "Taken";
             this.takenCheckBox.UseVisualStyleBackColor = true;
-            this.takenCheckBox.CheckedChanged += new System.EventHandler(this.setTakenTrue);
             // 
             // completedCheckBox
             // 

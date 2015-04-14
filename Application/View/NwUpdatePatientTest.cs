@@ -119,7 +119,6 @@ namespace WindowsFormsApplication.View
            }
         }
 
-
         private void setCompletedTrue(object sender, EventArgs e)
         {
             if (completedCheckBox.Checked)
@@ -130,21 +129,25 @@ namespace WindowsFormsApplication.View
             else
             {
                 completedCheckBox.Checked = false;
-                takenCheckBox.Checked = false;
                 
             }
         }
 
-        private void setTakenTrue(object sender, EventArgs e)
+       
+        private void setTakenTrueMouse(object sender, MouseEventArgs e)
         {
-            if (takenCheckBox.Checked)
+            if (!takenCheckBox.Checked)
             {
                 takenCheckBox.Checked = true;
             }
-            else
-            {
-                takenCheckBox.Checked = false;
+        }
 
+        private void setCompletedTrueMouse(object sender, MouseEventArgs e)
+        {
+            if (!completedCheckBox.Checked)
+            {
+                completedCheckBox.Checked = true;
+                takenCheckBox.Checked = true;
             }
         }
 

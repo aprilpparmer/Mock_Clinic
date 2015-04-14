@@ -113,5 +113,13 @@ namespace WindowsFormsApplication.View
                 testForm.ShowDialog();
             }
         }
+
+        private void ButtonUpdateDiagnoses_Click(object sender, EventArgs e)
+        {
+            NwUpdateDiagnoses NWNewTestForm = NwUpdateDiagnoses.GetChildInstance(diagnoses_nameLabel1.Text);
+            NWNewTestForm.MdiParent = MdiParent;
+            NWNewTestForm.Show();
+            NWNewTestForm.BringToFront();
+        }
     }
 }

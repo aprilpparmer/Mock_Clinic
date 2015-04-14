@@ -121,6 +121,12 @@
     <Compile Include="View\NWNewTest.Designer.cs">
       <DependentUpon>NWNewTest.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\NwUpdateDiagnoses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\NwUpdateDiagnoses.Designer.cs">
+      <DependentUpon>NwUpdateDiagnoses.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\NwUpdatePatientTest.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -257,6 +263,9 @@
       <DependentUpon>NWNewTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\NwPatientVisitSummaryReport.rdlc" />
+    <EmbeddedResource Include="View\NwUpdateDiagnoses.resx">
+      <DependentUpon>NwUpdateDiagnoses.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\NwUpdatePatientTest.resx">
       <DependentUpon>NwUpdatePatientTest.cs</DependentUpon>
     </EmbeddedResource>

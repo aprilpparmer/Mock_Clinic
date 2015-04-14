@@ -63,6 +63,14 @@
             this.symptom_nameLabel1 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.patient_testsDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patient_testID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Update = new System.Windows.Forms.DataGridViewButtonColumn();
             this.patient_testsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.patient_visit_notesDataGridView = new System.Windows.Forms.DataGridView();
@@ -92,14 +100,7 @@
             this.patient_testsTableAdapter = new WindowsFormsApplication.PatientVisitInfoDataSetTableAdapters.patient_testsTableAdapter();
             this.patient_visit_notesTableAdapter = new WindowsFormsApplication.PatientVisitInfoDataSetTableAdapters.patient_visit_notesTableAdapter();
             this.buttonOrderTest = new System.Windows.Forms.Button();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.patient_testID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Update = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ButtonUpdateDiagnoses = new System.Windows.Forms.Button();
             visit_dateLabel = new System.Windows.Forms.Label();
             appt_dateLabel = new System.Windows.Forms.Label();
             doctorNameLabel = new System.Windows.Forms.Label();
@@ -247,7 +248,7 @@
             this.groupBox1.Controls.Add(this.appt_dateLabel1);
             this.groupBox1.Controls.Add(visit_dateLabel);
             this.groupBox1.Controls.Add(this.visit_dateLabel1);
-            this.groupBox1.Location = new System.Drawing.Point(41, 39);
+            this.groupBox1.Location = new System.Drawing.Point(41, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(462, 72);
             this.groupBox1.TabIndex = 0;
@@ -312,7 +313,7 @@
             this.groupBox2.Controls.Add(this.pulseLabel1);
             this.groupBox2.Controls.Add(blood_pressureLabel);
             this.groupBox2.Controls.Add(this.blood_pressureLabel1);
-            this.groupBox2.Location = new System.Drawing.Point(41, 113);
+            this.groupBox2.Location = new System.Drawing.Point(41, 90);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(462, 70);
             this.groupBox2.TabIndex = 1;
@@ -377,9 +378,9 @@
             this.groupBox3.Controls.Add(this.diagnoses_nameLabel1);
             this.groupBox3.Controls.Add(symptom_nameLabel);
             this.groupBox3.Controls.Add(this.symptom_nameLabel1);
-            this.groupBox3.Location = new System.Drawing.Point(41, 186);
+            this.groupBox3.Location = new System.Drawing.Point(41, 198);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(462, 101);
+            this.groupBox3.Size = new System.Drawing.Size(666, 101);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Symptoms/Diagnoses";
@@ -419,9 +420,9 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.patient_testsDataGridView);
-            this.groupBox4.Location = new System.Drawing.Point(41, 290);
+            this.groupBox4.Location = new System.Drawing.Point(41, 332);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(769, 119);
+            this.groupBox4.Size = new System.Drawing.Size(813, 119);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Tests";
@@ -442,12 +443,70 @@
             this.dataGridViewTextBoxColumn7,
             this.Update});
             this.patient_testsDataGridView.DataSource = this.patient_testsBindingSource;
-            this.patient_testsDataGridView.Location = new System.Drawing.Point(13, 19);
+            this.patient_testsDataGridView.Location = new System.Drawing.Point(20, 19);
             this.patient_testsDataGridView.Name = "patient_testsDataGridView";
             this.patient_testsDataGridView.ReadOnly = true;
-            this.patient_testsDataGridView.Size = new System.Drawing.Size(745, 94);
+            this.patient_testsDataGridView.Size = new System.Drawing.Size(761, 94);
             this.patient_testsDataGridView.TabIndex = 0;
             this.patient_testsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.patient_testsDataGridView_CellContentClick);
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "visitID";
+            this.dataGridViewTextBoxColumn2.HeaderText = "visitID";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Visible = false;
+            // 
+            // patient_testID
+            // 
+            this.patient_testID.DataPropertyName = "patient_testID";
+            this.patient_testID.HeaderText = "Patient TestID";
+            this.patient_testID.Name = "patient_testID";
+            this.patient_testID.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "test_name";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Test";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "test_ordered";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Ordered";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "test_taken";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Taken";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "test_completed";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Completed";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "results";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Results";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // Update
+            // 
+            this.Update.HeaderText = "Update";
+            this.Update.Name = "Update";
+            this.Update.ReadOnly = true;
+            this.Update.Text = "Update";
+            this.Update.UseColumnTextForButtonValue = true;
             // 
             // patient_testsBindingSource
             // 
@@ -457,7 +516,7 @@
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.patient_visit_notesDataGridView);
-            this.groupBox5.Location = new System.Drawing.Point(41, 415);
+            this.groupBox5.Location = new System.Drawing.Point(41, 457);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(589, 130);
             this.groupBox5.TabIndex = 1;
@@ -477,7 +536,7 @@
             this.dataGridViewTextBoxColumn12,
             this.dataGridViewTextBoxColumn13});
             this.patient_visit_notesDataGridView.DataSource = this.patient_visit_notesBindingSource;
-            this.patient_visit_notesDataGridView.Location = new System.Drawing.Point(13, 20);
+            this.patient_visit_notesDataGridView.Location = new System.Drawing.Point(20, 20);
             this.patient_visit_notesDataGridView.Name = "patient_visit_notesDataGridView";
             this.patient_visit_notesDataGridView.ReadOnly = true;
             this.patient_visit_notesDataGridView.Size = new System.Drawing.Size(543, 104);
@@ -677,7 +736,7 @@
             // 
             // buttonOrderTest
             // 
-            this.buttonOrderTest.Location = new System.Drawing.Point(724, 264);
+            this.buttonOrderTest.Location = new System.Drawing.Point(735, 303);
             this.buttonOrderTest.Name = "buttonOrderTest";
             this.buttonOrderTest.Size = new System.Drawing.Size(75, 23);
             this.buttonOrderTest.TabIndex = 3;
@@ -685,69 +744,22 @@
             this.buttonOrderTest.UseVisualStyleBackColor = true;
             this.buttonOrderTest.Click += new System.EventHandler(this.buttonOrderTest_Click);
             // 
-            // dataGridViewTextBoxColumn2
+            // ButtonUpdateDiagnoses
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "visitID";
-            this.dataGridViewTextBoxColumn2.HeaderText = "visitID";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Visible = false;
-            // 
-            // patient_testID
-            // 
-            this.patient_testID.DataPropertyName = "patient_testID";
-            this.patient_testID.HeaderText = "Patient TestID";
-            this.patient_testID.Name = "patient_testID";
-            this.patient_testID.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "test_name";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Test";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "test_ordered";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Ordered";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "test_taken";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Taken";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "test_completed";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Completed";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "results";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Results";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            // 
-            // Update
-            // 
-            this.Update.HeaderText = "Update";
-            this.Update.Name = "Update";
-            this.Update.ReadOnly = true;
-            this.Update.Text = "Update";
-            this.Update.UseColumnTextForButtonValue = true;
+            this.ButtonUpdateDiagnoses.Location = new System.Drawing.Point(599, 169);
+            this.ButtonUpdateDiagnoses.Name = "ButtonUpdateDiagnoses";
+            this.ButtonUpdateDiagnoses.Size = new System.Drawing.Size(108, 23);
+            this.ButtonUpdateDiagnoses.TabIndex = 4;
+            this.ButtonUpdateDiagnoses.Text = "Update Diagnoses";
+            this.ButtonUpdateDiagnoses.UseVisualStyleBackColor = true;
+            this.ButtonUpdateDiagnoses.Click += new System.EventHandler(this.ButtonUpdateDiagnoses_Click);
             // 
             // NwViewVisit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(891, 557);
+            this.ClientSize = new System.Drawing.Size(891, 607);
+            this.Controls.Add(this.ButtonUpdateDiagnoses);
             this.Controls.Add(this.buttonOrderTest);
             this.Controls.Add(this.patient_visitBindingNavigator);
             this.Controls.Add(this.groupBox2);
@@ -841,6 +853,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewButtonColumn Update;
+        private System.Windows.Forms.Button ButtonUpdateDiagnoses;
 
     }
 }

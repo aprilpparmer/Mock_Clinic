@@ -22,8 +22,7 @@ namespace WindowsFormsApplication.View
             listViewPatients.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
             listViewPatients.Enabled = false;
             viewPatientButton.Enabled = false;
-            editPatientButton.Enabled = false;
-            viewVisitsButton.Enabled = false;
+            editPatientButton.Enabled = false;           
             addVisitButton.Enabled = false;
             buttonClear.Enabled = false;
         }
@@ -49,7 +48,6 @@ namespace WindowsFormsApplication.View
                         listViewPatients.Enabled = true;
                         viewPatientButton.Enabled = true;
                         editPatientButton.Enabled = true;
-                        viewVisitsButton.Enabled = true;
                         addVisitButton.Enabled = true;
                         buttonClear.Enabled = true;
 
@@ -127,7 +125,6 @@ namespace WindowsFormsApplication.View
             listViewPatients.Enabled = false;
             viewPatientButton.Enabled = false;
             editPatientButton.Enabled = false;
-            viewVisitsButton.Enabled = false;
             addVisitButton.Enabled = false;
             buttonClear.Enabled = false;
         }

@@ -52,12 +52,15 @@ namespace WindowsFormsApplication.DBAccess
         ///Updates a patient's test
         /// </summary>
         /// <param name="patientTest">Test to be updated</param>
-        public static bool UpdatePatientTest(PatientTests patientTest)
+        public static bool UpdatePatientTest(PatientTests oldPatientTest, PatientTests newPatientTest)
         {
             string updateStatement =
                 "UPDATE patient_tests SET " +
                     "test_taken = @test_taken, test_completed = @test_completed, results = @results " +
-                "WHERE patient_testID = @patient_testID";
+                "WHERE patient_testID = @patient_testID " + 
+                    "AND test_taken = @oldTestTaken " +
+                    "AND test_completed = @oldTestCompleted " +
+                    "AND results = @oldResults";
             try
             {
                 using (SqlConnection connection = NorthwindDbConnection.GetConnection())
@@ -65,31 +68,55 @@ namespace WindowsFormsApplication.DBAccess
                     connection.Open();
                     using (SqlCommand updateCommand = new SqlCommand(updateStatement, connection))
                     {
+                        if (oldPatientTest.TestTaken == null) 
+                        {
+                            updateCommand.Parameters.AddWithValue("@oldTestTaken", DBNull.Value);
+                        }
+                        else
+                        {
+                            updateCommand.Parameters.AddWithValue("@oldTestTaken", oldPatientTest.TestTaken);
+                        }
+                        if (oldPatientTest.TestCompleted == null)
+                        {
+                            updateCommand.Parameters.AddWithValue("@oldTestCompleted", DBNull.Value);
+                        }
+                        else
+                        {
+                            updateCommand.Parameters.AddWithValue("@oldTestCompleted", oldPatientTest.TestCompleted);
+                        }
+                        if (oldPatientTest.Results == null)
+                        {
+                            updateCommand.Parameters.AddWithValue("@oldResults", DBNull.Value);
+                        }
+                        else
+                        {
+                            updateCommand.Parameters.AddWithValue("@oldResults", oldPatientTest.Results);
+                        }
                         //parameters
-                        if (patientTest.TestTaken == null) {
+                        if (newPatientTest.TestTaken == null) {
                             updateCommand.Parameters.AddWithValue("@test_taken", DBNull.Value);
                         }
                         else 
                         {
-                            updateCommand.Parameters.AddWithValue("@test_taken", patientTest.TestTaken);
+                            updateCommand.Parameters.AddWithValue("@test_taken", newPatientTest.TestTaken);
                         }
-                        if (patientTest.TestCompleted == null) 
+                        if (newPatientTest.TestCompleted == null) 
                         {
                             updateCommand.Parameters.AddWithValue("@test_completed", DBNull.Value);
                         }
                         else 
                         {
-                            updateCommand.Parameters.AddWithValue("@test_completed", patientTest.TestCompleted);
+                            updateCommand.Parameters.AddWithValue("@test_completed", newPatientTest.TestCompleted);
                         }
-                        if (patientTest.Results == "") 
+                        if (newPatientTest.Results == "") 
                         {
                             updateCommand.Parameters.AddWithValue("@results", DBNull.Value);
                         }
                         else 
                         {
-                            updateCommand.Parameters.AddWithValue("@results", patientTest.Results);
+                            updateCommand.Parameters.AddWithValue("@results", newPatientTest.Results);
                         }
-                        updateCommand.Parameters.AddWithValue("@patient_testID", patientTest.PatientTestsId);
+                        updateCommand.Parameters.AddWithValue("@patient_testID", newPatientTest.PatientTestsId);
                         int count = updateCommand.ExecuteNonQuery();
                         if (count > 0)
                         {

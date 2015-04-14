@@ -154,9 +154,9 @@ namespace WindowsFormsApplication.Controller
            PatientTestsDal.OrderTest(patientTest);
        }
 
-       public static bool UpdatePatientTest(PatientTests patientTest)
+       public static bool UpdatePatientTest(PatientTests oldPatientTest, PatientTests newPatientTest)
        {
-           return PatientTestsDal.UpdatePatientTest(patientTest);
+           return PatientTestsDal.UpdatePatientTest(oldPatientTest, newPatientTest);
        }
     }
 }

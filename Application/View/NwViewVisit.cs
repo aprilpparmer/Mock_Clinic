@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApplication.Model;
 
 namespace WindowsFormsApplication.View
 {
@@ -62,9 +63,45 @@ namespace WindowsFormsApplication.View
                 DataGridViewRow row = patient_testsDataGridView.Rows[i];
                 DataGridViewCell cell = row.Cells[0];
                 int patientTestID = (int)cell.Value;
+                cell = row.Cells[3];
+                String dateString = cell.Value.ToString();
+                DateTime? taken;
+                DateTime? completed;
+                DateTime dateTime;
+
+                if (DateTime.TryParse(dateString, out dateTime))
+                {
+                    taken = dateTime;
+                }
+                else
+                {
+                    taken = null;
+                }
+
+                cell = row.Cells[4];
+                dateString = cell.Value.ToString();
+                if (DateTime.TryParse(dateString, out dateTime))
+                {
+                    completed = dateTime;
+                }
+                else
+                {
+                    completed = null;
+                }
+
+                cell = row.Cells[5];
+                String results = cell.Value.ToString();
+
+                PatientTests test = new PatientTests();
+                test.PatientTestsId = patientTestID;
+                test.TestCompleted = completed;
+                test.TestTaken = taken;
+                test.Results = results;
+                test.VisitId = this.visitID;
 
                 //Display the visit info form
-                NwUpdatePatientTest testForm = new NwUpdatePatientTest(this.visitID, patientTestID);
+
+                NwUpdatePatientTest testForm = new NwUpdatePatientTest(test);
                 testForm.ShowDialog();
             }
         }

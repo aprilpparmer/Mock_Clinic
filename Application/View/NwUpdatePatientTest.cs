@@ -19,7 +19,7 @@ namespace WindowsFormsApplication.View
         private PatientTests newPatientTests;
         private PatientTests oldPatientTests;
 
-
+        private Boolean resultsAdded = false;
 
         public NwUpdatePatientTest(PatientTests patientTestParam)
         {
@@ -73,28 +73,44 @@ namespace WindowsFormsApplication.View
             patientTests.TestId = oldPatientTests.TestId;
             patientTests.VisitId = oldPatientTests.VisitId;
             Boolean saveTest = false;
+            if (string.IsNullOrEmpty(resultTextBox.Text))
+            {
+                resultsAdded = false;
+            }
+            else
+            {
+                resultsAdded = true;
+            }
             if (takenCheckBox.Checked)
             {
                 patientTests.TestTaken = dateTimePickerTaken.Value;
                 saveTest = true;
             }
-            else if (resultTextBox.Text.Trim() != "")
+
+            else if (resultsAdded)
             {
                 MessageBox.Show(@"You need set the date test was taken before entering results..");
             }
 
+            
 
-            if ((completedCheckBox.Checked) & (resultTextBox.Text.Trim() != ""))
+            if ((completedCheckBox.Checked) & (resultsAdded))
             {
                 patientTests.TestCompleted = dateTimePickerCompleted.Value;
                 patientTests.Results = resultTextBox.Text.Trim();
                 saveTest = true;
             }
-            else if ((completedCheckBox.Checked == false) & (resultTextBox.Text.Trim() != ""))
+            else if ((completedCheckBox.Checked == false) & (resultsAdded))
             {
-                MessageBox.Show("You need to Set Completion date if your setting results.");
+                MessageBox.Show(@"You need to Set Completion date if your setting results.");
                 saveTest = false;
             }
+            else if ((completedCheckBox.Checked == true) & (!resultsAdded))
+            {
+                MessageBox.Show(@"You need to Set Results if your setting Completion date.");
+                saveTest = false;
+            }
+    
             if (saveTest){
             try
             {
@@ -119,7 +135,6 @@ namespace WindowsFormsApplication.View
            }
         }
 
-
         private void setCompletedTrue(object sender, EventArgs e)
         {
             if (completedCheckBox.Checked)
@@ -130,21 +145,25 @@ namespace WindowsFormsApplication.View
             else
             {
                 completedCheckBox.Checked = false;
-                takenCheckBox.Checked = false;
                 
             }
         }
 
-        private void setTakenTrue(object sender, EventArgs e)
+       
+        private void setTakenTrueMouse(object sender, MouseEventArgs e)
         {
-            if (takenCheckBox.Checked)
+            if (!takenCheckBox.Checked)
             {
                 takenCheckBox.Checked = true;
             }
-            else
-            {
-                takenCheckBox.Checked = false;
+        }
 
+        private void setCompletedTrueMouse(object sender, MouseEventArgs e)
+        {
+            if (!completedCheckBox.Checked)
+            {
+                completedCheckBox.Checked = true;
+                takenCheckBox.Checked = true;
             }
         }
 

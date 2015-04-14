@@ -79,10 +79,7 @@ namespace WindowsFormsApplication.View
             }
         }
 
-        private void activatedFom(object sender, EventArgs e)
-        {
-            loadPatientDate();
-        }
+        
 
         private void loadPatientDate()
         {
@@ -103,6 +100,7 @@ namespace WindowsFormsApplication.View
 
         private void loadVisits()
         {
+            this.patient_visitTableAdapter.ClearBeforeFill = true;
             this.patient_visitTableAdapter.Fill(this.patientVisitDataSet.patient_visit, this._patientId);
         }
 

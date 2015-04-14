@@ -124,25 +124,41 @@ namespace WindowsFormsApplication.DBAccess
             string updateTemp =
                 "UPDATE patient_tests SET ";
             string whereTemp = " WHERE patient_testID = @patient_testID ";
-            MessageBox.Show(@"step 1");
-            if ((newPatientTest.TestTaken != null) && (oldPatientTest.TestTaken == null))
+            if ((newPatientTest.TestTaken != null))
             {
                 updateTemp = updateTemp + " test_taken = @test_taken ";
-                whereTemp = whereTemp + "AND test_taken is NULL  ";
+                if (oldPatientTest.TestTaken == null)
+                {
+                    whereTemp = whereTemp + " AND test_taken is NULL  ";
+                }
+                else
+                {
+                    whereTemp = whereTemp + " AND test_taken = @oldTestTaken ";
+                }
             }
-            MessageBox.Show(@"step 2");
+
+
             if ((newPatientTest.TestTaken != null) && (newPatientTest.TestCompleted != null))
             {
                 updateTemp = updateTemp + ", ";
                 whereTemp = whereTemp + " AND ";
             }
-            MessageBox.Show(@"step 3");
-            if ((newPatientTest.TestCompleted != null) && (oldPatientTest.TestCompleted == null))
+
+
+
+            if ((newPatientTest.TestCompleted != null))
             {
                 updateTemp = updateTemp + " test_completed = @test_completed, results = @results";
-                whereTemp = whereTemp + " AND test_completed is NULL AND  results is NULL";
-            }
-            MessageBox.Show(@"step 4");
+                
+                if (oldPatientTest.TestCompleted == null)
+                {
+                    whereTemp = whereTemp + " test_completed is NULL AND  results is NULL";
+                }
+                else
+                {
+                    whereTemp = whereTemp + " test_completed = @oldtest_completed AND  results = @oldresults ";
+                }
+            } 
             string updateStatement = updateTemp + whereTemp;
             try
             {
@@ -151,22 +167,31 @@ namespace WindowsFormsApplication.DBAccess
                     connection.Open();
                     using (SqlCommand updateCommand = new SqlCommand(updateStatement, connection))
                     {
-                        MessageBox.Show(@"step 5");
                         if ((newPatientTest.TestTaken != null) && (oldPatientTest.TestTaken == null))
                         {
                             updateCommand.Parameters.AddWithValue("@test_taken", newPatientTest.TestTaken);
                         }
-                        MessageBox.Show(@"step 6");
+                        else if ((newPatientTest.TestTaken != null) && (oldPatientTest.TestTaken != null))
+                        {
+                            updateCommand.Parameters.AddWithValue("@test_taken", newPatientTest.TestTaken);
+                            updateCommand.Parameters.AddWithValue("@oldTestTaken", oldPatientTest.TestTaken);
+                        }
 
                         if ((newPatientTest.TestCompleted != null) && (oldPatientTest.TestCompleted == null))
                         {
                             updateCommand.Parameters.AddWithValue("@test_completed", newPatientTest.TestCompleted);
                             updateCommand.Parameters.AddWithValue("@results", newPatientTest.Results);
                         }
-                        MessageBox.Show(@"step 7");
+                        else if ((newPatientTest.TestCompleted != null) && (oldPatientTest.TestCompleted != null))
+                        {
+                            updateCommand.Parameters.AddWithValue("@test_completed", newPatientTest.TestCompleted);
+                            updateCommand.Parameters.AddWithValue("@results", newPatientTest.Results);
+                            updateCommand.Parameters.AddWithValue("@oldtest_completed", oldPatientTest.TestCompleted);
+                            updateCommand.Parameters.AddWithValue("@oldresults", oldPatientTest.Results);
+
+                        }
 
                         updateCommand.Parameters.AddWithValue("@patient_testID", newPatientTest.PatientTestsId);
-                        NorthwindDbConnection.ViewString(updateCommand);
                         
                         int count = updateCommand.ExecuteNonQuery();
                         if (count > 0)

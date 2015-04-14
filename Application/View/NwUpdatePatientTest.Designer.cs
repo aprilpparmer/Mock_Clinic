@@ -307,6 +307,7 @@
             // 
             this.testTextBox.Location = new System.Drawing.Point(132, 22);
             this.testTextBox.Name = "testTextBox";
+            this.testTextBox.ReadOnly = true;
             this.testTextBox.Size = new System.Drawing.Size(100, 20);
             this.testTextBox.TabIndex = 9;
             // 
@@ -335,7 +336,7 @@
             this.dateTimePickerCompleted.Size = new System.Drawing.Size(200, 20);
             this.dateTimePickerCompleted.TabIndex = 14;
             this.dateTimePickerCompleted.Value = new System.DateTime(2015, 4, 14, 0, 0, 0, 0);
-            this.dateTimePickerCompleted.ValueChanged += new System.EventHandler(this.setCompletedTrue);
+            this.dateTimePickerCompleted.MouseDown += new System.Windows.Forms.MouseEventHandler(this.setCompletedTrueMouse);
             // 
             // dateTimePickerTaken
             // 
@@ -344,7 +345,7 @@
             this.dateTimePickerTaken.Size = new System.Drawing.Size(200, 20);
             this.dateTimePickerTaken.TabIndex = 13;
             this.dateTimePickerTaken.Value = new System.DateTime(2015, 4, 14, 0, 0, 0, 0);
-            this.dateTimePickerTaken.ValueChanged += new System.EventHandler(this.setTakenTrue);
+            this.dateTimePickerTaken.MouseDown += new System.Windows.Forms.MouseEventHandler(this.setTakenTrueMouse);
             // 
             // dateTimePickerOrdered
             // 
@@ -363,7 +364,6 @@
             this.takenCheckBox.TabIndex = 17;
             this.takenCheckBox.Text = "Taken";
             this.takenCheckBox.UseVisualStyleBackColor = true;
-            this.takenCheckBox.CheckedChanged += new System.EventHandler(this.setTakenTrue);
             // 
             // completedCheckBox
             // 
@@ -380,7 +380,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(478, 393);
+            this.ClientSize = new System.Drawing.Size(478, 309);
             this.Controls.Add(this.completedCheckBox);
             this.Controls.Add(this.takenCheckBox);
             this.Controls.Add(this.dateTimePickerOrdered);

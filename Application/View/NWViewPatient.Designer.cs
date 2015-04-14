@@ -638,7 +638,7 @@
             this.Name = "NWViewPatient";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "View Patient";
-            this.Activated += new System.EventHandler(this.activatedFom);
+            this.Activated += new System.EventHandler(this.NWViewPatient_Load);
             this.Load += new System.EventHandler(this.NWViewPatient_Load);
             ((System.ComponentModel.ISupportInitialize)(this.patient_visitBindingNavigator)).EndInit();
             this.patient_visitBindingNavigator.ResumeLayout(false);

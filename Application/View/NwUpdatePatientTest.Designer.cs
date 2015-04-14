@@ -307,6 +307,7 @@
             // 
             this.testTextBox.Location = new System.Drawing.Point(132, 22);
             this.testTextBox.Name = "testTextBox";
+            this.testTextBox.ReadOnly = true;
             this.testTextBox.Size = new System.Drawing.Size(100, 20);
             this.testTextBox.TabIndex = 9;
             // 
@@ -379,7 +380,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(478, 393);
+            this.ClientSize = new System.Drawing.Size(478, 309);
             this.Controls.Add(this.completedCheckBox);
             this.Controls.Add(this.takenCheckBox);
             this.Controls.Add(this.dateTimePickerOrdered);

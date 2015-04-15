@@ -162,19 +162,19 @@ namespace WindowsFormsApplication.View
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-
-            ListViewItem item = listViewEmployee.SelectedItems[0];
-            int employeeId = int.Parse(item.SubItems[0].Text);
-            Employee deleteEmployee = _controller.GetEmployeeByID(employeeId);
-            NWViewEmployee NwNWViewEmployeeForm = NWViewEmployee.GetChildInstance(employeeId);
-            NwNWViewEmployeeForm.MdiParent = MdiParent;
-            NwNWViewEmployeeForm.Show();
-            NwNWViewEmployeeForm.BringToFront();
-            DialogResult dialogResult = MessageBox.Show(@"Are you sure you wish to delete this employee?", "Confirmation", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
+            try
             {
-                try
+                ListViewItem item = listViewEmployee.SelectedItems[0];
+                int employeeId = int.Parse(item.SubItems[0].Text);
+                Employee deleteEmployee = _controller.GetEmployeeByID(employeeId);
+                NWViewEmployee NwNWViewEmployeeForm = NWViewEmployee.GetChildInstance(employeeId);
+                NwNWViewEmployeeForm.MdiParent = MdiParent;
+                NwNWViewEmployeeForm.Show();
+                NwNWViewEmployeeForm.BringToFront();
+                DialogResult dialogResult = MessageBox.Show(@"Are you sure you wish to delete this employee?", "Confirmation", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
                 {
+
                     _controller.DeleteEmployee(deleteEmployee);
                     NwNWViewEmployeeForm.Close();
                     textBoxFirstName.Text = "";
@@ -188,17 +188,16 @@ namespace WindowsFormsApplication.View
                     DeleteButton.Enabled = false;
                     MessageBox.Show(@"Employee Deleted");
                 }
-                catch (Exception ex)
+
+                else if (dialogResult == DialogResult.No)
                 {
-                    MessageBox.Show("An exception has occured with your request" + ex);
+                    MessageBox.Show(@"Employee was not removed");
                 }
-
             }
-            else if (dialogResult == DialogResult.No)
+            catch (Exception ex)
             {
-                MessageBox.Show(@"Employee was not removed");
+                MessageBox.Show("An exception has occured with your request" + ex);
             }
-
         }
 
         /// <summary>

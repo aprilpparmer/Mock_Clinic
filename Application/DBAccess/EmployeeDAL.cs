@@ -187,19 +187,9 @@ namespace WindowsFormsApplication.DBAccess
         /// <param name="employee"></param>
         public static void AddEmployee(Employee employee)
         {
-            string insertStatement;
-            if ((employee.Login != "") || (employee.Login != null))
-            {
-                insertStatement = "INSERT into employees " +
+            string insertStatement = "INSERT into employees " +
                                   " (address, city, dob, first_name, gender, last_name, middle_initial, positionID, phone, ssn, state, zip, login, password, enabled) " +
                                   " values(@address, @city, @dob, @first_name, @gender, @last_name, @middle_initial, @positionID, @phone, @ssn, @state, @zip, @login, @password, @enabled)";
-            }
-            else
-            {
-                insertStatement = "INSERT into employees " +
-                                  " (address, city, dob, first_name, gender, last_name, middle_initial, positionID, phone, ssn, state, zip) " +
-                                  " values(@address, @city, @dob, @first_name, @gender, @last_name, @middle_initial, @positionID, @phone, @ssn, @state, @zip)";
-            }
 
             try
             {
@@ -221,9 +211,15 @@ namespace WindowsFormsApplication.DBAccess
                         insertCommand.Parameters.AddWithValue("@phone", employee.Phone);
                         insertCommand.Parameters.AddWithValue("@ssn", employee.Ssn);
                         insertCommand.Parameters.AddWithValue("@state", employee.State);
-                        insertCommand.Parameters.AddWithValue("@zip", employee.Zip);
+                        insertCommand.Parameters.AddWithValue("@zip", employee.Zip);                        
                         
                         if ((employee.Login != "") || (employee.Login != null))
+                        {
+                            insertCommand.Parameters.AddWithValue("@login", "");
+                            insertCommand.Parameters.AddWithValue("@password", "");
+                            insertCommand.Parameters.AddWithValue("@enabled", employee.Enabled);
+                        }
+                        else
                         {
                             insertCommand.Parameters.AddWithValue("@login", employee.Login);
                             insertCommand.Parameters.AddWithValue("@password", employee.Password);

@@ -126,6 +126,7 @@ namespace WindowsFormsApplication.View
                 if ((loginTextBox.Text.Trim().Length > 0) & (passwordTextBox.Text.Trim().Length > 0))
                 {
                     Boolean uniqueLogin = true;
+                    
                     if ((employeeId != 0) && (employee.Login.Trim() != loginTextBox.Text.Trim()))
                     {
                         uniqueLogin = _controller.VerifyUniqueLogin(loginTextBox.Text);
@@ -157,7 +158,8 @@ namespace WindowsFormsApplication.View
                             {
 
                                 if ((firstNameTextBox.Text != "") & (lastNameTextBox.Text != "") & (ssn != 0) & (zip != 0) &
-                                    (addressTextBox.Text != "") & (cityTextBox.Text != "") & (StateComboBox.Text != ""))
+                                    (addressTextBox.Text != "") & (cityTextBox.Text != "") & (StateComboBox.Text != "")
+                                    & (loginTextBox.Text != "") & (passwordTextBox.Text != ""))
                                 {
                                     //Check Details
                                     employee.FirstName = firstNameTextBox.Text;

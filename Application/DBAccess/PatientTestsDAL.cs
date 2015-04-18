@@ -214,5 +214,41 @@ namespace WindowsFormsApplication.DBAccess
                 throw ex;
             }
         }
+
+        /// <summary>
+        /// Delete's an ordered test 
+        /// </summary>
+        /// <param name="patientTestID">The patient test id that needs to be deleted</param>
+        /// <returns></returns>
+        public static int DeleteOrderedTest(int patientTestID)
+        {
+
+            string deleteStatement =
+                " DELETE FROM patient_tests " +
+                " where ( patient_testID = @patientTestID) ";
+            try
+            {
+                using (SqlConnection connection = NorthwindDbConnection.GetConnection())
+                {
+                    connection.Open();
+
+                    using (SqlCommand deleteCommand = new SqlCommand(deleteStatement, connection))
+                    {
+                        deleteCommand.Parameters.AddWithValue("@patientTestID", patientTestID);
+                        return deleteCommand.ExecuteNonQuery();
+                    }
+
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+           
+        }
     }
 }

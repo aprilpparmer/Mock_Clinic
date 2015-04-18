@@ -185,5 +185,10 @@ namespace WindowsFormsApplication.Controller
        {
            return PatientVisitSymptomsDal.UpdateDiagnoses(visitID, diag, symptom);
        }
+
+       internal int DeletePatientTest(int patientTestID)
+       {
+           return PatientTestsDal.DeleteOrderedTest(patientTestID);
+       }
     }
 }

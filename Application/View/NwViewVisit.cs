@@ -94,6 +94,34 @@ namespace WindowsFormsApplication.View
                 NwUpdatePatientTest testForm = new NwUpdatePatientTest(test);
                 testForm.ShowDialog();
             }
+
+
+            if (e.ColumnIndex == 8) //Delete patient test button is clicked
+            {
+                //Get the ID of the selected test
+                int i = e.RowIndex;
+                DataGridViewRow row = patient_testsDataGridView.Rows[i];
+                DataGridViewCell cell = row.Cells[1];
+                int patientTestID = (int)cell.Value;
+
+                int success = _controller.DeletePatientTest(patientTestID);
+
+                if (success == 1)
+                {
+                    MessageBox.Show("Ordered test deleted succesfully!");
+                }
+                else
+                {
+                    MessageBox.Show("Ordered test could not be deleted!");
+                }
+
+            }
+
+
+
+
+
+
         }
 
         private void ButtonUpdateDiagnoses_Click(object sender, EventArgs e)

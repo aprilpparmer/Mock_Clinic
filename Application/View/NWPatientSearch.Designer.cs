@@ -74,10 +74,10 @@
             this.HomePhone,
             this.WorkPhone,
             this.Child});
-            this.listViewPatients.Location = new System.Drawing.Point(15, 71);
-            this.listViewPatients.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listViewPatients.Location = new System.Drawing.Point(11, 58);
+            this.listViewPatients.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.listViewPatients.Name = "listViewPatients";
-            this.listViewPatients.Size = new System.Drawing.Size(1336, 203);
+            this.listViewPatients.Size = new System.Drawing.Size(1003, 166);
             this.listViewPatients.TabIndex = 0;
             this.listViewPatients.UseCompatibleStateImageBehavior = false;
             this.listViewPatients.View = System.Windows.Forms.View.Details;
@@ -155,37 +155,33 @@
             // labelFirstName
             // 
             this.labelFirstName.AutoSize = true;
-            this.labelFirstName.Location = new System.Drawing.Point(16, 30);
-            this.labelFirstName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelFirstName.Location = new System.Drawing.Point(12, 24);
             this.labelFirstName.Name = "labelFirstName";
-            this.labelFirstName.Size = new System.Drawing.Size(110, 17);
+            this.labelFirstName.Size = new System.Drawing.Size(84, 13);
             this.labelFirstName.TabIndex = 1;
             this.labelFirstName.Text = "Search by DOB:";
             // 
             // textBoxLastName
             // 
-            this.textBoxLastName.Location = new System.Drawing.Point(335, 26);
-            this.textBoxLastName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxLastName.Location = new System.Drawing.Point(251, 21);
             this.textBoxLastName.Name = "textBoxLastName";
-            this.textBoxLastName.Size = new System.Drawing.Size(132, 22);
+            this.textBoxLastName.Size = new System.Drawing.Size(100, 20);
             this.textBoxLastName.TabIndex = 2;
             // 
             // labelLastName
             // 
             this.labelLastName.AutoSize = true;
-            this.labelLastName.Location = new System.Drawing.Point(256, 28);
-            this.labelLastName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelLastName.Location = new System.Drawing.Point(192, 23);
             this.labelLastName.Name = "labelLastName";
-            this.labelLastName.Size = new System.Drawing.Size(80, 17);
+            this.labelLastName.Size = new System.Drawing.Size(61, 13);
             this.labelLastName.TabIndex = 3;
             this.labelLastName.Text = "Last Name:";
             // 
             // buttonSearch
             // 
-            this.buttonSearch.Location = new System.Drawing.Point(843, 26);
-            this.buttonSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonSearch.Location = new System.Drawing.Point(632, 21);
             this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(163, 28);
+            this.buttonSearch.Size = new System.Drawing.Size(122, 23);
             this.buttonSearch.TabIndex = 4;
             this.buttonSearch.Text = "Search Patients";
             this.buttonSearch.UseVisualStyleBackColor = true;
@@ -193,10 +189,9 @@
             // 
             // buttonCloseSearch
             // 
-            this.buttonCloseSearch.Location = new System.Drawing.Point(1177, 292);
-            this.buttonCloseSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonCloseSearch.Location = new System.Drawing.Point(883, 237);
             this.buttonCloseSearch.Name = "buttonCloseSearch";
-            this.buttonCloseSearch.Size = new System.Drawing.Size(100, 28);
+            this.buttonCloseSearch.Size = new System.Drawing.Size(75, 23);
             this.buttonCloseSearch.TabIndex = 10;
             this.buttonCloseSearch.Text = "Close";
             this.buttonCloseSearch.UseVisualStyleBackColor = true;
@@ -204,10 +199,9 @@
             // 
             // buttonClear
             // 
-            this.buttonClear.Location = new System.Drawing.Point(1069, 292);
-            this.buttonClear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonClear.Location = new System.Drawing.Point(802, 237);
             this.buttonClear.Name = "buttonClear";
-            this.buttonClear.Size = new System.Drawing.Size(100, 28);
+            this.buttonClear.Size = new System.Drawing.Size(75, 23);
             this.buttonClear.TabIndex = 9;
             this.buttonClear.Text = "Clear";
             this.buttonClear.UseVisualStyleBackColor = true;
@@ -215,10 +209,10 @@
             // 
             // viewPatientButton
             // 
-            this.viewPatientButton.Location = new System.Drawing.Point(1357, 71);
-            this.viewPatientButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.viewPatientButton.Location = new System.Drawing.Point(1018, 58);
+            this.viewPatientButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.viewPatientButton.Name = "viewPatientButton";
-            this.viewPatientButton.Size = new System.Drawing.Size(117, 23);
+            this.viewPatientButton.Size = new System.Drawing.Size(88, 19);
             this.viewPatientButton.TabIndex = 5;
             this.viewPatientButton.Text = "View Patient";
             this.viewPatientButton.UseVisualStyleBackColor = true;
@@ -226,10 +220,10 @@
             // 
             // editPatientButton
             // 
-            this.editPatientButton.Location = new System.Drawing.Point(1357, 101);
-            this.editPatientButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.editPatientButton.Location = new System.Drawing.Point(1018, 82);
+            this.editPatientButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.editPatientButton.Name = "editPatientButton";
-            this.editPatientButton.Size = new System.Drawing.Size(117, 23);
+            this.editPatientButton.Size = new System.Drawing.Size(88, 19);
             this.editPatientButton.TabIndex = 6;
             this.editPatientButton.Text = "Edit Patient";
             this.editPatientButton.UseVisualStyleBackColor = true;
@@ -237,10 +231,10 @@
             // 
             // addVisitButton
             // 
-            this.addVisitButton.Location = new System.Drawing.Point(1357, 159);
-            this.addVisitButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.addVisitButton.Location = new System.Drawing.Point(1018, 129);
+            this.addVisitButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.addVisitButton.Name = "addVisitButton";
-            this.addVisitButton.Size = new System.Drawing.Size(117, 23);
+            this.addVisitButton.Size = new System.Drawing.Size(88, 19);
             this.addVisitButton.TabIndex = 8;
             this.addVisitButton.Text = "Add Visit";
             this.addVisitButton.UseVisualStyleBackColor = true;
@@ -248,36 +242,34 @@
             // 
             // textBoxFirstName
             // 
-            this.textBoxFirstName.Location = new System.Drawing.Point(563, 28);
-            this.textBoxFirstName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxFirstName.Location = new System.Drawing.Point(422, 23);
             this.textBoxFirstName.Name = "textBoxFirstName";
-            this.textBoxFirstName.Size = new System.Drawing.Size(132, 22);
+            this.textBoxFirstName.Size = new System.Drawing.Size(100, 20);
             this.textBoxFirstName.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(475, 30);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(356, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 17);
+            this.label1.Size = new System.Drawing.Size(60, 13);
             this.label1.TabIndex = 9;
             this.label1.Text = "First Name:";
             // 
             // dateTimeDOB
             // 
             this.dateTimeDOB.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimeDOB.Location = new System.Drawing.Point(124, 27);
-            this.dateTimeDOB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateTimeDOB.Location = new System.Drawing.Point(93, 22);
+            this.dateTimeDOB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dateTimeDOB.Name = "dateTimeDOB";
-            this.dateTimeDOB.Size = new System.Drawing.Size(125, 22);
+            this.dateTimeDOB.Size = new System.Drawing.Size(95, 20);
             this.dateTimeDOB.TabIndex = 1;
             // 
             // NwPatientSearch
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1559, 351);
+            this.ClientSize = new System.Drawing.Size(1111, 285);
             this.Controls.Add(this.addVisitButton);
             this.Controls.Add(this.editPatientButton);
             this.Controls.Add(this.viewPatientButton);
@@ -291,7 +283,7 @@
             this.Controls.Add(this.labelLastName);
             this.Controls.Add(this.labelFirstName);
             this.Controls.Add(this.listViewPatients);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "NwPatientSearch";
             this.Text = "Patient Search";
             this.Activated += new System.EventHandler(this.activatedForum);

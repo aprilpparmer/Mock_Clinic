@@ -70,6 +70,11 @@ namespace WindowsFormsApplication.Controller
             return PatientVisitSymptomsDal.AddPatientVisitSymptoms(symptoms);
         }
 
+        public PatientVisitSymptoms GetAllPatientSymtomsByVisitId(int visitId)
+        {
+            return PatientVisitSymptomsDal.GetAllPatientSymtomsByVisitId(visitId);
+        }
+
         public static int AddPatientVisitNotes(PatientVisitNotes note)
         {
             return PatientVisitNotesDal.AddPatientVisitNotes(note);
@@ -78,6 +83,11 @@ namespace WindowsFormsApplication.Controller
         internal void AddDiagnoses(Diagnoses diag)
         {
             DiagnosesDal.AddDiagnoses(diag);
+        }
+
+        public Diagnoses GetDiagnoses(int? diagId)
+        {
+            return DiagnosesDal.GetDiagnoses(diagId);
         }
 
         public static void UpdatePatientDiagnoses(PatientVisitSymptoms symptoms)
@@ -171,7 +181,7 @@ namespace WindowsFormsApplication.Controller
            return PatientTestsDal.UpdatePatientTest(oldPatientTest, newPatientTest);
        }
 
-       internal bool UpdateDiagnoses(int visitID, int diag, string symptom)
+       internal bool UpdateDiagnoses(int visitID, int? diag, string symptom)
        {
            return PatientVisitSymptomsDal.UpdateDiagnoses(visitID, diag, symptom);
        }

@@ -10,12 +10,13 @@ namespace WindowsFormsApplication.View
     {
         private int visitID;
         private NorthwindController _controller;
-
+        private PatientVisitSymptoms symptoms = new PatientVisitSymptoms();
         public NwViewVisit(int _visitID)
         {
             _controller = new NorthwindController();
             InitializeComponent();
             this.visitID = _visitID;
+            
         }
 
         private void getTestData(object sender, EventArgs e)
@@ -27,8 +28,27 @@ namespace WindowsFormsApplication.View
                 this.patient_visitTableAdapter.Fill(this.patientVisitInfoDataSet.patient_visit, this.visitID);
                 this.patient_visit_vitalsTableAdapter.Fill(this.patientVisitInfoDataSet.patient_visit_vitals,
                     this.visitID);
-                this.patient_visit_symptomsTableAdapter.Fill(this.patientVisitInfoDataSet.patient_visit_symptoms,
-                    this.visitID);
+                // Get symtpom / daigs
+                
+
+                try
+                {
+                    this.symptoms = _controller.GetAllPatientSymtomsByVisitId(this.visitID);
+                    symptomtextBox.Text = this.symptoms.SymptomName;
+                    if (this.symptoms.DiagnosesID != null)
+                    {
+                        Diagnoses diag = _controller.GetDiagnoses(this.symptoms.DiagnosesID);
+                        diagtextBox.Text = diag.Name;
+                        treatmenttextBox.Text = diag.Treatment;
+
+                    }
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show("Something went wrong" + exception);
+                }
+
+                //this.patient_visit_symptomsTableAdapter.Fill(this.patientVisitInfoDataSet.patient_visit_symptoms,this.visitID);
                 this.patient_testsTableAdapter.Fill(this.patientVisitInfoDataSet.patient_tests, this.visitID);
                 this.patient_visit_notesTableAdapter.Fill(this.patientVisitInfoDataSet.patient_visit_notes, this.visitID);
             }
@@ -78,7 +98,7 @@ namespace WindowsFormsApplication.View
 
         private void ButtonUpdateDiagnoses_Click(object sender, EventArgs e)
         {
-            NwUpdateDiagnoses NWNewTestForm = NwUpdateDiagnoses.GetChildInstance(visitID, diagnoses_nameLabel1.Text, symptom_nameLabel1.Text);
+            NwUpdateDiagnoses NWNewTestForm = NwUpdateDiagnoses.GetChildInstance(visitID, diagtextBox.Text, symptomtextBox.Text);
             NWNewTestForm.MdiParent = MdiParent;
             NWNewTestForm.Show();
             NWNewTestForm.BringToFront();

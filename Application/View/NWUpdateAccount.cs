@@ -137,7 +137,7 @@ namespace WindowsFormsApplication.View
                     }
                     else
                     {
-                        MessageBox.Show(@"That Login is already in use.");
+                        MessageBox.Show(@"That Login is already in use.");                       
                     }
                 }
 

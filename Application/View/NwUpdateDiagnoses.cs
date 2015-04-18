@@ -49,10 +49,10 @@ namespace WindowsFormsApplication.View
         
         private void NwUpdateDiagnoses_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'diagnosesDataSet.diagnoses' table. You can move, or remove it, as needed.
             this.diagnosesTableAdapter.Fill(this.diagnosesDataSet.diagnoses);
             textBoxCurrentDiagnoses.Text = this.diagName;
             textBoxSymptom.Text = this.symptom;
+
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)

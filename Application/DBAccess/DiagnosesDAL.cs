@@ -153,6 +153,47 @@ namespace WindowsFormsApplication.DBAccess
                 throw ex;
             }
         }
+        public static Diagnoses GetDiagnoses(int? diagId)
+        {
+            Diagnoses diag = new Diagnoses ();
+            const string selectStatement = "Select * from diagnoses WHERE diagnosesID = @diagnosesID";
+
+            try
+            {
+                using (SqlConnection connection = NorthwindDbConnection.GetConnection())
+                {
+                    connection.Open();
+
+                    using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                    {
+                        selectCommand.Parameters.AddWithValue("@diagnosesID", diagId);
+
+                        using (SqlDataReader reader = selectCommand.ExecuteReader())
+                        {
+
+                            while (reader.Read())
+                            {
+                                diag.DiagnosesId = (Int32)reader["diagnosesID"];
+                                diag.Name = reader["diagnoses_name"].ToString().Trim();
+                                diag.Description = reader["diagnoses_description"].ToString().Trim();
+                                diag.Treatment = reader["diagnoses_treatment"].ToString().Trim();
+                            }
+                        }
+
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return diag;
+        }
 
         /// <summary>
         /// Checks for the presence of a diagnosis ID to see if it's ever been used.

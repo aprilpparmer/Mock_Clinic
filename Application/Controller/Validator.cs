@@ -97,10 +97,18 @@ namespace WindowsFormsApplication.Controller
             
             try
             {
-                string[] textToCheck = textBox.Text.Split('/');     
-                Convert.ToInt32(textToCheck[0]);
-                Convert.ToInt32(textToCheck[1]);
-                return true;
+                string[] textToCheck = textBox.Text.Split('/');
+                if (textToCheck.Length != 2)
+                {
+                    MessageBox.Show(textBox.Tag.ToString() + " must have integer/integer format. Please Use one / (slash) to divide the systolic and diastolic pressure!", Title);
+                    return false;
+                }
+                else
+                {
+                    Convert.ToInt32(textToCheck[0]);
+                    Convert.ToInt32(textToCheck[1]);
+                    return true;
+                }
             }
            
             catch (Exception exception)

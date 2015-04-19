@@ -358,10 +358,10 @@
             this.patientVisitTabs.Controls.Add(this.diagnosesTab);
             this.patientVisitTabs.Controls.Add(this.notesTab);
             this.patientVisitTabs.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.patientVisitTabs.Location = new System.Drawing.Point(0, 25);
+            this.patientVisitTabs.Location = new System.Drawing.Point(0, 0);
             this.patientVisitTabs.Name = "patientVisitTabs";
             this.patientVisitTabs.SelectedIndex = 0;
-            this.patientVisitTabs.Size = new System.Drawing.Size(444, 299);
+            this.patientVisitTabs.Size = new System.Drawing.Size(444, 324);
             this.patientVisitTabs.TabIndex = 0;
             // 
             // visitInfoTab
@@ -379,7 +379,7 @@
             this.visitInfoTab.Location = new System.Drawing.Point(4, 22);
             this.visitInfoTab.Name = "visitInfoTab";
             this.visitInfoTab.Padding = new System.Windows.Forms.Padding(3);
-            this.visitInfoTab.Size = new System.Drawing.Size(436, 273);
+            this.visitInfoTab.Size = new System.Drawing.Size(436, 298);
             this.visitInfoTab.TabIndex = 0;
             this.visitInfoTab.Text = "Visit Info";
             this.visitInfoTab.UseVisualStyleBackColor = true;
@@ -595,7 +595,7 @@
             this.vitalsTab.Location = new System.Drawing.Point(4, 22);
             this.vitalsTab.Name = "vitalsTab";
             this.vitalsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.vitalsTab.Size = new System.Drawing.Size(436, 273);
+            this.vitalsTab.Size = new System.Drawing.Size(436, 298);
             this.vitalsTab.TabIndex = 1;
             this.vitalsTab.Text = "Vitals";
             this.vitalsTab.UseVisualStyleBackColor = true;
@@ -993,7 +993,7 @@
             this.diagnosesTab.Location = new System.Drawing.Point(4, 22);
             this.diagnosesTab.Name = "diagnosesTab";
             this.diagnosesTab.Padding = new System.Windows.Forms.Padding(3);
-            this.diagnosesTab.Size = new System.Drawing.Size(436, 273);
+            this.diagnosesTab.Size = new System.Drawing.Size(436, 298);
             this.diagnosesTab.TabIndex = 3;
             this.diagnosesTab.Text = "Diagnoses";
             this.diagnosesTab.UseVisualStyleBackColor = true;
@@ -1184,7 +1184,7 @@
             this.notesTab.Location = new System.Drawing.Point(4, 22);
             this.notesTab.Name = "notesTab";
             this.notesTab.Padding = new System.Windows.Forms.Padding(3);
-            this.notesTab.Size = new System.Drawing.Size(436, 273);
+            this.notesTab.Size = new System.Drawing.Size(436, 298);
             this.notesTab.TabIndex = 4;
             this.notesTab.Text = "Notes";
             this.notesTab.UseVisualStyleBackColor = true;
@@ -1309,6 +1309,7 @@
             this.cancelButton5.TabIndex = 21;
             this.cancelButton5.Text = "Cancel";
             this.cancelButton5.UseVisualStyleBackColor = true;
+            this.cancelButton5.Click += new System.EventHandler(this.cancelButton5_Click);
             // 
             // editButton5
             // 

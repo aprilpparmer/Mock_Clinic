@@ -492,6 +492,19 @@ namespace WindowsFormsApplication.View
             return _NwNewVisitform;  //just created or created earlier.Return it
         }
 
+        private void cancelButton5_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to cancel?", "Cancel", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Close();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
+        }
+
     }
 }
 

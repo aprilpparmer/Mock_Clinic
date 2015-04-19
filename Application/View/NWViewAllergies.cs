@@ -86,5 +86,39 @@ namespace WindowsFormsApplication.View
             NWNewAllergyForm.Show();
             NWNewAllergyForm.BringToFront();
         }
+
+        private void buttonDeleteAllergy_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ListViewItem item = listViewAllergies.SelectedItems[0];
+                allergyId = int.Parse(item.SubItems[0].Text);
+                allergyName = item.SubItems[1].Text;
+                DialogResult confirmDeleteReturn = MessageBox.Show(@"To avoid errors, please delete only allergies that are not referenced." +
+                    Environment.NewLine + Environment.NewLine + " Are you sure you want to Delete: " + allergyName, @"Confirm Delete", MessageBoxButtons.YesNo);
+                if (confirmDeleteReturn == DialogResult.Yes)
+                {
+                    int deleteSuccess = _controller.DeleteAllergy(allergyId);
+                    if (deleteSuccess == 1)
+                    {
+                        MessageBox.Show(allergyName + @" was deleted succesfully!");
+                    }
+                    else
+                    {
+                        MessageBox.Show(allergyName + @" could not be deleted!");
+                    }
+                    loadAllergyData();
+                }
+
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(@"There was a problem deleting the allergy. "
+                    + Environment.NewLine + Environment.NewLine + "Please check if: "
+                    + Environment.NewLine + "  - you highlighted in blue the allergy ID that you want to delete!"
+                    + Environment.NewLine + "  - the allergy that you want to delete is not referenced in another table ");
+
+            }
+        }
     }
 }

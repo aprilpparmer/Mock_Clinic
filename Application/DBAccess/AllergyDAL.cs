@@ -90,5 +90,25 @@ namespace WindowsFormsApplication.DBAccess
 
             return allergyList;
         }
+
+        public static int DeleteAllergy(int allergyId)
+        {
+            string deleteStatement =
+                 " DELETE FROM allergies " +
+                 " where ( allergyID = @allergyID) ";
+
+            using (SqlConnection connection = NorthwindDbConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand deleteCommand = new SqlCommand(deleteStatement, connection))
+                {
+                    deleteCommand.Parameters.AddWithValue("@allergyID", allergyId);
+                    return deleteCommand.ExecuteNonQuery();
+                }
+
+            }
+        
+        }
     }
 }

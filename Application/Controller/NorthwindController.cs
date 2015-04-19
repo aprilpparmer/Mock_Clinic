@@ -200,5 +200,10 @@ namespace WindowsFormsApplication.Controller
        {
            return AllergyDAL.GetAllAllergies();
        }
+
+       public int DeleteAllergy(int allergyId)
+       {
+           return AllergyDAL.DeleteAllergy(allergyId);
+       }
     }
 }

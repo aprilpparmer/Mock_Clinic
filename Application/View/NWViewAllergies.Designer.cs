@@ -70,6 +70,7 @@
             this.buttonAddAllergy.TabIndex = 1;
             this.buttonAddAllergy.Text = "Add Allergy";
             this.buttonAddAllergy.UseVisualStyleBackColor = true;
+            this.buttonAddAllergy.Click += new System.EventHandler(this.buttonAddAllergy_Click);
             // 
             // buttonCancel
             // 
@@ -79,6 +80,7 @@
             this.buttonCancel.TabIndex = 2;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // NWViewAllergies
             // 
@@ -90,6 +92,7 @@
             this.Controls.Add(this.listViewAllergies);
             this.Name = "NWViewAllergies";
             this.Text = "View Allergies";
+            this.Activated += new System.EventHandler(this.loadAllergies);
             this.Load += new System.EventHandler(this.loadAllergies);
             this.ResumeLayout(false);
 

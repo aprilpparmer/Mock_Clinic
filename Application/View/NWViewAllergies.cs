@@ -73,5 +73,18 @@ namespace WindowsFormsApplication.View
                 MessageBox.Show(@"There are no allergies at this time!");
             }
         }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void buttonAddAllergy_Click(object sender, EventArgs e)
+        {
+            NWNewAllergy NWNewAllergyForm = NWNewAllergy.GetChildInstance();
+            NWNewAllergyForm.MdiParent = MdiParent;
+            NWNewAllergyForm.Show();
+            NWNewAllergyForm.BringToFront();
+        }
     }
 }

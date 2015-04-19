@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApplication.Controller;
+using WindowsFormsApplication.Model;
 
 namespace WindowsFormsApplication.View
 {
@@ -44,6 +45,36 @@ namespace WindowsFormsApplication.View
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void buttonAddAllergy_Click(object sender, EventArgs e)
+        {
+            Allergy allergy = new Allergy();
+
+            textBoxAllergyName.Text = textBoxAllergyName.Text.Trim();
+
+            if ((textBoxAllergyName.Text.Length > 1))
+            {
+                allergy.AllergyName = textBoxAllergyName.Text;
+
+                try
+                {
+                    _controller.AddAllergy(allergy);
+                    MessageBox.Show(@"Allergy Added.");
+                    Close();
+
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show(@"There was a problem adding the allergy." + exception);
+
+                }
+            }
+            else
+            {
+                MessageBox.Show(@"Allergy Name is required field!. Please provide the information and try again!");
+
+            }
         }
 
     }

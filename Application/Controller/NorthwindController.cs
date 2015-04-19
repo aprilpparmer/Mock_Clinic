@@ -190,5 +190,10 @@ namespace WindowsFormsApplication.Controller
        {
            return PatientTestsDal.DeleteOrderedTest(patientTestID);
        }
+
+       internal void AddAllergy(Allergy allergy)
+       {
+           AllergyDAL.AddAllergy(allergy);
+       }
     }
 }

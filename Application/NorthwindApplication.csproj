@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Controller\NorthwindController.cs" />
     <Compile Include="Controller\Validator.cs" />
+    <Compile Include="DBAccess\AllergyDAL.cs" />
     <Compile Include="DBAccess\DiagnosesDAL.cs" />
     <Compile Include="DBAccess\EmployeeDAL.cs" />
     <Compile Include="DBAccess\NorthwindDBConnection.cs" />
@@ -70,6 +71,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EmployeesDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Model\Allergy.cs" />
     <Compile Include="Model\Diagnoses.cs" />
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\Encryption.cs" />

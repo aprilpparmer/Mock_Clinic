@@ -58,6 +58,7 @@
             this.buttonAddAllergy.TabIndex = 2;
             this.buttonAddAllergy.Text = "Add Allergy";
             this.buttonAddAllergy.UseVisualStyleBackColor = true;
+            this.buttonAddAllergy.Click += new System.EventHandler(this.buttonAddAllergy_Click);
             // 
             // buttonCancel
             // 

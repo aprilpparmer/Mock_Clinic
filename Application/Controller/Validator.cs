@@ -73,7 +73,7 @@ namespace WindowsFormsApplication.Controller
         }
 
         /// <summary>
-        /// Check if value is int32
+        /// Check if value is decimal
         /// </summary>
         /// <param name="textBox"></param>
         /// <returns></returns>
@@ -87,6 +87,25 @@ namespace WindowsFormsApplication.Controller
             catch (FormatException)
             {
                 MessageBox.Show(textBox.Tag.ToString() + " must be a decimal or integer value.", Title);
+                textBox.Focus();
+                return false;
+            }
+        }
+
+        public static bool IsValidBloodPressure(TextBox textBox)
+        {
+            
+            try
+            {
+                string[] textToCheck = textBox.Text.Split('/');     
+                Convert.ToInt32(textToCheck[0]);
+                Convert.ToInt32(textToCheck[1]);
+                return true;
+            }
+           
+            catch (Exception exception)
+            {
+                MessageBox.Show(textBox.Tag.ToString() + " must have integer/integer format.", Title);
                 textBox.Focus();
                 return false;
             }

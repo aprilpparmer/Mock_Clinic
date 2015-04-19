@@ -406,6 +406,7 @@ namespace WindowsFormsApplication.View
             if (Validator.IsPresent(txtBoxPulse) &&
                 Validator.IsInt32(txtBoxPulse) &&
                 Validator.IsPresent(txtBoxBloodPressure) &&
+                Validator.IsValidBloodPressure(txtBoxBloodPressure) &&
                 Validator.IsPresent(txtBoxTemperature) &&
                 Validator.IsDecimal(txtBoxTemperature) &&
                 Validator.IsPresent(txtBoxHeight) &&

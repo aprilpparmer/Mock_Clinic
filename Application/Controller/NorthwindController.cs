@@ -7,6 +7,10 @@ namespace WindowsFormsApplication.Controller
 {
     public class NorthwindController
     {
+        public static int AddPatientAllergy(PatientAllergies allergies)
+        {
+            return PatientAllergiesDal.AddPatientAllergy(allergies);
+        }
 
         internal Employee EmployeeLogIn(String name, String password)
         {

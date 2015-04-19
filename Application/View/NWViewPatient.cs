@@ -55,6 +55,8 @@ namespace WindowsFormsApplication.View
 
         private void NWViewPatient_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'patientsDataSet.patient_allergies' table. You can move, or remove it, as needed.
+            this.patient_allergiesTableAdapter.Fill(this.patientsDataSet.patient_allergies, _patientId);
             loadPatientDate();
             loadVisits();
         }
@@ -133,6 +135,13 @@ namespace WindowsFormsApplication.View
                 NwViewVisit viewVisitForm = new NwViewVisit(visitID);
                 viewVisitForm.ShowDialog();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            NwAddPatientAllergy addAllergyForm = new NwAddPatientAllergy(_patientId);
+            addAllergyForm.ShowDialog();
+            addAllergyForm.BringToFront();
         }
 
     }

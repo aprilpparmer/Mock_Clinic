@@ -56,5 +56,43 @@ namespace WindowsFormsApplication.DBAccess
             return patientAllergieList;
         }
 
+        //Adds a new patient allergy
+        public static int AddPatientAllergy(PatientAllergies allergies)
+        {
+            string insertStatement =
+              "INSERT patient_allergies " +
+                   "(patientID, allergyID, allergy_name) " +
+              "VALUES (@patientID, @allergyID, @allergy_name)";
+            try
+            {
+                using (SqlConnection connection = NorthwindDbConnection.GetConnection())
+                {
+                    connection.Open();
+                    using (SqlCommand insertCommand = new SqlCommand(insertStatement, connection))
+                    {
+                        //parameters
+                        insertCommand.Parameters.AddWithValue("@patientID", allergies.PatientId);
+                        insertCommand.Parameters.AddWithValue("@allergyID", allergies.AllergyId);
+                        insertCommand.Parameters.AddWithValue("@allergy_name", allergies.AllergyName);
+                        insertCommand.ExecuteNonQuery();
+
+                        string selectStatement =
+                            "SELECT IDENT_CURRENT('patient_allergies') FROM patient_allergies";
+                        SqlCommand selectCommand =
+                            new SqlCommand(selectStatement, connection);
+                        int confirmation = Convert.ToInt32(selectCommand.ExecuteScalar());
+                        return confirmation;
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

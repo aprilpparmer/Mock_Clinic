@@ -117,6 +117,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PatientVisitSummaryReport.xsd</DependentUpon>
     </Compile>
+    <Compile Include="View\NwAddPatientAllergy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\NwAddPatientAllergy.Designer.cs">
+      <DependentUpon>NwAddPatientAllergy.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\NWNewAllergy.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -278,6 +284,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_CS6232_g7DataSet11.xsd</DependentUpon>
     </Compile>
+    <Compile Include="_CS6232_g7DataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_CS6232_g7DataSet2.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\NwAddPatientAllergy.resx">
+      <DependentUpon>NwAddPatientAllergy.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\NWNewAllergy.resx">
       <DependentUpon>NWNewAllergy.cs</DependentUpon>
     </EmbeddedResource>
@@ -457,6 +471,17 @@
     </None>
     <None Include="_CS6232_g7DataSet11.xss">
       <DependentUpon>_CS6232_g7DataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="_CS6232_g7DataSet2.xsc">
+      <DependentUpon>_CS6232_g7DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="_CS6232_g7DataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_CS6232_g7DataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_CS6232_g7DataSet2.xss">
+      <DependentUpon>_CS6232_g7DataSet2.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

@@ -163,14 +163,15 @@
             // 
             this.addNewToolStripMenuItem1.Name = "addNewToolStripMenuItem1";
             this.addNewToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.addNewToolStripMenuItem1.Text = "Add New";
+            this.addNewToolStripMenuItem1.Text = "Add Allergy";
             this.addNewToolStripMenuItem1.Click += new System.EventHandler(this.addNewToolStripMenuItem1_Click);
             // 
             // listToolStripMenuItem1
             // 
             this.listToolStripMenuItem1.Name = "listToolStripMenuItem1";
             this.listToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.listToolStripMenuItem1.Text = "List";
+            this.listToolStripMenuItem1.Text = "View Allergies";
+            this.listToolStripMenuItem1.Click += new System.EventHandler(this.listToolStripMenuItem1_Click);
             // 
             // accountsToolStripMenuItem
             // 

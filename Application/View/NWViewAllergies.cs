@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApplication.Controller;
+using WindowsFormsApplication.Model;
 
 namespace WindowsFormsApplication.View
 {
@@ -41,6 +42,36 @@ namespace WindowsFormsApplication.View
 
             }
             return _NWViewAllergiesForm;  //just created or created earlier.Return it
+        }
+
+        private void loadAllergies(object sender, EventArgs e)
+        {
+            loadAllergyData();
+        }
+
+        private void loadAllergyData()
+        {
+            List<Allergy> allergyList;
+            listViewAllergies.Items.Clear();
+            try
+            {
+                allergyList = _controller.GetAllAllergies();
+                if (allergyList.Count > 0)
+                {
+                    Allergy allergy;
+                    for (int i = 0; i < allergyList.Count; i++)
+                    {
+                        allergy = allergyList[i];
+                        listViewAllergies.Items.Add(allergy.AllergyID.ToString());
+                        listViewAllergies.Items[i].SubItems.Add(allergy.AllergyName);
+                        listViewAllergies.Items[i].SubItems.Add(allergy.Enabled.ToString());
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show(@"There are no allergies at this time!");
+            }
         }
     }
 }

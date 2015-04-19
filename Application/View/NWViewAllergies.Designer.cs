@@ -44,7 +44,7 @@
             this.enabled});
             this.listViewAllergies.Location = new System.Drawing.Point(76, 41);
             this.listViewAllergies.Name = "listViewAllergies";
-            this.listViewAllergies.Size = new System.Drawing.Size(275, 151);
+            this.listViewAllergies.Size = new System.Drawing.Size(294, 151);
             this.listViewAllergies.TabIndex = 0;
             this.listViewAllergies.UseCompatibleStateImageBehavior = false;
             this.listViewAllergies.View = System.Windows.Forms.View.Details;
@@ -90,6 +90,7 @@
             this.Controls.Add(this.listViewAllergies);
             this.Name = "NWViewAllergies";
             this.Text = "View Allergies";
+            this.Load += new System.EventHandler(this.loadAllergies);
             this.ResumeLayout(false);
 
         }

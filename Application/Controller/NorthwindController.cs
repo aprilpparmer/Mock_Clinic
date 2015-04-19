@@ -195,5 +195,10 @@ namespace WindowsFormsApplication.Controller
        {
            AllergyDAL.AddAllergy(allergy);
        }
+
+       internal List<Allergy> GetAllAllergies()
+       {
+           return AllergyDAL.GetAllAllergies();
+       }
     }
 }

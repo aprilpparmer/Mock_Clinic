@@ -71,6 +71,26 @@ namespace WindowsFormsApplication.Controller
                 return false;
             }
         }
+
+        /// <summary>
+        /// Check if value is int32
+        /// </summary>
+        /// <param name="textBox"></param>
+        /// <returns></returns>
+        public static bool IsDecimal(TextBox textBox)
+        {
+            try
+            {
+                Convert.ToDecimal(textBox.Text);
+                return true;
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show(textBox.Tag.ToString() + " must be a decimal or integer value.", Title);
+                textBox.Focus();
+                return false;
+            }
+        }
     }
 }
 

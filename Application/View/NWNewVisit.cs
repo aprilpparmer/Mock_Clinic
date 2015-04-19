@@ -404,8 +404,10 @@ namespace WindowsFormsApplication.View
         private bool IsValidDataVitals()
         {
             if (Validator.IsPresent(txtBoxPulse) &&
+                Validator.IsInt32(txtBoxPulse) &&
                 Validator.IsPresent(txtBoxBloodPressure) &&
                 Validator.IsPresent(txtBoxTemperature) &&
+                Validator.IsDecimal(txtBoxTemperature) &&
                 Validator.IsPresent(txtBoxHeight) &&
                 Validator.IsInt32(txtBoxHeight) &&
                 Validator.IsPresent(txtBoxWeight) &&

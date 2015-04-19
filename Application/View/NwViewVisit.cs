@@ -104,23 +104,23 @@ namespace WindowsFormsApplication.View
                 DataGridViewCell cell = row.Cells[1];
                 int patientTestID = (int)cell.Value;
 
-                int success = _controller.DeletePatientTest(patientTestID);
+                DialogResult confirmDeleteReturn = MessageBox.Show(@" Are you sure you want to delete " 
+                    + row.Cells[2].Value.ToString().Trim() + @" test ordered on " + row.Cells[3].Value + @" ?", @"Confirm Delete", MessageBoxButtons.YesNo);
+                if (confirmDeleteReturn == DialogResult.Yes)
+                {
+                    int success = _controller.DeletePatientTest(patientTestID);
 
-                if (success == 1)
-                {
-                    MessageBox.Show("Ordered test deleted succesfully!");
-                }
-                else
-                {
-                    MessageBox.Show("Ordered test could not be deleted!");
+                    if (success == 1)
+                    {
+                        MessageBox.Show("Ordered test deleted succesfully!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ordered test could not be deleted!");
+                    }
                 }
 
             }
-
-
-
-
-
 
         }
 

@@ -115,6 +115,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PatientVisitSummaryReport.xsd</DependentUpon>
     </Compile>
+    <Compile Include="View\NWNewAllergy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\NWNewAllergy.Designer.cs">
+      <DependentUpon>NWNewAllergy.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\NWNewTest.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -264,6 +270,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_CS6232_g7DataSet11.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\NWNewAllergy.resx">
+      <DependentUpon>NWNewAllergy.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\NWNewTest.resx">
       <DependentUpon>NWNewTest.cs</DependentUpon>
     </EmbeddedResource>

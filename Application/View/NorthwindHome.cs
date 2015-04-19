@@ -203,5 +203,13 @@ namespace WindowsFormsApplication.View
             NWViewTestsForm.Show();
             NWViewTestsForm.BringToFront();
         }
+
+        private void addNewToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            NWNewAllergy NWNewAllergyForm = NWNewAllergy.GetChildInstance();
+            NWNewAllergyForm.MdiParent = this;
+            NWNewAllergyForm.Show();
+            NWNewAllergyForm.BringToFront();
+        }
     }
 }

@@ -139,14 +139,14 @@
             // addNewDiagMenuItem
             // 
             this.addNewDiagMenuItem.Name = "addNewDiagMenuItem";
-            this.addNewDiagMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addNewDiagMenuItem.Size = new System.Drawing.Size(123, 22);
             this.addNewDiagMenuItem.Text = "Add New";
             this.addNewDiagMenuItem.Click += new System.EventHandler(this.addNewToolStripMenuItem_Click);
             // 
             // listDiagMenuItem
             // 
             this.listDiagMenuItem.Name = "listDiagMenuItem";
-            this.listDiagMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.listDiagMenuItem.Size = new System.Drawing.Size(123, 22);
             this.listDiagMenuItem.Text = "List";
             this.listDiagMenuItem.Click += new System.EventHandler(this.listDiagMenuItem_Click);
             // 
@@ -162,13 +162,14 @@
             // addNewToolStripMenuItem1
             // 
             this.addNewToolStripMenuItem1.Name = "addNewToolStripMenuItem1";
-            this.addNewToolStripMenuItem1.Size = new System.Drawing.Size(123, 22);
+            this.addNewToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.addNewToolStripMenuItem1.Text = "Add New";
+            this.addNewToolStripMenuItem1.Click += new System.EventHandler(this.addNewToolStripMenuItem1_Click);
             // 
             // listToolStripMenuItem1
             // 
             this.listToolStripMenuItem1.Name = "listToolStripMenuItem1";
-            this.listToolStripMenuItem1.Size = new System.Drawing.Size(123, 22);
+            this.listToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.listToolStripMenuItem1.Text = "List";
             // 
             // accountsToolStripMenuItem
@@ -221,14 +222,14 @@
             // addTestToolStripMenuItem
             // 
             this.addTestToolStripMenuItem.Name = "addTestToolStripMenuItem";
-            this.addTestToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addTestToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.addTestToolStripMenuItem.Text = "Add Test";
             this.addTestToolStripMenuItem.Click += new System.EventHandler(this.addTestToolStripMenuItem_Click);
             // 
             // listTestsToolStripMenuItem
             // 
             this.listTestsToolStripMenuItem.Name = "listTestsToolStripMenuItem";
-            this.listTestsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.listTestsToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.listTestsToolStripMenuItem.Text = "List Tests";
             this.listTestsToolStripMenuItem.Click += new System.EventHandler(this.listTestsToolStripMenuItem_Click);
             // 

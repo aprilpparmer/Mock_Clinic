@@ -51,7 +51,7 @@ namespace WindowsFormsApplication.View
                 }
                 catch (SqlException ex)
                 {
-                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                    MessageBox.Show("An database error occured, are you trying to add a duplicate allergy?");
                 }
                 catch (Exception ex)
                 {

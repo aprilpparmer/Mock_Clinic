@@ -264,16 +264,25 @@ namespace WindowsFormsApplication.View
             addressTextBox.Text = employee.Address.Trim();
             cityTextBox.Text = employee.City.Trim();
             StateComboBox.Text = employee.State;
-            loginTextBox.Text = employee.Login;
+            if (string.IsNullOrEmpty(employee.Login))
+            {
+                loginTextBox.Text = employee.Login;
+                SimpleAES encrypt = new SimpleAES();
+                if (employee.Password != null)
+                {
+                    //passwordTextBox.Text = encrypt.DecryptString(employee.Password.Trim());
+                }
+            }
+            
             if (employee.Enabled == 1)
             {
                 enabledCheckBox.Checked = true;
-            } 
-            SimpleAES encrypt = new SimpleAES();
-            if (employee.Password != null)
-            {
-                passwordTextBox.Text = encrypt.DecryptString(employee.Password.Trim());
             }
+            else
+            {
+                enabledCheckBox.Checked = false;
+            }
+            
             AddNewButton.Enabled = false;
             UpdateButton.Enabled = true;
         }

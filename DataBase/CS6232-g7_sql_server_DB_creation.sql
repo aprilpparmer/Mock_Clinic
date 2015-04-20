@@ -525,3 +525,10 @@ update employees set password = '20716817525311419207715807607210106824518723120
 update employees set password = '238173117193055220096111020011087231218085091014', login= 'admin' where employeeID = 10;
 
 ALTER TABLE patient_allergies ADD CONSTRAINT uq_patient_allergies UNIQUE (patientID, allergyID);
+
+Insert into allergies(allergy_name, enabled)values ('penicillian', 1);
+Insert into allergies(allergy_name, enabled)values ('pollen', 1);
+Insert into allergies(allergy_name, enabled)values ('bees', 1);
+Insert into allergies(allergy_name, enabled)values ('sulfa drugs', 1);
+Insert into allergies(allergy_name, enabled)values ('peanuts', 1);
+Insert into allergies(allergy_name, enabled)values ('shellfish', 1);

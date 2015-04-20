@@ -30,36 +30,37 @@
         {
             this.components = new System.ComponentModel.Container();
             this.allergyComboBox = new System.Windows.Forms.ComboBox();
-            this._CS6232_g7DataSet2 = new WindowsFormsApplication._CS6232_g7DataSet2();
             this.allergiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this._CS6232_g7DataSet2 = new WindowsFormsApplication._CS6232_g7DataSet2();
             this.allergiesTableAdapter = new WindowsFormsApplication._CS6232_g7DataSet2TableAdapters.allergiesTableAdapter();
             this.addAllergyButton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this._CS6232_g7DataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.allergiesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._CS6232_g7DataSet2)).BeginInit();
             this.SuspendLayout();
             // 
             // allergyComboBox
             // 
-            this.allergyComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.allergiesBindingSource, "allergy_name", true));
+            this.allergyComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.allergiesBindingSource, "allergyID", true));
             this.allergyComboBox.DataSource = this.allergiesBindingSource;
             this.allergyComboBox.DisplayMember = "allergy_name";
             this.allergyComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.allergyComboBox.FormattingEnabled = true;
-            this.allergyComboBox.Location = new System.Drawing.Point(12, 27);
+            this.allergyComboBox.Location = new System.Drawing.Point(16, 33);
+            this.allergyComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.allergyComboBox.Name = "allergyComboBox";
-            this.allergyComboBox.Size = new System.Drawing.Size(262, 21);
+            this.allergyComboBox.Size = new System.Drawing.Size(348, 24);
             this.allergyComboBox.TabIndex = 0;
             this.allergyComboBox.ValueMember = "allergyID";
-            // 
-            // _CS6232_g7DataSet2
-            // 
-            this._CS6232_g7DataSet2.DataSetName = "_CS6232_g7DataSet2";
-            this._CS6232_g7DataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // allergiesBindingSource
             // 
             this.allergiesBindingSource.DataMember = "allergies";
             this.allergiesBindingSource.DataSource = this._CS6232_g7DataSet2;
+            // 
+            // _CS6232_g7DataSet2
+            // 
+            this._CS6232_g7DataSet2.DataSetName = "_CS6232_g7DataSet2";
+            this._CS6232_g7DataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // allergiesTableAdapter
             // 
@@ -67,9 +68,10 @@
             // 
             // addAllergyButton
             // 
-            this.addAllergyButton.Location = new System.Drawing.Point(103, 65);
+            this.addAllergyButton.Location = new System.Drawing.Point(137, 80);
+            this.addAllergyButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.addAllergyButton.Name = "addAllergyButton";
-            this.addAllergyButton.Size = new System.Drawing.Size(75, 23);
+            this.addAllergyButton.Size = new System.Drawing.Size(100, 28);
             this.addAllergyButton.TabIndex = 1;
             this.addAllergyButton.Text = "Add Allergy";
             this.addAllergyButton.UseVisualStyleBackColor = true;
@@ -77,17 +79,18 @@
             // 
             // NwAddPatientAllergy
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(287, 112);
+            this.ClientSize = new System.Drawing.Size(383, 138);
             this.Controls.Add(this.addAllergyButton);
             this.Controls.Add(this.allergyComboBox);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "NwAddPatientAllergy";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Patient Allergy";
             this.Load += new System.EventHandler(this.NwAddPatientAllergy_Load);
-            ((System.ComponentModel.ISupportInitialize)(this._CS6232_g7DataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.allergiesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._CS6232_g7DataSet2)).EndInit();
             this.ResumeLayout(false);
 
         }

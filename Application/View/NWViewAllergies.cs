@@ -65,6 +65,15 @@ namespace WindowsFormsApplication.View
                         listViewAllergies.Items.Add(allergy.AllergyID.ToString());
                         listViewAllergies.Items[i].SubItems.Add(allergy.AllergyName);
                         listViewAllergies.Items[i].SubItems.Add(allergy.Enabled.ToString());
+
+                        if (allergy.Enabled == 0)
+                        {
+                            listViewAllergies.Items[i].BackColor = Color.LightPink;
+                        }
+                        else
+                        {
+                            listViewAllergies.Items[i].BackColor = Color.White;
+                        }
                     }
                 }
             }

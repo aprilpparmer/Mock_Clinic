@@ -310,7 +310,7 @@ CREATE TABLE [dbo].[patient_visit_vitals](
 	[temp] [varchar](20) NOT NULL,
 	[pulse] [varchar](20) NOT NULL,
 	[height] [int] NOT NULL,
-	[weight] [int] NOT NULL,
+	[weight] [float](10) NOT NULL,
  CONSTRAINT [PK_patient_visit_vitals] PRIMARY KEY CLUSTERED 
 (
 	[vitalsID] ASC,
@@ -321,7 +321,7 @@ GO
 SET IDENTITY_INSERT [dbo].[patient_visit_vitals] ON
 INSERT [dbo].[patient_visit_vitals] ([vitalsID], [visitID], [blood_pressure], [temp], [pulse], [height], [weight]) VALUES (4, 1, N'125/84              ', N'98.6                ', N'88                  ', 59, 190)
 INSERT [dbo].[patient_visit_vitals] ([vitalsID], [visitID], [blood_pressure], [temp], [pulse], [height], [weight]) VALUES (5, 2, N'120/88              ', N'98.1                ', N'90                  ', 61, 280)
-INSERT [dbo].[patient_visit_vitals] ([vitalsID], [visitID], [blood_pressure], [temp], [pulse], [height], [weight]) VALUES (6, 3, N'130/78              ', N'99.0                ', N'77                  ', 55, 180)
+INSERT [dbo].[patient_visit_vitals] ([vitalsID], [visitID], [blood_pressure], [temp], [pulse], [height], [weight]) VALUES (6, 3, N'130/78              ', N'99.0                ', N'77                  ', 70, 180)
 INSERT [dbo].[patient_visit_vitals] ([vitalsID], [visitID], [blood_pressure], [temp], [pulse], [height], [weight]) VALUES (7, 4, N'140/91              ', N'99.2                ', N'89                  ', 58, 203)
 INSERT [dbo].[patient_visit_vitals] ([vitalsID], [visitID], [blood_pressure], [temp], [pulse], [height], [weight]) VALUES (8, 5, N'125/68              ', N'99.9                ', N'98                  ', 57, 230)
 INSERT [dbo].[patient_visit_vitals] ([vitalsID], [visitID], [blood_pressure], [temp], [pulse], [height], [weight]) VALUES (9, 6, N'109/67              ', N'98.6                ', N'85                  ', 56, 198)

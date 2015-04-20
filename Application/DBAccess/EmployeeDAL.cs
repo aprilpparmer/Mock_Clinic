@@ -250,7 +250,7 @@ namespace WindowsFormsApplication.DBAccess
         {
 
             const string updateStatement = "Update employees set " +
-                                           " address = @address , city = @city, dob = @dob, first_name= @first_name, gender = @gender ," +
+                                           " address = @address , city = @city, dob = @dob, first_name= @first_name, gender = @gender , login = @login, " +
                                            " last_name = @last_name, middle_initial =@middle_initial, phone = @phone, ssn =@ssn, state =@state, zip=@zip, enabled=@enabled, password=@password "
                                           + " where employeeID = @employeeID ";
                                            
@@ -277,6 +277,7 @@ namespace WindowsFormsApplication.DBAccess
                         updateCommand.Parameters.AddWithValue("@state", updatedEmployee.State);
                         updateCommand.Parameters.AddWithValue("@zip", updatedEmployee.Zip);
                         updateCommand.Parameters.AddWithValue("@enabled", updatedEmployee.Enabled);
+                        updateCommand.Parameters.AddWithValue("@login", updatedEmployee.Login);
                         updateCommand.Parameters.AddWithValue("@employeeID", updatedEmployee.EmployeeId);
                         updateCommand.Parameters.AddWithValue("@password", updatedEmployee.Password); 
 

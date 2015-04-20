@@ -83,12 +83,12 @@
             this.patient_visitTableAdapter = new WindowsFormsApplication.PatientVisitDataSetTableAdapters.patient_visitTableAdapter();
             this.tableAdapterManager = new WindowsFormsApplication.PatientVisitDataSetTableAdapters.TableAdapterManager();
             this.patient_allergiesDataGridView = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patient_allergiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.patientsDataSet = new WindowsFormsApplication.PatientsDataSet();
+            this.addAllergyButton = new System.Windows.Forms.Button();
+            this.deleteAllergyButton = new System.Windows.Forms.Button();
             this.patient_allergiesTableAdapter = new WindowsFormsApplication.PatientsDataSetTableAdapters.patient_allergiesTableAdapter();
             this.tableAdapterManager1 = new WindowsFormsApplication.PatientsDataSetTableAdapters.TableAdapterManager();
             ((System.ComponentModel.ISupportInitialize)(this.patient_visitBindingNavigator)).BeginInit();
@@ -628,26 +628,6 @@
             this.patient_allergiesDataGridView.TabIndex = 65;
             this.patient_allergiesDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.patient_allergiesDataGridView_CellContentClick);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(383, 162);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(89, 23);
-            this.button1.TabIndex = 66;
-            this.button1.Text = "Add Allergy";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(384, 191);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(88, 23);
-            this.button2.TabIndex = 67;
-            this.button2.Text = "Delete Allergy";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "patientallergyID";
@@ -674,6 +654,26 @@
             this.patientsDataSet.DataSetName = "PatientsDataSet";
             this.patientsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // addAllergyButton
+            // 
+            this.addAllergyButton.Location = new System.Drawing.Point(383, 162);
+            this.addAllergyButton.Name = "addAllergyButton";
+            this.addAllergyButton.Size = new System.Drawing.Size(89, 23);
+            this.addAllergyButton.TabIndex = 66;
+            this.addAllergyButton.Text = "Add Allergy";
+            this.addAllergyButton.UseVisualStyleBackColor = true;
+            this.addAllergyButton.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // deleteAllergyButton
+            // 
+            this.deleteAllergyButton.Location = new System.Drawing.Point(384, 191);
+            this.deleteAllergyButton.Name = "deleteAllergyButton";
+            this.deleteAllergyButton.Size = new System.Drawing.Size(88, 23);
+            this.deleteAllergyButton.TabIndex = 67;
+            this.deleteAllergyButton.Text = "Delete Allergy";
+            this.deleteAllergyButton.UseVisualStyleBackColor = true;
+            this.deleteAllergyButton.Click += new System.EventHandler(this.button2_Click);
+            // 
             // patient_allergiesTableAdapter
             // 
             this.patient_allergiesTableAdapter.ClearBeforeFill = true;
@@ -690,8 +690,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(907, 527);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.deleteAllergyButton);
+            this.Controls.Add(this.addAllergyButton);
             this.Controls.Add(this.patient_allergiesDataGridView);
             this.Controls.Add(this.patient_visitDataGridView);
             this.Controls.Add(this.patient_visitBindingNavigator);
@@ -728,7 +728,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "View Patient";
             this.Activated += new System.EventHandler(this.NWViewPatient_Load);
-            this.Load += new System.EventHandler(this.NWViewPatient_Load);
             ((System.ComponentModel.ISupportInitialize)(this.patient_visitBindingNavigator)).EndInit();
             this.patient_visitBindingNavigator.ResumeLayout(false);
             this.patient_visitBindingNavigator.PerformLayout();
@@ -804,8 +803,8 @@
         private System.Windows.Forms.DataGridView patient_allergiesDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button addAllergyButton;
+        private System.Windows.Forms.Button deleteAllergyButton;
 
     }
 }

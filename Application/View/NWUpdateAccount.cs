@@ -138,7 +138,6 @@ namespace WindowsFormsApplication.View
                     }
                     if (uniqueLogin)
                     {
-                        MessageBox.Show(@"Login = " + loginTextBox.Text);
                         loginInfoSet = true;
                         employee.Login = loginTextBox.Text;
                         SimpleAES encrypt = new SimpleAES();

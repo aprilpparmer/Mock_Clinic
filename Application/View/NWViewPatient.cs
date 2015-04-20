@@ -57,12 +57,12 @@ namespace WindowsFormsApplication.View
 
         private void NWViewPatient_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'patientsDataSet.patient_allergies' table. You can move, or remove it, as needed.
-            this.patient_allergiesTableAdapter.Fill(this.patientsDataSet.patient_allergies, _patientId);
-            loadPatientDate();
+            loadPatientData();
             loadVisits();
+            loadAllergies();
         }
 
+       
         private void CancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -85,7 +85,7 @@ namespace WindowsFormsApplication.View
 
         
 
-        private void loadPatientDate()
+        private void loadPatientData()
         {
             this.Text = String.Concat("Viewing Patient - ", _thepatient.FirstName.Trim(), " ", _thepatient.LastName.Trim());
             firstNameTextBox.Text = _thepatient.FirstName.Trim();
@@ -104,8 +104,16 @@ namespace WindowsFormsApplication.View
 
         private void loadVisits()
         {
+            
+
             this.patient_visitTableAdapter.ClearBeforeFill = true;
             this.patient_visitTableAdapter.Fill(this.patientVisitDataSet.patient_visit, this._patientId);
+        }
+
+        public void loadAllergies()
+        {
+            this.patient_allergiesTableAdapter.ClearBeforeFill = true;
+            this.patient_allergiesTableAdapter.Fill(this.patientsDataSet.patient_allergies, _patientId);
         }
 
         private void newVisitButton_Click(object sender, EventArgs e)
@@ -142,7 +150,8 @@ namespace WindowsFormsApplication.View
         private void button1_Click(object sender, EventArgs e)
         {
             NwAddPatientAllergy addAllergyForm = new NwAddPatientAllergy(_patientId);
-            addAllergyForm.ShowDialog();
+            addAllergyForm.MdiParent = MdiParent;
+            addAllergyForm.Show();
             addAllergyForm.BringToFront();
         }
 
@@ -161,6 +170,7 @@ namespace WindowsFormsApplication.View
                     if (NorthwindController.DeletePatientAllergy(this._patientId, this._allergy_name) > 0)
                     {
                         MessageBox.Show("The patient's allergy was successfully deleted.");
+                        loadAllergies();
                     }
                     else
                     {

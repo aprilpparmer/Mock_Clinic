@@ -57,6 +57,10 @@ namespace WindowsFormsApplication.Controller
             return PatientTestsDal.getTest(patientTestId);
         }
 
+        public List<Employee> GetAllEmployees()
+        {
+            return EmployeeDal.GetAllEmployees();
+        }
         
 
         public int DeleteDiag(int diagId)

@@ -264,5 +264,73 @@ namespace WindowsFormsApplication.View
             }
             return activity;
         }
+
+        private void load_all_Employees()
+        {
+            List<Employee> employeeList;
+            listViewEmployee.Items.Clear();
+
+            try
+            {
+                {
+
+                    employeeList = _controller.GetAllEmployees();
+
+                    if (employeeList.Count > 0)
+                    {
+                        listViewEmployee.Enabled = true;
+                        viewEmployeeButton.Enabled = true;
+                        updateEmployeeButton.Enabled = true;
+                        addEmployeeButton.Enabled = true;
+                        buttonClear.Enabled = true;
+                        DeleteButton.Enabled = true;
+
+                        Employee employee;
+                        for (int i = 0; i < employeeList.Count; i++)
+                        {
+
+                            employee = employeeList[i];
+                            listViewEmployee.Items.Add(employee.EmployeeId.ToString());
+                            listViewEmployee.Items[i].SubItems.Add(employee.LastName.Trim());
+                            listViewEmployee.Items[i].SubItems.Add(employee.FirstName.Trim());
+                            listViewEmployee.Items[i].SubItems.Add(this.getEmployeeRole(employee.PositionId));
+                            listViewEmployee.Items[i].SubItems.Add(this.getEmployeeActive(employee.Enabled));
+                            if (employee.Enabled == 0)
+                            {
+                                listViewEmployee.Items[i].BackColor = Color.LightPink;
+                            }
+                            else
+                            {
+                                listViewEmployee.Items[i].BackColor = Color.White;
+                            }
+
+                            listViewEmployee.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                            listViewEmployee.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+
+
+                        }
+                        listViewEmployee.Items[0].Checked = true;
+                        listViewEmployee.Items[0].Selected = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("There are no employees with this information registered at this time. Please check your search criteria and try again");
+                        textBoxFirstName.Text = "";
+                        textBoxLastName.Text = "";
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+                this.Close();
+            }
+        }
+
+        private void AllEmployeeButton_Click(object sender, EventArgs e)
+        {
+            load_all_Employees();
+        }
     }
 }

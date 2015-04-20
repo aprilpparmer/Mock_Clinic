@@ -264,14 +264,12 @@ namespace WindowsFormsApplication.View
             addressTextBox.Text = employee.Address.Trim();
             cityTextBox.Text = employee.City.Trim();
             StateComboBox.Text = employee.State;
-            if (string.IsNullOrEmpty(employee.Login))
+            if (employee.Login.Trim() != "")
             {
                 loginTextBox.Text = employee.Login;
                 SimpleAES encrypt = new SimpleAES();
-                if (employee.Password != null)
-                {
-                    //passwordTextBox.Text = encrypt.DecryptString(employee.Password.Trim());
-                }
+                passwordTextBox.Text = encrypt.DecryptString(employee.Password.Trim());
+                
             }
             
             if (employee.Enabled == 1)

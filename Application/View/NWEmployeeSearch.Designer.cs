@@ -44,17 +44,17 @@
             this.FirstName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.LastName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.PositionID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.DeleteButton = new System.Windows.Forms.Button();
             this.Active = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.DeleteButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // addEmployeeButton
             // 
             this.addEmployeeButton.AutoSize = true;
-            this.addEmployeeButton.Location = new System.Drawing.Point(699, 175);
-            this.addEmployeeButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.addEmployeeButton.Location = new System.Drawing.Point(524, 142);
+            this.addEmployeeButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.addEmployeeButton.Name = "addEmployeeButton";
-            this.addEmployeeButton.Size = new System.Drawing.Size(125, 27);
+            this.addEmployeeButton.Size = new System.Drawing.Size(94, 23);
             this.addEmployeeButton.TabIndex = 21;
             this.addEmployeeButton.Text = "Add Employee";
             this.addEmployeeButton.UseVisualStyleBackColor = true;
@@ -63,10 +63,10 @@
             // updateEmployeeButton
             // 
             this.updateEmployeeButton.AutoSize = true;
-            this.updateEmployeeButton.Location = new System.Drawing.Point(699, 144);
-            this.updateEmployeeButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.updateEmployeeButton.Location = new System.Drawing.Point(524, 117);
+            this.updateEmployeeButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.updateEmployeeButton.Name = "updateEmployeeButton";
-            this.updateEmployeeButton.Size = new System.Drawing.Size(125, 27);
+            this.updateEmployeeButton.Size = new System.Drawing.Size(94, 23);
             this.updateEmployeeButton.TabIndex = 19;
             this.updateEmployeeButton.Text = "Edit Employee";
             this.updateEmployeeButton.UseVisualStyleBackColor = true;
@@ -75,10 +75,10 @@
             // viewEmployeeButton
             // 
             this.viewEmployeeButton.AutoSize = true;
-            this.viewEmployeeButton.Location = new System.Drawing.Point(699, 113);
-            this.viewEmployeeButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.viewEmployeeButton.Location = new System.Drawing.Point(524, 92);
+            this.viewEmployeeButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.viewEmployeeButton.Name = "viewEmployeeButton";
-            this.viewEmployeeButton.Size = new System.Drawing.Size(128, 27);
+            this.viewEmployeeButton.Size = new System.Drawing.Size(96, 23);
             this.viewEmployeeButton.TabIndex = 18;
             this.viewEmployeeButton.Text = "View Employee";
             this.viewEmployeeButton.UseVisualStyleBackColor = true;
@@ -87,27 +87,24 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(239, 22);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(179, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 17);
+            this.label1.Size = new System.Drawing.Size(60, 13);
             this.label1.TabIndex = 22;
             this.label1.Text = "First Name:";
             // 
             // textBoxFirstName
             // 
-            this.textBoxFirstName.Location = new System.Drawing.Point(327, 20);
-            this.textBoxFirstName.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxFirstName.Location = new System.Drawing.Point(245, 16);
             this.textBoxFirstName.Name = "textBoxFirstName";
-            this.textBoxFirstName.Size = new System.Drawing.Size(132, 22);
+            this.textBoxFirstName.Size = new System.Drawing.Size(100, 20);
             this.textBoxFirstName.TabIndex = 15;
             // 
             // buttonClear
             // 
-            this.buttonClear.Location = new System.Drawing.Point(471, 339);
-            this.buttonClear.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonClear.Location = new System.Drawing.Point(353, 275);
             this.buttonClear.Name = "buttonClear";
-            this.buttonClear.Size = new System.Drawing.Size(100, 28);
+            this.buttonClear.Size = new System.Drawing.Size(75, 23);
             this.buttonClear.TabIndex = 23;
             this.buttonClear.Text = "Clear";
             this.buttonClear.UseVisualStyleBackColor = true;
@@ -115,10 +112,9 @@
             // 
             // buttonCloseSearch
             // 
-            this.buttonCloseSearch.Location = new System.Drawing.Point(593, 339);
-            this.buttonCloseSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonCloseSearch.Location = new System.Drawing.Point(445, 275);
             this.buttonCloseSearch.Name = "buttonCloseSearch";
-            this.buttonCloseSearch.Size = new System.Drawing.Size(100, 28);
+            this.buttonCloseSearch.Size = new System.Drawing.Size(75, 23);
             this.buttonCloseSearch.TabIndex = 24;
             this.buttonCloseSearch.Text = "Close";
             this.buttonCloseSearch.UseVisualStyleBackColor = true;
@@ -126,10 +122,9 @@
             // 
             // buttonSearch
             // 
-            this.buttonSearch.Location = new System.Drawing.Point(484, 13);
-            this.buttonSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonSearch.Location = new System.Drawing.Point(363, 11);
             this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(163, 28);
+            this.buttonSearch.Size = new System.Drawing.Size(122, 23);
             this.buttonSearch.TabIndex = 17;
             this.buttonSearch.Text = "Search Employees";
             this.buttonSearch.UseVisualStyleBackColor = true;
@@ -137,29 +132,26 @@
             // 
             // textBoxLastName
             // 
-            this.textBoxLastName.Location = new System.Drawing.Point(99, 18);
-            this.textBoxLastName.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxLastName.Location = new System.Drawing.Point(74, 15);
             this.textBoxLastName.Name = "textBoxLastName";
-            this.textBoxLastName.Size = new System.Drawing.Size(132, 22);
+            this.textBoxLastName.Size = new System.Drawing.Size(100, 20);
             this.textBoxLastName.TabIndex = 14;
             // 
             // labelLastName
             // 
             this.labelLastName.AutoSize = true;
-            this.labelLastName.Location = new System.Drawing.Point(20, 20);
-            this.labelLastName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelLastName.Location = new System.Drawing.Point(15, 16);
             this.labelLastName.Name = "labelLastName";
-            this.labelLastName.Size = new System.Drawing.Size(80, 17);
+            this.labelLastName.Size = new System.Drawing.Size(61, 13);
             this.labelLastName.TabIndex = 16;
             this.labelLastName.Text = "Last Name:";
             // 
             // labelFirstName
             // 
             this.labelFirstName.AutoSize = true;
-            this.labelFirstName.Location = new System.Drawing.Point(-249, 99);
-            this.labelFirstName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelFirstName.Location = new System.Drawing.Point(-187, 80);
             this.labelFirstName.Name = "labelFirstName";
-            this.labelFirstName.Size = new System.Drawing.Size(110, 17);
+            this.labelFirstName.Size = new System.Drawing.Size(84, 13);
             this.labelFirstName.TabIndex = 13;
             this.labelFirstName.Text = "Search by DOB:";
             // 
@@ -171,9 +163,10 @@
             this.LastName,
             this.PositionID,
             this.Active});
-            this.listViewEmployee.Location = new System.Drawing.Point(14, 61);
+            this.listViewEmployee.Location = new System.Drawing.Point(10, 50);
+            this.listViewEmployee.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.listViewEmployee.Name = "listViewEmployee";
-            this.listViewEmployee.Size = new System.Drawing.Size(679, 271);
+            this.listViewEmployee.Size = new System.Drawing.Size(510, 221);
             this.listViewEmployee.TabIndex = 25;
             this.listViewEmployee.UseCompatibleStateImageBehavior = false;
             this.listViewEmployee.View = System.Windows.Forms.View.Details;
@@ -198,28 +191,28 @@
             this.PositionID.Text = "Position";
             this.PositionID.Width = 111;
             // 
-            // DeleteButton
-            // 
-            this.DeleteButton.AutoSize = true;
-            this.DeleteButton.Location = new System.Drawing.Point(699, 206);
-            this.DeleteButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.DeleteButton.Name = "DeleteButton";
-            this.DeleteButton.Size = new System.Drawing.Size(125, 27);
-            this.DeleteButton.TabIndex = 26;
-            this.DeleteButton.Text = "Delete Employee";
-            this.DeleteButton.UseVisualStyleBackColor = true;
-            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
-            // 
             // Active
             // 
             this.Active.Text = "Status";
             this.Active.Width = 96;
             // 
+            // DeleteButton
+            // 
+            this.DeleteButton.AutoSize = true;
+            this.DeleteButton.Location = new System.Drawing.Point(524, 167);
+            this.DeleteButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(97, 23);
+            this.DeleteButton.TabIndex = 26;
+            this.DeleteButton.Text = "Delete Employee";
+            this.DeleteButton.UseVisualStyleBackColor = true;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
+            // 
             // NwDocSearch
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(839, 391);
+            this.ClientSize = new System.Drawing.Size(629, 318);
             this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.listViewEmployee);
             this.Controls.Add(this.addEmployeeButton);
@@ -233,9 +226,10 @@
             this.Controls.Add(this.textBoxLastName);
             this.Controls.Add(this.labelLastName);
             this.Controls.Add(this.labelFirstName);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "NwDocSearch";
             this.Text = "Employee Search";
-            this.Load += new System.EventHandler(this.NwDocSearch_Load);
+            this.Activated += new System.EventHandler(this.NwDocSearch_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

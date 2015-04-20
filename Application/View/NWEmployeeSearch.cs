@@ -27,6 +27,10 @@ namespace WindowsFormsApplication.View
             addEmployeeButton.Enabled = false;
             buttonClear.Enabled = false;
             DeleteButton.Enabled = false;
+            if ((textBoxLastName.Text != "") && (textBoxFirstName.Text != ""))
+            {
+                load_Employees();
+            }
 
         }
 
@@ -177,8 +181,6 @@ namespace WindowsFormsApplication.View
 
                     _controller.DeleteEmployee(deleteEmployee);
                     NwNWViewEmployeeForm.Close();
-                    textBoxFirstName.Text = "";
-                    textBoxLastName.Text = "";
                     listViewEmployee.Items.Clear();
                     listViewEmployee.Enabled = false;
                     viewEmployeeButton.Enabled = false;
@@ -198,6 +200,7 @@ namespace WindowsFormsApplication.View
             {
                 MessageBox.Show("An exception has occured with your request" + ex);
             }
+            load_Employees();
         }
 
         /// <summary>

@@ -91,24 +91,110 @@ namespace WindowsFormsApplication.DBAccess
             return allergyList;
         }
 
+        /// <summary>
+        /// Deletes unsed allergies or sets an allergy inactive if it's been used
+        /// </summary>
+        /// <param name="allergyId"></param>
+        /// <returns>sucess value</returns>
         public static int DeleteAllergy(int allergyId)
         {
+            string updateStatement =
+                " update allergies " +
+                " set enabled = 0 where ( allergyID = @allergyID) ";
+
             string deleteStatement =
                  " DELETE FROM allergies " +
                  " where ( allergyID = @allergyID) ";
 
-            using (SqlConnection connection = NorthwindDbConnection.GetConnection())
+            Boolean presence = checkAllergyPresence(allergyId);
+
+            try
             {
-                connection.Open();
-
-                using (SqlCommand deleteCommand = new SqlCommand(deleteStatement, connection))
+                if (presence == false)
                 {
-                    deleteCommand.Parameters.AddWithValue("@allergyID", allergyId);
-                    return deleteCommand.ExecuteNonQuery();
-                }
+                    using (SqlConnection connection = NorthwindDbConnection.GetConnection())
+                    {
+                        connection.Open();
 
+
+                        using (SqlCommand deleteCommand = new SqlCommand(deleteStatement, connection))
+                        {
+                            deleteCommand.Parameters.AddWithValue("@allergyID", allergyId);
+                            return deleteCommand.ExecuteNonQuery();
+
+                        }
+                    }
+                }
+                else
+                {
+                    using (SqlConnection connection = NorthwindDbConnection.GetConnection())
+                    {
+                        connection.Open();
+
+
+                        using (SqlCommand updateCommand = new SqlCommand(updateStatement, connection))
+                        {
+                            updateCommand.Parameters.AddWithValue("@allergyID", allergyId);
+                            return updateCommand.ExecuteNonQuery();
+
+                        }
+                    }
+                }
             }
-        
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Checks the DB to see if an allergy has been used
+        /// </summary>
+        /// <param name="allergyId"></param>
+        /// <returns>true or false</returns>
+        private static Boolean checkAllergyPresence(int allergyId)
+        {
+            Boolean presence = false;
+            Allergy check = new Allergy();
+            String checkStatement = "Select a.allergyID from allergies a join patient_allergies p on a.allergyID = p.allergyID where p.allergyID = @allergyID";
+
+            try
+            {
+                using (SqlConnection connection = NorthwindDbConnection.GetConnection())
+                {
+                    connection.Open();
+
+                    using (SqlCommand selectCommand = new SqlCommand(checkStatement, connection))
+                    {
+                        selectCommand.Parameters.AddWithValue("@allergyID", allergyId);
+
+                        using (SqlDataReader reader = selectCommand.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                check.AllergyID = (Int32)reader["allergyID"];
+                            }
+                        }
+                        if (check.AllergyID != 0)
+                        {
+                            presence = true;
+                        }
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return presence;
         }
     }
 }

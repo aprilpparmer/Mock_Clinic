@@ -39,9 +39,9 @@
             this.diagName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Description = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Treatment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Active = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.addButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
-            this.Active = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.diagnosesDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.diagnosesBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -74,10 +74,9 @@
             this.Description,
             this.Treatment,
             this.Active});
-            this.diagListView.Location = new System.Drawing.Point(16, 15);
-            this.diagListView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.diagListView.Location = new System.Drawing.Point(12, 12);
             this.diagListView.Name = "diagListView";
-            this.diagListView.Size = new System.Drawing.Size(1108, 360);
+            this.diagListView.Size = new System.Drawing.Size(905, 293);
             this.diagListView.TabIndex = 0;
             this.diagListView.UseCompatibleStateImageBehavior = false;
             this.diagListView.View = System.Windows.Forms.View.Details;
@@ -103,12 +102,15 @@
             this.Treatment.Text = "Treatment";
             this.Treatment.Width = 347;
             // 
+            // Active
+            // 
+            this.Active.Text = "Active";
+            // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(1165, 49);
-            this.addButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addButton.Location = new System.Drawing.Point(923, 44);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(123, 28);
+            this.addButton.Size = new System.Drawing.Size(92, 23);
             this.addButton.TabIndex = 1;
             this.addButton.Text = "Add Diagnoses";
             this.addButton.UseVisualStyleBackColor = true;
@@ -116,28 +118,22 @@
             // 
             // deleteButton
             // 
-            this.deleteButton.Location = new System.Drawing.Point(1165, 117);
-            this.deleteButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.deleteButton.Location = new System.Drawing.Point(923, 98);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(123, 49);
+            this.deleteButton.Size = new System.Drawing.Size(92, 40);
             this.deleteButton.TabIndex = 2;
             this.deleteButton.Text = "Delete Diagnoses";
             this.deleteButton.UseVisualStyleBackColor = true;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
-            // Active
-            // 
-            this.Active.Text = "Active";
-            // 
             // nwListDiag
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1304, 390);
+            this.ClientSize = new System.Drawing.Size(1027, 288);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.diagListView);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "nwListDiag";
             this.Text = "List Diagnoses";
             this.Activated += new System.EventHandler(this.loadDiags);

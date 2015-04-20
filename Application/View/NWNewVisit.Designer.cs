@@ -602,7 +602,7 @@
             // 
             // txtBoxTemperature
             // 
-            this.txtBoxTemperature.Location = new System.Drawing.Point(108, 165);
+            this.txtBoxTemperature.Location = new System.Drawing.Point(82, 165);
             this.txtBoxTemperature.Name = "txtBoxTemperature";
             this.txtBoxTemperature.Size = new System.Drawing.Size(56, 20);
             this.txtBoxTemperature.TabIndex = 6;
@@ -611,7 +611,7 @@
             // 
             // txtBoxWeight
             // 
-            this.txtBoxWeight.Location = new System.Drawing.Point(329, 165);
+            this.txtBoxWeight.Location = new System.Drawing.Point(355, 165);
             this.txtBoxWeight.Name = "txtBoxWeight";
             this.txtBoxWeight.Size = new System.Drawing.Size(56, 20);
             this.txtBoxWeight.TabIndex = 8;
@@ -620,7 +620,7 @@
             // 
             // txtBoxHeight
             // 
-            this.txtBoxHeight.Location = new System.Drawing.Point(217, 165);
+            this.txtBoxHeight.Location = new System.Drawing.Point(237, 165);
             this.txtBoxHeight.Name = "txtBoxHeight";
             this.txtBoxHeight.Size = new System.Drawing.Size(56, 20);
             this.txtBoxHeight.TabIndex = 7;
@@ -648,7 +648,7 @@
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(279, 168);
+            this.label40.Location = new System.Drawing.Point(305, 168);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(44, 13);
             this.label40.TabIndex = 25;
@@ -657,16 +657,16 @@
             // label39
             // 
             this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(170, 168);
+            this.label39.Location = new System.Drawing.Point(150, 168);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(41, 13);
+            this.label39.Size = new System.Drawing.Size(81, 13);
             this.label39.TabIndex = 24;
-            this.label39.Text = "Height:";
+            this.label39.Text = "Height (inches):";
             // 
             // label38
             // 
             this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(32, 168);
+            this.label38.Location = new System.Drawing.Point(6, 168);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(70, 13);
             this.label38.TabIndex = 23;
@@ -818,7 +818,7 @@
             this.symptomsTab.Location = new System.Drawing.Point(4, 22);
             this.symptomsTab.Name = "symptomsTab";
             this.symptomsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.symptomsTab.Size = new System.Drawing.Size(436, 273);
+            this.symptomsTab.Size = new System.Drawing.Size(436, 298);
             this.symptomsTab.TabIndex = 2;
             this.symptomsTab.Text = "Symptoms";
             this.symptomsTab.UseVisualStyleBackColor = true;
@@ -1361,6 +1361,7 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.patient_allergiesTableAdapter = null;
             this.tableAdapterManager.patientsTableAdapter = this.patientsTableAdapter;
             this.tableAdapterManager.UpdateOrder = WindowsFormsApplication.PatientsDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 

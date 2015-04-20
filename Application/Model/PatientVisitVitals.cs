@@ -14,6 +14,6 @@ namespace WindowsFormsApplication.Model
         public string Temp { get; set; }
         public string Pulse { get; set; }
         public int Height { get; set; }
-        public int Weight { get; set; }
+        public float Weight { get; set; }
     }
 }

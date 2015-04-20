@@ -15,13 +15,13 @@ namespace WindowsFormsApplication.View
 {
     public partial class NWNewVisit : Form
     {
-        private int patientID;
         private PatientVisit patientVisit;
         private PatientVisitVitals vitals;
         private PatientVisitSymptoms symptoms;
         //Variable for diagnoses to be added to symptoms
         private PatientVisitSymptoms dsymptoms;
         private PatientVisitNotes note;
+        private int patientID;
 
         public NWNewVisit(int patientID)
         {
@@ -166,7 +166,7 @@ namespace WindowsFormsApplication.View
             vitals.Temp = txtBoxTemperature.Text;
             vitals.Pulse = txtBoxPulse.Text;
             vitals.Height = int.Parse(txtBoxHeight.Text);
-            vitals.Weight = int.Parse(txtBoxWeight.Text);
+            vitals.Weight = float.Parse(txtBoxWeight.Text);
         }
         //Saves the symptoms data, and notes data (if present)
         private void saveButton3_Click(object sender, EventArgs e)
@@ -412,7 +412,7 @@ namespace WindowsFormsApplication.View
                 Validator.IsPresent(txtBoxHeight) &&
                 Validator.IsInt32(txtBoxHeight) &&
                 Validator.IsPresent(txtBoxWeight) &&
-                Validator.IsInt32(txtBoxWeight))
+                Validator.IsDecimal(txtBoxWeight))
                 return true;
             else
                 return false;

@@ -1979,7 +1979,7 @@ namespace WindowsFormsApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public patient_visit_vitalsRow Addpatient_visit_vitalsRow(patient_visitRow parentpatient_visitRowByFK_patient_visit_vitals_patient_visit, string blood_pressure, string temp, string pulse, int height, int weight) {
+            public patient_visit_vitalsRow Addpatient_visit_vitalsRow(patient_visitRow parentpatient_visitRowByFK_patient_visit_vitals_patient_visit, string blood_pressure, string temp, string pulse, int height, decimal weight) {
                 patient_visit_vitalsRow rowpatient_visit_vitalsRow = ((patient_visit_vitalsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2046,7 +2046,7 @@ namespace WindowsFormsApplication {
                 base.Columns.Add(this.columnpulse);
                 this.columnheight = new global::System.Data.DataColumn("height", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnheight);
-                this.columnweight = new global::System.Data.DataColumn("weight", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnweight = new global::System.Data.DataColumn("weight", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnweight);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnvitalsID,
@@ -2816,9 +2816,9 @@ namespace WindowsFormsApplication {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int weight {
+            public decimal weight {
                 get {
-                    return ((int)(this[this.tablepatient_visit_vitals.weightColumn]));
+                    return ((decimal)(this[this.tablepatient_visit_vitals.weightColumn]));
                 }
                 set {
                     this[this.tablepatient_visit_vitals.weightColumn] = value;

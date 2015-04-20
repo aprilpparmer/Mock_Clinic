@@ -37,21 +37,17 @@
             System.Windows.Forms.Label pulseLabel;
             System.Windows.Forms.Label tempLabel;
             System.Windows.Forms.Label heightLabel;
-            System.Windows.Forms.Label weightLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NwViewVisit));
+            System.Windows.Forms.Label weightLabel;
             this.symptom_nameLabel = new System.Windows.Forms.Label();
             this.diagnoses_nameLabel = new System.Windows.Forms.Label();
             this.diagnoses_treatmentLabel = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.nurseNameLabel1 = new System.Windows.Forms.Label();
-            this.patient_visitBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.patientVisitInfoDataSet = new WindowsFormsApplication.PatientVisitInfoDataSet();
             this.doctorNameLabel1 = new System.Windows.Forms.Label();
             this.appt_dateLabel1 = new System.Windows.Forms.Label();
             this.visit_dateLabel1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.weightLabel1 = new System.Windows.Forms.Label();
-            this.patient_visit_vitalsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.heightLabel1 = new System.Windows.Forms.Label();
             this.tempLabel1 = new System.Windows.Forms.Label();
             this.pulseLabel1 = new System.Windows.Forms.Label();
@@ -60,18 +56,13 @@
             this.treatmenttextBox = new System.Windows.Forms.TextBox();
             this.diagtextBox = new System.Windows.Forms.TextBox();
             this.symptomtextBox = new System.Windows.Forms.TextBox();
-            this.patient_visit_symptomsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.patient_testsDataGridView = new System.Windows.Forms.DataGridView();
-            this.patient_testsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.patient_testID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Update = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.patient_visit_notesDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.patient_visit_notesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.patient_visitBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -85,23 +76,32 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.patient_visitBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.buttonOrderTest = new System.Windows.Forms.Button();
+            this.ButtonUpdateDiagnoses = new System.Windows.Forms.Button();
+            this.weightLabel1 = new System.Windows.Forms.Label();
+            this.patient_visitBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.patientVisitInfoDataSet = new WindowsFormsApplication.PatientVisitInfoDataSet();
+            this.patient_visit_vitalsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patient_visit_notesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patient_testsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.patient_visit_symptomsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.patient_visitTableAdapter = new WindowsFormsApplication.PatientVisitInfoDataSetTableAdapters.patient_visitTableAdapter();
             this.tableAdapterManager = new WindowsFormsApplication.PatientVisitInfoDataSetTableAdapters.TableAdapterManager();
             this.patient_visit_vitalsTableAdapter = new WindowsFormsApplication.PatientVisitInfoDataSetTableAdapters.patient_visit_vitalsTableAdapter();
             this.patient_visit_symptomsTableAdapter = new WindowsFormsApplication.PatientVisitInfoDataSetTableAdapters.patient_visit_symptomsTableAdapter();
             this.patient_testsTableAdapter = new WindowsFormsApplication.PatientVisitInfoDataSetTableAdapters.patient_testsTableAdapter();
             this.patient_visit_notesTableAdapter = new WindowsFormsApplication.PatientVisitInfoDataSetTableAdapters.patient_visit_notesTableAdapter();
-            this.buttonOrderTest = new System.Windows.Forms.Button();
-            this.ButtonUpdateDiagnoses = new System.Windows.Forms.Button();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.patient_testID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Update = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             visit_dateLabel = new System.Windows.Forms.Label();
             appt_dateLabel = new System.Windows.Forms.Label();
             doctorNameLabel = new System.Windows.Forms.Label();
@@ -112,20 +112,20 @@
             heightLabel = new System.Windows.Forms.Label();
             weightLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.patient_visitBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.patientVisitInfoDataSet)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.patient_visit_vitalsBindingSource)).BeginInit();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.patient_visit_symptomsBindingSource)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.patient_testsDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.patient_testsBindingSource)).BeginInit();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.patient_visit_notesDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.patient_visit_notesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patient_visitBindingNavigator)).BeginInit();
             this.patient_visitBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.patient_visitBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patientVisitInfoDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patient_visit_vitalsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patient_visit_notesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patient_testsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patient_visit_symptomsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // visit_dateLabel
@@ -194,20 +194,12 @@
             // heightLabel
             // 
             heightLabel.AutoSize = true;
-            heightLabel.Location = new System.Drawing.Point(174, 44);
+            heightLabel.Location = new System.Drawing.Point(167, 44);
             heightLabel.Name = "heightLabel";
-            heightLabel.Size = new System.Drawing.Size(41, 13);
+            heightLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            heightLabel.Size = new System.Drawing.Size(81, 13);
             heightLabel.TabIndex = 6;
-            heightLabel.Text = "Height:";
-            // 
-            // weightLabel
-            // 
-            weightLabel.AutoSize = true;
-            weightLabel.Location = new System.Drawing.Point(297, 44);
-            weightLabel.Name = "weightLabel";
-            weightLabel.Size = new System.Drawing.Size(44, 13);
-            weightLabel.TabIndex = 8;
-            weightLabel.Text = "Weight:";
+            heightLabel.Text = "Height (inches):";
             // 
             // symptom_nameLabel
             // 
@@ -262,16 +254,6 @@
             this.nurseNameLabel1.TabIndex = 7;
             this.nurseNameLabel1.Text = "***";
             // 
-            // patient_visitBindingSource
-            // 
-            this.patient_visitBindingSource.DataMember = "patient_visit";
-            this.patient_visitBindingSource.DataSource = this.patientVisitInfoDataSet;
-            // 
-            // patientVisitInfoDataSet
-            // 
-            this.patientVisitInfoDataSet.DataSetName = "PatientVisitInfoDataSet";
-            this.patientVisitInfoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // doctorNameLabel1
             // 
             this.doctorNameLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.patient_visitBindingSource, "doctorName", true));
@@ -313,29 +295,15 @@
             this.groupBox2.Controls.Add(this.blood_pressureLabel1);
             this.groupBox2.Location = new System.Drawing.Point(41, 90);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(462, 70);
+            this.groupBox2.Size = new System.Drawing.Size(462, 90);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Vitals";
             // 
-            // weightLabel1
-            // 
-            this.weightLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.patient_visit_vitalsBindingSource, "weight", true));
-            this.weightLabel1.Location = new System.Drawing.Point(347, 44);
-            this.weightLabel1.Name = "weightLabel1";
-            this.weightLabel1.Size = new System.Drawing.Size(50, 23);
-            this.weightLabel1.TabIndex = 9;
-            this.weightLabel1.Text = "****";
-            // 
-            // patient_visit_vitalsBindingSource
-            // 
-            this.patient_visit_vitalsBindingSource.DataMember = "patient_visit_vitals";
-            this.patient_visit_vitalsBindingSource.DataSource = this.patientVisitInfoDataSet;
-            // 
             // heightLabel1
             // 
             this.heightLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.patient_visit_vitalsBindingSource, "height", true));
-            this.heightLabel1.Location = new System.Drawing.Point(221, 44);
+            this.heightLabel1.Location = new System.Drawing.Point(247, 44);
             this.heightLabel1.Name = "heightLabel1";
             this.heightLabel1.Size = new System.Drawing.Size(41, 23);
             this.heightLabel1.TabIndex = 7;
@@ -408,11 +376,6 @@
             this.symptomtextBox.Size = new System.Drawing.Size(535, 20);
             this.symptomtextBox.TabIndex = 7;
             // 
-            // patient_visit_symptomsBindingSource
-            // 
-            this.patient_visit_symptomsBindingSource.DataMember = "patient_visit_symptoms";
-            this.patient_visit_symptomsBindingSource.DataSource = this.patientVisitInfoDataSet;
-            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.patient_testsDataGridView);
@@ -450,10 +413,28 @@
             this.patient_testsDataGridView.TabIndex = 0;
             this.patient_testsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.patient_testsDataGridView_CellContentClick);
             // 
-            // patient_testsBindingSource
+            // patient_testID
             // 
-            this.patient_testsBindingSource.DataMember = "patient_tests";
-            this.patient_testsBindingSource.DataSource = this.patientVisitInfoDataSet;
+            this.patient_testID.DataPropertyName = "patient_testID";
+            this.patient_testID.HeaderText = "Patient TestID";
+            this.patient_testID.Name = "patient_testID";
+            this.patient_testID.ReadOnly = true;
+            // 
+            // Update
+            // 
+            this.Update.HeaderText = "Update";
+            this.Update.Name = "Update";
+            this.Update.ReadOnly = true;
+            this.Update.Text = "Update";
+            this.Update.UseColumnTextForButtonValue = true;
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "Delete";
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.Text = "Delete";
+            this.Delete.UseColumnTextForButtonValue = true;
             // 
             // groupBox5
             // 
@@ -483,50 +464,6 @@
             this.patient_visit_notesDataGridView.ReadOnly = true;
             this.patient_visit_notesDataGridView.Size = new System.Drawing.Size(543, 104);
             this.patient_visit_notesDataGridView.TabIndex = 0;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "notesID";
-            this.dataGridViewTextBoxColumn9.HeaderText = "notesID";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            this.dataGridViewTextBoxColumn9.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "visitID";
-            this.dataGridViewTextBoxColumn10.HeaderText = "visitID";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            this.dataGridViewTextBoxColumn10.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "note";
-            this.dataGridViewTextBoxColumn11.HeaderText = "Note";
-            this.dataGridViewTextBoxColumn11.MinimumWidth = 100;
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            this.dataGridViewTextBoxColumn11.Width = 300;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "date";
-            this.dataGridViewTextBoxColumn12.HeaderText = "Date";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "last_name";
-            this.dataGridViewTextBoxColumn13.HeaderText = "Employee";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.ReadOnly = true;
-            // 
-            // patient_visit_notesBindingSource
-            // 
-            this.patient_visit_notesBindingSource.DataMember = "patient_visit_notes";
-            this.patient_visit_notesBindingSource.DataSource = this.patientVisitInfoDataSet;
             // 
             // patient_visitBindingNavigator
             // 
@@ -649,33 +586,6 @@
             this.patient_visitBindingNavigatorSaveItem.Name = "patient_visitBindingNavigatorSaveItem";
             this.patient_visitBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
             // 
-            // patient_visitTableAdapter
-            // 
-            this.patient_visitTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.patient_visit_vitalsTableAdapter = null;
-            this.tableAdapterManager.patient_visitTableAdapter = this.patient_visitTableAdapter;
-            this.tableAdapterManager.UpdateOrder = WindowsFormsApplication.PatientVisitInfoDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // patient_visit_vitalsTableAdapter
-            // 
-            this.patient_visit_vitalsTableAdapter.ClearBeforeFill = true;
-            // 
-            // patient_visit_symptomsTableAdapter
-            // 
-            this.patient_visit_symptomsTableAdapter.ClearBeforeFill = true;
-            // 
-            // patient_testsTableAdapter
-            // 
-            this.patient_testsTableAdapter.ClearBeforeFill = true;
-            // 
-            // patient_visit_notesTableAdapter
-            // 
-            this.patient_visit_notesTableAdapter.ClearBeforeFill = true;
-            // 
             // buttonOrderTest
             // 
             this.buttonOrderTest.Location = new System.Drawing.Point(735, 303);
@@ -696,6 +606,83 @@
             this.ButtonUpdateDiagnoses.UseVisualStyleBackColor = true;
             this.ButtonUpdateDiagnoses.Click += new System.EventHandler(this.ButtonUpdateDiagnoses_Click);
             // 
+            // weightLabel
+            // 
+            weightLabel.AutoSize = true;
+            weightLabel.Location = new System.Drawing.Point(319, 44);
+            weightLabel.Name = "weightLabel";
+            weightLabel.Size = new System.Drawing.Size(44, 13);
+            weightLabel.TabIndex = 8;
+            weightLabel.Text = "Weight:";
+            // 
+            // weightLabel1
+            // 
+            this.weightLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.patient_visit_vitalsBindingSource, "weight", true));
+            this.weightLabel1.Location = new System.Drawing.Point(366, 44);
+            this.weightLabel1.Name = "weightLabel1";
+            this.weightLabel1.Size = new System.Drawing.Size(46, 23);
+            this.weightLabel1.TabIndex = 9;
+            this.weightLabel1.Text = "****";
+            // 
+            // patient_visitBindingSource
+            // 
+            this.patient_visitBindingSource.DataMember = "patient_visit";
+            this.patient_visitBindingSource.DataSource = this.patientVisitInfoDataSet;
+            // 
+            // patientVisitInfoDataSet
+            // 
+            this.patientVisitInfoDataSet.DataSetName = "PatientVisitInfoDataSet";
+            this.patientVisitInfoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // patient_visit_vitalsBindingSource
+            // 
+            this.patient_visit_vitalsBindingSource.DataMember = "patient_visit_vitals";
+            this.patient_visit_vitalsBindingSource.DataSource = this.patientVisitInfoDataSet;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "notesID";
+            this.dataGridViewTextBoxColumn9.HeaderText = "notesID";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            this.dataGridViewTextBoxColumn9.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "visitID";
+            this.dataGridViewTextBoxColumn10.HeaderText = "visitID";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            this.dataGridViewTextBoxColumn10.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "note";
+            this.dataGridViewTextBoxColumn11.HeaderText = "Note";
+            this.dataGridViewTextBoxColumn11.MinimumWidth = 100;
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            this.dataGridViewTextBoxColumn11.Width = 300;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "date";
+            this.dataGridViewTextBoxColumn12.HeaderText = "Date";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "last_name";
+            this.dataGridViewTextBoxColumn13.HeaderText = "Employee";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            // 
+            // patient_visit_notesBindingSource
+            // 
+            this.patient_visit_notesBindingSource.DataMember = "patient_visit_notes";
+            this.patient_visit_notesBindingSource.DataSource = this.patientVisitInfoDataSet;
+            // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "visitID";
@@ -703,13 +690,6 @@
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
             this.dataGridViewTextBoxColumn2.Visible = false;
-            // 
-            // patient_testID
-            // 
-            this.patient_testID.DataPropertyName = "patient_testID";
-            this.patient_testID.HeaderText = "Patient TestID";
-            this.patient_testID.Name = "patient_testID";
-            this.patient_testID.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn8
             // 
@@ -746,21 +726,42 @@
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
             // 
-            // Update
+            // patient_testsBindingSource
             // 
-            this.Update.HeaderText = "Update";
-            this.Update.Name = "Update";
-            this.Update.ReadOnly = true;
-            this.Update.Text = "Update";
-            this.Update.UseColumnTextForButtonValue = true;
+            this.patient_testsBindingSource.DataMember = "patient_tests";
+            this.patient_testsBindingSource.DataSource = this.patientVisitInfoDataSet;
             // 
-            // Delete
+            // patient_visit_symptomsBindingSource
             // 
-            this.Delete.HeaderText = "Delete";
-            this.Delete.Name = "Delete";
-            this.Delete.ReadOnly = true;
-            this.Delete.Text = "Delete";
-            this.Delete.UseColumnTextForButtonValue = true;
+            this.patient_visit_symptomsBindingSource.DataMember = "patient_visit_symptoms";
+            this.patient_visit_symptomsBindingSource.DataSource = this.patientVisitInfoDataSet;
+            // 
+            // patient_visitTableAdapter
+            // 
+            this.patient_visitTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.patient_visit_vitalsTableAdapter = null;
+            this.tableAdapterManager.patient_visitTableAdapter = this.patient_visitTableAdapter;
+            this.tableAdapterManager.UpdateOrder = WindowsFormsApplication.PatientVisitInfoDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // patient_visit_vitalsTableAdapter
+            // 
+            this.patient_visit_vitalsTableAdapter.ClearBeforeFill = true;
+            // 
+            // patient_visit_symptomsTableAdapter
+            // 
+            this.patient_visit_symptomsTableAdapter.ClearBeforeFill = true;
+            // 
+            // patient_testsTableAdapter
+            // 
+            this.patient_testsTableAdapter.ClearBeforeFill = true;
+            // 
+            // patient_visit_notesTableAdapter
+            // 
+            this.patient_visit_notesTableAdapter.ClearBeforeFill = true;
             // 
             // NwViewVisit
             // 
@@ -781,23 +782,23 @@
             this.Activated += new System.EventHandler(this.getTestData);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.patient_visitBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.patientVisitInfoDataSet)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.patient_visit_vitalsBindingSource)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.patient_visit_symptomsBindingSource)).EndInit();
             this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.patient_testsDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.patient_testsBindingSource)).EndInit();
             this.groupBox5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.patient_visit_notesDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.patient_visit_notesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.patient_visitBindingNavigator)).EndInit();
             this.patient_visitBindingNavigator.ResumeLayout(false);
             this.patient_visitBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.patient_visitBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patientVisitInfoDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patient_visit_vitalsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patient_visit_notesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patient_testsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patient_visit_symptomsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -833,7 +834,6 @@
         private System.Windows.Forms.Label visit_dateLabel1;
         private System.Windows.Forms.BindingSource patient_visit_vitalsBindingSource;
         private PatientVisitInfoDataSetTableAdapters.patient_visit_vitalsTableAdapter patient_visit_vitalsTableAdapter;
-        private System.Windows.Forms.Label weightLabel1;
         private System.Windows.Forms.Label heightLabel1;
         private System.Windows.Forms.Label tempLabel1;
         private System.Windows.Forms.Label pulseLabel1;
@@ -868,6 +868,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewButtonColumn Update;
         private System.Windows.Forms.DataGridViewButtonColumn Delete;
+        private System.Windows.Forms.Label weightLabel1;
 
     }
 }

@@ -467,6 +467,7 @@
             this.passwordTextBox.MaxLength = 50;
             this.passwordTextBox.Multiline = true;
             this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.Size = new System.Drawing.Size(105, 24);
             this.passwordTextBox.TabIndex = 15;
             this.passwordTextBox.TextChanged += new System.EventHandler(this.EnableAccount);

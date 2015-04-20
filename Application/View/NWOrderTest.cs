@@ -26,7 +26,7 @@ namespace WindowsFormsApplication.View
             this.testsTableAdapter.Fill(this.patientVisitSummaryReport.tests);
             // TODO: This line of code loads data into the 'patientVisitDataSet.patient_tests' table. You can move, or remove it, as needed.
             this.patient_testsTableAdapter.Fill(this.patientVisitDataSet.patient_tests);
-            textBoxVisitID.Text = this.visitID.ToString();
+      
         }
 
         private static NwOrderTest _NWOrderTestForm;
@@ -57,7 +57,7 @@ namespace WindowsFormsApplication.View
         {
             PatientTests patientTest = new PatientTests();
 
-            patientTest.VisitId = Int32.Parse(textBoxVisitID.Text);
+            patientTest.VisitId = this.visitID;
             patientTest.TestId = Int32.Parse(comboBoxTest.SelectedValue.ToString());
             patientTest.TestOrdered = DateTime.Now;
             try

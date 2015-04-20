@@ -51,6 +51,14 @@ namespace WindowsFormsApplication.View
             {
                 loadEmployeeData();
             }
+            if (this.employee.Enabled == 1)
+            {
+                this.enabledCheckBox.Checked = true;
+            }
+            else
+            {
+                this.enabledCheckBox.Checked = false;
+            }
         }
      
         private void activatedFom(object sender, EventArgs e)
@@ -258,7 +266,7 @@ namespace WindowsFormsApplication.View
             addressTextBox.Text = employee.Address.Trim();
             cityTextBox.Text = employee.City.Trim();
             StateComboBox.Text = employee.State;
-            if (employee.Login.Trim() != "")
+            if (employee.Login != null && employee.Login.Trim() != "")
             {
                 loginTextBox.Text = employee.Login;
                 SimpleAES encrypt = new SimpleAES();

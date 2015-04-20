@@ -7,6 +7,11 @@ namespace WindowsFormsApplication.Controller
 {
     public class NorthwindController
     {
+        public static int DeletePatientAllergy(int patientID, string allergy_name)
+        {
+            return PatientAllergiesDal.DeletePatientAllergy(patientID, allergy_name);
+        }
+
         public static int AddPatientAllergy(PatientAllergies allergies)
         {
             return PatientAllergiesDal.AddPatientAllergy(allergies);

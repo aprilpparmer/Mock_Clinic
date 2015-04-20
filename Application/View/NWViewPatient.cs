@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,7 @@ namespace WindowsFormsApplication.View
         NorthwindController _controller;
         private int _patientId ;
         private Patient _thepatient;
+        private string _allergy_name;
         public NWViewPatient(int thePatientId)
         {
             InitializeComponent();
@@ -142,6 +144,43 @@ namespace WindowsFormsApplication.View
             NwAddPatientAllergy addAllergyForm = new NwAddPatientAllergy(_patientId);
             addAllergyForm.ShowDialog();
             addAllergyForm.BringToFront();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int row = patient_allergiesDataGridView.CurrentRow.Index;
+                this._allergy_name = patient_allergiesDataGridView[1, row].Value.ToString();
+                if (this._allergy_name == "" || this._allergy_name == null)
+                {
+                    MessageBox.Show("You must select an allergy to delete.");
+                }
+                else
+                {
+                    if (NorthwindController.DeletePatientAllergy(this._patientId, this._allergy_name) > 0)
+                    {
+                        MessageBox.Show("The patient's allergy was successfully deleted.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Something went wrong. The patient's allergy was not deleted.");
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.GetType().ToString(), ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.GetType().ToString(), ex.Message);
+            }
+        }
+
+        private void patient_allergiesDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
     }

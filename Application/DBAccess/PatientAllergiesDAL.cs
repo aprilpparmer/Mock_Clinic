@@ -94,5 +94,42 @@ namespace WindowsFormsApplication.DBAccess
                 throw ex;
             }
         }
+
+        /// <summary>
+        /// Deletes a patient's allergy 
+        /// </summary>
+        /// <param name="patientTestID">The patient allergy id that needs to be deleted</param>
+        /// <returns></returns>
+        public static int DeletePatientAllergy(int patientID, string allergy_name)
+        {
+
+            string deleteStatement =
+                " DELETE FROM patient_allergies " +
+                " WHERE (patientID = @patientID AND allergy_name = @allergy_name) ";
+            try
+            {
+                using (SqlConnection connection = NorthwindDbConnection.GetConnection())
+                {
+                    connection.Open();
+
+                    using (SqlCommand deleteCommand = new SqlCommand(deleteStatement, connection))
+                    {
+                        deleteCommand.Parameters.AddWithValue("@patientID", patientID);
+                        deleteCommand.Parameters.AddWithValue("@allergy_name", allergy_name);
+                        return deleteCommand.ExecuteNonQuery();
+                    }
+
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
     }
 }

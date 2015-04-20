@@ -626,6 +626,7 @@
             this.patient_allergiesDataGridView.ReadOnly = true;
             this.patient_allergiesDataGridView.Size = new System.Drawing.Size(347, 72);
             this.patient_allergiesDataGridView.TabIndex = 65;
+            this.patient_allergiesDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.patient_allergiesDataGridView_CellContentClick);
             // 
             // button1
             // 
@@ -645,6 +646,7 @@
             this.button2.TabIndex = 67;
             this.button2.Text = "Delete Allergy";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // dataGridViewTextBoxColumn5
             // 

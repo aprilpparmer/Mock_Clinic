@@ -18,6 +18,7 @@ namespace WindowsFormsApplication.View
        
         public NWUpdateAccount(int theEmployeeID)
         {
+            
             InitializeComponent();
             UpdateButton.Enabled = false;
             try
@@ -29,6 +30,10 @@ namespace WindowsFormsApplication.View
                     int positionID = employee.PositionId;
                     UpdateButton.Enabled = true;
                     AddNewButton.Enabled = false;
+                }
+                else
+                {
+                    this.Text = @"Create Employee Acccount";
                 }                           
                 
             }
@@ -86,7 +91,7 @@ namespace WindowsFormsApplication.View
             {
                 try
                 {
-                    _controller.UpdateEmployee(CreateEmployee());
+                    _controller.UpdateEmployee(tmpemployee);
                     MessageBox.Show(@"The employee has been updated.");
                     this.Close();
 
@@ -122,30 +127,35 @@ namespace WindowsFormsApplication.View
                 }
                 // This is going to check if anything needs to be fixed
                 Boolean loginInfoSet = false;
-
+                employee.Enabled = 0;
                 if ((loginTextBox.Text.Trim().Length > 0) & (passwordTextBox.Text.Trim().Length > 0))
                 {
                     Boolean uniqueLogin = true;
                     
-                    if ((employeeId != 0) && (employee.Login.Trim() != loginTextBox.Text.Trim()))
+                    if ((employee.Login.Trim() != loginTextBox.Text.Trim()))
                     {
                         uniqueLogin = _controller.VerifyUniqueLogin(loginTextBox.Text);
                     }
                     if (uniqueLogin)
                     {
+                        MessageBox.Show(@"Login = " + loginTextBox.Text);
                         loginInfoSet = true;
+                        employee.Login = loginTextBox.Text;
+                        SimpleAES encrypt = new SimpleAES();
+                        employee.Password = encrypt.EncryptToString(passwordTextBox.Text);
+                        employee.Enabled = 1;
+                        
                     }
                     else
                     {
                         MessageBox.Show(@"That Login is already in use.");                       
                     }
                 }
-
-                else if (loginTextBox.Text.Length == 0)
+                   
+                else if (loginTextBox.Text.Trim().Length == 0)                
                 {
                     loginInfoSet = true;
                 }
-
                 if (loginInfoSet)
                 {
                     if ((int.TryParse(ssnTextBox.Text, out ssn)) & (ssnTextBox.Text.Length == 9))
@@ -158,27 +168,12 @@ namespace WindowsFormsApplication.View
                             {
 
                                 if ((firstNameTextBox.Text != "") & (lastNameTextBox.Text != "") & (ssn != 0) & (zip != 0) &
-                                    (addressTextBox.Text != "") & (cityTextBox.Text != "") & (StateComboBox.Text != "")
-                                    & (loginTextBox.Text != "") & (passwordTextBox.Text != ""))
+                                    (addressTextBox.Text != "") & (cityTextBox.Text != "") & (StateComboBox.Text != ""))
                                 {
                                     //Check Details
                                     employee.FirstName = firstNameTextBox.Text;
                                     employee.MiddleInitial = middleInitialTextBox.Text;
                                     employee.LastName = lastNameTextBox.Text;
-                                    if (loginTextBox.Text != "")
-                                    {
-                                        employee.Login = loginTextBox.Text;
-                                        SimpleAES encrypt = new SimpleAES();
-                                        employee.Password = encrypt.EncryptToString(passwordTextBox.Text);
-                                        if ((enabledCheckBox.Checked) & (loginTextBox.Text.Trim().Length > 0) & (passwordTextBox.Text.Trim().Length > 0))
-                                        {
-                                            employee.Enabled = 1;
-                                        }
-                                        else
-                                        {
-                                            employee.Enabled = 0;
-                                        }
-                                    }
                                     employee.Gender = gender;
                                     employee.Ssn = ssn;
                                     employee.Zip = zip;

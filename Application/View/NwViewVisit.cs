@@ -11,11 +11,13 @@ namespace WindowsFormsApplication.View
         private int visitID;
         private NorthwindController _controller;
         private PatientVisitSymptoms symptoms = new PatientVisitSymptoms();
-        public NwViewVisit(int _visitID)
+        private int patientID;
+        public NwViewVisit(int _visitID, int _patientID)
         {
             _controller = new NorthwindController();
             InitializeComponent();
             this.visitID = _visitID;
+            this.patientID = _patientID;
             
         }
 
@@ -68,7 +70,7 @@ namespace WindowsFormsApplication.View
 
         private void buttonOrderTest_Click(object sender, EventArgs e)
         {
-            NwOrderTest NWOrderTestForm = NwOrderTest.GetChildInstance(this.visitID);
+            NwOrderTest NWOrderTestForm = NwOrderTest.GetChildInstance(this.visitID, this.patientID);
             NWOrderTestForm.MdiParent = MdiParent;
             NWOrderTestForm.Show();
             NWOrderTestForm.BringToFront();

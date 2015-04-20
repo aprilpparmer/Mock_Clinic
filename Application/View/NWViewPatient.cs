@@ -134,7 +134,7 @@ namespace WindowsFormsApplication.View
                 int visitID = (int)cell.Value;
 
                 //Display the visit info form
-                NwViewVisit viewVisitForm = new NwViewVisit(visitID);
+                NwViewVisit viewVisitForm = new NwViewVisit(visitID, _patientId);
                 viewVisitForm.ShowDialog();
             }
         }

@@ -8,16 +8,20 @@ namespace WindowsFormsApplication.View
     public partial class NwOrderTest : Form
     {
         NorthwindController _controller = new NorthwindController();
-        int visitID;
+        private int visitID;
+        private int patientID;
 
-        public NwOrderTest(int visitID)
+        public NwOrderTest(int visitID, int patientID)
         {
             InitializeComponent();
             this.visitID = visitID;
+            this.patientID = patientID;
         }
 
         private void NwOrderTest_Load(object sender, System.EventArgs e)
         {
+            // TODO: This line of code loads data into the 'patientsDataSet.patients' table. You can move, or remove it, as needed.
+            this.patientsTableAdapter.FillPatientInfo(this.patientsDataSet.patients, this.patientID);
             // TODO: This line of code loads data into the 'patientVisitSummaryReport.tests' table. You can move, or remove it, as needed.
             this.testsTableAdapter.Fill(this.patientVisitSummaryReport.tests);
             // TODO: This line of code loads data into the 'patientVisitDataSet.patient_tests' table. You can move, or remove it, as needed.
@@ -31,14 +35,14 @@ namespace WindowsFormsApplication.View
         /// Checks to see if Instance is created, and returns Instance
         /// </summary>
         /// <returns>NewDiag Instance</returns>
-        public static NwOrderTest GetChildInstance(int visitID)
+        public static NwOrderTest GetChildInstance(int visitID, int patientID)
         {
             if (_NWOrderTestForm == null) //if not created yet, Create an instance
-                _NWOrderTestForm = new NwOrderTest(visitID);
+                _NWOrderTestForm = new NwOrderTest(visitID, patientID);
             else
             {
                 _NWOrderTestForm.Dispose();
-                _NWOrderTestForm = new NwOrderTest(visitID);
+                _NWOrderTestForm = new NwOrderTest(visitID, patientID);
 
             }
             return _NWOrderTestForm;  //just created or created earlier.Return it

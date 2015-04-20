@@ -43,9 +43,10 @@
             this.allergyID,
             this.allergy_Name,
             this.enabled});
-            this.listViewAllergies.Location = new System.Drawing.Point(76, 41);
+            this.listViewAllergies.Location = new System.Drawing.Point(101, 50);
+            this.listViewAllergies.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listViewAllergies.Name = "listViewAllergies";
-            this.listViewAllergies.Size = new System.Drawing.Size(294, 235);
+            this.listViewAllergies.Size = new System.Drawing.Size(391, 288);
             this.listViewAllergies.TabIndex = 0;
             this.listViewAllergies.UseCompatibleStateImageBehavior = false;
             this.listViewAllergies.View = System.Windows.Forms.View.Details;
@@ -53,6 +54,7 @@
             // allergyID
             // 
             this.allergyID.Text = "Allergy ID";
+            this.allergyID.Width = 75;
             // 
             // allergy_Name
             // 
@@ -61,13 +63,14 @@
             // 
             // enabled
             // 
-            this.enabled.Text = "Enabled";
+            this.enabled.Text = "Active";
             // 
             // buttonAddAllergy
             // 
-            this.buttonAddAllergy.Location = new System.Drawing.Point(76, 299);
+            this.buttonAddAllergy.Location = new System.Drawing.Point(101, 368);
+            this.buttonAddAllergy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonAddAllergy.Name = "buttonAddAllergy";
-            this.buttonAddAllergy.Size = new System.Drawing.Size(75, 23);
+            this.buttonAddAllergy.Size = new System.Drawing.Size(100, 28);
             this.buttonAddAllergy.TabIndex = 1;
             this.buttonAddAllergy.Text = "Add Allergy";
             this.buttonAddAllergy.UseVisualStyleBackColor = true;
@@ -75,9 +78,10 @@
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(295, 299);
+            this.buttonCancel.Location = new System.Drawing.Point(393, 368);
+            this.buttonCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancel.Size = new System.Drawing.Size(100, 28);
             this.buttonCancel.TabIndex = 2;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
@@ -85,9 +89,10 @@
             // 
             // buttonDeleteAllergy
             // 
-            this.buttonDeleteAllergy.Location = new System.Drawing.Point(177, 299);
+            this.buttonDeleteAllergy.Location = new System.Drawing.Point(236, 368);
+            this.buttonDeleteAllergy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDeleteAllergy.Name = "buttonDeleteAllergy";
-            this.buttonDeleteAllergy.Size = new System.Drawing.Size(92, 23);
+            this.buttonDeleteAllergy.Size = new System.Drawing.Size(123, 28);
             this.buttonDeleteAllergy.TabIndex = 3;
             this.buttonDeleteAllergy.Text = "Delete Allergy";
             this.buttonDeleteAllergy.UseVisualStyleBackColor = true;
@@ -95,13 +100,14 @@
             // 
             // NWViewAllergies
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(433, 354);
+            this.ClientSize = new System.Drawing.Size(577, 436);
             this.Controls.Add(this.buttonDeleteAllergy);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonAddAllergy);
             this.Controls.Add(this.listViewAllergies);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "NWViewAllergies";
             this.Text = "View Allergies";
             this.Activated += new System.EventHandler(this.loadAllergies);

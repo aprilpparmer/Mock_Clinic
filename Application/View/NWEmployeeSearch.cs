@@ -11,6 +11,7 @@ namespace WindowsFormsApplication.View
     {
         NorthwindController _controller = new NorthwindController();
 
+        private int AllEmployee = 0;
         public NwDocSearch()
         {
             InitializeComponent();
@@ -27,15 +28,26 @@ namespace WindowsFormsApplication.View
             addEmployeeButton.Enabled = false;
             buttonClear.Enabled = false;
             DeleteButton.Enabled = false;
-            if ((textBoxLastName.Text != "") && (textBoxFirstName.Text != ""))
+            if (AllEmployee == 1)
             {
-                load_Employees();
+                load_all_Employees();
             }
+            else
+            {
+                if ((textBoxLastName.Text != "") && (textBoxFirstName.Text != ""))
+                {
+                    load_Employees();
+
+                }    
+            }
+     
+            
 
         }
 
         private void buttonSearch_Click(object sender, System.EventArgs e)
         {
+            AllEmployee = 0;
             load_Employees();
         }
 
@@ -200,7 +212,15 @@ namespace WindowsFormsApplication.View
             {
                 MessageBox.Show("An exception has occured with your request" + ex);
             }
-            load_Employees();
+            if (AllEmployee == 1)
+            {
+                load_all_Employees();
+            }
+            else
+            {
+                load_Employees();    
+            }
+            
         }
 
         /// <summary>
@@ -330,6 +350,7 @@ namespace WindowsFormsApplication.View
 
         private void AllEmployeeButton_Click(object sender, EventArgs e)
         {
+            AllEmployee = 1;
             load_all_Employees();
         }
     }

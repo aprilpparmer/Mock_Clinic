@@ -284,6 +284,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_CS6232_g7DataSet11.xsd</DependentUpon>
     </Compile>
+    <Compile Include="_CS6232_g7DataSet2.cs">
+      <DependentUpon>_CS6232_g7DataSet2.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="_CS6232_g7DataSet2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -108,18 +108,26 @@ namespace WindowsFormsApplication.View
 
                 DialogResult confirmDeleteReturn = MessageBox.Show(@" Are you sure you want to delete " 
                     + row.Cells[2].Value.ToString().Trim() + @" test ordered on " + row.Cells[3].Value + @" ?", @"Confirm Delete", MessageBoxButtons.YesNo);
-                if (confirmDeleteReturn == DialogResult.Yes)
-                {
-                    int success = _controller.DeletePatientTest(patientTestID);
+                String completed = this.patient_testsDataGridView[5, i].Value.ToString();
+                if (completed == "") {
+               
+                    if (confirmDeleteReturn == DialogResult.Yes)
+                    {
+                        int success = _controller.DeletePatientTest(patientTestID);
 
-                    if (success == 1)
-                    {
-                        MessageBox.Show("Ordered test deleted succesfully!");
+                        if (success == 1)
+                        {
+                            MessageBox.Show("Ordered test deleted succesfully!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ordered test could not be deleted!");
+                        }
                     }
-                    else
-                    {
-                        MessageBox.Show("Ordered test could not be deleted!");
-                    }
+                }
+                else
+                {
+                    MessageBox.Show("This test has been completed and may not be deleted.");
                 }
 
             }

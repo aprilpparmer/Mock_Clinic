@@ -158,11 +158,7 @@ namespace WindowsFormsApplication.View
                         MessageBox.Show(@"That Login is already in use.");                       
                     }
                 }
-                   
-                else if (loginTextBox.Text.Trim().Length == 0)                
-                {
-                    loginInfoSet = true;
-                }
+                                   
                 if (loginInfoSet)
                 {
                     if ((int.TryParse(ssnTextBox.Text, out ssn)) & (ssnTextBox.Text.Length == 9))
@@ -220,7 +216,7 @@ namespace WindowsFormsApplication.View
                 }
                 else
                 {
-                    MessageBox.Show(@"You need to have a password when setting a login.");
+                    MessageBox.Show(@"You need to have a login and password.");
                 }
             }
             return null;
